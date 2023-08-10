@@ -1,3 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    name="lab1" nsURI="http://www.example.org/lab1" nsPrefix="lab1"/>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="lab1" nsURI="http://www.example.org/lab1" nsPrefix="lab1">
+  <eClassifiers xsi:type="ecore:EClass" name="Process">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lane" lowerBound="1" upperBound="-1"
+        eType="#//Lane"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceFlow" upperBound="-1"
+        eType="#//SequenceFlow"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lane">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowObject" upperBound="-1"
+        eType="#//FlowObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlowObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//FlowObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//FlowObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Gateway" eSuperTypes="#//FlowObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceFlow">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowObject" upperBound="-1"
+        eType="#//FlowObject"/>
+  </eClassifiers>
+</ecore:EPackage>
