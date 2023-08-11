@@ -23,12 +23,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lab1.ecore#//Process/eventofinal"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lab1.ecore#//Process/lane"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lab1.ecore#//Process/sequenceflow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lab1.ecore#//Process/titulo"/>
     </genClasses>
     <genClasses ecoreClass="lab1.ecore#//Lane">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lab1.ecore#//Lane/flowObject"/>
     </genClasses>
     <genClasses ecoreClass="lab1.ecore#//FlowObject">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lab1.ecore#//FlowObject/nombre"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lab1.ecore#//FlowObject/sequenceflow"/>
     </genClasses>
     <genClasses ecoreClass="lab1.ecore#//Task">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lab1.ecore#//Task/tipo"/>
@@ -36,11 +38,11 @@
     <genClasses ecoreClass="lab1.ecore#//Event"/>
     <genClasses ecoreClass="lab1.ecore#//Gateway">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lab1.ecore#//Gateway/tipo"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lab1.ecore#//Gateway/sequenceflow"/>
     </genClasses>
     <genClasses ecoreClass="lab1.ecore#//SequenceFlow">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lab1.ecore#//SequenceFlow/flowObject"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lab1.ecore#//SequenceFlow/gateway"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lab1.ecore#//SequenceFlow/id"/>
     </genClasses>
     <genClasses ecoreClass="lab1.ecore#//EventoInicio"/>
     <genClasses ecoreClass="lab1.ecore#//EventoIntermedio"/>
