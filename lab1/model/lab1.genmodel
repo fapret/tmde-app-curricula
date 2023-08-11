@@ -59,7 +59,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference lab1.ecore#//BPMN/collaboration"/>
     </genClasses>
     <genClasses ecoreClass="lab1.ecore#//MessageFlow">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lab1.ecore#//MessageFlow/interactionnode"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lab1.ecore#//MessageFlow/interactionNode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute lab1.ecore#//MessageFlow/id"/>
     </genClasses>
     <genClasses ecoreClass="lab1.ecore#//InteractionNode">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference lab1.ecore#//InteractionNode/messageflow"/>
