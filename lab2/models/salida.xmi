@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:SoaML="http://www.example.org/SoaML">
+  <SoaML:Participant name="Comprador"/>
+  <SoaML:Participant name="Vendedor"/>
+  <SoaML:Participant name="Entidad de crédito"/>
+  <SoaML:Provider name="Recibir orden">
+    <operation name="Recibir ordenOperationReceive">
+      <parameter name="Recibir ordenParameterIn"/>
+      <parameter name="Recibir ordenParameterOut"/>
+    </operation>
+  </SoaML:Provider>
+  <SoaML:MessageType name="Recibir ordenMessage"/>
+  <SoaML:Provider name="Recibir factura">
+    <operation name="Recibir facturaOperationReceive">
+      <parameter name="Recibir facturaParameterIn"/>
+      <parameter name="Recibir facturaParameterOut"/>
+    </operation>
+  </SoaML:Provider>
+  <SoaML:MessageType name="Recibir facturaMessage"/>
+</xmi:XMI>

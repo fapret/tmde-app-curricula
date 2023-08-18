@@ -1,0 +1,54 @@
+-- @path SoaML=/lab2/metamodels/SoaML.ecore
+-- @path BPMN=/lab2/metamodels/BPMN.ecore
+
+module BPMN_to_SoaML;
+create OUT: SoaML from IN: BPMN;
+
+rule process2participant {
+	from
+		p : BPMN!Process
+	to
+		part : SoaML!Participant (
+			name <- p.titulo,
+			port <- p.messageflow->collect(mf | thisModule.task2autoTaskService(mf)) --No anda
+		)
+}
+
+rule task2autoTask {
+	from
+		m : BPMN!MessageFlow (
+			m.interactionNode.first().oclIsKindOf(BPMN!Task) and m.interactionNode.last().oclIsKindOf(BPMN!Task) and
+			m.interactionNode.last().tipo = #Automatica
+		)
+	to
+		i : SoaML!Provider (
+			name <- m.interactionNode.last().nombre,
+			operation <- o
+		),
+		o : SoaML!Operation (
+			visibility <- #public,
+			name <- m.interactionNode.last().nombre + 'OperationReceive',
+			parameter <- Sequence{pin, pout}
+		),
+		pin : SoaML!Parameter (
+			name <- m.interactionNode.last().nombre + 'ParameterIn'
+		),
+		pout : SoaML!Parameter (
+			name <- m.interactionNode.last().nombre + 'ParameterOut'
+		),
+		msg : SoaML!MessageType (
+			name <- m.interactionNode.last().nombre + 'Message'
+		)
+}
+
+lazy rule task2autoTaskService {
+	from
+		m : BPMN!MessageFlow (
+			m.interactionNode.first().oclIsKindOf(BPMN!Task) and m.interactionNode.last().oclIsKindOf(BPMN!Task) and
+			m.interactionNode.last().tipo = #Automatica
+		)
+	to
+		service : SoaML!Service (
+			name <- m.interactionNode.last().nombre
+		)
+}

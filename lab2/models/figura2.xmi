@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lab1:BPMN xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:lab1="http://www.example.org/lab1"
+    xsi:schemaLocation="http://www.example.org/lab1 /lab2/metamodels/BPMN.ecore">
+  <collaboration>
+    <process
+        titulo="Comprador">
+      <lane>
+        <flowObject
+            xsi:type="lab1:EventoInicio"
+            nombre="inicio_comprador"
+            sequenceflow="//@collaboration/@process.0/@sequenceflow.5"/>
+        <flowObject
+            xsi:type="lab1:Task"
+            nombre="Enviar orden"
+            sequenceflow="//@collaboration/@process.0/@sequenceflow.0"
+            messageflow="//@collaboration/@messageflow.0"
+            tipo="Usuario"/>
+        <flowObject
+            xsi:type="lab1:AND"
+            nombre="AND_2"
+            sequenceflow="//@collaboration/@process.0/@sequenceflow.6"
+            tipo="Convergente"/>
+        <flowObject
+            xsi:type="lab1:AND"
+            nombre="AND_1"
+            sequenceflow="//@collaboration/@process.0/@sequenceflow.1 //@collaboration/@process.0/@sequenceflow.4"
+            tipo="Divergente"/>
+        <flowObject
+            xsi:type="lab1:Task"
+            nombre="Recibir factura"
+            sequenceflow="//@collaboration/@process.0/@sequenceflow.7"
+            tipo="Automatica"/>
+        <flowObject
+            xsi:type="lab1:Task"
+            nombre="Pagar factura"
+            sequenceflow="//@collaboration/@process.0/@sequenceflow.2"
+            messageflow="//@collaboration/@messageflow.3"
+            tipo="Automatica"/>
+        <flowObject
+            xsi:type="lab1:Task"
+            nombre="Recibir productos"
+            sequenceflow="//@collaboration/@process.0/@sequenceflow.3"
+            tipo="Usuario"/>
+        <flowObject
+            xsi:type="lab1:EventoFinal"
+            nombre="final_comprador"/>
+      </lane>
+      <sequenceflow
+          flowObject="//@collaboration/@process.0/@lane.0/@flowObject.1 //@collaboration/@process.0/@lane.0/@flowObject.3"
+          id="1"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.0/@lane.0/@flowObject.3 //@collaboration/@process.0/@lane.0/@flowObject.4"
+          id="2"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.0/@lane.0/@flowObject.5 //@collaboration/@process.0/@lane.0/@flowObject.2"
+          id="3"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.0/@lane.0/@flowObject.6 //@collaboration/@process.0/@lane.0/@flowObject.2"
+          id="4"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.0/@lane.0/@flowObject.3 //@collaboration/@process.0/@lane.0/@flowObject.6"
+          id="5"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.0/@lane.0/@flowObject.0 //@collaboration/@process.0/@lane.0/@flowObject.1"
+          id="6"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.0/@lane.0/@flowObject.2 //@collaboration/@process.0/@lane.0/@flowObject.7"
+          id="7"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.0/@lane.0/@flowObject.4 //@collaboration/@process.0/@lane.0/@flowObject.5"
+          id="8"/>
+    </process>
+    <process
+        titulo="Vendedor">
+      <lane>
+        <flowObject
+            xsi:type="lab1:EventoInicio"
+            nombre="inicio_vendedor"
+            sequenceflow="//@collaboration/@process.1/@sequenceflow.0"/>
+        <flowObject
+            xsi:type="lab1:EventoFinal"
+            nombre="final_vendedor"/>
+        <flowObject
+            xsi:type="lab1:Task"
+            nombre="Recibir orden"
+            sequenceflow="//@collaboration/@process.1/@sequenceflow.1"
+            tipo="Automatica"/>
+        <flowObject
+            xsi:type="lab1:Task"
+            nombre="Enviar factura"
+            sequenceflow="//@collaboration/@process.1/@sequenceflow.4"
+            messageflow="//@collaboration/@messageflow.2"/>
+        <flowObject
+            xsi:type="lab1:Task"
+            nombre="Recibir pago"
+            sequenceflow="//@collaboration/@process.1/@sequenceflow.5"/>
+        <flowObject
+            xsi:type="lab1:Task"
+            nombre="Enviar productos"
+            sequenceflow="//@collaboration/@process.1/@sequenceflow.6"
+            messageflow="//@collaboration/@messageflow.1"/>
+        <flowObject
+            xsi:type="lab1:AND"
+            nombre="AND_3"
+            sequenceflow="//@collaboration/@process.1/@sequenceflow.2 //@collaboration/@process.1/@sequenceflow.3"
+            tipo="Convergente"/>
+        <flowObject
+            xsi:type="lab1:AND"
+            nombre="AND_4"
+            sequenceflow="//@collaboration/@process.1/@sequenceflow.7"
+            tipo="Divergente"/>
+      </lane>
+      <sequenceflow
+          flowObject="//@collaboration/@process.1/@lane.0/@flowObject.0 //@collaboration/@process.1/@lane.0/@flowObject.2"
+          id="9"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.1/@lane.0/@flowObject.2 //@collaboration/@process.1/@lane.0/@flowObject.6"
+          id="10"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.1/@lane.0/@flowObject.6 //@collaboration/@process.1/@lane.0/@flowObject.3"
+          id="11"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.1/@lane.0/@flowObject.6 //@collaboration/@process.1/@lane.0/@flowObject.5"
+          id="12"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.1/@lane.0/@flowObject.3 //@collaboration/@process.1/@lane.0/@flowObject.4"
+          id="13"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.1/@lane.0/@flowObject.4 //@collaboration/@process.1/@lane.0/@flowObject.7"
+          id="14"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.1/@lane.0/@flowObject.5 //@collaboration/@process.1/@lane.0/@flowObject.7"
+          id="15"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.1/@lane.0/@flowObject.7 //@collaboration/@process.1/@lane.0/@flowObject.1"
+          id="16"/>
+    </process>
+    <process
+        titulo="Entidad de crédito">
+      <lane>
+        <flowObject
+            xsi:type="lab1:EventoInicio"
+            nombre="inicio_entidad_credito"
+            sequenceflow="//@collaboration/@process.2/@sequenceflow.0"/>
+        <flowObject
+            xsi:type="lab1:EventoFinal"
+            nombre="final_entidad_credito"/>
+        <flowObject
+            xsi:type="lab1:Task"
+            nombre="Recibir orden de pago"
+            sequenceflow="//@collaboration/@process.2/@sequenceflow.1"/>
+        <flowObject
+            xsi:type="lab1:Task"
+            nombre="Enviar confirmación de pago"
+            sequenceflow="//@collaboration/@process.2/@sequenceflow.2"
+            messageflow="//@collaboration/@messageflow.4"/>
+      </lane>
+      <sequenceflow
+          flowObject="//@collaboration/@process.2/@lane.0/@flowObject.0 //@collaboration/@process.2/@lane.0/@flowObject.2"
+          id="17"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.2/@lane.0/@flowObject.2 //@collaboration/@process.2/@lane.0/@flowObject.3"
+          id="18"/>
+      <sequenceflow
+          flowObject="//@collaboration/@process.2/@lane.0/@flowObject.3 //@collaboration/@process.2/@lane.0/@flowObject.1"
+          id="19"/>
+    </process>
+    <messageflow
+        interactionNode="//@collaboration/@process.0/@lane.0/@flowObject.1 //@collaboration/@process.1/@lane.0/@flowObject.2"
+        id="1"/>
+    <messageflow
+        interactionNode="//@collaboration/@process.1/@lane.0/@flowObject.5 //@collaboration/@process.0/@lane.0/@flowObject.6"
+        id="2"/>
+    <messageflow
+        interactionNode="//@collaboration/@process.1/@lane.0/@flowObject.3 //@collaboration/@process.0/@lane.0/@flowObject.4"
+        id="3"/>
+    <messageflow
+        interactionNode="//@collaboration/@process.0/@lane.0/@flowObject.5 //@collaboration/@process.2/@lane.0/@flowObject.2"
+        id="4"/>
+    <messageflow
+        interactionNode="//@collaboration/@process.2/@lane.0/@flowObject.3 //@collaboration/@process.1/@lane.0/@flowObject.4"
+        id="5"/>
+  </collaboration>
+</lab1:BPMN>
