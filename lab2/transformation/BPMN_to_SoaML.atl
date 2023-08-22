@@ -10,7 +10,7 @@ rule process2participant {
 	to
 		part : SoaML!Participant (
 			name <- p.titulo,
-			port <- p.lane->collect(a | a.flowObject->select(b | b.oclIsKindOf(BPMN!interactionNode) and b.oclIsKindOf(BPMN!Task))->collect(c | c.messageflow)->select(d | d.interactionNode.last().tipo=#Automatica))
+			port <- p.lane->collect(a | a.flowObject->select(b | b.oclIsKindOf(BPMN!interactionNode) and b.oclIsKindOf(BPMN!Task) and b.tipo=#Automatica))->collect(c | thisModule.resolveTemp(c, 'service'))
 		)
 }
 
