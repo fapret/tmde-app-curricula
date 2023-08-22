@@ -87,6 +87,7 @@
             xsi:type="lab1:Task"
             nombre="Recibir orden"
             sequenceflow="//@collaboration/@process.1/@sequenceflow.1"
+            messageflow="//@collaboration/@messageflow.0"
             tipo="Automatica"/>
         <flowObject
             xsi:type="lab1:Task"
