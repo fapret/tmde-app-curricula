@@ -4,6 +4,15 @@
 module BPMN_to_SoaML;
 create OUT: SoaML from IN: BPMN;
 
+rule model2model {
+	from
+		m1 : BPMN!BPMN
+	to
+		m2 : SoaML!Model (
+			--TODO Participantes y interfaces
+		)
+}
+
 rule process2participant {
 	from
 		p : BPMN!Process
@@ -40,6 +49,7 @@ rule task2autoTask {
 			name <- m.interactionNode.last().nombre + 'Message'
 		),
 		service : SoaML!Service (
-			name <- m.interactionNode.last().nombre
+			name <- m.interactionNode.last().nombre,
+			interface <- i
 		)
 }

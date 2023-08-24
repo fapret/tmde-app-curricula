@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:lab1="http://www.example.org/lab1"
-    xsi:schemaLocation="http://www.example.org/lab1 /lab2/metamodels/BPMN.ecore">
+    xsi:schemaLocation="http://www.example.org/lab1 /tmde04/lab2/metamodels/BPMN.ecore">
   <collaboration>
     <process
         titulo="Comprador">
@@ -32,6 +32,7 @@
             xsi:type="lab1:Task"
             nombre="Recibir factura"
             sequenceflow="//@collaboration/@process.0/@sequenceflow.7"
+            messageflow="//@collaboration/@messageflow.2"
             tipo="Automatica"/>
         <flowObject
             xsi:type="lab1:Task"
@@ -43,6 +44,7 @@
             xsi:type="lab1:Task"
             nombre="Recibir productos"
             sequenceflow="//@collaboration/@process.0/@sequenceflow.3"
+            messageflow="//@collaboration/@messageflow.1"
             tipo="Usuario"/>
         <flowObject
             xsi:type="lab1:EventoFinal"
@@ -97,7 +99,9 @@
         <flowObject
             xsi:type="lab1:Task"
             nombre="Recibir pago"
-            sequenceflow="//@collaboration/@process.1/@sequenceflow.5"/>
+            sequenceflow="//@collaboration/@process.1/@sequenceflow.5"
+            messageflow="//@collaboration/@messageflow.4"
+            tipo="Automatica"/>
         <flowObject
             xsi:type="lab1:Task"
             nombre="Enviar productos"
@@ -152,7 +156,9 @@
         <flowObject
             xsi:type="lab1:Task"
             nombre="Recibir orden de pago"
-            sequenceflow="//@collaboration/@process.2/@sequenceflow.1"/>
+            sequenceflow="//@collaboration/@process.2/@sequenceflow.1"
+            messageflow="//@collaboration/@messageflow.3"
+            tipo="Automatica"/>
         <flowObject
             xsi:type="lab1:Task"
             nombre="Enviar confirmación de pago"
