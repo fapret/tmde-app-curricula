@@ -1,20 +1,43 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:SoaML="http://www.example.org/SoaML">
-  <SoaML:Participant name="Comprador"/>
-  <SoaML:Participant name="Vendedor"/>
-  <SoaML:Participant name="Entidad de crédito"/>
-  <SoaML:Provider name="Recibir orden">
-    <operation name="Recibir ordenOperationReceive">
-      <parameter name="Recibir ordenParameterIn"/>
-      <parameter name="Recibir ordenParameterOut"/>
-    </operation>
-  </SoaML:Provider>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SoaML="http://www.example.org/SoaML">
+  <SoaML:Model>
+    <participant name="Comprador">
+      <port xsi:type="SoaML:Service" name="Recibir factura" interface="/0/@interface.1"/>
+    </participant>
+    <participant name="Vendedor">
+      <port xsi:type="SoaML:Service" name="Recibir orden" interface="/0/@interface.0"/>
+      <port xsi:type="SoaML:Service" name="Recibir pago" interface="/0/@interface.3"/>
+    </participant>
+    <participant name="Entidad de crédito">
+      <port xsi:type="SoaML:Service" name="Recibir orden de pago" interface="/0/@interface.2"/>
+    </participant>
+    <interface xsi:type="SoaML:Provider" name="Recibir orden">
+      <operation name="Recibir ordenOperationReceive">
+        <parameter name="Recibir ordenParameterIn"/>
+        <parameter name="Recibir ordenParameterOut" direction="out"/>
+      </operation>
+    </interface>
+    <interface xsi:type="SoaML:Provider" name="Recibir factura">
+      <operation name="Recibir facturaOperationReceive">
+        <parameter name="Recibir facturaParameterIn"/>
+        <parameter name="Recibir facturaParameterOut" direction="out"/>
+      </operation>
+    </interface>
+    <interface xsi:type="SoaML:Provider" name="Recibir orden de pago">
+      <operation name="Recibir orden de pagoOperationReceive">
+        <parameter name="Recibir orden de pagoParameterIn"/>
+        <parameter name="Recibir orden de pagoParameterOut" direction="out"/>
+      </operation>
+    </interface>
+    <interface xsi:type="SoaML:Provider" name="Recibir pago">
+      <operation name="Recibir pagoOperationReceive">
+        <parameter name="Recibir pagoParameterIn"/>
+        <parameter name="Recibir pagoParameterOut" direction="out"/>
+      </operation>
+    </interface>
+  </SoaML:Model>
   <SoaML:MessageType name="Recibir ordenMessage"/>
-  <SoaML:Provider name="Recibir factura">
-    <operation name="Recibir facturaOperationReceive">
-      <parameter name="Recibir facturaParameterIn"/>
-      <parameter name="Recibir facturaParameterOut"/>
-    </operation>
-  </SoaML:Provider>
   <SoaML:MessageType name="Recibir facturaMessage"/>
+  <SoaML:MessageType name="Recibir orden de pagoMessage"/>
+  <SoaML:MessageType name="Recibir pagoMessage"/>
 </xmi:XMI>
