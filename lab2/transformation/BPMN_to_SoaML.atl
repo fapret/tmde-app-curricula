@@ -1,5 +1,5 @@
--- @path SoaML=/lab2/metamodels/SoaML.ecore
--- @path BPMN=/lab2/metamodels/BPMN.ecore
+-- @path SoaML=/tmde04/lab2/metamodels/SoaML.ecore
+-- @path BPMN=/tmde04/lab2/metamodels/BPMN.ecore
 
 module BPMN_to_SoaML;
 create OUT: SoaML from IN: BPMN;
@@ -9,7 +9,10 @@ rule model2model {
 		m1 : BPMN!BPMN
 	to
 		m2 : SoaML!Model (
-			--TODO Participantes y interfaces
+			participant <- m1.collaboration.process->collect(a | thisModule.resolveTemp(a, 'part')),
+			participant <- m1.process->collect(a | thisModule.resolveTemp(a, 'part')),
+			interface <- m1.collaboration.process->collect(p | p.lane->collect(a | a.flowObject->select(b | b.oclIsKindOf(BPMN!InteractionNode))->collect(d | d.messageflow->collect(e | thisModule.resolveTemp(e, 'i'))))),
+			interface <- m1.process->collect(p | p.lane->collect(a | a.flowObject->select(b | b.oclIsKindOf(BPMN!InteractionNode))->collect(d | d.messageflow->collect(e | thisModule.resolveTemp(e, 'i')))))
 		)
 }
 
@@ -19,7 +22,7 @@ rule process2participant {
 	to
 		part : SoaML!Participant (
 			name <- p.titulo,
-			port <- p.lane->collect(a | a.flowObject->select(b | b.oclIsKindOf(BPMN!interactionNode) and b.oclIsKindOf(BPMN!Task) and b.tipo=#Automatica))->collect(c | thisModule.resolveTemp(c, 'service'))
+			port <- p.lane->collect(a | a.flowObject->select(c | c.oclIsKindOf(BPMN!InteractionNode))->select(d | d.oclIsKindOf(BPMN!Task))->select(type | type.tipo = #Automatica)->collect(d | d.messageflow->collect(e | thisModule.resolveTemp(e, 'serv'))))
 		)
 }
 
@@ -41,14 +44,21 @@ rule task2autoTask {
 		),
 		pin : SoaML!Parameter (
 			name <- m.interactionNode.last().nombre + 'ParameterIn'
+			--messagetype <- msg --Se comenta debido a que segun la foto en la tarea no debe estar asignado
+			--No necesita definir direction ya que default es in, si se hace da error
 		),
 		pout : SoaML!Parameter (
-			name <- m.interactionNode.last().nombre + 'ParameterOut'
+			name <- m.interactionNode.last().nombre + 'ParameterOut',
+			--messagetype <- msg2, --Se comenta debido a que segun la foto en la tarea no debe estar asignado
+			direction <- #out
 		),
 		msg : SoaML!MessageType (
 			name <- m.interactionNode.last().nombre + 'Message'
 		),
-		service : SoaML!Service (
+		--msg2 : SoaML!MessageType (
+			--name <- m.interactionNode.last().nombre + 'Message'
+		--), --No es necesario debido a que segun la foto en la tarea no debe estar asignado
+		serv : SoaML!Service (
 			name <- m.interactionNode.last().nombre,
 			interface <- i
 		)
