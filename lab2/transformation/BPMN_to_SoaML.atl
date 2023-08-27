@@ -43,21 +43,20 @@ rule task2autoTask {
 			parameter <- Sequence{pin, pout}
 		),
 		pin : SoaML!Parameter (
-			name <- m.interactionNode.last().nombre + 'ParameterIn'
-			--messagetype <- msg --Se comenta debido a que segun la foto en la tarea no debe estar asignado
-			--No necesita definir direction ya que default es in, si se hace da error
+			name <- m.interactionNode.last().nombre + 'ParameterIn',
+			messagetype <- msg
 		),
 		pout : SoaML!Parameter (
 			name <- m.interactionNode.last().nombre + 'ParameterOut',
-			--messagetype <- msg2, --Se comenta debido a que segun la foto en la tarea no debe estar asignado
+			messagetype <- msg2,
 			direction <- #out
 		),
 		msg : SoaML!MessageType (
 			name <- m.interactionNode.last().nombre + 'Message'
 		),
-		--msg2 : SoaML!MessageType (
-			--name <- m.interactionNode.last().nombre + 'Message'
-		--), --No es necesario debido a que segun la foto en la tarea no debe estar asignado
+		msg2 : SoaML!MessageType (
+			name <- m.interactionNode.last().nombre + 'Message'
+		),
 		serv : SoaML!Service (
 			name <- m.interactionNode.last().nombre,
 			interface <- i
