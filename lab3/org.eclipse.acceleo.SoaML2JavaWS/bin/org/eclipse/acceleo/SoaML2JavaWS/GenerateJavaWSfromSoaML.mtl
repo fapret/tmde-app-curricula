@@ -14,38 +14,28 @@ Hay que hacer todo dentro del for de participante, a su vez en el for de puerto 
 [for (pp : Port | p.port)]
 [file(parse(p.name)+'/'+parse(pp.name)+'.java',false)]
 package modelo.[parse(p.name)/];
-
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
 
 public class [parse(pp.name)/] {
-}
-[/file]
-[/for] [comment port/ ]
+} [comment va pal otro archivo/]
 
-[/for] [comment participantes/]
-
-[for (i : Interface | s.interface)]
-[file(parse(s.name)+'/'+parse(i.name)+'.java',false)]
-package modelo.[parse(i.name)/];
-
-import javax.jws.WebMethod;
-import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
-import javax.jws.soap.SOAPBinding.Style;
-
-import MessageType //Cambiar
-
-@WebService
+[for (i : Interface | pp.interface)]
+@WebMethod
 @SOAPBinding(style = Style.RPC)
 public interface [parse(i.name)/] {
+
+[for (o : Operation | i.operation)]
 	@WebMethod
-	[for (serv : Service | )]
+	String [parse(o.name)/]([for (ppp : Parameter | o.parameter)][if (ppp.direction.toString() = 'in')]String [parse(ppp.name)/][/if][/for]);
+[/for] [comment operation/]
 }
+[/for] [comment interface/]
 [/file]
-[/for] [comment interface /]
+[/for] [comment port/ ]
+[/for] [comment participantes/]
 
 [/template]
 
