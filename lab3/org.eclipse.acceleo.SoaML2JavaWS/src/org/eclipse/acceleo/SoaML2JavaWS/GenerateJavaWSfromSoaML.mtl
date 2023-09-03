@@ -12,17 +12,32 @@ Hay que hacer todo dentro del for de participante, a su vez en el for de puerto 
 [comment @main /]
 [for (p : Participant | s.participant)]
 [for (pp : Port | p.port)]
+[for (i : Interface | pp.interface)]
+
+[file (parse(p.name)+'/'+parse(pp.name)+'Impl.java',false)]
+package modelo.[parse(p.name)/];
+
+import javax.jws.WebService;
+
+@WebService(endpointInterface = "['modelo.'+parse(p.name)+'.'+parse(pp.name)/]"
+public class [parse(pp.name)+'Impl'/] implements [parse(pp.name)/] {
+
+	[for (o : Operation | i.operation)]
+	public String [parse(o.name)/]([for (ppp : Parameter | o.parameter)][if (ppp.direction.toString() = 'in')]String [parse(ppp.name)/][/if][/for]) {
+		return "Invocación WS" + [for (ppp : Parameter | o.parameter)][if (ppp.direction.toString() = 'in')][parse(ppp.name)/][/if][/for];
+	}
+	[/for] [comment operations implementacion/]
+}
+[/file] [comment archivo implementacion/]
+
 [file(parse(p.name)+'/'+parse(pp.name)+'.java',false)]
 package modelo.[parse(p.name)/];
+
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
 
-public class [parse(pp.name)/] {
-} [comment va pal otro archivo/]
-
-[for (i : Interface | pp.interface)]
 @WebMethod
 @SOAPBinding(style = Style.RPC)
 public interface [parse(i.name)/] {
@@ -32,8 +47,8 @@ public interface [parse(i.name)/] {
 	String [parse(o.name)/]([for (ppp : Parameter | o.parameter)][if (ppp.direction.toString() = 'in')]String [parse(ppp.name)/][/if][/for]);
 [/for] [comment operation/]
 }
+[/file] [comment archivo interfaz/]
 [/for] [comment interface/]
-[/file]
 [/for] [comment port/ ]
 [/for] [comment participantes/]
 
