@@ -7,8 +7,6 @@
 
 [template public generar_java(s : Model)]
 
-Hay que hacer todo dentro del for de participante, a su vez en el for de puerto va la interfaz, de la interfaz se saca las operation, y de ahi los parametros con su messagetype
-
 [comment @main /]
 [for (p : Participant | s.participant)]
 [for (pp : Port | p.port)]
