@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<asignaturas:Root
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:asignaturas="http://www.example.org/asignaturas">
+  <facultad
+      Name="Facultad de Ingenieria">
+    <carrera
+        Name="Ing. en Computacion">
+      <plan
+          xsi:type="asignaturas:PlanCreditos"
+          Year="1997"
+          Valid="true"
+          estudiante="12345678"
+          MinCredits="450">
+        <grupodematerias
+            Id="2436"
+            Name="MATERIAS BASICAS"
+            MinCredits="80">
+          <grupodematerias
+              materia=""
+              Id="4083"
+              Name="MATEMATICA"
+              MinCredits="70"/>
+          <grupodematerias
+              materia=""
+              Id="4442"
+              Name="CIENCIAS EXPERIMENTALES"
+              MinCredits="10"/>
+        </grupodematerias>
+        <grupodematerias
+            Id="3215"
+            Name="BASICO-TEC, TECNICAS E INTEG."
+            MinCredits="220">
+          <grupodematerias
+              materia=""
+              Id="4580"
+              Name="PROGRAMACION"
+              MinCredits="60"/>
+          <grupodematerias
+              Id="4428"
+              Name="ARQUIT. S.OP. Y REDES DE COMP."
+              MinCredits="30"/>
+          <grupodematerias
+              Id="4882"
+              Name="INT. ARTIFICIAL Y ROBOTICA"/>
+          <grupodematerias
+              Id="4647"
+              Name="B. DATOS Y SIST. DE INFORMACION"
+              MinCredits="10"/>
+          <grupodematerias
+              Id="5020"
+              Name="CALCULO NUMERICO Y SIMBOLICO"
+              MinCredits="8"/>
+          <grupodematerias
+              Id="4815"
+              Name="INVESTIGACION OPERATIVA"
+              MinCredits="10"/>
+          <grupodematerias
+              Id="5082"
+              Name="INGENIERIA DE SOFTWARE"
+              MinCredits="10"/>
+          <grupodematerias
+              Id="4756"
+              Name="A. INTEG, TALLERES, PASANT. Y PROY."
+              MinCredits="45"/>
+          <grupodematerias
+              Id="4066"
+              Name="GESTION EN ORGANIZACIONES"
+              MinCredits="10"/>
+        </grupodematerias>
+        <grupodematerias
+            Id="3233"
+            Name="MATERIAS COMPLEMENTARIAS"
+            MinCredits="10">
+          <grupodematerias
+              Id="5265"
+              Name="CIENCIAS HUMANAS Y SOCIALES"
+              MinCredits="10"/>
+        </grupodematerias>
+        <grupodematerias
+            Id="3582"
+            Name="MATERIAS OPCIONALES"/>
+      </plan>
+      <plan
+          xsi:type="asignaturas:PlanMaterias"
+          Year="1987"/>
+    </carrera>
+  </facultad>
+  <estudiante
+      Name="Fulano"
+      Id="12345678"
+      materiaExamen=""
+      plan="//@facultad.0/@carrera.0/@plan.0"/>
+</asignaturas:Root>
