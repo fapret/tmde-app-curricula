@@ -88,7 +88,7 @@
           Year="1987"/>
     </carrera>
     <materia grupodematerias="4083" Id="GAL1P" Name="GEOMETRIA Y ALGEBRA LINEAL 1 INTERACTIVA" Cred="9" />
-<materia grupodematerias="4083" Id="SRN45" Name="MATEMATICA INICIAL" Cred="undefined" />
+<materia grupodematerias="4083" Id="SRN45" Name="MATEMATICA INICIAL-OPTATIVA" Cred="4" />
 <materia grupodematerias="4083" Id="CIM22" Name="TOPOLOGÍA" Cred="12" />
 <materia grupodematerias="4083" Id="SRN14" Name="MATEMÁTICA DISCRETA I" Cred="10" />
 <materia grupodematerias="4083" Id="CIM11" Name="MATEMÁTICA DISCRETA 2" Cred="10" />
@@ -190,17 +190,17 @@
 <materia grupodematerias="4083" Id="M24" Name="CREDITOS ASIGNADOS POR REVALIDA" Cred="24" />
 <materia grupodematerias="4083" Id="M9" Name="CREDITOS ASIGNADOS POR REVALIDA" Cred="9" />
 <materia grupodematerias="4442" Id="SRN50" Name="FISICA 1A CIOCT 2023" Cred="4" />
-<materia grupodematerias="4442" Id="REF05" Name="FÍSICA 1A" Cred="undefined" />
+<materia grupodematerias="4442" Id="REF05" Name="FÍSICA 1A- LDI.CIOCT" Cred="4" />
 <materia grupodematerias="4442" Id="REF06" Name="FÍSICA 1B" Cred="6" />
 <materia grupodematerias="4442" Id="SRN26" Name="FÍSICA 3" Cred="10" />
 <materia grupodematerias="4442" Id="SRN11" Name="FÍSICA 2" Cred="10" />
 <materia grupodematerias="4442" Id="REF04" Name="FÍSICA 1" Cred="10" />
-<materia grupodematerias="4442" Id="MHC16" Name="BIOQUÍMICA 1 (2020" Cred="undefined" />
+<materia grupodematerias="4442" Id="MHC16" Name="BIOQUÍMICA 1 (2020-" Cred="13" />
 <materia grupodematerias="4442" Id="MHC24" Name="GENÉTICA GENERAL" Cred="14" />
 <materia grupodematerias="4442" Id="MHC20" Name="GENÓMICA" Cred="10" />
-<materia grupodematerias="4442" Id="M000" Name="METODOS CUANTITATIVOS III" Cred="undefined" />
+<materia grupodematerias="4442" Id="M000" Name="METODOS CUANTITATIVOS III - PAYSANDU" Cred="6" />
 <materia grupodematerias="4442" Id="203EU" Name="INTRODUCCIÓN A LAS CIENCIAS BIOLÓGICAS II (TEÓRICO)" Cred="4" />
-<materia grupodematerias="4442" Id="M001" Name="MM. CC. III" Cred="undefined" />
+<materia grupodematerias="4442" Id="M001" Name="MM. CC. III - (MTDEO) - DISEÑO Y ANALISIS DE EXPERIMENTOS" Cred="4" />
 <materia grupodematerias="4442" Id="CE5" Name="CREDITOS ASIGNADOS POR REVALIDA" Cred="5" />
 <materia grupodematerias="4442" Id="CE10" Name="CREDITOS ASIGNADOS POR REVALIDA" Cred="10" />
 <materia grupodematerias="4442" Id="FA4" Name="CREDITOS ASIGNADOS POR REVALIDA" Cred="4" />
@@ -252,7 +252,7 @@
 <materia grupodematerias="4580" Id="1358" Name="TEORIA DE LA COMPUTACION" Cred="7" />
 <materia grupodematerias="4580" Id="1334" Name="ANALISIS DE ALGORITMOS" Cred="15" />
 <materia grupodematerias="4580" Id="CP380" Name="ANALISIS NUMERICO II (P. 74)" Cred="12" />
-<materia grupodematerias="4580" Id="1343" Name="BIO" Cred="PARALELA" />
+<materia grupodematerias="4580" Id="1343" Name="BIO-COMPUTACION PARALELA" Cred="6" />
 <materia grupodematerias="4580" Id="1351" Name="COMBINATORIA ANALITICA Y APLICACIONES" Cred="3" />
 <materia grupodematerias="4580" Id="1352" Name="COMPRESION DE DATOS SIN PERDIDA" Cred="10" />
 <materia grupodematerias="4580" Id="CP52" Name="COMPUTACION" Cred="12" />
@@ -310,10 +310,10 @@
 <materia grupodematerias="4580" Id="PR7" Name="CREDITOS ASIGNADOS POR REVALIDA" Cred="7" />
 <materia grupodematerias="4580" Id="PR8" Name="CREDITOS ASIGNADOS POR REVALIDA" Cred="8" />
 <materia grupodematerias="4428" Id="1891" Name="TALLER DE SEGURIDAD INFÓRMATICA" Cred="10" />
-<materia grupodematerias="4428" Id="1888" Name="TALLER DE INICIACION A LOS SISTEMAS CIBER" Cred="undefined" />
+<materia grupodematerias="4428" Id="1888" Name="TALLER DE INICIACION A LOS SISTEMAS CIBER-FISICOS" Cred="4" />
 <materia grupodematerias="4428" Id="1556" Name="SISTEMAS EMBEBIDOS PARA TIEMPO REAL" Cred="10" />
 <materia grupodematerias="4428" Id="1536" Name="SISTEMAS EMBEBIDOS PARA TIEMPO REAL" Cred="8" />
-<materia grupodematerias="4428" Id="1952" Name="TALLER DE SISTEMAS CIBER" Cred="undefined" />
+<materia grupodematerias="4428" Id="1952" Name="TALLER DE SISTEMAS CIBER-FISICOS" Cred="6" />
 <materia grupodematerias="4428" Id="GP6" Name="PLAN.DE SIST.COMP.CLUSTER, GRID Y CLOUD" Cred="8" />
 <materia grupodematerias="4428" Id="1546" Name="TALLER DE RADIO DEFINIDA POR SOFTWARE" Cred="8" />
 <materia grupodematerias="4428" Id="1545" Name="CRIPTOGRAFIA" Cred="10" />
@@ -377,12 +377,12 @@
 <materia grupodematerias="4882" Id="5852" Name="FUNDAMENTOS DE APRENDIZAJE AUTOMATICO Y RECONOCIMIENTO DE PATRONES" Cred="8" />
 <materia grupodematerias="4882" Id="1887" Name="REDES NEURONALES PARA LENGUAJE NATURAL" Cred="10" />
 <materia grupodematerias="4882" Id="5853" Name="TALLER DE APRENDIZAJE AUTOMATICO" Cred="8" />
-<materia grupodematerias="4882" Id="1888" Name="TALLER DE INICIACION A LOS SISTEMAS CIBER" Cred="undefined" />
+<materia grupodematerias="4882" Id="1888" Name="TALLER DE INICIACION A LOS SISTEMAS CIBER-FISICOS" Cred="4" />
 <materia grupodematerias="4882" Id="SRN30" Name="TALLER DE ROBÓTICA" Cred="2" />
 <materia grupodematerias="4882" Id="1880" Name="CIENCIA DE DATOS Y LENGUAJE NATURAL" Cred="10" />
 <materia grupodematerias="4882" Id="1868" Name="MODELOS ESTADISTICOS PARA CLASIF. Y REGRESION" Cred="6" />
 <materia grupodematerias="4882" Id="1866" Name="APRENDIZAJE AUTOMATICO" Cred="12" />
-<materia grupodematerias="4882" Id="1952" Name="TALLER DE SISTEMAS CIBER" Cred="undefined" />
+<materia grupodematerias="4882" Id="1952" Name="TALLER DE SISTEMAS CIBER-FISICOS" Cred="6" />
 <materia grupodematerias="4882" Id="5842" Name="RECONOCIMIENTO DE PATRONES" Cred="12" />
 <materia grupodematerias="4882" Id="1865" Name="ROBOTICA EDUCATIVA" Cred="8" />
 <materia grupodematerias="4882" Id="1864" Name="ANALISIS SEMANTICO DE LENGUAJE NATURAL" Cred="8" />
@@ -605,7 +605,7 @@
 <materia grupodematerias="4066" Id="GO8" Name="CREDITOS ASIGNADOS POR REVALIDA" Cred="8" />
 <materia grupodematerias="4066" Id="GO9" Name="CREDITOS ASIGNADOS POR REVALIDA" Cred="9" />
 <materia grupodematerias="4066" Id="A62" Name="GESTIÓN DE LA INNOVACIÓN Y LA TECNOLOGÍA" Cred="10" />
-<materia grupodematerias="5265" Id="O6521" Name="TEORÍAS Y PRÁCTICAS DE LA ACCESIBILIDAD EN LA COMUNICACIÓN" Cred="undefined" />
+<materia grupodematerias="5265" Id="O6521" Name="TEORÍAS Y PRÁCTICAS DE LA ACCESIBILIDAD EN LA COMUNICACIÓN - LIM" Cred="8" />
 <materia grupodematerias="5265" Id="O2525" Name="COMUNICACIÓN E INTELIGENCIA ARTIFICIAL(PPP)" Cred="9" />
 <materia grupodematerias="5265" Id="O7246" Name="TECNOLOGÍAS DE DIGITALIZACIÓN Y TRANSCODIFICACIÓN. IDENTIFICACIÓN Y PRESERVACIÓN" Cred="8" />
 <materia grupodematerias="5265" Id="1271" Name="CIUDADANIA EN ENTORNOS DIGITALES" Cred="8" />
