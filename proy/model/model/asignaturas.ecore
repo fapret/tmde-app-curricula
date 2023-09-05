@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="asignaturas" nsURI="http://www.example.org/asignaturas" nsPrefix="asignaturas">
+  <eClassifiers xsi:type="ecore:EClass" name="Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="facultad" upperBound="-1"
+        eType="#//Facultad" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="estudiante" upperBound="-1"
+        eType="#//Estudiante" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Carrera">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plan" upperBound="-1" eType="#//Plan"
+        containment="true" eOpposite="#//Plan/carreraFather"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlanCreditos" eSuperTypes="#//Plan">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinCredits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grupodematerias" upperBound="-1"
+        eType="#//GrupoDeMaterias" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Facultad">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materia" upperBound="-1"
+        eType="#//Materia" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="carrera" upperBound="-1"
+        eType="#//Carrera" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Estudiante">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materiaCurso" upperBound="-1"
+        eType="#//Materia"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materiaExamen" upperBound="-1"
+        eType="#//Materia"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plan" upperBound="-1" eType="#//Plan"
+        eOpposite="#//Plan/estudiante"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Plan" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Year" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="carreraFather" lowerBound="1"
+        eType="#//Carrera" eOpposite="#//Carrera/plan"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="estudiante" upperBound="-1"
+        eType="#//Estudiante" eOpposite="#//Estudiante/plan"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GrupoDeMaterias">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materia" upperBound="-1"
+        eType="#//Materia" eOpposite="#//Materia/grupodematerias"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinCredits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grupodematerias" upperBound="-1"
+        eType="#//GrupoDeMaterias" containment="true" eOpposite="#//GrupoDeMaterias/grupodemateriaseOpposite"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grupodemateriaseOpposite"
+        eType="#//GrupoDeMaterias" eOpposite="#//GrupoDeMaterias/grupodematerias"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Materia">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grupodematerias" upperBound="-1"
+        eType="#//GrupoDeMaterias" eOpposite="#//GrupoDeMaterias/materia"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Cred" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requerimiento" eType="#//Requerimiento"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SomeOf" eSuperTypes="#//Requerimiento">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="N" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requerimiento" lowerBound="1"
+        upperBound="-1" eType="#//Requerimiento" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Requerimiento" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NOT" eSuperTypes="#//Requerimiento">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requerimiento" lowerBound="1"
+        upperBound="-1" eType="#//Requerimiento" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Curso" eSuperTypes="#//Requerimiento">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materia" lowerBound="1"
+        eType="#//Materia"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Examen" eSuperTypes="#//Requerimiento">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materia" lowerBound="1"
+        eType="#//Materia"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CreditosEnPlan" eSuperTypes="#//Requerimiento">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cred" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plancreditos" lowerBound="1"
+        eType="#//PlanCreditos"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CreditosEnGrupo" eSuperTypes="#//Requerimiento">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cred" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grupodematerias" lowerBound="1"
+        eType="#//GrupoDeMaterias"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlanMaterias" eSuperTypes="#//Plan">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materia" upperBound="-1"
+        eType="#//Materia"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InscriptoA" eSuperTypes="#//Requerimiento">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materia" lowerBound="1"
+        eType="#//Materia"/>
+  </eClassifiers>
+</ecore:EPackage>

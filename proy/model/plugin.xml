@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated asignaturas -->
+      <package
+            uri="http://www.example.org/asignaturas"
+            class="asignaturas.AsignaturasPackage"
+            genModel="model/asignaturas.genmodel"/>
+   </extension>
+
+</plugin>
