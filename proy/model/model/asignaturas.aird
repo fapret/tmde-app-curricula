@@ -7,7 +7,7 @@
     <semanticResources>UdelaR.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_ppeXcEmoEe65AZHHsG0-dA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pp8RgEmoEe65AZHHsG0-dA" name="asignaturas" repPath="#_pp5OMEmoEe65AZHHsG0-dA" changeId="f5c57cf3-22d2-487c-be6a-81e689dd97e7">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pp8RgEmoEe65AZHHsG0-dA" name="asignaturas" repPath="#_pp5OMEmoEe65AZHHsG0-dA" changeId="5f50c52e-b6c3-492b-9b78-7a97250ae672">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="asignaturas.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -882,9 +882,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_bMLVgEmqEe65AZHHsG0-dA" name="GrupoDeMaterias" tooltipText="" outgoingEdges="_sD_nMEmqEe65AZHHsG0-dA _VNqWckmvEe65AZHHsG0-dA" incomingEdges="_wUJRCEmuEe65AZHHsG0-dA _VNqWckmvEe65AZHHsG0-dA _BMwQLUmzEe65AZHHsG0-dA" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="asignaturas.ecore#//GrupoDeMaterias"/>
-      <semanticElements xmi:type="ecore:EClass" href="asignaturas.ecore#//GrupoDeMaterias"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_bMLVgEmqEe65AZHHsG0-dA" name="Materia" tooltipText="" outgoingEdges="_sD_nMEmqEe65AZHHsG0-dA _VNqWckmvEe65AZHHsG0-dA" incomingEdges="_wUJRCEmuEe65AZHHsG0-dA _VNqWckmvEe65AZHHsG0-dA _BMwQLUmzEe65AZHHsG0-dA" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="asignaturas.ecore#//Materia"/>
+      <semanticElements xmi:type="ecore:EClass" href="asignaturas.ecore#//Materia"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -893,33 +893,33 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_m9fDkEmuEe65AZHHsG0-dA" name="Id : EInt" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//GrupoDeMaterias/Id"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//GrupoDeMaterias/Id"/>
+        <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Materia/Id"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Materia/Id"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_MA0vNUm2Ee65AZHHsG0-dA" labelAlignment="LEFT" description="_Cj7W8Um2Ee65AZHHsG0-dA">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_pTxlgEmuEe65AZHHsG0-dA" name="Name : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//GrupoDeMaterias/Name"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//GrupoDeMaterias/Name"/>
+        <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Materia/Name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Materia/Name"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_MkD_Jkm2Ee65AZHHsG0-dA" labelAlignment="LEFT" description="_Cj7W8Um2Ee65AZHHsG0-dA">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_1NBrcEmuEe65AZHHsG0-dA" name="MinCredits : EInt" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//GrupoDeMaterias/MinCredits"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//GrupoDeMaterias/MinCredits"/>
+        <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Materia/MinCredits"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Materia/MinCredits"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2Pbjo0muEe65AZHHsG0-dA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_enCS0EmqEe65AZHHsG0-dA" name="Materia" tooltipText="" outgoingEdges="_skvDIEmyEe65AZHHsG0-dA" incomingEdges="_sD_nMEmqEe65AZHHsG0-dA _xk4c4EmqEe65AZHHsG0-dA _lhJd5kmtEe65AZHHsG0-dA _l0DASEm3Ee65AZHHsG0-dA _SEDt4Em_Ee6iT525mYnyXQ _X-5NQEnCEe6iT525mYnyXQ _iZ3XbknCEe6iT525mYnyXQ _6HqFqknGEe6iT525mYnyXQ" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="asignaturas.ecore#//Materia"/>
-      <semanticElements xmi:type="ecore:EClass" href="asignaturas.ecore#//Materia"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_enCS0EmqEe65AZHHsG0-dA" name="UnidadCurricular" tooltipText="" outgoingEdges="_skvDIEmyEe65AZHHsG0-dA" incomingEdges="_sD_nMEmqEe65AZHHsG0-dA _xk4c4EmqEe65AZHHsG0-dA _lhJd5kmtEe65AZHHsG0-dA _l0DASEm3Ee65AZHHsG0-dA _SEDt4Em_Ee6iT525mYnyXQ _X-5NQEnCEe6iT525mYnyXQ _iZ3XbknCEe6iT525mYnyXQ _6HqFqknGEe6iT525mYnyXQ" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="asignaturas.ecore#//UnidadCurricular"/>
+      <semanticElements xmi:type="ecore:EClass" href="asignaturas.ecore#//UnidadCurricular"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -928,32 +928,32 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_7Av6YEmqEe65AZHHsG0-dA" name="Id : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Materia/Id"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Materia/Id"/>
+        <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//UnidadCurricular/Id"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//UnidadCurricular/Id"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_HXRxMkm2Ee65AZHHsG0-dA" labelAlignment="LEFT" description="_Cj7W8Um2Ee65AZHHsG0-dA">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_8lN90EmqEe65AZHHsG0-dA" name="Name : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Materia/Name"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Materia/Name"/>
+        <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//UnidadCurricular/Name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//UnidadCurricular/Name"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_IauyQUm2Ee65AZHHsG0-dA" labelAlignment="LEFT" description="_Cj7W8Um2Ee65AZHHsG0-dA">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_-bdtwEmqEe65AZHHsG0-dA" name="Cred : EInt" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Materia/Cred"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Materia/Cred"/>
+        <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//UnidadCurricular/Cred"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//UnidadCurricular/Cred"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="__imU80mqEe65AZHHsG0-dA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_IMwPYEmwEe65AZHHsG0-dA" name="Valid : EBoolean = false" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Materia/Valid"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Materia/Valid"/>
+        <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//UnidadCurricular/Valid"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//UnidadCurricular/Valid"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_JSGt50mwEe65AZHHsG0-dA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -961,9 +961,9 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_sD_nMEmqEe65AZHHsG0-dA" sourceNode="_bMLVgEmqEe65AZHHsG0-dA" targetNode="_enCS0EmqEe65AZHHsG0-dA" beginLabel="[0..*] grupodematerias" endLabel="[0..*] materia">
-      <target xmi:type="ecore:EReference" href="asignaturas.ecore#//GrupoDeMaterias/materia"/>
-      <semanticElements xmi:type="ecore:EReference" href="asignaturas.ecore#//Materia/grupodematerias"/>
-      <semanticElements xmi:type="ecore:EReference" href="asignaturas.ecore#//GrupoDeMaterias/materia"/>
+      <target xmi:type="ecore:EReference" href="asignaturas.ecore#//Materia/materia"/>
+      <semanticElements xmi:type="ecore:EReference" href="asignaturas.ecore#//UnidadCurricular/grupodematerias"/>
+      <semanticElements xmi:type="ecore:EReference" href="asignaturas.ecore#//Materia/materia"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_0BIs6Em-Ee6iT525mYnyXQ" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_0BIs6Um-Ee6iT525mYnyXQ" showIcon="false"/>
@@ -1028,9 +1028,9 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_VNqWckmvEe65AZHHsG0-dA" sourceNode="_bMLVgEmqEe65AZHHsG0-dA" targetNode="_bMLVgEmqEe65AZHHsG0-dA" beginLabel="[0..1] grupodemateriaseOpposite" endLabel="[0..*] grupodematerias">
-      <target xmi:type="ecore:EReference" href="asignaturas.ecore#//GrupoDeMaterias/grupodematerias"/>
-      <semanticElements xmi:type="ecore:EReference" href="asignaturas.ecore#//GrupoDeMaterias/grupodematerias"/>
-      <semanticElements xmi:type="ecore:EReference" href="asignaturas.ecore#//GrupoDeMaterias/grupodemateriaseOpposite"/>
+      <target xmi:type="ecore:EReference" href="asignaturas.ecore#//Materia/grupodematerias"/>
+      <semanticElements xmi:type="ecore:EReference" href="asignaturas.ecore#//Materia/grupodematerias"/>
+      <semanticElements xmi:type="ecore:EReference" href="asignaturas.ecore#//Materia/grupodemateriaseOpposite"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_bK0ouEnAEe6iT525mYnyXQ" description="_mlcjwEm-Ee6iT525mYnyXQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_bK0ouUnAEe6iT525mYnyXQ" showIcon="false"/>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_bK0ouknAEe6iT525mYnyXQ" showIcon="false"/>
@@ -1231,8 +1231,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_skvDIEmyEe65AZHHsG0-dA" name="[0..1] requerimiento" sourceNode="_enCS0EmqEe65AZHHsG0-dA" targetNode="_4nNocEmwEe65AZHHsG0-dA">
-      <target xmi:type="ecore:EReference" href="asignaturas.ecore#//Materia/requerimiento"/>
-      <semanticElements xmi:type="ecore:EReference" href="asignaturas.ecore#//Materia/requerimiento"/>
+      <target xmi:type="ecore:EReference" href="asignaturas.ecore#//UnidadCurricular/requerimiento"/>
+      <semanticElements xmi:type="ecore:EReference" href="asignaturas.ecore#//UnidadCurricular/requerimiento"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_66KaIEm-Ee6iT525mYnyXQ" description="_jINA0Em-Ee6iT525mYnyXQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_66KaIkm-Ee6iT525mYnyXQ" showIcon="false"/>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_66KaIUm-Ee6iT525mYnyXQ" labelSize="6" showIcon="false" labelColor="39,76,114"/>
