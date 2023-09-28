@@ -39,21 +39,21 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Plan/carreraFather"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Plan/estudiante"/>
     </genClasses>
-    <genClasses ecoreClass="asignaturas.ecore#//GrupoDeMaterias">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//GrupoDeMaterias/materia"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//GrupoDeMaterias/Id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//GrupoDeMaterias/Name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//GrupoDeMaterias/MinCredits"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//GrupoDeMaterias/grupodematerias"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//GrupoDeMaterias/grupodemateriaseOpposite"/>
-    </genClasses>
     <genClasses ecoreClass="asignaturas.ecore#//Materia">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Materia/grupodematerias"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Materia/materia"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Materia/Id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Materia/Name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Materia/Cred"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Materia/Valid"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Materia/requerimiento"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Materia/MinCredits"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Materia/grupodematerias"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Materia/grupodemateriaseOpposite"/>
+    </genClasses>
+    <genClasses ecoreClass="asignaturas.ecore#//UnidadCurricular">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//UnidadCurricular/grupodematerias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//UnidadCurricular/Id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//UnidadCurricular/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//UnidadCurricular/Cred"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//UnidadCurricular/Valid"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//UnidadCurricular/requerimiento"/>
     </genClasses>
     <genClasses ecoreClass="asignaturas.ecore#//SomeOf">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//SomeOf/N"/>
