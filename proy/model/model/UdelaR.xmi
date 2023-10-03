@@ -411,7 +411,7 @@
         Name="TEORIA DE JUEGOS Y PROG. FUNCIONAL"
         Cred="9"/>
     <materia
-        grupodematerias="4083"
+        grupodematerias="4083 4756"
         Id="1233"
         Name="TUTORIA EN MATEMATICA"
         Cred="4"/>
@@ -952,7 +952,7 @@
         Name="ORGANIZACION DE LENG. DE PROGRAMACION"
         Cred="10"/>
     <materia
-        grupodematerias="4580"
+        grupodematerias="4580 4756"
         Id="CP384"
         Name="PROCESAMIENTO DE DATOS II (P. 74)"
         Cred="15"/>
@@ -1132,7 +1132,7 @@
         Name="TALLER DE SEGURIDAD INFÓRMATICA"
         Cred="10"/>
     <materia
-        grupodematerias="4428"
+        grupodematerias="4428 4882"
         Id="1888"
         Name="TALLER DE INICIACION A LOS SISTEMAS CIBER-FISICOS"
         Cred="4"/>
@@ -1147,7 +1147,7 @@
         Name="SISTEMAS EMBEBIDOS PARA TIEMPO REAL"
         Cred="8"/>
     <materia
-        grupodematerias="4428"
+        grupodematerias="4428 4882"
         Id="1952"
         Name="TALLER DE SISTEMAS CIBER-FISICOS"
         Cred="6"/>
@@ -2939,7 +2939,6 @@
           xsi:type="asignaturas:PlanCreditos"
           Year="1997"
           Valid="true"
-          estudiante="12345678"
           MinCredits="450">
         <grupodematerias
             Id="2436"
@@ -2971,7 +2970,7 @@
               Name="ARQUIT. S.OP. Y REDES DE COMP."
               MinCredits="30"/>
           <grupodematerias
-              materia="5852 1887 5853 1888 SRN30 1880 1868 1866 1952 5842 1865 1864 1857 1820 1827 1849 1832 1821 1835 1829 1828 5831 1834 1848 5912 IAR6"
+              materia="5852 1887 5853 1888 SRN30 1880 1868 1866 1952 5842 1865 1864 1857 1820 1827 1849 1832 1821 1835 1829 1828 5831 1834 1848 5912 IAR6 1888 1952"
               Id="4882"
               Name="INT. ARTIFICIAL Y ROBOTICA"/>
           <grupodematerias
@@ -2995,7 +2994,7 @@
               Name="INGENIERIA DE SOFTWARE"
               MinCredits="10"/>
           <grupodematerias
-              materia="1876 A42 BTI29 BT31 BTI33 BTI23 BTI31 ATI3 BTI38 1780 1775 1774 AA28 A028 AI10 BT28 A28 AI28 1753 1754 1755 1756 1757 1731 CP384 1730 1721 5705 1748 1733 1766 1739 1327 1925 1759 1751 1740 1741 5823 CP71 CP363 1734 1735 CP221 1233 AT10 AT28 AT3 AT7 TP25 1776"
+              materia="1876 A42 BTI29 BT31 BTI33 BTI23 BTI31 ATI3 BTI38 1780 1775 1774 AA28 A028 AI10 BT28 A28 AI28 1753 1754 1755 1756 1757 1731 CP384 1730 1721 5705 1748 1733 1766 1739 1327 1925 1759 1751 1740 1741 5823 CP71 CP363 1734 1735 CP221 1233 AT10 AT28 AT3 AT7 TP25 1776 CP384 1233"
               Id="4756"
               Name="A. INTEG, TALLERES, PASANT. Y PROY."
               MinCredits="45"/>
@@ -3025,8 +3024,4 @@
           Year="1987"/>
     </carrera>
   </facultad>
-  <estudiante
-      Name="Fulano"
-      Id="12345678"
-      plan="//@facultad.0/@carrera.0/@plan.0"/>
 </asignaturas:Root>
