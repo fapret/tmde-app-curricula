@@ -1,0 +1,586 @@
+openapi: 3.0.3
+info:
+  title: Curricula docs
+  description: |-
+    Especificacion de la APIs de Curricula
+  termsOfService: http://localhost:8080/terms/
+  contact:
+    email: santiago.nicolas.diaz.conde@fing.edu.uy
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/api/v1
+    description: Development server
+tags:
+  - name: admin
+    description: Operaciones de admin
+paths:
+  /facultad:
+    post:
+      tags:
+        - admin
+      summary: Crea una facultad
+      operationId: createFacultad
+      requestBody:
+        description: Datos de la facultad
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Facultad'
+      responses:
+        '200':
+          description: Operation Succesful
+        '400':
+          description: Malformed Facultad
+        '409':
+          description: Facultad already exists
+      security:
+        - curricula_auth:
+          - write:facultad
+  /{facultad}:
+    delete:
+      tags:
+        - admin
+      summary: Elimina una facultad
+      operationId: deleteFacultad
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de Facultad
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation Succesful
+        '404':
+          description: Facultad not found
+      security:
+        - curricula_auth:
+          - write:facultad
+    get:
+      summary: Obten la informacion de una facultad
+      operationId: getFacultad
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de Facultad
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Facultad'
+        '404':
+          description: Facultad not found
+  /{facultad}/materias:
+    post:
+      tags:
+        - admin
+      summary: Agrega una materia
+      operationId: addMateria
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Agrega una materia a una facultad
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Materia'
+        required: true
+      responses:
+        '200':
+          description: Succesful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Materia'
+        '400':
+          description: Malformed Materia
+        '409':
+          description: Id of materia already exists
+      security:
+        - curricula_auth:
+          - write:materias
+  /{facultad}/materias/{materia}:
+    get:
+      summary: Obten la informacion de una materia
+      operationId: getMateria
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: materia
+          in: path
+          description: Id de materia
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Materia'
+        '404':
+          description: Materia not found
+    put:
+      tags:
+        - admin
+      summary: Actualiza una materia
+      operationId: updateMateria
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: materia
+          in: path
+          description: Id de materia
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Informacion de la materia
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Materia'
+      responses:
+        '200':
+          description: Succesful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Materia'
+        '400':
+          description: Malformed Materia
+        '404':
+          description: Materia not found
+      security:
+        - curricula_auth:
+          - write:materias
+    delete:
+      tags:
+        - admin
+      summary: Elimina una materia
+      operationId: deleteMateria
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: materia
+          in: path
+          description: Id de materia
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesful operation
+        '404':
+          description: Materia not found
+      security:
+        - curricula_auth:
+          - write:materias
+  /{facultad}/materias/{materia}/eval:
+    post:
+      summary: Evalua los requerimientos de un estudiante en una materia en especifico en el modelo
+      operationId: eval
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: materia
+          in: path
+          description: Id de materia
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Datos del estudiante y id materia
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Estudiante'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '404':
+          description: Subject not found
+  /{facultad}/carreras:
+    post:
+      tags:
+        - admin
+      summary: Agrega una carrera
+      operationId: addCarrera
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Informacion de la carrera
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Carrera'
+      responses:
+        '200':
+          description: Succesful operation
+        '400':
+          description: Malformed Carrera
+        '409':
+          description: Name of Carrera Already Exists
+      security:
+        - curricula_auth:
+          - write:carreras
+  /{facultad}/carreras/{carrera}:
+    put:
+      tags:
+        - admin
+      summary: Actualiza una carrera
+      operationId: updateCarrera
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: carrera
+          in: path
+          description: Nombre de carrera
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Informacion de la carrera
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Carrera'
+      responses:
+        '200':
+          description: Succesful operation
+        '400':
+          description: Malformed Carrera
+        '404':
+          description: Carrera not found
+      security:
+        - curricula_auth:
+          - write:carreras
+    delete:
+      tags:
+        - admin
+      summary: Elimina una carrera
+      operationId: deleteCarrera
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: carrera
+          in: path
+          description: Nombre de carrera
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesful operation
+        '404':
+          description: Carrera not found
+      security:
+        - curricula_auth:
+          - write:carreras
+    get:
+      summary: Obten la informacion de una carrera
+      operationId: getCarrera
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: carrera
+          in: path
+          description: Nombre de carrera
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Carrera'
+        '404':
+          description: Carrera not found
+  /{facultad}/carreras/{carrera}/{plan}:
+    get:
+      summary: Obten la informacion de un plan
+      operationId: getPlan
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: carrera
+          in: path
+          description: Nombre de carrera
+          required: true
+          schema:
+            type: string
+        - name: plan
+          in: path
+          description: Plan
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Succesful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Plan'
+        '404':
+          description: Plan not found
+  /{facultad}/carreras/{carrera}/{plan}/eval:
+    post:
+      summary: Evalua que materias puede cursar un estudiante
+      operationId: evalPlan
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: carrera
+          in: path
+          description: Nombre de carrera
+          required: true
+          schema:
+            type: string
+        - name: plan
+          in: path
+          description: Plan
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Datos del estudiante y id materia
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Estudiante'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Materia'
+        '400':
+          description: Malformed request
+        '404':
+          description: Plan not found
+components:
+  schemas:
+    Materia:
+      required:
+        - name
+        - id
+      type: object
+      properties:
+        name:
+          type: string
+          example: CALCULO DIV
+        id:
+          type: string
+          example: 1061
+        cred:
+          type: integer
+          example: 13
+        valid:
+          type: boolean
+          example: true
+        grupodematerias:
+          type: array
+          items:
+            type: string
+            example: 4083
+        requeriments:
+            $ref: '#/components/schemas/Requerimiento'
+    Facultad:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          example: Facultad de Ingenieria
+        carreras:
+          type: array
+          items:
+            $ref: '#/components/schemas/Carrera'
+        materias:
+          type: array
+          items:
+            $ref: '#/components/schemas/Materia'
+    Carrera:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          example: Ing. En Computacion
+        planes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Plan'
+    PlanAbstract:
+      type: object
+      required:
+        - year
+      properties:
+        year:
+          type: integer
+          example: 1997
+        valid:
+          type: boolean
+    Plan:
+      oneOf:
+        - $ref: '#/components/schemas/PlanCreditos'
+        - $ref: '#/components/schemas/PlanMaterias'
+    PlanCreditos:
+      allOf:
+        - $ref: '#/components/schemas/PlanAbstract'
+        - type: object
+          properties:
+            mincredits:
+              type: integer
+            grupodematerias:
+              type: array
+              items:
+                $ref: '#/components/schemas/GrupoDeMaterias'
+    PlanMaterias:
+      allOf:
+        - $ref: '#/components/schemas/PlanAbstract'
+        - type: object
+          properties:
+            materias:
+              type: array
+              items:
+                type: string
+                example: 1061
+    GrupoDeMaterias:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          example: 4083
+        name:
+          type: string
+          example: MATEMATICA
+        minCredits:
+          type: integer
+          example: 70
+        materias:
+          type: array
+          items:
+            type: string
+            example: 1030
+        grupodematerias:
+          type: array
+          items:
+            $ref: '#/components/schemas/GrupoDeMaterias'
+    Requerimiento:
+      type: string
+    Estudiante:
+      type: object
+      required:
+        - id
+        - name
+        - carrera
+      properties:
+        id:
+          type: string
+          example: test
+        name:
+          type: string
+          example: fulano
+        plan:
+          type: array
+          items:
+            type: string
+            example: Ing. en computacion
+        courses:
+          type: array
+          items:
+            type: string
+            example: 1030
+        exams:
+          type: array
+          items:
+            type: string
+            example: 1030
+        enrolls:
+          type: array
+          items:
+            type: string
+            example: 1030
+  securitySchemes:
+    curricula_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: http://localhost:8080/oauth/authorize
+          scopes:
+            write:materias: Agrega o actualiza materias de una facultad
+            write:carreras: Agrega o actualiza carreras de una facultad
+            write:facultad: Crea o edita facultades
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header

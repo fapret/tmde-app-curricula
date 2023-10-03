@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Estudiantes">
+  <eClassifiers xsi:type="ecore:EClass" name="Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="estudiante" lowerBound="1"
+        eType="#//Estudiante"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Estudiante">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cursos" upperBound="-1"
+        eType="#//tomo_curso"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="examenes" upperBound="-1"
+        eType="#//tomo_examen"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inscripciones" upperBound="-1"
+        eType="#//Inscripcion"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="tomo_curso">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materia" eType="ecore:EClass asignaturas.ecore#//Materia"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fecha" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validez" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nota" upperBound="12" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="tomo_examen">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materia" eType="ecore:EClass asignaturas.ecore#//Materia"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fecha" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validez" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nota" upperBound="12" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Inscripcion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materia" eType="ecore:EClass asignaturas.ecore#//Materia"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fecha" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+</ecore:EPackage>
