@@ -6,16 +6,13 @@
         upperBound="-1" eType="#//Student" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Student">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CourseInscriptions" upperBound="-1"
-        eType="#//Inscription" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Evaluations" upperBound="-1"
-        eType="#//StudentEvaluation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Plan" upperBound="-1" eType="ecore:EClass asignaturas.ecore#//Plan"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StudentPlanInscription"
+        upperBound="-1" eType="#//PlanInscription" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Inscription">
+  <eClassifiers xsi:type="ecore:EClass" name="CourseInscription">
     <eStructuralFeatures xsi:type="ecore:EReference" name="CUCourse" lowerBound="1"
         eType="ecore:EClass asignaturas.ecore#//Course"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
@@ -24,5 +21,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="grade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="evaluation" lowerBound="1"
         eType="ecore:EClass asignaturas.ecore#//Evaluation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlanInscription">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Plan" upperBound="-1" eType="ecore:EClass asignaturas.ecore#//Plan"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PlanCourseInscription"
+        upperBound="-1" eType="#//CourseInscription" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PlanStudentEvaluation"
+        upperBound="-1" eType="#//StudentEvaluation" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
