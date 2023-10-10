@@ -5,10 +5,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Faculty" upperBound="-1"
         eType="#//Faculty" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Careers">
+  <eClassifiers xsi:type="ecore:EClass" name="Career">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="plan" upperBound="-1" eType="#//Plan"
-        containment="true" eOpposite="#//Plan/carreraFather"/>
+        containment="true" eOpposite="#//Plan/career_parent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CreditsPlan" eSuperTypes="#//Plan">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinCredits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -19,20 +19,20 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CurricularUnit" upperBound="-1"
         eType="#//CurricularUnit" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Career" upperBound="-1"
-        eType="#//Careers" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Careers" upperBound="-1"
+        eType="#//Career" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Plan" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Year" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="carreraFather" lowerBound="1"
-        eType="#//Careers" eOpposite="#//Careers/plan"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="career_parent" lowerBound="1"
+        eType="#//Career" eOpposite="#//Career/plan"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Students" upperBound="-1"
         eType="ecore:EClass estudiante.ecore#//Student"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Subject">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CurricularUnit" upperBound="-1"
-        eType="#//CurricularUnit" eOpposite="#//CurricularUnit/GroupOfSubjects"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CurricularUnit" lowerBound="1"
+        upperBound="-1" eType="#//CurricularUnit" containment="true" eOpposite="#//CurricularUnit/GroupOfSubjects"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -43,8 +43,8 @@
         eType="#//Subject" eOpposite="#//Subject/GroupOfSubjects"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CurricularUnit">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="GroupOfSubjects" upperBound="-1"
-        eType="#//Subject" eOpposite="#//Subject/CurricularUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GroupOfSubjects" lowerBound="1"
+        upperBound="-1" eType="#//Subject" eOpposite="#//Subject/CurricularUnit"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
