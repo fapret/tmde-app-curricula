@@ -17,10 +17,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Faculty">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CurricularUnit" upperBound="-1"
-        eType="#//CurricularUnit" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Careers" upperBound="-1"
         eType="#//Career" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FacultyCU" upperBound="-1"
+        eType="#//CurricularUnit" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Plan" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Year" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -31,8 +31,6 @@
         eType="ecore:EClass estudiante.ecore#//Student"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Subject">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CurricularUnit" lowerBound="1"
-        upperBound="-1" eType="#//CurricularUnit" containment="true" eOpposite="#//CurricularUnit/GroupOfSubjects"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -41,10 +39,10 @@
         eType="#//Subject" containment="true" eOpposite="#//Subject/GroupOfSubjectsOpposite"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GroupOfSubjectsOpposite"
         eType="#//Subject" eOpposite="#//Subject/GroupOfSubjects"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SubjectCurricularUnit"
+        upperBound="-1" eType="#//CurricularUnit" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CurricularUnit">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="GroupOfSubjects" lowerBound="1"
-        upperBound="-1" eType="#//Subject" eOpposite="#//Subject/CurricularUnit"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

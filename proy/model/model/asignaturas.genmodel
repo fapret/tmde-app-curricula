@@ -22,8 +22,8 @@
     </genClasses>
     <genClasses ecoreClass="asignaturas.ecore#//Faculty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Faculty/Name"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Faculty/CurricularUnit"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Faculty/Careers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Faculty/FacultyCU"/>
     </genClasses>
     <genClasses image="false" ecoreClass="asignaturas.ecore#//Plan">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Plan/Year"/>
@@ -32,15 +32,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Plan/Students"/>
     </genClasses>
     <genClasses ecoreClass="asignaturas.ecore#//Subject">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Subject/CurricularUnit"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Subject/Id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Subject/Name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Subject/MinCredits"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Subject/GroupOfSubjects"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Subject/GroupOfSubjectsOpposite"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Subject/SubjectCurricularUnit"/>
     </genClasses>
     <genClasses ecoreClass="asignaturas.ecore#//CurricularUnit">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//CurricularUnit/GroupOfSubjects"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//CurricularUnit/Id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//CurricularUnit/Name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//CurricularUnit/Cred"/>
