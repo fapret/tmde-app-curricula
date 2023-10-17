@@ -14,49 +14,30 @@ tags:
   - name: admin
     description: Operaciones de admin
 paths:
-  /facultad:
-    post:
+  /model:
+    put:
       tags:
         - admin
-      summary: Crea una facultad
-      operationId: createFacultad
+      summary: Cambia el modelo actual
+      operationId: changeModel
       requestBody:
-        description: Datos de la facultad
         content:
-          application/json:
+          multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Facultad'
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
       responses:
         '200':
-          description: Operation Succesful
+          description: Succesful operation
         '400':
-          description: Malformed Facultad
-        '409':
-          description: Facultad already exists
+          description: Failed at model reading
       security:
         - curricula_auth:
-          - write:facultad
+          - write:model
   /{facultad}:
-    delete:
-      tags:
-        - admin
-      summary: Elimina una facultad
-      operationId: deleteFacultad
-      parameters:
-        - name: facultad
-          in: path
-          description: Nombre de Facultad
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Operation Succesful
-        '404':
-          description: Facultad not found
-      security:
-        - curricula_auth:
-          - write:facultad
     get:
       summary: Obten la informacion de una facultad
       operationId: getFacultad
@@ -76,44 +57,10 @@ paths:
                 $ref: '#/components/schemas/Facultad'
         '404':
           description: Facultad not found
-  /{facultad}/materias:
-    post:
-      tags:
-        - admin
-      summary: Agrega una materia
-      operationId: addMateria
-      parameters:
-        - name: facultad
-          in: path
-          description: Nombre de facultad
-          required: true
-          schema:
-            type: string
-      requestBody:
-        description: Agrega una materia a una facultad
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Materia'
-        required: true
-      responses:
-        '200':
-          description: Succesful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Materia'
-        '400':
-          description: Malformed Materia
-        '409':
-          description: Id of materia already exists
-      security:
-        - curricula_auth:
-          - write:materias
-  /{facultad}/materias/{materia}:
+  /{facultad}/ucs/{uc}:
     get:
-      summary: Obten la informacion de una materia
-      operationId: getMateria
+      summary: Obten la informacion de una uc
+      operationId: getuc
       parameters:
         - name: facultad
           in: path
@@ -121,9 +68,9 @@ paths:
           required: true
           schema:
             type: string
-        - name: materia
+        - name: uc
           in: path
-          description: Id de materia
+          description: Id de uc
           required: true
           schema:
             type: string
@@ -133,76 +80,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Materia'
+                $ref: '#/components/schemas/uc'
         '404':
-          description: Materia not found
-    put:
-      tags:
-        - admin
-      summary: Actualiza una materia
-      operationId: updateMateria
-      parameters:
-        - name: facultad
-          in: path
-          description: Nombre de facultad
-          required: true
-          schema:
-            type: string
-        - name: materia
-          in: path
-          description: Id de materia
-          required: true
-          schema:
-            type: string
-      requestBody:
-        description: Informacion de la materia
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Materia'
-      responses:
-        '200':
-          description: Succesful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Materia'
-        '400':
-          description: Malformed Materia
-        '404':
-          description: Materia not found
-      security:
-        - curricula_auth:
-          - write:materias
-    delete:
-      tags:
-        - admin
-      summary: Elimina una materia
-      operationId: deleteMateria
-      parameters:
-        - name: facultad
-          in: path
-          description: Nombre de facultad
-          required: true
-          schema:
-            type: string
-        - name: materia
-          in: path
-          description: Id de materia
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Succesful operation
-        '404':
-          description: Materia not found
-      security:
-        - curricula_auth:
-          - write:materias
-  /{facultad}/materias/{materia}/eval:
+          description: uc not found
+  /{facultad}/ucs/{uc}/eval:
     post:
-      summary: Evalua los requerimientos de un estudiante en una materia en especifico en el modelo
+      summary: Evalua los requerimientos de un estudiante en una uc en especifico en el modelo
       operationId: eval
       parameters:
         - name: facultad
@@ -211,14 +94,14 @@ paths:
           required: true
           schema:
             type: string
-        - name: materia
+        - name: uc
           in: path
-          description: Id de materia
+          description: Id de uc
           required: true
           schema:
             type: string
       requestBody:
-        description: Datos del estudiante y id materia
+        description: Datos del estudiante y id uc
         content:
           application/json:
             schema:
@@ -232,96 +115,7 @@ paths:
                 type: boolean
         '404':
           description: Subject not found
-  /{facultad}/carreras:
-    post:
-      tags:
-        - admin
-      summary: Agrega una carrera
-      operationId: addCarrera
-      parameters:
-        - name: facultad
-          in: path
-          description: Nombre de facultad
-          required: true
-          schema:
-            type: string
-      requestBody:
-        description: Informacion de la carrera
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Carrera'
-      responses:
-        '200':
-          description: Succesful operation
-        '400':
-          description: Malformed Carrera
-        '409':
-          description: Name of Carrera Already Exists
-      security:
-        - curricula_auth:
-          - write:carreras
   /{facultad}/carreras/{carrera}:
-    put:
-      tags:
-        - admin
-      summary: Actualiza una carrera
-      operationId: updateCarrera
-      parameters:
-        - name: facultad
-          in: path
-          description: Nombre de facultad
-          required: true
-          schema:
-            type: string
-        - name: carrera
-          in: path
-          description: Nombre de carrera
-          required: true
-          schema:
-            type: string
-      requestBody:
-        description: Informacion de la carrera
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Carrera'
-      responses:
-        '200':
-          description: Succesful operation
-        '400':
-          description: Malformed Carrera
-        '404':
-          description: Carrera not found
-      security:
-        - curricula_auth:
-          - write:carreras
-    delete:
-      tags:
-        - admin
-      summary: Elimina una carrera
-      operationId: deleteCarrera
-      parameters:
-        - name: facultad
-          in: path
-          description: Nombre de facultad
-          required: true
-          schema:
-            type: string
-        - name: carrera
-          in: path
-          description: Nombre de carrera
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Succesful operation
-        '404':
-          description: Carrera not found
-      security:
-        - curricula_auth:
-          - write:carreras
     get:
       summary: Obten la informacion de una carrera
       operationId: getCarrera
@@ -381,7 +175,7 @@ paths:
           description: Plan not found
   /{facultad}/carreras/{carrera}/{plan}/eval:
     post:
-      summary: Evalua que materias puede cursar un estudiante
+      summary: Evalua que ucs puede cursar un estudiante
       operationId: evalPlan
       parameters:
         - name: facultad
@@ -403,7 +197,7 @@ paths:
           schema:
             type: integer
       requestBody:
-        description: Datos del estudiante y id materia
+        description: Datos del estudiante y id uc
         content:
           application/json:
             schema:
@@ -416,14 +210,14 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Materia'
+                  $ref: '#/components/schemas/uc'
         '400':
           description: Malformed request
         '404':
           description: Plan not found
 components:
   schemas:
-    Materia:
+    uc:
       required:
         - name
         - id
@@ -441,13 +235,34 @@ components:
         valid:
           type: boolean
           example: true
-        grupodematerias:
+        materia:
           type: array
           items:
             type: string
             example: 4083
         requeriments:
             $ref: '#/components/schemas/Requerimiento'
+        courses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Course'
+        examEvaluations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExamEvaluation'
+    Course:
+      type: object
+      properties:
+        year:
+          type: integer
+          example: 2023
+        edition:
+          type: integer
+          example: 0
+        courseEvaluations:
+          type: array
+          items:
+            $ref: '#/components/schemas/CourseEvaluation'
     Facultad:
       required:
         - name
@@ -460,10 +275,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Carrera'
-        materias:
+        ucs:
           type: array
           items:
-            $ref: '#/components/schemas/Materia'
+            $ref: '#/components/schemas/uc'
     Carrera:
       required:
         - name
@@ -489,7 +304,7 @@ components:
     Plan:
       oneOf:
         - $ref: '#/components/schemas/PlanCreditos'
-        - $ref: '#/components/schemas/PlanMaterias'
+        - $ref: '#/components/schemas/Planucs'
     PlanCreditos:
       allOf:
         - $ref: '#/components/schemas/PlanAbstract'
@@ -497,21 +312,21 @@ components:
           properties:
             mincredits:
               type: integer
-            grupodematerias:
+            materia:
               type: array
               items:
-                $ref: '#/components/schemas/GrupoDeMaterias'
-    PlanMaterias:
+                $ref: '#/components/schemas/materia'
+    Planucs:
       allOf:
         - $ref: '#/components/schemas/PlanAbstract'
         - type: object
           properties:
-            materias:
+            ucs:
               type: array
               items:
                 type: string
                 example: 1061
-    GrupoDeMaterias:
+    materia:
       type: object
       required:
         - id
@@ -526,17 +341,40 @@ components:
         minCredits:
           type: integer
           example: 70
-        materias:
+        ucs:
           type: array
           items:
             type: string
             example: 1030
-        grupodematerias:
+        materia:
           type: array
           items:
-            $ref: '#/components/schemas/GrupoDeMaterias'
+            $ref: '#/components/schemas/materia'
     Requerimiento:
       type: string
+    EvaluationFather:
+      type: object
+      properties:
+        date:
+          type: string
+    Evaluation:
+      oneOf:
+        - $ref: '#/components/schemas/ExamEvaluation'
+        - $ref: '#/components/schemas/CourseEvaluation'
+    ExamEvaluation:
+      $ref: '#/components/schemas/EvaluationFather'
+    CourseEvaluation:
+      $ref: '#/components/schemas/EvaluationFather'
+    Inscription:
+      type: object
+      required:
+        - date
+        - course
+      properties:
+        date:
+          type: string
+        course:
+          $ref: '#/components/schemas/Course'
     Estudiante:
       type: object
       required:
@@ -555,31 +393,22 @@ components:
           items:
             type: string
             example: Ing. en computacion
-        courses:
+        evaluations:
           type: array
           items:
-            type: string
-            example: 1030
-        exams:
+            $ref: '#/components/schemas/Evaluation'
+        inscriptions:
           type: array
           items:
-            type: string
-            example: 1030
-        enrolls:
-          type: array
-          items:
-            type: string
-            example: 1030
+            $ref: '#/components/schemas/Inscription'
   securitySchemes:
     curricula_auth:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: http://localhost:8080/oauth/authorize
+          authorizationUrl: https://curricula.fapret.com/oauth/authorize
           scopes:
-            write:materias: Agrega o actualiza materias de una facultad
-            write:carreras: Agrega o actualiza carreras de una facultad
-            write:facultad: Crea o edita facultades
+            write:model: Cambia el modelo
     api_key:
       type: apiKey
       name: api_key
