@@ -83,6 +83,64 @@ paths:
                 $ref: '#/components/schemas/uc'
         '404':
           description: uc not found
+  /{facultad}/ucs/{uc}/courses/{course}:
+    get:
+      summary: Obten la informacion de un curso de una uc
+      operationId: getCourse
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: uc
+          in: path
+          description: Id de uc
+          required: true
+          schema:
+            type: string
+        - name: course
+          in: path
+          description: Edicion del curso
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        '404':
+          description: course not found
+  /{facultad}/ucs/{uc}/examevaluations/:
+    get:
+      summary: Obten las evaluaciones de examen de una uc
+      operationId: getucexam
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: uc
+          in: path
+          description: Id de uc
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExamEvaluation'
   /{facultad}/ucs/{uc}/eval:
     post:
       summary: Evalua los requerimientos de un estudiante en una uc en especifico en el modelo
@@ -173,6 +231,44 @@ paths:
                 $ref: '#/components/schemas/Plan'
         '404':
           description: Plan not found
+  /{facultad}/carreras/{carrera}/{plan}/subjects/{subject}:
+    get:
+      summary: Obten la informacion de una materia en un plan
+      operationId: getPlanSubject
+      parameters:
+        - name: facultad
+          in: path
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: carrera
+          in: path
+          description: Nombre de carrera
+          required: true
+          schema:
+            type: string
+        - name: plan
+          in: path
+          description: Plan
+          required: true
+          schema:
+            type: integer
+        - name: subject
+          in: path
+          description: Nombre de materia
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/materia'
+        '404':
+          description: subject not found
   /{facultad}/carreras/{carrera}/{plan}/eval:
     post:
       summary: Evalua que ucs puede cursar un estudiante
