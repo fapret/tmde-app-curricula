@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" nsURI="http://www.example.org/estudiantes" name="Estudiantes">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" nsURI="estudiantesURI" name="Estudiantes">
   <eClassifiers xsi:type="ecore:EClass" name="Root">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Student" lowerBound="1"
         upperBound="-1" eType="#//Student" containment="true"/>
@@ -13,18 +13,13 @@
         upperBound="-1" eType="#//PlanInscription" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CourseInscription">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CUCourse" lowerBound="1"
-        eType="ecore:EClass asignaturas.ecore#//Course"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StudentEvaluation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="grade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="evaluation" lowerBound="1"
-        eType="ecore:EClass asignaturas.ecore#//Evaluation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PlanInscription">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Plan" upperBound="-1" eType="ecore:EClass asignaturas.ecore#//Plan"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PlanCourseInscription"
         upperBound="-1" eType="#//CourseInscription" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PlanStudentEvaluation"
