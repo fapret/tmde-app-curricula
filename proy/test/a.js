@@ -27,37 +27,6 @@ function processFile(file) {
         Ecore.EPackage.Registry.register(firstElement);
     }
 
-    // llegar a esto (y el siguiente foreach) costó más de lo que parece
-    var eClasses = Ecore.EPackage.Registry.getEPackage('estudiantesURI').get('eClassifiers').filter(function (eClassifier) {
-        return (eClassifier.eClass);
-    });
-
-    var set_classes = {};
-
-    // para cada una de las eclasses registradas en el package, las guardo en un diccionario para más fácil acceso
-    eClasses.forEach(function(eClassInstance) {
-        var eClassName = eClassInstance.get('name');
-        set_classes[eClassName] = eClassInstance;
-    });
-
-    let estudiantes = set_classes['Student'];
-
-    // estudiante de prueba
-    var juancito = estudiantes.create({Id : '1', Name : 'Juancito'});
-    console.log(juancito.get('Name'));
-
-    var su = {};
-  //  console.log(estudiantes.eAllStructuralFeatures);
-
-    // cómo hago para obtener las referencias?
-    /*
-    estudiantes.get('eStructuralFeatures').forEach(function (eClassifier) {
-
-        if (eClassifier.isTypeOf(Ecore.EStructuralFeature)) {
-            console.log('a');
-        }
-    })
-    */
     if (false) {
         console.log("::: JSON Dump of " + file);
         console.log(util.inspect(resource.to(Ecore.JSON), false, null));
@@ -70,7 +39,32 @@ function processFile(file) {
 
 }
 
-// to-do: unir ambos metamodelos, esta libreria no soporta el uso de referencias
+function extract_classes(uri) {
 
-processFile('estudiante.ecore')
-//processFile('asignaturas.ecore')
+    // llegar a esto (y el siguiente foreach) costó más de lo que parece
+    var eClasses = Ecore.EPackage.Registry.getEPackage(uri).get('eClassifiers').filter(function (eClassifier) {
+        return (eClassifier.eClass);
+    });
+
+
+    // para cada una de las eclasses registradas en el package, las guardo en un diccionario para más fácil acceso
+    eClasses.forEach(function(eClassInstance) {
+        var eClassName = eClassInstance.get('name');
+        set_classes[eClassName] = eClassInstance;
+    });
+
+}
+
+function main() {
+    processFile('asignaturas.ecore')
+    processFile('estudiantes-references.ecore')
+
+
+    var metamodelos_URI = new Set(["asignaturasURI", "estudiantesURI"]);
+    metamodelos_URI.forEach(function (current_uri) {
+        extract_classes(current_uri);
+    })
+}
+
+var set_classes = {};
+main();
