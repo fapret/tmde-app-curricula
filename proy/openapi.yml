@@ -2,10 +2,10 @@ openapi: 3.0.3
 info:
   title: Curricula docs
   description: |-
-    Especificacion de la APIs de Curricula
+    Especificación de la APIs de Curricula
   termsOfService: http://localhost:8080/terms/
   contact:
-    email: santiago.nicolas.diaz.conde@fing.edu.uy
+    email: santiago.nicolas.diaz.conde@fing.edu.uy, santiago.freire@fing.edu.uy
   version: 1.0.0
 servers:
   - url: http://localhost:8080/api/v1
