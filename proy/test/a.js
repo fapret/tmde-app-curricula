@@ -51,19 +51,46 @@ function extract_classes(uri) {
     eClasses.forEach(function(eClassInstance) {
         var eClassName = eClassInstance.get('name');
         set_classes[eClassName] = eClassInstance;
+        set_classes[eClassName]['references'] = {};
     });
 
 }
 
-function main() {
-    processFile('asignaturas.ecore')
-    processFile('estudiantes-references.ecore')
+function get_references(eclass) {
+    const all = set_classes[eclass].get('eAllStructuralFeatures');
+    var eReferences = all.filter(function (classifier) {
+        return classifier.eClass === Ecore.EReference;
+    });
 
+    set_classes[eclass]['references'] = eReferences;
+}
+
+function main() {
+    const filePath = '/Users/sfreire/facultad/TMDE/tmde04/proy/test/IngComputacion.xmi';
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+
+    processFile('asignaturas.ecore');
+    processFile('estudiantes-references.ecore');
+    resourceSet.parse(fileContent, Ecore.XMI);
 
     var metamodelos_URI = new Set(["asignaturasURI", "estudiantesURI"]);
     metamodelos_URI.forEach(function (current_uri) {
         extract_classes(current_uri);
     })
+
+    var r = set_classes['Root'].create();
+    var juancito = set_classes['Student'].create({Id : '1', Name : 'Juancito'});
+    r.set('Student', juancito);
+    console.log(r.get('Student').get('Name')); // Juancito
+
+/*
+    var contents = xmiResource.getContents();
+
+    // Access the elements from the XMI model
+    contents.forEach(function (element) {
+        // Perform actions with the elements as needed
+        console.log(element); // Example: Print the element to the console
+    }); */
 }
 
 var set_classes = {};
