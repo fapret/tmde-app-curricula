@@ -38,7 +38,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="GroupOfSubjectsOpposite"
         eType="#//Subject" eOpposite="#//Subject/GroupOfSubjects"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SubjectCurricularUnit"
-        upperBound="-1" eType="#//CurricularUnit" containment="true"/>
+        upperBound="-1" eType="#//CurricularUnit"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CurricularUnit">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
