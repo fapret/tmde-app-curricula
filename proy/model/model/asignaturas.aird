@@ -4,11 +4,10 @@
     <semanticResources>asignaturas.ecore</semanticResources>
     <semanticResources>asignaturas.genmodel</semanticResources>
     <semanticResources>Root.xmi</semanticResources>
-    <semanticResources>UdelaR.xmi</semanticResources>
     <semanticResources>estudiante.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_ppeXcEmoEe65AZHHsG0-dA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pp8RgEmoEe65AZHHsG0-dA" name="asignaturas" repPath="#_pp5OMEmoEe65AZHHsG0-dA" changeId="c1e1f9bd-2642-4251-a414-716379fd26cf">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pp8RgEmoEe65AZHHsG0-dA" name="asignaturas" repPath="#_pp5OMEmoEe65AZHHsG0-dA" changeId="11b3e2c7-4845-4a85-822a-cf3534e333d3">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="asignaturas.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -79,10 +78,6 @@
             <children xmi:type="notation:Node" xmi:id="_QbKC8EmqEe65AZHHsG0-dA" type="3010" element="_QbCuMEmqEe65AZHHsG0-dA">
               <styles xmi:type="notation:FontStyle" xmi:id="_QbKC8UmqEe65AZHHsG0-dA" fontName="Ubuntu" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_QbKC8kmqEe65AZHHsG0-dA"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_jBrOIGJAEe602p-80sL9gQ" type="3010" element="_jBXsIGJAEe602p-80sL9gQ">
-              <styles xmi:type="notation:FontStyle" xmi:id="_jBrOIWJAEe602p-80sL9gQ" fontName="Ubuntu" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_jBrOImJAEe602p-80sL9gQ"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_KmadIUmqEe65AZHHsG0-dA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_KmadIkmqEe65AZHHsG0-dA"/>
@@ -893,21 +888,13 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_QbCuMEmqEe65AZHHsG0-dA" name="Valid : EBoolean" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_QbCuMEmqEe65AZHHsG0-dA" name="Valid : EBoolean = false" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Plan/Valid"/>
         <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//Plan/Valid"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_QbCuMUmqEe65AZHHsG0-dA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-      </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_jBXsIGJAEe602p-80sL9gQ" name=" Students : Student" tooltipText="">
-        <target xmi:type="ecore:EReference" href="asignaturas.ecore#//Plan/Students"/>
-        <semanticElements xmi:type="ecore:EReference" href="asignaturas.ecore#//Plan/Students"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_jBXsIWJAEe602p-80sL9gQ" labelAlignment="LEFT" color="114,159,207">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_O5vTgEmqEe65AZHHsG0-dA" sourceNode="_BJmZ4EmpEe65AZHHsG0-dA" targetNode="_KmTIYEmqEe65AZHHsG0-dA">
@@ -991,7 +978,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_IMwPYEmwEe65AZHHsG0-dA" name="Valid : EBoolean" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_IMwPYEmwEe65AZHHsG0-dA" name="Valid : EBoolean = false" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="asignaturas.ecore#//CurricularUnit/Valid"/>
         <semanticElements xmi:type="ecore:EAttribute" href="asignaturas.ecore#//CurricularUnit/Valid"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_JSGt50mwEe65AZHHsG0-dA" labelAlignment="LEFT">

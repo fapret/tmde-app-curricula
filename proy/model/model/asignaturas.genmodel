@@ -29,7 +29,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Plan/Year"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Plan/Valid"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Plan/career_parent"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Plan/Students"/>
     </genClasses>
     <genClasses ecoreClass="asignaturas.ecore#//Subject">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Subject/Id"/>
