@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated metamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="asignaturas.presentation.AsignaturasModelWizardID"
+            name="%_UI_AsignaturasModelWizard_label"
+            class="asignaturas.presentation.AsignaturasModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AsignaturasModelFile.gif">
+         <description>%_UI_AsignaturasModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated metamodel -->
+      <editor
+            id="asignaturas.presentation.AsignaturasEditorID"
+            name="%_UI_AsignaturasEditor_label"
+            icon="icons/full/obj16/AsignaturasModelFile.gif"
+            extensions="asignaturas"
+            class="asignaturas.presentation.AsignaturasEditor"
+            contributorClass="asignaturas.presentation.AsignaturasActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

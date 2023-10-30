@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_ppAdYEmoEe65AZHHsG0-dA" selectedViews="_ppeXcEmoEe65AZHHsG0-dA" version="15.0.0.202209061200">
+  <viewpoint:DAnalysis uid="_ppAdYEmoEe65AZHHsG0-dA" selectedViews="_ppeXcEmoEe65AZHHsG0-dA" version="15.2.0.202303281325">
     <semanticResources>asignaturas.ecore</semanticResources>
     <semanticResources>asignaturas.genmodel</semanticResources>
     <semanticResources>Root.xmi</semanticResources>
     <semanticResources>estudiante.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_ppeXcEmoEe65AZHHsG0-dA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pp8RgEmoEe65AZHHsG0-dA" name="asignaturas" repPath="#_pp5OMEmoEe65AZHHsG0-dA" changeId="dd6e6418-567a-4037-9690-2fc8977e918e">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pp8RgEmoEe65AZHHsG0-dA" name="asignaturas" repPath="#_pp5OMEmoEe65AZHHsG0-dA" changeId="1698638504002">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="asignaturas.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_hPbp4GI_Ee602p-80sL9gQ" name="Estudiantes class diagram" repPath="#_hPZ0sGI_Ee602p-80sL9gQ" changeId="29a1b83a-ac91-4319-95a1-daaa115823fb">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_hPbp4GI_Ee602p-80sL9gQ" name="Estudiantes class diagram" repPath="#_hPZ0sGI_Ee602p-80sL9gQ" changeId="1698620384787">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="estudiante.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1099,7 +1099,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_JWwIBEmxEe65AZHHsG0-dA" name="[1..*] Requirement" sourceNode="_AMf-0EmxEe65AZHHsG0-dA" targetNode="_4nNocEmwEe65AZHHsG0-dA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_JWwIBEmxEe65AZHHsG0-dA" name="[1..1] Requirement" sourceNode="_AMf-0EmxEe65AZHHsG0-dA" targetNode="_4nNocEmwEe65AZHHsG0-dA">
       <target xmi:type="ecore:EReference" href="asignaturas.ecore#//NOT/Requirement"/>
       <semanticElements xmi:type="ecore:EReference" href="asignaturas.ecore#//NOT/Requirement"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_8aSwIEm-Ee6iT525mYnyXQ" description="_7jPzbEm-Ee6iT525mYnyXQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
