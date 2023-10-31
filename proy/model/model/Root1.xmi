@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EstudiantesURI:Root
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:EstudiantesURI="EstudiantesURI"
+    xmlns:asignaturas="asignaturasURI"
+    xsi:schemaLocation="EstudiantesURI estudiante.ecore asignaturasURI asignaturas.ecore">
+  <Student Id="1"
+      Name="fulanit">
+    <StudentPlanInscription
+        date="2021-12-12T00:00:00.000+0000">
+      <Plan
+          xsi:type="asignaturas:CreditsPlan"
+          href="model.xmi#//@Faculty.0/@Careers.0/@plan.0"/>
+      <PlanCourseInscription
+          date="2021-05-12T00:00:00.000+0000">
+        <CUCourse
+            href="model.xmi#//@Faculty.0/@FacultyCU.0/@Course.1"/>
+      </PlanCourseInscription>
+      <PlanStudentEvaluation
+          grade="5">
+        <evaluation
+            xsi:type="asignaturas:ExamEvaluation"
+            href="model.xmi#//@Faculty.0/@FacultyCU.0/@ExamEvaluation.0"/>
+      </PlanStudentEvaluation>
+    </StudentPlanInscription>
+  </Student>
+</EstudiantesURI:Root>
