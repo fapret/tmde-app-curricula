@@ -6,7 +6,8 @@
         eType="#//Faculty" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Career">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="plan" upperBound="-1" eType="#//Plan"
         containment="true" eOpposite="#//Plan/career_parent"/>
   </eClassifiers>
@@ -16,7 +17,8 @@
         eType="#//Subject" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Faculty">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Careers" upperBound="-1"
         eType="#//Career" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="FacultyCU" upperBound="-1"
@@ -49,9 +51,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Requirement" eType="#//Requirement"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Course" upperBound="-1"
-        eType="#//Course" containment="true"/>
+        eType="#//Course" containment="true" eOpposite="#//Course/curricularunit"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ExamEvaluation" upperBound="-1"
-        eType="#//ExamEvaluation" containment="true"/>
+        eType="#//ExamEvaluation" containment="true" eOpposite="#//ExamEvaluation/curricularunit"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SomeOf" eSuperTypes="#//Requirement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="N" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -93,12 +95,20 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Year" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Edition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CourseEvaluation" upperBound="-1"
-        eType="#//CourseEvaluation" containment="true"/>
+        eType="#//CourseEvaluation" containment="true" eOpposite="#//CourseEvaluation/course"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="curricularunit" lowerBound="1"
+        eType="#//CurricularUnit" eOpposite="#//CurricularUnit/Course"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Evaluation" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExamEvaluation" eSuperTypes="#//Evaluation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExamEvaluation" eSuperTypes="#//Evaluation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="curricularunit" lowerBound="1"
+        eType="#//CurricularUnit" eOpposite="#//CurricularUnit/ExamEvaluation"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EvaluacionExamen" eSuperTypes="#//Evaluation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CourseEvaluation" eSuperTypes="#//Evaluation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CourseEvaluation" eSuperTypes="#//Evaluation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="course" lowerBound="1"
+        eType="#//Course" eOpposite="#//Course/CourseEvaluation"/>
+  </eClassifiers>
 </ecore:EPackage>

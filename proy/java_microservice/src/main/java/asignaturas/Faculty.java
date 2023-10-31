@@ -32,7 +32,7 @@ public interface Faculty extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see asignaturas.AsignaturasPackage#getFaculty_Name()
-	 * @model required="true"
+	 * @model id="true" required="true"
 	 * @generated
 	 */
 	String getName();

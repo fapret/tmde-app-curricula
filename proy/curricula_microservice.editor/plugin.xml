@@ -34,4 +34,31 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated estudiante -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="Estudiantes.presentation.EstudiantesModelWizardID"
+            name="%_UI_EstudiantesModelWizard_label"
+            class="Estudiantes.presentation.EstudiantesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EstudiantesModelFile.gif">
+         <description>%_UI_EstudiantesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated estudiante -->
+      <editor
+            id="Estudiantes.presentation.EstudiantesEditorID"
+            name="%_UI_EstudiantesEditor_label"
+            icon="icons/full/obj16/EstudiantesModelFile.gif"
+            extensions="estudiantes"
+            class="Estudiantes.presentation.EstudiantesEditor"
+            contributorClass="Estudiantes.presentation.EstudiantesActionBarContributor">
+      </editor>
+   </extension>
 </plugin>

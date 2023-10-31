@@ -76,12 +76,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Course/Year"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Course/Edition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Course/CourseEvaluation"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference asignaturas.ecore#//Course/curricularunit"/>
     </genClasses>
     <genClasses image="false" ecoreClass="asignaturas.ecore#//Evaluation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Evaluation/date"/>
     </genClasses>
-    <genClasses ecoreClass="asignaturas.ecore#//ExamEvaluation"/>
+    <genClasses ecoreClass="asignaturas.ecore#//ExamEvaluation">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference asignaturas.ecore#//ExamEvaluation/curricularunit"/>
+    </genClasses>
     <genClasses ecoreClass="asignaturas.ecore#//EvaluacionExamen"/>
-    <genClasses ecoreClass="asignaturas.ecore#//CourseEvaluation"/>
+    <genClasses ecoreClass="asignaturas.ecore#//CourseEvaluation">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference asignaturas.ecore#//CourseEvaluation/course"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

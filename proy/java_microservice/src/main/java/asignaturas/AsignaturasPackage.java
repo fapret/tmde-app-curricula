@@ -38,7 +38,7 @@ public interface AsignaturasPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.example.org/asignaturas";
+	String eNS_URI = "asignaturasURI";
 
 	/**
 	 * The package namespace name.
@@ -911,13 +911,22 @@ public interface AsignaturasPackage extends EPackage {
 	int COURSE__COURSE_EVALUATION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Curricularunit</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE__CURRICULARUNIT = 3;
+
+	/**
 	 * The number of structural features of the '<em>Course</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_FEATURE_COUNT = 3;
+	int COURSE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Course</em>' class.
@@ -985,13 +994,22 @@ public interface AsignaturasPackage extends EPackage {
 	int EXAM_EVALUATION__DATE = EVALUATION__DATE;
 
 	/**
+	 * The feature id for the '<em><b>Curricularunit</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXAM_EVALUATION__CURRICULARUNIT = EVALUATION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Exam Evaluation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXAM_EVALUATION_FEATURE_COUNT = EVALUATION_FEATURE_COUNT + 0;
+	int EXAM_EVALUATION_FEATURE_COUNT = EVALUATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Exam Evaluation</em>' class.
@@ -1059,13 +1077,22 @@ public interface AsignaturasPackage extends EPackage {
 	int COURSE_EVALUATION__DATE = EVALUATION__DATE;
 
 	/**
+	 * The feature id for the '<em><b>Course</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE_EVALUATION__COURSE = EVALUATION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Course Evaluation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_EVALUATION_FEATURE_COUNT = EVALUATION_FEATURE_COUNT + 0;
+	int COURSE_EVALUATION_FEATURE_COUNT = EVALUATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Course Evaluation</em>' class.
@@ -1666,6 +1693,17 @@ public interface AsignaturasPackage extends EPackage {
 	EReference getCourse_CourseEvaluation();
 
 	/**
+	 * Returns the meta object for the container reference '{@link asignaturas.Course#getCurricularunit <em>Curricularunit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Curricularunit</em>'.
+	 * @see asignaturas.Course#getCurricularunit()
+	 * @see #getCourse()
+	 * @generated
+	 */
+	EReference getCourse_Curricularunit();
+
+	/**
 	 * Returns the meta object for class '{@link asignaturas.Evaluation <em>Evaluation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1697,6 +1735,17 @@ public interface AsignaturasPackage extends EPackage {
 	EClass getExamEvaluation();
 
 	/**
+	 * Returns the meta object for the container reference '{@link asignaturas.ExamEvaluation#getCurricularunit <em>Curricularunit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Curricularunit</em>'.
+	 * @see asignaturas.ExamEvaluation#getCurricularunit()
+	 * @see #getExamEvaluation()
+	 * @generated
+	 */
+	EReference getExamEvaluation_Curricularunit();
+
+	/**
 	 * Returns the meta object for class '{@link asignaturas.EvaluacionExamen <em>Evaluacion Examen</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1715,6 +1764,17 @@ public interface AsignaturasPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCourseEvaluation();
+
+	/**
+	 * Returns the meta object for the container reference '{@link asignaturas.CourseEvaluation#getCourse <em>Course</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Course</em>'.
+	 * @see asignaturas.CourseEvaluation#getCourse()
+	 * @see #getCourseEvaluation()
+	 * @generated
+	 */
+	EReference getCourseEvaluation_Course();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2214,6 +2274,14 @@ public interface AsignaturasPackage extends EPackage {
 		EReference COURSE__COURSE_EVALUATION = eINSTANCE.getCourse_CourseEvaluation();
 
 		/**
+		 * The meta object literal for the '<em><b>Curricularunit</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COURSE__CURRICULARUNIT = eINSTANCE.getCourse_Curricularunit();
+
+		/**
 		 * The meta object literal for the '{@link asignaturas.impl.EvaluationImpl <em>Evaluation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2242,6 +2310,14 @@ public interface AsignaturasPackage extends EPackage {
 		EClass EXAM_EVALUATION = eINSTANCE.getExamEvaluation();
 
 		/**
+		 * The meta object literal for the '<em><b>Curricularunit</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXAM_EVALUATION__CURRICULARUNIT = eINSTANCE.getExamEvaluation_Curricularunit();
+
+		/**
 		 * The meta object literal for the '{@link asignaturas.impl.EvaluacionExamenImpl <em>Evaluacion Examen</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2260,6 +2336,14 @@ public interface AsignaturasPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COURSE_EVALUATION = eINSTANCE.getCourseEvaluation();
+
+		/**
+		 * The meta object literal for the '<em><b>Course</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COURSE_EVALUATION__COURSE = eINSTANCE.getCourseEvaluation_Course();
 
 	}
 
