@@ -24,7 +24,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PlanInscription">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Plan" upperBound="-1" eType="ecore:EClass asignaturas.ecore#//Plan"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Plan" lowerBound="1" eType="ecore:EClass asignaturas.ecore#//Plan"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PlanCourseInscription"
         upperBound="-1" eType="#//CourseInscription" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PlanStudentEvaluation"

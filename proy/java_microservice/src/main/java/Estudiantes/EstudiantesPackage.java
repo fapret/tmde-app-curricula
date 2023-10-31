@@ -260,7 +260,7 @@ public interface EstudiantesPackage extends EPackage {
 	int PLAN_INSCRIPTION__DATE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Plan</b></em>' reference list.
+	 * The feature id for the '<em><b>Plan</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -455,10 +455,10 @@ public interface EstudiantesPackage extends EPackage {
 	EAttribute getPlanInscription_Date();
 
 	/**
-	 * Returns the meta object for the reference list '{@link Estudiantes.PlanInscription#getPlan <em>Plan</em>}'.
+	 * Returns the meta object for the reference '{@link Estudiantes.PlanInscription#getPlan <em>Plan</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Plan</em>'.
+	 * @return the meta object for the reference '<em>Plan</em>'.
 	 * @see Estudiantes.PlanInscription#getPlan()
 	 * @see #getPlanInscription()
 	 * @generated
@@ -633,7 +633,7 @@ public interface EstudiantesPackage extends EPackage {
 		EAttribute PLAN_INSCRIPTION__DATE = eINSTANCE.getPlanInscription_Date();
 
 		/**
-		 * The meta object literal for the '<em><b>Plan</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Plan</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
