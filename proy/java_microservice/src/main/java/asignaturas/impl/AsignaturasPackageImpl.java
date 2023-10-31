@@ -802,6 +802,16 @@ public class AsignaturasPackageImpl extends EPackageImpl implements AsignaturasP
 	 * @generated
 	 */
 	@Override
+	public EReference getCourse_Curricularunit() {
+		return (EReference)courseEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getEvaluation() {
 		return evaluationEClass;
 	}
@@ -832,6 +842,16 @@ public class AsignaturasPackageImpl extends EPackageImpl implements AsignaturasP
 	 * @generated
 	 */
 	@Override
+	public EReference getExamEvaluation_Curricularunit() {
+		return (EReference)examEvaluationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getEvaluacionExamen() {
 		return evaluacionExamenEClass;
 	}
@@ -844,6 +864,16 @@ public class AsignaturasPackageImpl extends EPackageImpl implements AsignaturasP
 	@Override
 	public EClass getCourseEvaluation() {
 		return courseEvaluationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCourseEvaluation_Course() {
+		return (EReference)courseEvaluationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -946,15 +976,18 @@ public class AsignaturasPackageImpl extends EPackageImpl implements AsignaturasP
 		createEAttribute(courseEClass, COURSE__YEAR);
 		createEAttribute(courseEClass, COURSE__EDITION);
 		createEReference(courseEClass, COURSE__COURSE_EVALUATION);
+		createEReference(courseEClass, COURSE__CURRICULARUNIT);
 
 		evaluationEClass = createEClass(EVALUATION);
 		createEAttribute(evaluationEClass, EVALUATION__DATE);
 
 		examEvaluationEClass = createEClass(EXAM_EVALUATION);
+		createEReference(examEvaluationEClass, EXAM_EVALUATION__CURRICULARUNIT);
 
 		evaluacionExamenEClass = createEClass(EVALUACION_EXAMEN);
 
 		courseEvaluationEClass = createEClass(COURSE_EVALUATION);
+		createEReference(courseEvaluationEClass, COURSE_EVALUATION__COURSE);
 	}
 
 	/**
@@ -1003,7 +1036,7 @@ public class AsignaturasPackageImpl extends EPackageImpl implements AsignaturasP
 		initEReference(getRoot_Faculty(), this.getFaculty(), null, "Faculty", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(careerEClass, Career.class, "Career", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCareer_Name(), ecorePackage.getEString(), "Name", null, 1, 1, Career.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCareer_Name(), ecorePackage.getEString(), "Name", null, 1, 1, Career.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCareer_Plan(), this.getPlan(), this.getPlan_Career_parent(), "plan", null, 0, -1, Career.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(creditsPlanEClass, CreditsPlan.class, "CreditsPlan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1011,7 +1044,7 @@ public class AsignaturasPackageImpl extends EPackageImpl implements AsignaturasP
 		initEReference(getCreditsPlan_GroupOfSubjects(), this.getSubject(), null, "GroupOfSubjects", null, 0, -1, CreditsPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(facultyEClass, Faculty.class, "Faculty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFaculty_Name(), ecorePackage.getEString(), "Name", null, 1, 1, Faculty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFaculty_Name(), ecorePackage.getEString(), "Name", null, 1, 1, Faculty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFaculty_Careers(), this.getCareer(), null, "Careers", null, 0, -1, Faculty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFaculty_FacultyCU(), this.getCurricularUnit(), null, "FacultyCU", null, 0, -1, Faculty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1034,8 +1067,8 @@ public class AsignaturasPackageImpl extends EPackageImpl implements AsignaturasP
 		initEAttribute(getCurricularUnit_Cred(), ecorePackage.getEInt(), "Cred", null, 0, 1, CurricularUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCurricularUnit_Valid(), ecorePackage.getEBoolean(), "Valid", null, 0, 1, CurricularUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCurricularUnit_Requirement(), this.getRequirement(), null, "Requirement", null, 0, 1, CurricularUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCurricularUnit_Course(), this.getCourse(), null, "Course", null, 0, -1, CurricularUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCurricularUnit_ExamEvaluation(), this.getExamEvaluation(), null, "ExamEvaluation", null, 0, -1, CurricularUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCurricularUnit_Course(), this.getCourse(), this.getCourse_Curricularunit(), "Course", null, 0, -1, CurricularUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCurricularUnit_ExamEvaluation(), this.getExamEvaluation(), this.getExamEvaluation_Curricularunit(), "ExamEvaluation", null, 0, -1, CurricularUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(someOfEClass, SomeOf.class, "SomeOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSomeOf_N(), ecorePackage.getEInt(), "N", null, 1, 1, SomeOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1069,16 +1102,19 @@ public class AsignaturasPackageImpl extends EPackageImpl implements AsignaturasP
 		initEClass(courseEClass, Course.class, "Course", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCourse_Year(), ecorePackage.getEInt(), "Year", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourse_Edition(), ecorePackage.getEInt(), "Edition", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCourse_CourseEvaluation(), this.getCourseEvaluation(), null, "CourseEvaluation", null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCourse_CourseEvaluation(), this.getCourseEvaluation(), this.getCourseEvaluation_Course(), "CourseEvaluation", null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCourse_Curricularunit(), this.getCurricularUnit(), this.getCurricularUnit_Course(), "curricularunit", null, 1, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(evaluationEClass, Evaluation.class, "Evaluation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEvaluation_Date(), ecorePackage.getEDate(), "date", null, 0, 1, Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(examEvaluationEClass, ExamEvaluation.class, "ExamEvaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExamEvaluation_Curricularunit(), this.getCurricularUnit(), this.getCurricularUnit_ExamEvaluation(), "curricularunit", null, 1, 1, ExamEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(evaluacionExamenEClass, EvaluacionExamen.class, "EvaluacionExamen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(courseEvaluationEClass, CourseEvaluation.class, "CourseEvaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCourseEvaluation_Course(), this.getCourse(), this.getCourse_CourseEvaluation(), "course", null, 1, 1, CourseEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

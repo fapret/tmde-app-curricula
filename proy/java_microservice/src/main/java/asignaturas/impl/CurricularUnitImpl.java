@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -318,7 +318,7 @@ public class CurricularUnitImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public EList<Course> getCourse() {
 		if (course == null) {
-			course = new EObjectContainmentEList<Course>(Course.class, this, AsignaturasPackage.CURRICULAR_UNIT__COURSE);
+			course = new EObjectContainmentWithInverseEList<Course>(Course.class, this, AsignaturasPackage.CURRICULAR_UNIT__COURSE, AsignaturasPackage.COURSE__CURRICULARUNIT);
 		}
 		return course;
 	}
@@ -331,9 +331,26 @@ public class CurricularUnitImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public EList<ExamEvaluation> getExamEvaluation() {
 		if (examEvaluation == null) {
-			examEvaluation = new EObjectContainmentEList<ExamEvaluation>(ExamEvaluation.class, this, AsignaturasPackage.CURRICULAR_UNIT__EXAM_EVALUATION);
+			examEvaluation = new EObjectContainmentWithInverseEList<ExamEvaluation>(ExamEvaluation.class, this, AsignaturasPackage.CURRICULAR_UNIT__EXAM_EVALUATION, AsignaturasPackage.EXAM_EVALUATION__CURRICULARUNIT);
 		}
 		return examEvaluation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AsignaturasPackage.CURRICULAR_UNIT__COURSE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCourse()).basicAdd(otherEnd, msgs);
+			case AsignaturasPackage.CURRICULAR_UNIT__EXAM_EVALUATION:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getExamEvaluation()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

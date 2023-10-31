@@ -142,11 +142,13 @@ public interface CurricularUnit extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Course</b></em>' containment reference list.
 	 * The list contents are of type {@link asignaturas.Course}.
+	 * It is bidirectional and its opposite is '{@link asignaturas.Course#getCurricularunit <em>Curricularunit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Course</em>' containment reference list.
 	 * @see asignaturas.AsignaturasPackage#getCurricularUnit_Course()
-	 * @model containment="true"
+	 * @see asignaturas.Course#getCurricularunit
+	 * @model opposite="curricularunit" containment="true"
 	 * @generated
 	 */
 	EList<Course> getCourse();
@@ -154,11 +156,13 @@ public interface CurricularUnit extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Exam Evaluation</b></em>' containment reference list.
 	 * The list contents are of type {@link asignaturas.ExamEvaluation}.
+	 * It is bidirectional and its opposite is '{@link asignaturas.ExamEvaluation#getCurricularunit <em>Curricularunit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Exam Evaluation</em>' containment reference list.
 	 * @see asignaturas.AsignaturasPackage#getCurricularUnit_ExamEvaluation()
-	 * @model containment="true"
+	 * @see asignaturas.ExamEvaluation#getCurricularunit
+	 * @model opposite="curricularunit" containment="true"
 	 * @generated
 	 */
 	EList<ExamEvaluation> getExamEvaluation();

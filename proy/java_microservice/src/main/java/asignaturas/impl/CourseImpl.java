@@ -5,6 +5,7 @@ package asignaturas.impl;
 import asignaturas.AsignaturasPackage;
 import asignaturas.Course;
 import asignaturas.CourseEvaluation;
+import asignaturas.CurricularUnit;
 
 import java.util.Collection;
 
@@ -19,7 +20,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -33,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link asignaturas.impl.CourseImpl#getYear <em>Year</em>}</li>
  *   <li>{@link asignaturas.impl.CourseImpl#getEdition <em>Edition</em>}</li>
  *   <li>{@link asignaturas.impl.CourseImpl#getCourseEvaluation <em>Course Evaluation</em>}</li>
+ *   <li>{@link asignaturas.impl.CourseImpl#getCurricularunit <em>Curricularunit</em>}</li>
  * </ul>
  *
  * @generated
@@ -161,9 +164,71 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	@Override
 	public EList<CourseEvaluation> getCourseEvaluation() {
 		if (courseEvaluation == null) {
-			courseEvaluation = new EObjectContainmentEList<CourseEvaluation>(CourseEvaluation.class, this, AsignaturasPackage.COURSE__COURSE_EVALUATION);
+			courseEvaluation = new EObjectContainmentWithInverseEList<CourseEvaluation>(CourseEvaluation.class, this, AsignaturasPackage.COURSE__COURSE_EVALUATION, AsignaturasPackage.COURSE_EVALUATION__COURSE);
 		}
 		return courseEvaluation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CurricularUnit getCurricularunit() {
+		if (eContainerFeatureID() != AsignaturasPackage.COURSE__CURRICULARUNIT) return null;
+		return (CurricularUnit)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCurricularunit(CurricularUnit newCurricularunit, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newCurricularunit, AsignaturasPackage.COURSE__CURRICULARUNIT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCurricularunit(CurricularUnit newCurricularunit) {
+		if (newCurricularunit != eInternalContainer() || (eContainerFeatureID() != AsignaturasPackage.COURSE__CURRICULARUNIT && newCurricularunit != null)) {
+			if (EcoreUtil.isAncestor(this, newCurricularunit))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newCurricularunit != null)
+				msgs = ((InternalEObject)newCurricularunit).eInverseAdd(this, AsignaturasPackage.CURRICULAR_UNIT__COURSE, CurricularUnit.class, msgs);
+			msgs = basicSetCurricularunit(newCurricularunit, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AsignaturasPackage.COURSE__CURRICULARUNIT, newCurricularunit, newCurricularunit));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AsignaturasPackage.COURSE__COURSE_EVALUATION:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCourseEvaluation()).basicAdd(otherEnd, msgs);
+			case AsignaturasPackage.COURSE__CURRICULARUNIT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetCurricularunit((CurricularUnit)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -176,8 +241,24 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 		switch (featureID) {
 			case AsignaturasPackage.COURSE__COURSE_EVALUATION:
 				return ((InternalEList<?>)getCourseEvaluation()).basicRemove(otherEnd, msgs);
+			case AsignaturasPackage.COURSE__CURRICULARUNIT:
+				return basicSetCurricularunit(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case AsignaturasPackage.COURSE__CURRICULARUNIT:
+				return eInternalContainer().eInverseRemove(this, AsignaturasPackage.CURRICULAR_UNIT__COURSE, CurricularUnit.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -194,6 +275,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return getEdition();
 			case AsignaturasPackage.COURSE__COURSE_EVALUATION:
 				return getCourseEvaluation();
+			case AsignaturasPackage.COURSE__CURRICULARUNIT:
+				return getCurricularunit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -217,6 +300,9 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				getCourseEvaluation().clear();
 				getCourseEvaluation().addAll((Collection<? extends CourseEvaluation>)newValue);
 				return;
+			case AsignaturasPackage.COURSE__CURRICULARUNIT:
+				setCurricularunit((CurricularUnit)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -238,6 +324,9 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			case AsignaturasPackage.COURSE__COURSE_EVALUATION:
 				getCourseEvaluation().clear();
 				return;
+			case AsignaturasPackage.COURSE__CURRICULARUNIT:
+				setCurricularunit((CurricularUnit)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -256,6 +345,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return edition != EDITION_EDEFAULT;
 			case AsignaturasPackage.COURSE__COURSE_EVALUATION:
 				return courseEvaluation != null && !courseEvaluation.isEmpty();
+			case AsignaturasPackage.COURSE__CURRICULARUNIT:
+				return getCurricularunit() != null;
 		}
 		return super.eIsSet(featureID);
 	}

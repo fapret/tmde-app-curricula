@@ -31,7 +31,7 @@ public interface Career extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see asignaturas.AsignaturasPackage#getCareer_Name()
-	 * @model required="true"
+	 * @model unique="false" required="true"
 	 * @generated
 	 */
 	String getName();
