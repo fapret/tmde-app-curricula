@@ -12,6 +12,8 @@ import Estudiantes.StudentEvaluation;
 
 import asignaturas.AsignaturasPackage;
 
+import asignaturas.impl.AsignaturasPackageImpl;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -107,14 +109,17 @@ public class EstudiantesPackageImpl extends EPackageImpl implements EstudiantesP
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		AsignaturasPackage.eINSTANCE.eClass();
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AsignaturasPackage.eNS_URI);
+		AsignaturasPackageImpl theAsignaturasPackage = (AsignaturasPackageImpl)(registeredPackage instanceof AsignaturasPackageImpl ? registeredPackage : AsignaturasPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theEstudiantesPackage.createPackageContents();
+		theAsignaturasPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theEstudiantesPackage.initializePackageContents();
+		theAsignaturasPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theEstudiantesPackage.freeze();
@@ -397,7 +402,7 @@ public class EstudiantesPackageImpl extends EPackageImpl implements EstudiantesP
 
 		initEClass(planInscriptionEClass, PlanInscription.class, "PlanInscription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPlanInscription_Date(), ecorePackage.getEDate(), "date", null, 0, 1, PlanInscription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlanInscription_Plan(), theAsignaturasPackage.getPlan(), null, "Plan", null, 0, -1, PlanInscription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlanInscription_Plan(), theAsignaturasPackage.getPlan(), null, "Plan", null, 1, 1, PlanInscription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlanInscription_PlanCourseInscription(), this.getCourseInscription(), null, "PlanCourseInscription", null, 0, -1, PlanInscription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlanInscription_PlanStudentEvaluation(), this.getStudentEvaluation(), null, "PlanStudentEvaluation", null, 0, -1, PlanInscription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -65,14 +64,14 @@ public class PlanInscriptionImpl extends MinimalEObjectImpl.Container implements
 	protected Date date = DATE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPlan() <em>Plan</em>}' reference list.
+	 * The cached value of the '{@link #getPlan() <em>Plan</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPlan()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Plan> plan;
+	protected Plan plan;
 
 	/**
 	 * The cached value of the '{@link #getPlanCourseInscription() <em>Plan Course Inscription</em>}' containment reference list.
@@ -142,11 +141,38 @@ public class PlanInscriptionImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
-	public EList<Plan> getPlan() {
-		if (plan == null) {
-			plan = new EObjectResolvingEList<Plan>(Plan.class, this, EstudiantesPackage.PLAN_INSCRIPTION__PLAN);
+	public Plan getPlan() {
+		if (plan != null && plan.eIsProxy()) {
+			InternalEObject oldPlan = (InternalEObject)plan;
+			plan = (Plan)eResolveProxy(oldPlan);
+			if (plan != oldPlan) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EstudiantesPackage.PLAN_INSCRIPTION__PLAN, oldPlan, plan));
+			}
 		}
 		return plan;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Plan basicGetPlan() {
+		return plan;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPlan(Plan newPlan) {
+		Plan oldPlan = plan;
+		plan = newPlan;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EstudiantesPackage.PLAN_INSCRIPTION__PLAN, oldPlan, plan));
 	}
 
 	/**
@@ -202,7 +228,8 @@ public class PlanInscriptionImpl extends MinimalEObjectImpl.Container implements
 			case EstudiantesPackage.PLAN_INSCRIPTION__DATE:
 				return getDate();
 			case EstudiantesPackage.PLAN_INSCRIPTION__PLAN:
-				return getPlan();
+				if (resolve) return getPlan();
+				return basicGetPlan();
 			case EstudiantesPackage.PLAN_INSCRIPTION__PLAN_COURSE_INSCRIPTION:
 				return getPlanCourseInscription();
 			case EstudiantesPackage.PLAN_INSCRIPTION__PLAN_STUDENT_EVALUATION:
@@ -224,8 +251,7 @@ public class PlanInscriptionImpl extends MinimalEObjectImpl.Container implements
 				setDate((Date)newValue);
 				return;
 			case EstudiantesPackage.PLAN_INSCRIPTION__PLAN:
-				getPlan().clear();
-				getPlan().addAll((Collection<? extends Plan>)newValue);
+				setPlan((Plan)newValue);
 				return;
 			case EstudiantesPackage.PLAN_INSCRIPTION__PLAN_COURSE_INSCRIPTION:
 				getPlanCourseInscription().clear();
@@ -251,7 +277,7 @@ public class PlanInscriptionImpl extends MinimalEObjectImpl.Container implements
 				setDate(DATE_EDEFAULT);
 				return;
 			case EstudiantesPackage.PLAN_INSCRIPTION__PLAN:
-				getPlan().clear();
+				setPlan((Plan)null);
 				return;
 			case EstudiantesPackage.PLAN_INSCRIPTION__PLAN_COURSE_INSCRIPTION:
 				getPlanCourseInscription().clear();
@@ -274,7 +300,7 @@ public class PlanInscriptionImpl extends MinimalEObjectImpl.Container implements
 			case EstudiantesPackage.PLAN_INSCRIPTION__DATE:
 				return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals(date);
 			case EstudiantesPackage.PLAN_INSCRIPTION__PLAN:
-				return plan != null && !plan.isEmpty();
+				return plan != null;
 			case EstudiantesPackage.PLAN_INSCRIPTION__PLAN_COURSE_INSCRIPTION:
 				return planCourseInscription != null && !planCourseInscription.isEmpty();
 			case EstudiantesPackage.PLAN_INSCRIPTION__PLAN_STUDENT_EVALUATION:

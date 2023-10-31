@@ -2,8 +2,6 @@
  */
 package Estudiantes.provider;
 
-import asignaturas.provider.AsignaturasEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -40,7 +38,6 @@ public final class EstudianteEditPlugin extends EMFPlugin {
 	public EstudianteEditPlugin() {
 		super
 		  (new ResourceLocator [] {
-		     AsignaturasEditPlugin.INSTANCE,
 		   });
 	}
 

@@ -2,8 +2,6 @@
  */
 package Estudiantes.presentation;
 
-import asignaturas.provider.AsignaturasEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
@@ -42,7 +40,6 @@ public final class EstudianteEditorPlugin extends EMFPlugin {
 	public EstudianteEditorPlugin() {
 		super
 			(new ResourceLocator [] {
-				AsignaturasEditPlugin.INSTANCE,
 			});
 	}
 

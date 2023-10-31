@@ -53,16 +53,26 @@ public interface PlanInscription extends EObject {
 	void setDate(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Plan</b></em>' reference list.
-	 * The list contents are of type {@link asignaturas.Plan}.
+	 * Returns the value of the '<em><b>Plan</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Plan</em>' reference list.
+	 * @return the value of the '<em>Plan</em>' reference.
+	 * @see #setPlan(Plan)
 	 * @see Estudiantes.EstudiantesPackage#getPlanInscription_Plan()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	EList<Plan> getPlan();
+	Plan getPlan();
+
+	/**
+	 * Sets the value of the '{@link Estudiantes.PlanInscription#getPlan <em>Plan</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Plan</em>' reference.
+	 * @see #getPlan()
+	 * @generated
+	 */
+	void setPlan(Plan value);
 
 	/**
 	 * Returns the value of the '<em><b>Plan Course Inscription</b></em>' containment reference list.
