@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faculty Query</title>
+</head>
+<body>
+<h1>Faculty Query</h1>
+<input type="text" id="facultyInput" placeholder="Faculty Name">
+<button onclick="consultarFacultad()">Query</button>
+<div id="resultado"></div>
+</body>
+</html>
+
+<script>function consultarFacultad() {
+const facultyName = document.getElementById("facultyInput").value;
+const url = `http://localhost:8080/curricula_microservice/Faculty?faculty=${facultyName}`;
+console.log(url)
+fetch(url)
+.then(response => response.json())
+.then(data => {
+    const resultadoDiv = document.getElementById("resultado");
+    resultadoDiv.innerHTML = "";
+
+    const name = data.Name;
+    const careers = data.Careers;
+    const facultyCU = data.FacultyCU;
+
+    resultadoDiv.innerHTML += `<p><strong>Faculty name:</strong> ${name}</p>`;
+    resultadoDiv.innerHTML += `<p><strong>Careers:</strong> ${careers.join(", ")}</p>`;
+    resultadoDiv.innerHTML += `<p><strong>Curricular Units:</strong> ${facultyCU.join(", ")}</p>`;
+})
+.catch(error => {
+    console.error("Error al consultar la API:", error);
+    const resultadoDiv = document.getElementById("resultado");
+    resultadoDiv.innerHTML = "Error al consultar la API: "+error;
+});
+}</script>

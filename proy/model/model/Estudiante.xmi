@@ -6,23 +6,32 @@
     xmlns:EstudiantesURI="EstudiantesURI"
     xmlns:asignaturas="asignaturasURI"
     xsi:schemaLocation="EstudiantesURI estudiante.ecore asignaturasURI asignaturas.ecore">
-  <Student Id="1"
-      Name="fulanit">
+  <Student Id="1234567"
+      Name="juan">
     <StudentPlanInscription
-        date="2021-12-11T21:00:00.000-0300">
+        date="2020-01-01T00:00:00.000-0300">
       <Plan
           xsi:type="asignaturas:CreditsPlan"
           href="model.xmi#//@Faculty.0/@Careers.0/@plan.0"/>
       <PlanCourseInscription
-          date="2021-05-11T21:00:00.000-0300">
-        <CUCourse
-            href="model.xmi#//@Faculty.0/@FacultyCU.0/@Course.1"/>
-      </PlanCourseInscription>
+          date="2023-01-01T00:00:00.000-0300"/>
       <PlanStudentEvaluation
-          grade="9">
+          grade="3">
+        <evaluation
+            xsi:type="asignaturas:ExamEvaluation"
+            href="model.xmi#//@Faculty.0/@FacultyCU.0/@ExamEvaluation.0"/>
+      </PlanStudentEvaluation>
+      <PlanStudentEvaluation
+          grade="3">
         <evaluation
             xsi:type="asignaturas:CourseEvaluation"
             href="model.xmi#//@Faculty.0/@FacultyCU.0/@Course.0/@CourseEvaluation.0"/>
+      </PlanStudentEvaluation>
+      <PlanStudentEvaluation
+          grade="3">
+        <evaluation
+            xsi:type="asignaturas:CourseEvaluation"
+            href="model.xmi#//@Faculty.0/@FacultyCU.54/@Course.0/@CourseEvaluation.0"/>
       </PlanStudentEvaluation>
     </StudentPlanInscription>
   </Student>

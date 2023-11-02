@@ -9,19 +9,19 @@ import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
- * This is the central singleton for the Asignaturas editor plugin.
+ * This is the central singleton for the asignaturas editor plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class AsignaturasEditorPlugin extends EMFPlugin {
+public final class asignaturasEditorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final AsignaturasEditorPlugin INSTANCE = new AsignaturasEditorPlugin();
+	public static final asignaturasEditorPlugin INSTANCE = new asignaturasEditorPlugin();
 	
 	/**
 	 * Keep track of the singleton.
@@ -37,7 +37,7 @@ public final class AsignaturasEditorPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AsignaturasEditorPlugin() {
+	public asignaturasEditorPlugin() {
 		super
 			(new ResourceLocator [] {
 			});

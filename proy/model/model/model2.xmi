@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<asignaturas:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:asignaturas="asignaturasURI" xsi:schemaLocation="asignaturasURI asignaturas.ecore">
+  <Faculty Name="fing">
+    <Careers Name="comp">
+      <plan xsi:type="asignaturas:CreditsPlan" Year="1997" Valid="true" MinCredits="450">
+        <GroupOfSubjects Id="4550" Name="mates" SubjectCurricularUnit="GAL1 GAL2 CDIV CDIVV"/>
+      </plan>
+    </Careers>
+    <FacultyCU Id="GAL1" Name="geo alg lin 1" Cred="5" Valid="true">
+      <Course Year="2021">
+        <CourseEvaluation date="2021-12-04T21:00:00.000-0300"/>
+      </Course>
+      <Course Year="2021" Edition="1">
+        <CourseEvaluation date="2021-06-02T21:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation date="2021-12-27T21:00:00.000-0300"/>
+    </FacultyCU>
+    <FacultyCU Id="GAL2" Name="Geo Alg 2" Cred="40" Valid="true">
+      <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="GAL1"/>
+    </FacultyCU>
+    <FacultyCU Id="CDIV" Name="CDIV" Cred="13">
+      <ExamEvaluation date="2022-09-09T00:00:00.000-0300"/>
+    </FacultyCU>
+    <FacultyCU Id="CDIVV" Name="CDIVV" Cred="13">
+      <Requirement xsi:type="asignaturas:Exam" CurricularUnit="CDIV"/>
+    </FacultyCU>
+  </Faculty>
+</asignaturas:Root>
