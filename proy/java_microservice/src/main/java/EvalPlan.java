@@ -227,6 +227,9 @@ public class EvalPlan extends HttpServlet {
 				}
 			}
 		}
+		for (int i = 0; i < uc.size(); i++) 
+			uc.set(i, "\""+uc.get(i)+"\"");
+		
 		response.getWriter().append(uc.toString());
 	}
 

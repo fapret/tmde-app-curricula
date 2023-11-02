@@ -39,7 +39,7 @@ public class Facultad extends HttpServlet {
 		String responseText = "";
 		for (Faculty facultad : rootElement.getFaculty()) {
 			if(facultad.getName().equals(faculty)) {
-				response.getWriter().append("{ Name: \"").append(facultad.getName()).append("\", ").append("Careers: [");
+				response.getWriter().append("{ \"Name\": \"").append(facultad.getName()).append("\", ").append("\"Careers\": [");
 				Boolean auxBool = false;
 				for (Career carrera : facultad.getCareers()) {
 					responseText += "\"" + carrera.getName() + "\"" + ",";
@@ -51,7 +51,7 @@ public class Facultad extends HttpServlet {
 				response.getWriter().append(responseText);
 				responseText = "";
 				auxBool = false;
-				response.getWriter().append("], FacultyCU: [");
+				response.getWriter().append("], \"FacultyCU\": [");
 				for (CurricularUnit cu : facultad.getFacultyCU()) {
 					responseText += "\"" + cu.getId() + "\"" + ",";
 					auxBool = true;

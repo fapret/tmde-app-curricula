@@ -16,6 +16,7 @@ public class modelSingleton {
 		resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 		EPackage.Registry.INSTANCE.put(asignaturas.AsignaturasPackage.eNS_URI, asignaturas.AsignaturasPackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put(Estudiantes.EstudiantesPackage.eNS_URI, Estudiantes.EstudiantesPackage.eINSTANCE);
 		URI modelURI = URI.createFileURI("model.xmi");
 		Resource resource = resourceSet.getResource(modelURI, true);
 		
@@ -33,5 +34,9 @@ public class modelSingleton {
 	
 	public Root getRootElement() {
 		return rootElement;
+	}
+	
+	public ResourceSet getResourceSet() {
+		return resourceSet;
 	}
 }

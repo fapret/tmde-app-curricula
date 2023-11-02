@@ -1,4 +1,4 @@
-
+	
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -32,19 +32,19 @@ public class UnidadCurricular extends HttpServlet {
     private String getRequeriment(Requirement requerimiento) {
     	if(requerimiento instanceof NOT) {
     		NOT req = (NOT) requerimiento;
-    		return "NOT(" + getRequeriment(req.getRequirement()) + ")";
+    		return "{ \"NOT\": \"" + getRequeriment(req.getRequirement()) + "\"}";
     	}
     	if(requerimiento instanceof Coursed) {
     		Coursed req = (Coursed) requerimiento;
-    		return "Coursed(" + req.getCurricularUnit().getId() + ")";
+    		return "{ \"Coursed\": \"" + req.getCurricularUnit().getId() + "\"}";
     	}
     	if(requerimiento instanceof Exam) {
     		Exam req = (Exam) requerimiento;
-    		return "Exam(" + req.getCurricularUnit().getId() + ")";
+    		return "{ \"Exam\": \"" + req.getCurricularUnit().getId() + "\"}";
     	}
     	if(requerimiento instanceof RegisteredTo) {
     		RegisteredTo req = (RegisteredTo) requerimiento;
-    		return "RegisteredTo(" + req.getCurricularUnit().getId() + ")";
+    		return "{ \"RegisteredTo\": \"" + req.getCurricularUnit().getId() + "\"}";
     	}
     	if(requerimiento instanceof SomeOf) {
     		SomeOf req = (SomeOf) requerimiento;
@@ -53,15 +53,15 @@ public class UnidadCurricular extends HttpServlet {
     			reqs += getRequeriment(requer) + ",";
     		}
     		reqs = reqs.substring(0, reqs.lastIndexOf(','));
-    		return "SomeOf(" + reqs + ")";
+    		return "{ \"SomeOf\": \"" + reqs + "\"}";
     	}
     	if(requerimiento instanceof CreditsOnPlan) {
     		CreditsOnPlan req = (CreditsOnPlan) requerimiento;
-    		return "CreditsOnPlan(" + req.getCreditsPlan().getYear() + "," + req.getCred() + ")";
+    		return "{ \"CreditsOnPlan\": \"" + req.getCreditsPlan().getYear() + "," + req.getCred() + "\"}";
     	}
     	if(requerimiento instanceof CreditsOnSubject) {
     		CreditsOnSubject req = (CreditsOnSubject) requerimiento;
-    		return "CreditsOnSubject(" + req.getGroupOfSubjects().getId() + "," + req.getCred() + ")";
+    		return "{ \"CreditsOnSubject\": \"" + req.getGroupOfSubjects().getId() + "," + req.getCred() + "\"}";
     	}
     	return "";
     }
@@ -80,9 +80,9 @@ public class UnidadCurricular extends HttpServlet {
 			if(facultad.getName().equals(faculty)) {
 				for(CurricularUnit cu : facultad.getFacultyCU()) {
 					if(cu.getId().equals(curricularUnit)) {
-						responseText = "{ Id: \"" + cu.getId() + "\", Name: \"" + cu.getName() + "\", " + "Cred: " + cu.getCred() + ", ";
-						responseText += "Requirement: \"" + getRequeriment(cu.getRequirement()) + "\", ";
-						responseText += "ExamEvaluation: [";
+						responseText = "{ \"Id\": \"" + cu.getId() + "\", \"Name\": \"" + cu.getName() + "\", " + "\"Cred\": " + cu.getCred() + ", ";
+						responseText += "\"Requirement\": [" + getRequeriment(cu.getRequirement()) + "], ";
+						responseText += "\"ExamEvaluation\": [";
 						Boolean auxBool = false;
 						for(ExamEvaluation exam : cu.getExamEvaluation()) {
 							auxBool = true;
@@ -91,11 +91,11 @@ public class UnidadCurricular extends HttpServlet {
 						if(auxBool) {
 							responseText = responseText.substring(0, responseText.lastIndexOf(','));
 						}
-						responseText += "], Course: [";
+						responseText += "], \"Course\": [";
 						auxBool = false;
 						for(Course curso : cu.getCourse()) {
 							auxBool = true;
-							responseText += "{ Year: " + curso.getYear() + ", Edition: " + curso.getEdition() + ", CourseEvaluation: [";
+							responseText += "{ \"Year\": " + curso.getYear() + ", \"Edition\": " + curso.getEdition() + ", \"CourseEvaluation\": [";
 							Boolean auxBool2 = false;
 							for(CourseEvaluation ce : curso.getCourseEvaluation()) {
 								responseText += "\"" + ce.getDate().toString() + "\",";
@@ -111,6 +111,7 @@ public class UnidadCurricular extends HttpServlet {
 						}
 						responseText += "]}";
 						response.getWriter().append(responseText);
+						System.out.println(responseText);
 						return;
 					}
 				}

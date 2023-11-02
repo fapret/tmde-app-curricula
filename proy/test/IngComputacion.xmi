@@ -21,511 +21,511 @@
               Id="4083"
               Name="MATEMATICA"
               MinCredits="70">
-                <SubjectCurricularUnit
+                <FacultyCU
         Id="GAL1P"
         Name="GEOMETRIA Y ALGEBRA LINEAL 1 INTERACTIVA"
         Cred="9"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="SRN45"
         Name="MATEMATICA INICIAL-OPTATIVA"
         Cred="4"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CIM22"
         Name="TOPOLOGÍA"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="SRN14"
         Name="MATEMÁTICA DISCRETA I"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CIM11"
         Name="MATEMÁTICA DISCRETA 2"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CH201"
         Name="PROBABILIDAD Y ESTADÍSTICA"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CIM24"
         Name="ECUACIONES DIFERENCIALES"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CIM10"
         Name="CÁLCULO VECTORIAL"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="SRN09"
         Name="CÁLCULO II"
         Cred="16"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="SRN02"
         Name="CÁLCULO I"
         Cred="16"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="SRN10"
         Name="ALGEBRA LINEAL II"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="SRN03"
         Name="ALGEBRA LINEAL I"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1886"
         Name="TOPOLOGIA Y ANALISIS REAL"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1066"
         Name="FUNCIONES DE VARIABLE COMPLEJA"
         Cred="5"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1025T"
         Name="CREDITOS NO ACUM PROBABILIDAD Y ESTADISTICA"
         Cred="8"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="D87"
         Name="TEORÍA DE JUEGOS"
         Cred="6"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MI2"
         Name="MATEMATICA INICIAL"
         Cred="4"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="M09"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="9"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="M5"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="5"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="GP5"
         Name="ESTADISTICA ESPACIAL"
         Cred="5"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MA015"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="15"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MA48"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="48"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MA11"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="11"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MA020"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="20"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CAL12"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="2415"
         Name="CODIGOS PARA CORRECCION DE ERRORES"
         Cred="8"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CAL10"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CP7"
         Name="ANALISIS COMPLEJO"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CP1"
         Name="ANALISIS MATEMATICO I"
         Cred="33"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CP22"
         Name="ANALISIS MATEMATICO I (P. 74)"
         Cred="33"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CP44"
         Name="ANALISIS MATEMATICO I (1ER.SEM.)"
         Cred="17"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CP45"
         Name="ANALISIS MATEMATICO I (2DO.SEM.)"
         Cred="16"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CP6"
         Name="ANALISIS MATEMATICO II"
         Cred="33"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CP25"
         Name="ANALISIS MATEMATICO II (P. 74)"
         Cred="33"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CP48"
         Name="ANALISIS MATEMATICO II (1ER.SEM.)"
         Cred="16"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CP49"
         Name="ANALISIS MATEMATICO II (2DO.SEM.)"
         Cred="17"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1061"
         Name="CALCULO DIF. E INTEGRAL EN UNA VARIABLE"
         Cred="13"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1020"
         Name="CALCULO 1"
         Cred="16"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1070"
         Name="CALCULO 1"
         Cred="16"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1052"
         Name="CALCULO 1 (ANUAL)"
         Cred="16"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1062"
         Name="CALCULO DIF. E INTEGRAL EN VARIAS VARIABLES"
         Cred="13"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1022"
         Name="CALCULO 2"
         Cred="16"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1072"
         Name="CALCULO 2"
         Cred="16"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1063"
         Name="CALCULO VECTORIAL"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1024"
         Name="CALCULO 3"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1076"
         Name="CALCULO 3"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1021"
         Name="ALGEBRA LINEAL"
         Cred="18"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CP2"
         Name="GEOMETRIA Y ALGEBRA LINEAL"
         Cred="24"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CP23"
         Name="GEOMETRIA Y ALGEBRA LINEAL (P. 74)"
         Cred="24"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CP46"
         Name="GEOMETRIA Y ALGEBRA LINEAL (1ER.SEM.)"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CP47"
         Name="GEOMETRIA Y ALGEBRA LINEAL (2DO.SEM.)"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1030"
         Name="GEOMETRIA Y ALGEBRA LINEAL 1"
         Cred="9"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1071"
         Name="GEOMETRIA Y ALGEBRA LINEAL 1"
         Cred="9"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1053"
         Name="GEOMETRIA Y ALGEBRA LINEAL 1 (ANUAL)"
         Cred="9"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1031"
         Name="GEOMETRIA Y ALGEBRA LINEAL 2"
         Cred="9"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1058"
         Name="GEOMETRIA Y ALGEBRA LINEAL 2"
         Cred="9"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1012"
         Name="COMBINATORIA ANALITICA"
         Cred="8"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1065"
         Name="TEORIA DE COD. ALGEB. PARA CORR. DE ERRORES"
         Cred="7"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1059"
         Name="CRIPTOGRAFIA:ASPECTOS TEOR. Y PRACTICOS"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1049"
         Name="INFERENCIA II  (ESTADISTICA BAYESIANA)"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1450"
         Name="INT. A LA TEORIA DE LA INFORMACION"
         Cred="8"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="C461"
         Name="INT. A LA TOPOLOGIA"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="CP4"
         Name="LOGICA"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1027"
         Name="LOGICA"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1013"
         Name="LOGICA MODALIDAD AL REVES"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1010"
         Name="LOGICA Y COMPUTACION"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1023"
         Name="MATEMATICA DISCRETA 1"
         Cred="9"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1026"
         Name="MATEMATICA DISCRETA 2"
         Cred="9"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1064"
         Name="INT. A LAS ECUACIONES DIFERENCIALES"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1028"
         Name="ECUACIONES DIFERENCIALES"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1074"
         Name="ECUACIONES DIFERENCIALES"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1025"
         Name="PROBABILIDAD Y ESTADISTICA"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1075"
         Name="PROBABILIDAD Y ESTADISTICA"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1043"
         Name="TEORIA ALGEBRAICA DE GRAFOS"
         Cred="15"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1042"
         Name="TEORIA DE COD. ALGEB. PARA CORR. DE ERRORES"
         Cred="7"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1046"
         Name="TEORIA DE CODIGOS"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1011"
         Name="TEORIA DE CODIGOS AVANZADO"
         Cred="6"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1037"
         Name="TEORIA DE JUEGOS Y PROG. FUNCIONAL"
         Cred="7"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1034"
         Name="TEORIA DE JUEGOS Y PROG. FUNCIONAL"
         Cred="9"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="1233"
         Name="TUTORIA EN MATEMATICA"
         Cred="4"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="GAL7"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="7"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MAT10"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MAT33"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="33"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MAT6"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="6"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MAT8"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="8"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MA10"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="10"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MA15"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="15"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MA16"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="16"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MA20"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="20"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MA24"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="24"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MA25"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="25"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MA29"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="29"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MA3"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="3"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MA5"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="5"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MA9"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="9"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MC13"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="13"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MC3"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="12"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="MEC"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="9"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="M1"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="1"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="M12"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="12"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="M24"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="24"
         Valid="true"/>
-    <SubjectCurricularUnit
+    <FacultyCU
         Id="M9"
         Name="CREDITOS ASIGNADOS POR REVALIDA"
         Cred="9"
