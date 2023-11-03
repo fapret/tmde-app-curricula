@@ -99,6 +99,14 @@ public class EvalPlan extends HttpServlet {
     						return true;
     					}
     				}
+    				
+    				//un curso con nota más de 6 también cuenta como examen
+    				if(eval.getEvaluation() instanceof CourseEvaluation && eval.getGrade() >= 6) {
+    					CourseEvaluation c = (CourseEvaluation) eval.getEvaluation();
+    					if(c.getCourse().getCurricularunit().getId().equals(req.getCurricularUnit().getId())) {
+    						return true;
+    					}
+    				}
     			}
     		}
     		return false;
@@ -125,11 +133,12 @@ public class EvalPlan extends HttpServlet {
         			return true;//Corto si ya se que es true
         		}
     		}
-    		if(numOfTrue >= req.getN()) {
+    		
+    		if(numOfTrue >= req.getN()) 
     			return true;
-    		} else {
+    		 else 
     			return false;
-    		}
+    		
     	}
     	if(r instanceof CreditsOnPlan) {
     		CreditsOnPlan req = (CreditsOnPlan) r;

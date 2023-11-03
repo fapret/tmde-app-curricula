@@ -53,7 +53,7 @@ public class UnidadCurricular extends HttpServlet {
     			reqs += getRequeriment(requer) + ",";
     		}
     		reqs = reqs.substring(0, reqs.lastIndexOf(','));
-    		return "{ \"SomeOf\": \"" + reqs + "\"}";
+    		return "{ \"SomeOf\": ["+String.valueOf(req.getN())+", "+ reqs + "]}";
     	}
     	if(requerimiento instanceof CreditsOnPlan) {
     		CreditsOnPlan req = (CreditsOnPlan) requerimiento;
