@@ -84,6 +84,14 @@ public class EvalUC extends HttpServlet {
     						return true;
     					}
     				}
+    				
+    				//un curso con nota más de 6 también cuenta como examen
+    				if(eval.getEvaluation() instanceof CourseEvaluation && eval.getGrade() >= 6) {
+    					CourseEvaluation c = (CourseEvaluation) eval.getEvaluation();
+    					if(c.getCourse().getCurricularunit().getId().equals(req.getCurricularUnit().getId())) {
+    						return true;
+    					}
+    				}
     			}
     		}
     		return false;

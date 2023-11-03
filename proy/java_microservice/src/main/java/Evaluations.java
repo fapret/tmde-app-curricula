@@ -89,7 +89,7 @@ public class Evaluations extends HttpServlet {
 						for (asignaturas.Plan p : carrera.getPlan()) {
 							if(Integer.toString(p.getYear()).equals(plan)) {
 								for (PlanInscription i : estudiante.getStudentPlanInscription()) {
-									if (i.getPlan() == p) {
+									if (i.getPlan().equals(p)) {
 										for (StudentEvaluation se : i.getPlanStudentEvaluation()) {
 											
 											if (se.getEvaluation() instanceof CourseEvaluation && se.getGrade() >= 3) {
