@@ -32,7 +32,7 @@
             href="model.xmi#//@Faculty.0/@FacultyCU.0/@Course.0/@CourseEvaluation.0"/>
       </PlanStudentEvaluation>
       <PlanStudentEvaluation
-          grade="3">
+          grade="7">
         <evaluation
             xsi:type="asignaturas:CourseEvaluation"
             href="model.xmi#//@Faculty.0/@FacultyCU.1/@Course.0/@CourseEvaluation.0"/>
@@ -62,7 +62,7 @@
             href="model.xmi#//@Faculty.0/@FacultyCU.6/@ExamEvaluation.0"/>
       </PlanStudentEvaluation>
       <PlanStudentEvaluation
-          grade="4">
+          grade="9">
         <evaluation
             xsi:type="asignaturas:CourseEvaluation"
             href="model.xmi#//@Faculty.0/@FacultyCU.4/@Course.0/@CourseEvaluation.0"/>
