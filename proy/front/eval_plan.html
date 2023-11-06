@@ -1,6 +1,6 @@
 <html lang="es">
 <head>
-    <title>test</title>
+    <title>Subjects Graph</title>
     <script
             type="text/javascript"
             src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"
@@ -17,9 +17,9 @@
 <div id="mynetwork">
     <form method="POST" id="eval_plan" enctype="multipart/form-data" action="http://localhost:8080/curricula_microservice/Faculty/Carrera/Plan/eval">
         <input id="file" name="file" type="file" />
-        <input id="faculty" name="faculty" type="text" />
-        <input id="career" name="career" type="text" />
-        <input id="plan" name="plan" type="text" />
+        <input id="faculty" value="Faculty" name="faculty" type="text" />
+        <input id="career" value="Career" name="career" type="text" />
+        <input id="plan" value="Plan" name="plan" type="text" />
         <button type="submit">Send</button>
     </form>
 </div>
