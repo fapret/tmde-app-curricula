@@ -1,462 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<asignaturas:Root
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:asignaturas="asignaturasURI"
-    xsi:schemaLocation="asignaturasURI asignaturas.ecore">
+<asignaturas:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:asignaturas="asignaturasURI" xsi:schemaLocation="asignaturasURI asignaturas.ecore">
   <Faculty Name="FING">
-    <Careers
-        Name="Ing. en Computación">
-      <plan
-          xsi:type="asignaturas:CreditsPlan"
-          Year="1997"
-          Valid="true"
-          MinCredits="450">
-        <GroupOfSubjects
-            Name="MATERIAS BASICAS"
-            MinCredits="80">
-          <GroupOfSubjects
-              Name="MATEMATICA"
-              MinCredits="70"
-              SubjectCurricularUnit="GAL1 GAL2 CDIV CDIVV PYE MD1 MD2 LOGICA"/>
-          <GroupOfSubjects
-              Name="CIENCIAS EXPERIMENTALES"
-              MinCredits="10"/>
+    <Careers Name="Ing. en Computación">
+      <plan xsi:type="asignaturas:CreditsPlan" Year="1997" Valid="true" MinCredits="450">
+        <GroupOfSubjects Name="MATERIAS BASICAS" MinCredits="80">
+          <GroupOfSubjects Name="MATEMATICA" MinCredits="70" SubjectCurricularUnit="GAL1 GAL2 CDIV CDIVV PYE MD1 MD2 LOGICA"/>
+          <GroupOfSubjects Name="CIENCIAS EXPERIMENTALES" MinCredits="10"/>
         </GroupOfSubjects>
-        <GroupOfSubjects
-            Name="BASICO-TEC,TECNICAS E INTEG."
-            MinCredits="220">
-          <GroupOfSubjects
-              Name="PROGRAMACION"
-              MinCredits="60"
-              SubjectCurricularUnit="P1 P2 P3 P4 PROGFUN PROLOG TEOLENG"/>
-          <GroupOfSubjects
-              Name="ARQUIT, S.OP. Y REDES DE COMP."
-              MinCredits="30"
-              SubjectCurricularUnit="ARQCOMP SISTOPER REDESCOMP"/>
-          <GroupOfSubjects
-              Name="INGENIERIA DE SOFTWARE"
-              MinCredits="10"
-              SubjectCurricularUnit="IIS"/>
-          <GroupOfSubjects
-              Name="A.INTEG,TALLERES,PASANT.Y PROY"
-              SubjectCurricularUnit="TPROG PIS"/>
-          <GroupOfSubjects
-              Name="B.DATOS Y SIST.DE INFORMACION"
-              MinCredits="10"
-              SubjectCurricularUnit="FBD"/>
-          <GroupOfSubjects
-              Name="CALCULO NUMERICO Y SIMBOLICO"
-              MinCredits="8"
-              SubjectCurricularUnit="METNUM"/>
+        <GroupOfSubjects Name="BASICO-TEC,TECNICAS E INTEG." MinCredits="220">
+          <GroupOfSubjects Name="PROGRAMACION" MinCredits="60" SubjectCurricularUnit="P1 P2 P3 P4 PROGFUN PROLOG TEOLENG"/>
+          <GroupOfSubjects Name="ARQUIT, S.OP. Y REDES DE COMP." MinCredits="30" SubjectCurricularUnit="ARQCOMP SISTOPER REDESCOMP"/>
+          <GroupOfSubjects Name="INGENIERIA DE SOFTWARE" MinCredits="10" SubjectCurricularUnit="IIS"/>
+          <GroupOfSubjects Name="A.INTEG,TALLERES,PASANT.Y PROY" SubjectCurricularUnit="TPROG PIS"/>
+          <GroupOfSubjects Name="B.DATOS Y SIST.DE INFORMACION" MinCredits="10" SubjectCurricularUnit="FBD"/>
+          <GroupOfSubjects Name="CALCULO NUMERICO Y SIMBOLICO" MinCredits="8" SubjectCurricularUnit="METNUM"/>
         </GroupOfSubjects>
-        <GroupOfSubjects
-            Name="INVESTIGACIÓN OPERATIVA"
-            MinCredits="10"
-            SubjectCurricularUnit="IIO"/>
+        <GroupOfSubjects Name="INVESTIGACIÓN OPERATIVA" MinCredits="10" SubjectCurricularUnit="IIO"/>
       </plan>
     </Careers>
-    <FacultyCU
-        Id="GAL1"
-        Name="GAL 1"
-        Cred="9">
-      <Course
-          Year="2020"
-          Edition="1">
-        <CourseEvaluation
-            date="0001-01-01T00:00:00.000-0300"/>
+    <FacultyCU Id="GAL1" Name="GAL 1" Cred="9">
+      <Course Year="2020" Edition="1">
+        <CourseEvaluation date="0001-01-01T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
-    <FacultyCU
-        Id="GAL2"
-        Name="GAL 2"
-        Cred="9">
-      <Requirement
-          xsi:type="asignaturas:Coursed"
-          CurricularUnit="GAL1"/>
-      <Course
-          Year="2020"
-          Edition="2">
-        <CourseEvaluation
-            date="0001-01-02T00:00:00.000-0300"/>
+    <FacultyCU Id="GAL2" Name="GAL 2" Cred="9">
+      <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="GAL1"/>
+      <Course Year="2020" Edition="2">
+        <CourseEvaluation date="0001-01-02T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
-    <FacultyCU
-        Id="CDIV"
-        Name="CDIV"
-        Cred="13">
-      <Course
-          Year="2">
-        <CourseEvaluation
-            date="0009-09-09T00:00:00.000-0300"/>
+    <FacultyCU Id="CDIV" Name="CDIV" Cred="13">
+      <Course Year="2">
+        <CourseEvaluation date="0009-09-09T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
-    <FacultyCU
-        Id="CDIVV"
-        Name="CDIVV"
-        Cred="13">
-      <Requirement
-          xsi:type="asignaturas:Coursed"
-          CurricularUnit="CDIV"/>
-      <Course
-          Year="3">
-        <CourseEvaluation
-            date="0008-08-08T00:00:00.000-0300"/>
+    <FacultyCU Id="CDIVV" Name="CDIVV" Cred="13">
+      <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="CDIV"/>
+      <Course Year="3">
+        <CourseEvaluation date="0008-08-08T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
-    <FacultyCU
-        Id="PYE"
-        Name="P. y E."
-        Cred="10">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="3">
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="GAL1"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="CDIV"/>
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="CDIVV"/>
+    <FacultyCU Id="PYE" Name="P. y E." Cred="10">
+      <Requirement xsi:type="asignaturas:SomeOf" N="3">
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="GAL1"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="CDIV"/>
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="CDIVV"/>
       </Requirement>
-      <Course
-          Year="4">
-        <CourseEvaluation
-            date="0007-07-07T00:00:00.000-0300"/>
+      <Course Year="4">
+        <CourseEvaluation date="0007-07-07T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
-    <FacultyCU
-        Id="MD1"
-        Name="M. Discreta 1"
-        Cred="9">
-      <Course
-          Year="5">
-        <CourseEvaluation
-            date="0006-06-06T00:00:00.000-0300"/>
+    <FacultyCU Id="MD1" Name="M. Discreta 1" Cred="9">
+      <Course Year="5">
+        <CourseEvaluation date="0006-06-06T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
-    <FacultyCU
-        Id="MD2"
-        Name="M. Discreta 2"
-        Cred="9">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="2">
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="GAL1"/>
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="MD1"/>
+    <FacultyCU Id="MD2" Name="M. Discreta 2" Cred="9">
+      <Requirement xsi:type="asignaturas:SomeOf" N="2">
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="GAL1"/>
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="MD1"/>
       </Requirement>
-      <ExamEvaluation
-          date="0005-05-05T00:00:00.000-0300"/>
+      <ExamEvaluation date="0005-05-05T00:00:00.000-0300"/>
     </FacultyCU>
-    <FacultyCU
-        Id="LOGICA"
-        Name="Lógica"
-        Cred="12">
-      <Requirement
-          xsi:type="asignaturas:Coursed"
-          CurricularUnit="MD1"/>
+    <FacultyCU Id="LOGICA" Name="Lógica" Cred="12">
+      <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="MD1"/>
+      <Course Year="9">
+        <CourseEvaluation date="0012-01-01T00:00:00.000-0300"/>
+      </Course>
     </FacultyCU>
-    <FacultyCU
-        Id="IIO"
-        Name="IIO"
-        Cred="10">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="5">
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="GAL1"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="GAL2"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="CDIV"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="CDIVV"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="PYE"/>
+    <FacultyCU Id="IIO" Name="IIO" Cred="10">
+      <Requirement xsi:type="asignaturas:SomeOf" N="5">
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="GAL1"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="GAL2"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="CDIV"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="CDIVV"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="PYE"/>
       </Requirement>
     </FacultyCU>
-    <FacultyCU
-        Id="P1"
-        Name="Programación 1"
-        Cred="10"/>
-    <FacultyCU
-        Id="P2"
-        Name="Programación 2"
-        Cred="12">
-      <Requirement
-          xsi:type="asignaturas:Coursed"
-          CurricularUnit="P1"/>
+    <FacultyCU Id="P1" Name="Programación 1" Cred="10">
+      <Course Year="10">
+        <CourseEvaluation date="0013-01-01T00:00:00.000-0300"/>
+      </Course>
     </FacultyCU>
-    <FacultyCU
-        Id="P3"
-        Name="Programación 3"
-        Cred="15">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="4">
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="PYE"/>
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="P2"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="MD1"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="P1"/>
+    <FacultyCU Id="P2" Name="Programación 2" Cred="12">
+      <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="P1"/>
+      <Course>
+        <CourseEvaluation date="0014-01-01T00:00:00.000-0300"/>
+      </Course>
+    </FacultyCU>
+    <FacultyCU Id="P3" Name="Programación 3" Cred="15">
+      <Requirement xsi:type="asignaturas:SomeOf" N="4">
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="PYE"/>
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="P2"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="MD1"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="P1"/>
       </Requirement>
     </FacultyCU>
-    <FacultyCU
-        Id="P4"
-        Name="Programación 4"
-        Cred="15">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="4">
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="P2"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="MD1"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="GAL1"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="CDIV"/>
+    <FacultyCU Id="P4" Name="Programación 4" Cred="15">
+      <Requirement xsi:type="asignaturas:SomeOf" N="4">
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="P2"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="MD1"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="GAL1"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="CDIV"/>
       </Requirement>
     </FacultyCU>
-    <FacultyCU
-        Id="PROGFUN"
-        Name="Int. a la Prog. Funcional"
-        Cred="10">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="4">
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="TEOLENG"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="LOGICA"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="MD1"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="P2"/>
+    <FacultyCU Id="PROGFUN" Name="Int. a la Prog. Funcional" Cred="10">
+      <Requirement xsi:type="asignaturas:SomeOf" N="4">
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="TEOLENG"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="LOGICA"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="MD1"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="P2"/>
       </Requirement>
     </FacultyCU>
-    <FacultyCU
-        Id="PROLOG"
-        Name="Programación Lógica"
-        Cred="10">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="4">
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="MD2"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="LOGICA"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="TEOLENG"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="P3"/>
+    <FacultyCU Id="PROLOG" Name="Programación Lógica" Cred="10">
+      <Requirement xsi:type="asignaturas:SomeOf" N="4">
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="MD2"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="LOGICA"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="TEOLENG"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="P3"/>
       </Requirement>
     </FacultyCU>
-    <FacultyCU
-        Id="TPROG"
-        Name="Taller de Programación"
-        Cred="15">
-      <Requirement
-          xsi:type="asignaturas:Exam"
-          CurricularUnit="P4"/>
+    <FacultyCU Id="TPROG" Name="Taller de Programación" Cred="15">
+      <Requirement xsi:type="asignaturas:Exam" CurricularUnit="P4"/>
     </FacultyCU>
-    <FacultyCU
-        Id="TEOLENG"
-        Name="Teoría de Lenguajes"
-        Cred="12">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="5">
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="P3"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="MD1"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="GAL1"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="LOGICA"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="CDIV"/>
+    <FacultyCU Id="TEOLENG" Name="Teoría de Lenguajes" Cred="12">
+      <Requirement xsi:type="asignaturas:SomeOf" N="5">
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="P3"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="MD1"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="GAL1"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="LOGICA"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="CDIV"/>
       </Requirement>
     </FacultyCU>
-    <FacultyCU
-        Id="IIS"
-        Name="Int. a la Ing. de Software"
-        Cred="10">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="3">
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="FBD"/>
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="P4"/>
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="TPROG"/>
+    <FacultyCU Id="IIS" Name="Int. a la Ing. de Software" Cred="10">
+      <Requirement xsi:type="asignaturas:SomeOf" N="3">
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="FBD"/>
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="P4"/>
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="TPROG"/>
       </Requirement>
     </FacultyCU>
-    <FacultyCU
-        Id="PIS"
-        Name="Proy. de Ing. de Software"
-        Cred="15">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="2">
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="IIS"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="P4"/>
+    <FacultyCU Id="PIS" Name="Proy. de Ing. de Software" Cred="15">
+      <Requirement xsi:type="asignaturas:SomeOf" N="2">
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="IIS"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="P4"/>
       </Requirement>
     </FacultyCU>
-    <FacultyCU
-        Id="ARQCOMP"
-        Name="Arq. de Computadoras"
-        Cred="12">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="5">
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="LOGICA"/>
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="MD1"/>
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="P2"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="CDIV"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="P1"/>
+    <FacultyCU Id="ARQCOMP" Name="Arq. de Computadoras" Cred="12">
+      <Requirement xsi:type="asignaturas:SomeOf" N="5">
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="LOGICA"/>
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="MD1"/>
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="P2"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="CDIV"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="P1"/>
       </Requirement>
     </FacultyCU>
-    <FacultyCU
-        Id="SISTOPER"
-        Name="Sistemas Operativos"
-        Cred="12">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="5">
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="ARQCOMP"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="CDIV"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="P2"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="MD1"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="GAL1"/>
+    <FacultyCU Id="SISTOPER" Name="Sistemas Operativos" Cred="12">
+      <Requirement xsi:type="asignaturas:SomeOf" N="5">
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="ARQCOMP"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="CDIV"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="P2"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="MD1"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="GAL1"/>
       </Requirement>
     </FacultyCU>
-    <FacultyCU
-        Id="REDESCOMP"
-        Name="Redes de Computadoras"
-        Cred="12">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="4">
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="ARQCOMP"/>
-        <Requirement
-            xsi:type="asignaturas:Coursed"
-            CurricularUnit="SISTOPER"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="CDIV"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="P3"/>
+    <FacultyCU Id="REDESCOMP" Name="Redes de Computadoras" Cred="12">
+      <Requirement xsi:type="asignaturas:SomeOf" N="4">
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="ARQCOMP"/>
+        <Requirement xsi:type="asignaturas:Coursed" CurricularUnit="SISTOPER"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="CDIV"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="P3"/>
       </Requirement>
     </FacultyCU>
-    <FacultyCU
-        Id="FBD"
-        Name="Fundamentos de Bases de Datos"
-        Cred="15">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="3">
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="LOGICA"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="MD2"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="P3"/>
+    <FacultyCU Id="FBD" Name="Fundamentos de Bases de Datos" Cred="15">
+      <Requirement xsi:type="asignaturas:SomeOf" N="3">
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="LOGICA"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="MD2"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="P3"/>
       </Requirement>
     </FacultyCU>
-    <FacultyCU
-        Id="METNUM"
-        Name="Métodos Numéricos"
-        Cred="8">
-      <Requirement
-          xsi:type="asignaturas:SomeOf"
-          N="5">
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="GAL1"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="GAL2"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="CDIV"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="CDIVV"/>
-        <Requirement
-            xsi:type="asignaturas:Exam"
-            CurricularUnit="P1"/>
+    <FacultyCU Id="METNUM" Name="Métodos Numéricos" Cred="8">
+      <Requirement xsi:type="asignaturas:SomeOf" N="5">
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="GAL1"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="GAL2"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="CDIV"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="CDIVV"/>
+        <Requirement xsi:type="asignaturas:Exam" CurricularUnit="P1"/>
       </Requirement>
     </FacultyCU>
   </Faculty>

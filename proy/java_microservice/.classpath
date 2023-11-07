@@ -8,10 +8,10 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry exported="true" kind="lib" path="/home/santiago/eclipse-tomcat/apache-tomcat-10.1.12/lib/servlet-api.jar"/>
 	<classpathentry exported="true" kind="lib" path="src/main/webapp/WEB-INF/lib/org.eclipse.emf.common_2.28.0.v20230315-1321.jar"/>
 	<classpathentry exported="true" kind="lib" path="src/main/webapp/WEB-INF/lib/org.eclipse.emf.ecore_2.34.0.v20230406-1203.jar"/>
 	<classpathentry exported="true" kind="lib" path="src/main/webapp/WEB-INF/lib/org.eclipse.emf.ecore.change_2.15.0.v20230211-1150.jar"/>
 	<classpathentry exported="true" kind="lib" path="src/main/webapp/WEB-INF/lib/org.eclipse.emf.ecore.xmi_2.18.0.v20230211-1150.jar"/>
+	<classpathentry kind="lib" path="/Users/sfreire/Downloads/apache-tomcat-10.1.15/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
