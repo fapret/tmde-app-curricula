@@ -37,6 +37,19 @@ public class Facultad extends HttpServlet {
 		Root rootElement = model.getRootElement();
 		String faculty = request.getParameter("faculty");
 		String responseText = "";
+		if(faculty == null || faculty.isBlank()) {
+			response.getWriter().append("[");
+			Boolean auxBool = false;
+			for (Faculty facultad : rootElement.getFaculty()) {
+				responseText += "\"" + facultad.getName() + "\", ";
+				auxBool = true;
+			}
+			if(auxBool) {
+				responseText = responseText.substring(0, responseText.lastIndexOf(','));
+			}
+			response.getWriter().append(responseText).append("]");
+			return;
+		}
 		for (Faculty facultad : rootElement.getFaculty()) {
 			if(facultad.getName().equals(faculty)) {
 				response.getWriter().append("{ \"Name\": \"").append(facultad.getName()).append("\", ").append("\"Careers\": [");
