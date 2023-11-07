@@ -1,11 +1,13 @@
 function consultarFacultad() {
 const allFacultiesSelect = document.getElementById("facultades");
-const facultyName = allFacultiesSelect.selectedOption;
+const facultyName = allFacultiesSelect.value;
+console.log(facultyName);
 const url = `http://localhost:8080/curricula_microservice/Faculty?faculty=${facultyName}`;
 fetch(url)
 .then(response => response.json())
 .then(data => {
     const resultadoDiv = document.getElementById("resultado");
+    resultadoDiv.style.display = "block";
     resultadoDiv.innerHTML = "";
 
     const name = data.Name;
