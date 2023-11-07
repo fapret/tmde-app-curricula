@@ -7,8 +7,8 @@
   ></script>
   <style type="text/css">
     #mynetwork {
-      width: 1500px;
-      height: 500px;
+      width: 2000px;
+      height: 1000px;
       border: 1px solid lightgray;
     }
   </style>
@@ -16,9 +16,9 @@
 <body>
 <div id="mynetwork">
   <form id="plan_ucs">
-    <input id="faculty" value="Faculty" name="faculty" type="text" />
-    <input id="career" value="Career" name="career" type="text" />
-    <input id="plan" value="Plan" name="plan" type="text" />
+    <input id="faculty" placeholder="Faculty" name="faculty" type="text" />
+    <input id="career" placeholder="Career" name="career" type="text" />
+    <input id="plan" placeholder="Plan" name="plan" type="text" />
     <button type="submit">Send</button>
   </form>
 </div>
@@ -72,14 +72,17 @@
                           }
                           return response.json(); // Parsear la respuesta JSON
                         })
-                        .then(data => {
+                        .then(async data => {
+                          const result = await getMaxRequirementLevel(facultyName, materias[i]);
                           nodos.push({
                             id: i + 1,
                             materia_id: materias[i],
                             materia_name: data['Name'],
+                            level: result,
                             label: data['Name'],
+                            shape: "box",
                             color: "#F28C28",
-                            font:{color: "white"}
+                            font: {color: "white"}
                           });
                           nodos_process[materias[i]] = null;
 
@@ -150,7 +153,25 @@
                             nodes: nodos_dt,
                             edges: aristas_dt,
                           };
-                          var options = {};
+                          directionInput = "DU";
+                          var options = {
+                            edges: {
+                              smooth: {
+                                type: "cubicBezier",
+                                forceDirection: "horizontal",
+                                roundness: 0.4,
+                              },
+                            },
+                            layout: {
+                              hierarchical: {
+                                direction: directionInput,
+                                sortMethod: 'directed',
+                                nodeSpacing: 200, //separacion horizontal
+                                levelSeparation: 150, // separacion vertical
+                              },
+                            },
+                            physics: false,
+                          };
                           var network = new vis.Network(container, data2, options);
                         })
 
@@ -161,4 +182,54 @@
 
             });
   });
+
+async function getMaxRequirementLevel(facultyName, cu_id) {
+  let apiUrl = `http://localhost:8080/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${cu_id}`;
+
+  try {
+    const response = await fetch(apiUrl);
+
+    if (!response.ok) {
+      throw new Error('No se pudo obtener la respuesta de la API');
+    }
+
+    const data = await response.json();
+
+    if (data['Requirement'].length === 0)
+      if (data['Id'] === "P1") // porque P1 se dicta en el segundo semestre
+        return 1;
+      else
+        return 0;
+    else {
+      const req_values = [];
+
+      for (let i = 0; i < data['Requirement'].length; i++) {
+        const subRequirement = data['Requirement'][i];
+
+        if (subRequirement.Exam) {
+          req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Exam));
+        } else if (subRequirement.Coursed) {
+          req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Coursed));
+        }
+        else if (subRequirement.SomeOf) {
+          for (let j = 0; j < subRequirement.SomeOf.length; j++) {
+            if (subRequirement.SomeOf[j].Exam)
+              req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.SomeOf[j].Exam));
+            else if (subRequirement.SomeOf[j].Coursed)
+              req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.SomeOf[j].Coursed));
+
+          }
+        }
+      }
+      let base = 1;
+      if (data['Id'] === "P4" || data['Id'] === "LOGICA" || data["Id"] === "METNUM" || data["Id"] === "FBD" || data["Id"] === "PROLOG" || data["Id"] === "PROGFUN" || data["Id"] === "IIO")
+        base = 2;
+
+      return base + Math.max(...req_values);
+    }
+  } catch (error) {
+    console.error(error);
+    return 0;
+  }
+}
 </script>
