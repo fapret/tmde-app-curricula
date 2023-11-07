@@ -7,8 +7,8 @@
     ></script>
     <style type="text/css">
         #mynetwork {
-            width: 1500px;
-            height: 500px;
+            width: 2000px;
+            height: 1000px;
             border: 1px solid lightgray;
         }
     </style>
@@ -17,9 +17,9 @@
 <div id="mynetwork">
     <form method="POST" id="eval_plan" enctype="multipart/form-data" action="http://localhost:8080/curricula_microservice/Faculty/Carrera/Plan/eval">
         <input id="file" name="file" type="file" />
-        <input id="faculty" value="Faculty" name="faculty" type="text" />
-        <input id="career" value="Career" name="career" type="text" />
-        <input id="plan" value="Plan" name="plan" type="text" />
+        <input id="faculty" placeholder="Faculty" name="faculty" type="text" />
+        <input id="career" placeholder="Career" name="career" type="text" />
+        <input id="plan" placeholder="Plan" name="plan" type="text" />
         <button type="submit">Send</button>
     </form>
 </div>
@@ -34,7 +34,7 @@
         }
         return null; // Return null if the value is not found
     }
-
+    
     // Add an event listener to the form submit event
     document.getElementById('eval_plan').addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the default form submission
@@ -49,7 +49,7 @@
         var formData = new FormData(this);
         var xhr = new XMLHttpRequest();
         xhr.open('POST', this.action, true);
-        xhr.onload = function () {
+        xhr.onload = async function () {
             if (xhr.status >= 200 && xhr.status < 300) {
                 // Parse the JSON response
                 var materias = JSON.parse(xhr.responseText);
@@ -144,7 +144,7 @@
                                 // Realiza la segunda solicitud AJAX con formDataCopy
                                 var xhr2 = new XMLHttpRequest();
                                 xhr2.open('POST', 'http://localhost:8080/curricula_microservice/Faculty/Carrera/Plan/evaluations', true);
-                                xhr2.onload = function () {
+                                xhr2.onload = async function () {
                                     if (xhr2.status >= 200 && xhr2.status < 300) {
                                         // Procesa la respuesta de la segunda solicitud aquí
                                         var notas = JSON.parse(xhr2.responseText);
@@ -164,20 +164,49 @@
                                         for (let i = 0; i < materias.length; i++) {
                                             let nodo_id = "";
                                             let nodo_name = "";
+                                            let nodo_materia_id = "";
                                             for (let j = 0; j < nodos.length; j++)
                                                 if (nodos[j]['materia_id'] === materias[i]) {
                                                     nodo_id = nodos[j]['id'];
                                                     nodo_name = nodos[j]['materia_name'];
+                                                    nodo_materia_id = nodos[j]['materia_id']
                                                     break;
                                                 }
 
+
+                                            const result = await getMaxRequirementLevel(facultyName, materias[i]);
+
                                             if (nodos_process[materias[i]] == null)
-                                                nodos_final.push({id: nodo_id, label: nodo_name, shape: "box", color: "#FFFFFF"});
+                                                nodos_final.push({
+                                                    id: nodo_id,
+                                                    label: nodo_name,
+                                                    level: result,
+                                                    materia_id: nodo_materia_id,
+                                                    shape: "box",
+                                                    color: "#FFFFFF"
+                                                });
                                             else if (nodos_process[materias[i]] === "CourseEvaluation")
-                                                nodos_final.push({id: nodo_id, label: nodo_name, shape: "box", color: "#FFFF00"});
+                                                nodos_final.push({
+                                                    id: nodo_id,
+                                                    label: nodo_name,
+                                                    level: result,
+                                                    materia_id: nodo_materia_id,
+                                                    shape: "box",
+                                                    color: "#FFFF00"
+                                                });
                                             else
-                                                nodos_final.push({id: nodo_id, label: nodo_name, shape: "box", color: "#008000", font:{color: "white"}});
+                                                nodos_final.push({
+                                                    id: nodo_id,
+                                                    label: nodo_name,
+                                                    level: result,
+                                                    materia_id: nodo_materia_id,
+                                                    shape: "box",
+                                                    color: "#008000",
+                                                    font: {color: "white"}
+                                                });
+
                                         }
+                                        console.log(nodos_final);
                                         let nodos_dt = new vis.DataSet(nodos_final);
                                         let aristas_dt = new vis.DataSet(aristas);
                                         var container = document.getElementById("mynetwork");
@@ -186,12 +215,28 @@
                                             nodes: nodos_dt,
                                             edges: aristas_dt,
                                         };
-                                        var options = {};
+                                        directionInput = "DU";
+                                        var options = {
+                                            edges: {
+                                                smooth: {
+                                                    type: "cubicBezier",
+                                                    forceDirection: "horizontal",
+                                                    roundness: 0.4,
+                                                },
+                                            },
+                                            layout: {
+                                                hierarchical: {
+                                                    direction: directionInput,
+                                                    sortMethod: 'directed',
+                                                    nodeSpacing: 200, //separacion horizontal
+                                                    levelSeparation: 150, // separacion vertical
+                                                },
+                                            },
+                                            physics: false,
+                                        };
                                         var network = new vis.Network(container, data2, options);
 
-                                        // Hacer algo con la respuesta de la segunda solicitud
                                     } else {
-                                        // Maneja errores de la segunda solicitud aquí
                                         console.error('Error en la segunda solicitud: ' + xhr2.response);
                                     }
                                 };
@@ -211,4 +256,54 @@
             // Send the form data
             xhr.send(formData);
         });
+
+    async function getMaxRequirementLevel(facultyName, cu_id) {
+        let apiUrl = `http://localhost:8080/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${cu_id}`;
+
+        try {
+            const response = await fetch(apiUrl);
+
+            if (!response.ok) {
+                throw new Error('No se pudo obtener la respuesta de la API');
+            }
+
+            const data = await response.json();
+
+            if (data['Requirement'].length === 0)
+                if (data['Id'] === "P1") // porque P1 se dicta en el segundo semestre
+                    return 1;
+                else
+                    return 0;
+            else {
+                const req_values = [];
+
+                for (let i = 0; i < data['Requirement'].length; i++) {
+                    const subRequirement = data['Requirement'][i];
+
+                    if (subRequirement.Exam) {
+                        req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Exam));
+                    } else if (subRequirement.Coursed) {
+                        req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Coursed));
+                    }
+                    else if (subRequirement.SomeOf) {
+                        for (let j = 0; j < subRequirement.SomeOf.length; j++) {
+                            if (subRequirement.SomeOf[j].Exam)
+                                req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.SomeOf[j].Exam));
+                            else if (subRequirement.SomeOf[j].Coursed)
+                                req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.SomeOf[j].Coursed));
+
+                        }
+                    }
+                }
+                let base = 1;
+                if (data['Id'] === "P4" || data['Id'] === "LOGICA" || data["Id"] === "METNUM" || data["Id"] === "FBD" || data["Id"] === "PROLOG" || data["Id"] === "PROGFUN" || data["Id"] === "IIO")
+                    base = 2;
+
+                return base + Math.max(...req_values);
+            }
+        } catch (error) {
+            console.error(error);
+            return 0;
+        }
+    }
 </script>
