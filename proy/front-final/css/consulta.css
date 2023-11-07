@@ -1,0 +1,31 @@
+.consulta{
+  background-color: #E9F1F7;
+  border: 1px solid #216683;
+  height: 10rem;
+  margin: 1rem;
+  border-radius: 25px;
+}
+select {
+  min-height: 10rem;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 1rem;
+  width: 80%;
+}
+.buttons-div{
+  padding-top: 1rem;
+  justify-content: center;
+  display: flex;
+}
+.buttons-div button{
+  border-radius: 8px;
+  background-color: #E9F1F7;
+  color: black;
+  border: 1px solid #21668370;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.buttons-div button:hover{
+  background-color: #216683;
+}
