@@ -1,7 +1,6 @@
 function consultarFacultad() {
 const allFacultiesSelect = document.getElementById("facultades");
 const facultyName = allFacultiesSelect.value;
-console.log(facultyName);
 const url = `http://localhost:8080/curricula_microservice/Faculty?faculty=${facultyName}`;
 fetch(url)
 .then(response => response.json())

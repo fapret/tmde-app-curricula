@@ -76,6 +76,25 @@ public class UnidadCurricular extends HttpServlet {
 		String faculty = request.getParameter("faculty");
 		String curricularUnit = request.getParameter("curricularUnit");
 		String responseText = "";
+		
+		if(curricularUnit == null || curricularUnit.isBlank()) {
+			for (Faculty facultad : rootElement.getFaculty()) {
+				if(facultad.getName().equals(faculty)) {
+					response.getWriter().append("[");
+					Boolean auxBool = false;
+					for(CurricularUnit cu : facultad.getFacultyCU()) {
+						responseText += "\"" + cu.getId() + "\", ";
+						auxBool = true;
+					}
+					if(auxBool) {
+						responseText = responseText.substring(0, responseText.lastIndexOf(','));
+					}
+					response.getWriter().append(responseText).append("]");
+					return;
+				}
+			}
+		}
+		
 		for (Faculty facultad : rootElement.getFaculty()) {
 			if(facultad.getName().equals(faculty)) {
 				for(CurricularUnit cu : facultad.getFacultyCU()) {
