@@ -1,7 +1,7 @@
 .consulta{
   background-color: #E9F1F7;
   border: 1px solid #216683;
-  height: 10rem;
+  min-height: 10rem;
   margin: 1rem;
   border-radius: 25px;
   padding: 1rem;
@@ -30,4 +30,9 @@ select {
 }
 .buttons-div button:hover{
   background-color: #216683;
+}
+.buttons-div button:disabled{
+	background-color: #606466;
+	border: 1px solid #606466;
+	cursor: default;
 }
