@@ -37,11 +37,22 @@ public class Carreras extends HttpServlet {
 		Root rootElement = model.getRootElement();
 		String faculty = request.getParameter("faculty");
 		String career = request.getParameter("career");
+		String responseText = "";
 		for (Faculty facultad : rootElement.getFaculty()) {
 			if(facultad.getName().equals(faculty)) {
 				for(Career carrera : facultad.getCareers()) {
 					if(carrera.getName().equals(career)) {
-						//TODO Logica a retornar de carrera
+						responseText += "{ \"Name\": \"" + carrera.getName() + "\", \"Plans\": [";
+						Boolean auxBool = false;
+						for(asignaturas.Plan plan : carrera.getPlan()) {
+							auxBool = true;
+							responseText += plan.getYear() + ",";
+						}
+						if(auxBool) {
+							responseText = responseText.substring(0, responseText.lastIndexOf(','));
+						}
+						responseText += "]}";
+						response.getWriter().append(responseText);
 						return;
 					}
 				}

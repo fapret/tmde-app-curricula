@@ -32,3 +32,90 @@ function getUCS(select, faculty){
       console.error("Error al consultar la API:", error);
   });
 }
+
+function getCareers(select, faculty){
+  const url = `http://localhost:8080/curricula_microservice/Faculty?faculty=${faculty}`;
+  fetch(url)
+  .then(response => response.json())
+  .then(data => {
+	for (var i = 0; i < data["Careers"].length; i++){
+		addToSelect(select, data["Careers"][i]);
+	}
+  })
+  .catch(error => {
+      console.error("Error al consultar la API:", error);
+  });
+}
+
+function getPlans(select, faculty, career){
+  const url = `http://localhost:8080/curricula_microservice/Faculty/Carrera?faculty=${faculty}&career=${career}`;
+  fetch(url)
+  .then(response => response.json())
+  .then(data => {
+	for (var i = 0; i < data["Plans"].length; i++){
+		addToSelect(select, data["Plans"][i]);
+	}
+  })
+  .catch(error => {
+      console.error("Error al consultar la API:", error);
+  });
+}
+
+function findKeyByValue(obj, value) {
+    for (let key in obj) {
+      if (obj[key]['materia_id'] === value) {
+        return obj[key]['id']; // Return the key if the value is found
+      }
+    }
+    return null; // Return null if the value is not found
+}
+
+async function getMaxRequirementLevel(facultyName, cu_id) {
+  let apiUrl = `http://localhost:8080/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${cu_id}`;
+
+  try {
+    const response = await fetch(apiUrl);
+
+    if (!response.ok) {
+      throw new Error('No se pudo obtener la respuesta de la API');
+    }
+
+    const data = await response.json();
+
+    if (data['Requirement'].length === 0)
+      if (data['Id'] === "P1") // porque P1 se dicta en el segundo semestre
+        return 1;
+      else
+        return 0;
+    else {
+      const req_values = [];
+
+      for (let i = 0; i < data['Requirement'].length; i++) {
+        const subRequirement = data['Requirement'][i];
+
+        if (subRequirement.Exam) {
+          req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Exam));
+        } else if (subRequirement.Coursed) {
+          req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Coursed));
+        }
+        else if (subRequirement.SomeOf) {
+          for (let j = 0; j < subRequirement.SomeOf.length; j++) {
+            if (subRequirement.SomeOf[j].Exam)
+              req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.SomeOf[j].Exam));
+            else if (subRequirement.SomeOf[j].Coursed)
+              req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.SomeOf[j].Coursed));
+
+          }
+        }
+      }
+      let base = 1;
+      if (data['Id'] === "P4" || data['Id'] === "LOGICA" || data["Id"] === "METNUM" || data["Id"] === "FBD" || data["Id"] === "PROLOG" || data["Id"] === "PROGFUN" || data["Id"] === "IIO")
+        base = 2;
+
+      return base + Math.max(...req_values);
+    }
+  } catch (error) {
+    console.error(error);
+    return 0;
+  }
+}
