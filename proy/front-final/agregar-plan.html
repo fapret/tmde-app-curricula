@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" href="./css/consulta.css">
-  <link rel="stylesheet" href="./css/graph.css">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script type="text/javascript" src="js/selectLib.js"></script>
-  <script type="text/javascript" src="js/seePlan.js"></script>
   <title>TMDE Project</title>
 </head>
 <body>
@@ -50,7 +47,7 @@
           <p>Cargar Modelo</p>
         </a>
       </div>
-      
+
       <div class="left-nav-div">
         <a class="left-nav-a" href="./agregar-plan.html">
           <button id="button" class="levtnav-button">
@@ -162,6 +159,8 @@
     <div class="content">
 
       <!-- AGREGAR ACA CONTENIDO-->
+      <br>
+      <label>Facultad:</label>
       <select name="facultades" id="facultades" size="10"></select>
       <div class="buttons-div">
         <button type="button" id="markFaculty">
@@ -169,6 +168,7 @@
         </button>
       </div>
       
+      <label>Carrera:</label>
       <select name="carreras" id="carreras" size="10"></select>
       <div class="buttons-div">
         <button type="button" id="markCarrera" disabled>
@@ -176,10 +176,13 @@
         </button>
       </div>
       
+      <label>Plan:</label>
       <select name="planes" id="planes" size="5"></select>
+      <label>Fecha Inscripción:</label>
+      <input type="date" id="date" name="plan-date" value="2023-11-01" />
       <div class="buttons-div">
         <button type="button" id="markPlan" disabled>
-          Consultar Plan
+          Agregar Plan
         </button>
       </div>
       
@@ -190,5 +193,5 @@
   </div>
 
   <script src="./js/leftnav.js"></script>
-  <script src="./js/seePlanExec.js"></script>
+  <script src="./js/addPlanExec.js"></script>
 </body>

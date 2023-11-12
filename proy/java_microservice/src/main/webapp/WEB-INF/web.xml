@@ -25,7 +25,7 @@
     <servlet-name>UnidadCurricular</servlet-name>
     <servlet-class>UnidadCurricular</servlet-class>
   </servlet>
-    <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>UnidadCurricular</servlet-name>
     <url-pattern>/Faculty/ucs</url-pattern>
   </servlet-mapping>
@@ -69,7 +69,7 @@
     <servlet-name>EvalPlan</servlet-name>
     <url-pattern>/Faculty/Carrera/Plan/eval</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>Evaluations</display-name>
     <servlet-name>Evaluations</servlet-name>
@@ -99,12 +99,32 @@
     <servlet-name>Facultad</servlet-name>
     <url-pattern>/Faculty</url-pattern>
   </servlet-mapping>
-<filter>
+  <filter>
     <filter-name>CorsFilter</filter-name>
     <filter-class>CorsFilter</filter-class>
-</filter>
-<filter-mapping>
+  </filter>
+  <filter-mapping>
     <filter-name>CorsFilter</filter-name>
     <url-pattern>/*</url-pattern>
-</filter-mapping>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Estudiante</display-name>
+    <servlet-name>Estudiante</servlet-name>
+    <servlet-class>Estudiante</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Estudiante</servlet-name>
+    <url-pattern>/Estudiante</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EstudianteAddPlan</display-name>
+    <servlet-name>EstudianteAddPlan</servlet-name>
+    <servlet-class>EstudianteAddPlan</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EstudianteAddPlan</servlet-name>
+    <url-pattern>/Estudiante/AddPlan</url-pattern>
+  </servlet-mapping>
 </web-app>
