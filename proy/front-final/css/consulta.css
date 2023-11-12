@@ -19,6 +19,10 @@ select {
   padding-top: 1rem;
   justify-content: center;
   display: flex;
+  align-items: center;
+}
+.buttons-div input{
+	margin: 1rem;
 }
 .buttons-div button{
   border-radius: 8px;
@@ -35,4 +39,23 @@ select {
 	background-color: #606466;
 	border: 1px solid #606466;
 	cursor: default;
+}
+.content label{
+	margin-left: 10%;
+}
+.centeredDiv{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 1rem;
+}
+.centeredDiv label{
+	margin-left: 0;
+}
+.centeredDiv input{
+	text-align: center;
+}
+hr.solidDivider {
+  border-top: 3px solid #21668370;
 }
