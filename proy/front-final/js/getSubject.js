@@ -18,7 +18,7 @@ function consultarMateria() {
 		 resultadoDiv.innerHTML += `<p><strong>Id:</strong> ${data.Id}</p>`;
 		 resultadoDiv.innerHTML += `<p><strong>Nombre:</strong> ${data.Name}</p>`;
 		 resultadoDiv.innerHTML += `<p><strong>MinCredits:</strong> ${data.MinCredits}</p>`;
-		 resultadoDiv.innerHTML += `<p><strong>Materias:</strong> ${data.MinCredits}</p>`;
+		 resultadoDiv.innerHTML += `<p><strong>Materias:</strong></p>`;
 		 data.Subjects.forEach(subject => {
          	resultadoDiv.innerHTML += `<p>${subject}</p>`;
          });
