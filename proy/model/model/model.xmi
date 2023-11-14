@@ -14,44 +14,55 @@
           Valid="true"
           MinCredits="450">
         <GroupOfSubjects
+            Id="1000"
             Name="MATERIAS BASICAS"
             MinCredits="80">
           <GroupOfSubjects
+              Id="1001"
               Name="MATEMATICA"
               MinCredits="70"
               SubjectCurricularUnit="GAL1 GAL2 CDIV CDIVV PYE MD1 MD2 LOGICA CAL1"/>
           <GroupOfSubjects
+              Id="1002"
               Name="CIENCIAS EXPERIMENTALES"
               MinCredits="10"/>
         </GroupOfSubjects>
         <GroupOfSubjects
+            Id="1010"
             Name="BASICO-TEC,TECNICAS E INTEG."
             MinCredits="220">
           <GroupOfSubjects
+              Id="1011"
               Name="PROGRAMACION"
               MinCredits="60"
               SubjectCurricularUnit="P1 P2 P3 P4 PROGFUN PROLOG TEOLENG"/>
           <GroupOfSubjects
+              Id="1012"
               Name="ARQUIT, S.OP. Y REDES DE COMP."
               MinCredits="30"
               SubjectCurricularUnit="ARQCOMP SISTOPER REDESCOMP"/>
           <GroupOfSubjects
+              Id="1013"
               Name="INGENIERIA DE SOFTWARE"
               MinCredits="10"
               SubjectCurricularUnit="IIS"/>
           <GroupOfSubjects
+              Id="1014"
               Name="A.INTEG,TALLERES,PASANT.Y PROY"
               SubjectCurricularUnit="TPROG PIS"/>
           <GroupOfSubjects
+              Id="1015"
               Name="B.DATOS Y SIST.DE INFORMACION"
               MinCredits="10"
               SubjectCurricularUnit="FBD"/>
           <GroupOfSubjects
+              Id="1016"
               Name="CALCULO NUMERICO Y SIMBOLICO"
               MinCredits="8"
               SubjectCurricularUnit="METNUM"/>
         </GroupOfSubjects>
         <GroupOfSubjects
+            Id="1020"
             Name="INVESTIGACIÓN OPERATIVA"
             MinCredits="10"
             SubjectCurricularUnit="IIO"/>

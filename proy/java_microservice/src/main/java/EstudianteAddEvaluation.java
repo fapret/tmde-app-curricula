@@ -73,7 +73,7 @@ public class EstudianteAddEvaluation extends HttpServlet {
 		boolean type = Boolean.parseBoolean(request.getParameter("type"));
 		int nota = Integer.parseInt(request.getParameter("nota"));
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.US);
 		dateFormat.setTimeZone(TimeZone.getTimeZone("America/Montevideo"));
 		Date selectedDate = null;
 		try {
