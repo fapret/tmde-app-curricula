@@ -67,7 +67,7 @@ public class Estudiante extends HttpServlet {
 		student.setName(name);
 		student.setId(id);
 		studentModel.getStudent().add(student);
-		Resource outputResource = resourceSet.createResource(URI.createURI("EstudianteModel.xmi"));
+		Resource outputResource = resourceSet.createResource(URI.createURI("model.xmi"));
 		outputResource.getContents().add(studentModel);
 		Map<String, Object> saveOptions = new HashMap<>();
 		saveOptions.put(XMLResource.OPTION_SCHEMA_LOCATION, true);

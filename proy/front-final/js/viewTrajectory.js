@@ -1,12 +1,3 @@
-function findKeyByValue(obj, value) {
-    for (let key in obj) {
-        if (obj[key]['materia_id'] === value) {
-            return obj[key]['id']; // Return the key if the value is found
-        }
-    }
-    return null; // Return null if the value is not found
-}
-
 function mostrar_trayectoria() {
     const allFacultiesSelect = document.getElementById("facultades");
     const allCareersSelect = document.getElementById("carreras");

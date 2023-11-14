@@ -61,6 +61,43 @@ function getPlans(select, faculty, career){
   });
 }
 
+function getPlanUCS(select, faculty, career, plan){
+	const url = `http://localhost:8080/curricula_microservice/Faculty/Carrera/Plan/ucs?faculty=${faculty}&career=${career}&plan=${plan}`;
+	fetch(url)
+	.then(response => response.json())
+	.then(data => {
+		for (var i = 0; i < data.length; i++){
+			addToSelect(select, data[i]);
+		}
+	})
+	.catch(error => {
+      console.error("Error al consultar la API:", error);
+  	});
+}
+
+function getEvaluations(select, typeBoolean, UC, faculty){
+	const url = `http://localhost:8080/curricula_microservice/Faculty/ucs?faculty=${faculty}&curricularUnit=${UC}`;
+	fetch(url)
+	.then(response => response.json())
+	.then(data => {
+		if(typeBoolean){
+			var evaluations = data.ExamEvaluation;
+			for (var i = 0; i < evaluations.length; i++){
+				addToSelect(select, evaluations[i]);
+			}
+		} else {
+			for (var i = 0; i < data.Course.length; i++){
+				for(var j = 0; j < data.Course[i].CourseEvaluation.length; j++){
+					addToSelect(select, data.Course[i].CourseEvaluation[j]);
+				}
+			}
+		}
+	})
+	.catch(error => {
+      console.error("Error al consultar la API:", error);
+  	});
+}
+
 function findKeyByValue(obj, value) {
     for (let key in obj) {
       if (obj[key]['materia_id'] === value) {
