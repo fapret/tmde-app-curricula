@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="./css/consulta.css">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="js/selectLib.js"></script>
+  <script type="text/javascript" src="js/studentEval.js"></script>
   <title>TMDE Project</title>
 </head>
 <body>
@@ -158,9 +160,33 @@
     <div class="content">
 
       <!-- AGREGAR ACA CONTENIDO-->
+      <br>
+      <label>Modelo de Estudiante:</label>
+      <input id="file" name="file" type="file"/>
 
+      <br><br><br>
+      <label>Facultad:</label>
+      <select name="facultades" id="facultades" size="10"></select>
+      <div class="buttons-div">
+        <button type="button" id="markFaculty">
+          Seleccionar facultad
+        </button>
+      </div>
+
+
+      <label>Unidad Curricular:</label>
+      <select name="ucs" id="ucs" size="5"></select>
+      <div class="buttons-div">
+        <button type="button" id="markUC" disabled>
+          Evaluar previas
+        </button>
+      </div>
+
+      <div class="consulta" id="resultado" style="font-family: 'Roboto', sans-serif;">
+      </div>
     </div>
   </div>
 
   <script src="./js/leftnav.js"></script>
+  <script src="./js/studentEvalExec.js"></script>
 </body>
