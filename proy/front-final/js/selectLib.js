@@ -98,6 +98,20 @@ function getEvaluations(select, typeBoolean, UC, faculty){
   	});
 }
 
+function getMaterias(select, faculty, career, plan){
+	const url = `http://localhost:8080/curricula_microservice/Faculty/Carrera/Plan/Subjects?faculty=${faculty}&career=${career}&plan=${plan}`;
+	fetch(url)
+	.then(response => response.json())
+	.then(data => {
+		for(var i = 0; i < data.length; i++){
+			addToSelect(select, data[i]);
+		}
+	})
+	.catch(error => {
+      console.error("Error al consultar la API:", error);
+  	});
+}
+
 function findKeyByValue(obj, value) {
     for (let key in obj) {
       if (obj[key]['materia_id'] === value) {
