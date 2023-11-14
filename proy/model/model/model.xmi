@@ -66,7 +66,7 @@
           Year="2020"
           Edition="1">
         <CourseEvaluation
-            date="0001-01-01T00:00:00.000-0300"/>
+            date="2020-01-01T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
     <FacultyCU
@@ -81,7 +81,7 @@
           Year="2020"
           Edition="2">
         <CourseEvaluation
-            date="0001-01-02T00:00:00.000-0300"/>
+            date="2020-01-02T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
     <FacultyCU
@@ -92,7 +92,7 @@
       <Course
           Year="2">
         <CourseEvaluation
-            date="0009-09-09T00:00:00.000-0300"/>
+            date="2021-09-09T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
     <FacultyCU
@@ -106,7 +106,7 @@
       <Course
           Year="3">
         <CourseEvaluation
-            date="0008-08-08T00:00:00.000-0300"/>
+            date="2021-08-08T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
     <FacultyCU
@@ -130,7 +130,7 @@
       <Course
           Year="4">
         <CourseEvaluation
-            date="0007-07-07T00:00:00.000-0300"/>
+            date="2021-07-07T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
     <FacultyCU
@@ -141,7 +141,7 @@
       <Course
           Year="5">
         <CourseEvaluation
-            date="0006-06-06T00:00:00.000-0300"/>
+            date="2020-06-06T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
     <FacultyCU
@@ -160,7 +160,7 @@
             CurricularUnit="MD1"/>
       </Requirement>
       <ExamEvaluation
-          date="0005-05-05T00:00:00.000-0300"/>
+          date="2021-05-05T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="LOGICA"
@@ -173,7 +173,7 @@
       <Course
           Year="9">
         <CourseEvaluation
-            date="0012-01-01T00:00:00.000-0300"/>
+            date="2021-01-01T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
     <FacultyCU
@@ -209,7 +209,7 @@
       <Course
           Year="10">
         <CourseEvaluation
-            date="0013-01-01T00:00:00.000-0300"/>
+            date="2020-01-01T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
     <FacultyCU
@@ -222,7 +222,7 @@
           CurricularUnit="P1"/>
       <Course>
         <CourseEvaluation
-            date="0014-01-01T00:00:00.000-0300"/>
+            date="2021-01-01T00:00:00.000-0300"/>
       </Course>
     </FacultyCU>
     <FacultyCU
