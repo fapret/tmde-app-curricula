@@ -4,6 +4,8 @@ const allCareersSelect = document.getElementById("carreras");
 const selectCareerBtn = document.getElementById("markCarrera");
 const allPlansSelect = document.getElementById("planes");
 const selectPlanBtn = document.getElementById("markPlan");
+const model_file = document.getElementById("file");
+
 selectCareerBtn.disabled = true;
 selectPlanBtn.disabled = true;
 
@@ -22,7 +24,5 @@ selectCareerBtn.addEventListener("click", () => {
     selectPlanBtn.disabled = false;
 });
 selectPlanBtn.addEventListener("click", () => {
-    document.getElementById("resultado").style.display = "flex";
-    document.getElementById("resultado").innerHTML = "Inscripto correctamente al plan."
-    document.getElementById("resultado").scrollIntoView({behavior: "smooth"});
+    inscribir_plan();
 });
