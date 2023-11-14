@@ -23,5 +23,7 @@ selectCareerBtn.addEventListener("click", () => {
     selectPlanBtn.disabled = false;
 });
 selectPlanBtn.addEventListener("click", () => {
-    inscribir_plan();
+    document.getElementById("resultado").style.display = "flex";
+    document.getElementById("resultado").scrollIntoView({behavior: "smooth"});
+    mostrar_trayectoria();
 });
