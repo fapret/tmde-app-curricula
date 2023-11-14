@@ -15,7 +15,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.TimeZone;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
@@ -71,14 +73,15 @@ public class EstudianteAddEvaluation extends HttpServlet {
 		boolean type = Boolean.parseBoolean(request.getParameter("type"));
 		int nota = Integer.parseInt(request.getParameter("nota"));
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
+		dateFormat.setTimeZone(TimeZone.getTimeZone("America/Montevideo"));
 		Date selectedDate = null;
 		try {
-			selectedDate = dateFormat.parse(evaluation);
+		    selectedDate = dateFormat.parse(evaluation);
 		} catch (ParseException e) {
-			response.getWriter().append(e.toString());
-			return;
-		}
+		    response.getWriter().append(e.toString());
+		    return;
+		}		
 		
 		Estudiantes.Root rootStudent;
 		Part filePart;
