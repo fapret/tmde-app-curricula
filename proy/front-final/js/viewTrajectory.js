@@ -29,6 +29,7 @@ function mostrar_trayectoria() {
     formData.append('career', career);
     formData.append('plan', plan);
     formData.append('file', model_file);
+    formData.append('valid_flag', 'true');
 
     // Configurar las opciones de la solicitud
     var options = {

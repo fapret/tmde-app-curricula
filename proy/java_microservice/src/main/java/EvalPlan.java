@@ -52,6 +52,21 @@ public class EvalPlan extends HttpServlet {
     	return uc;
     }
     
+    private List<String> get_valid_UC(Student e, Subject s){
+    	List<String> uc = new ArrayList<>();
+    	for(CurricularUnit cu : s.getSubjectCurricularUnit()) {
+    		if (cu.isValid()) {
+    			if(evaluateRequirements(e, cu.getRequirement())) {
+    				uc.add(cu.getId());
+    			}
+    		}
+    	}
+    	for(Subject s2 : s.getGroupOfSubjects()) {
+    		uc.addAll(get_valid_UC(e, s2));
+    	}
+    	return uc;
+    }
+
     private int getCredOnSubject(Student e, Subject s) {
     	int c = 0;
     	for(PlanInscription p : e.getStudentPlanInscription()) {
@@ -191,6 +206,10 @@ public class EvalPlan extends HttpServlet {
 		String faculty = request.getParameter("faculty");
 		String career = request.getParameter("career");
 		String plan = request.getParameter("plan");
+		boolean valid_flag = false;
+		if (request.getParameter("valid_flag") != null)
+			valid_flag = true;
+		
 		Estudiantes.Root rootStudent;
 		Part filePart;
 		InputStream inputStream;
@@ -220,13 +239,23 @@ public class EvalPlan extends HttpServlet {
 								if(p instanceof CreditsPlan) {
 									CreditsPlan cp = (CreditsPlan) p;
 									for(Subject sub : cp.getGroupOfSubjects()) {
-										uc.addAll(getUC(estudiante, sub));
+										if (valid_flag)
+											uc.addAll(get_valid_UC(estudiante, sub));
+										else
+											uc.addAll(getUC(estudiante, sub));
 									}
 								} else { //Es plan de materias
 									SubjectPlan sp = (SubjectPlan) p;
 									for(CurricularUnit cu : sp.getCurricularUnit()) {
-										if(evaluateRequirements(estudiante, cu.getRequirement())) {
-											uc.add(cu.getId());
+										if (valid_flag) {
+											if(cu.isValid() && evaluateRequirements(estudiante, cu.getRequirement())) {
+												uc.add(cu.getId());
+											}
+										}
+										else {
+											if(evaluateRequirements(estudiante, cu.getRequirement())) {
+												uc.add(cu.getId());
+											}
 										}
 									}
 								}
