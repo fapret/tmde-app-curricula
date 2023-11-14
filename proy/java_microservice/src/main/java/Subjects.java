@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.EList;
 
 import asignaturas.Career;
 import asignaturas.CreditsPlan;
+import asignaturas.CurricularUnit;
 import asignaturas.Faculty;
 import asignaturas.Root;
 import asignaturas.Subject;
@@ -48,6 +49,15 @@ public class Subjects extends HttpServlet {
 			boolean f = false;
 			for(asignaturas.Subject cg : g.getGroupOfSubjects()) {
 				responseText += "\"" + cg.getId() + "\",";
+				f = true;
+			}
+			if(f) {
+				responseText = responseText.substring(0, responseText.lastIndexOf(','));
+			}
+			responseText += "], \"CurricularUnits\": [";
+			f = false;
+			for(CurricularUnit cu : g.getSubjectCurricularUnit()) {
+				responseText += "\"" + cu.getId() + "\",";
 				f = true;
 			}
 			if(f) {

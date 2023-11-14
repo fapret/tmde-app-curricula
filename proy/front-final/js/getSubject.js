@@ -20,7 +20,11 @@ function consultarMateria() {
 		 resultadoDiv.innerHTML += `<p><strong>MinCredits:</strong> ${data.MinCredits}</p>`;
 		 resultadoDiv.innerHTML += `<p><strong>Materias:</strong></p>`;
 		 data.Subjects.forEach(subject => {
-         	resultadoDiv.innerHTML += `<p>${subject}</p>`;
+         	resultadoDiv.innerHTML += `<p>- ${subject}</p>`;
+         });
+         resultadoDiv.innerHTML += `<p><strong>Unidades Curriculares:</strong></p>`;
+         data.CurricularUnits.forEach(cu => {
+         	resultadoDiv.innerHTML += `<p>- ${cu}</p>`;
          });
 	})
 	.catch(error => {
