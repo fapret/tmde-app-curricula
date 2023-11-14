@@ -1,6 +1,7 @@
 
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -32,6 +33,7 @@ import asignaturas.Faculty;
 /**
  * Servlet implementation class EstudianteAddPlan
  */
+@MultipartConfig
 public class EstudianteAddPlan extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -75,7 +77,7 @@ public class EstudianteAddPlan extends HttpServlet {
 			
 			rootStudent = (Estudiantes.Root) resourceStudent.getContents().get(0);
 		} catch (IOException e) {
-			response.getWriter().write(e.toString());
+			response.getWriter().append(e.toString());
 			return;
 		}
 		
@@ -94,12 +96,12 @@ public class EstudianteAddPlan extends HttpServlet {
 							if(Integer.toString(p.getYear()).equals(plan)) {
 								PlanInscription pi = Estudiantes.EstudiantesFactory.eINSTANCE.createPlanInscription();
 								pi.setPlan(p);
-								SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy");
+								SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 								Date selectedDate = null;
 								try {
 									selectedDate = dateFormat.parse(date);
 								} catch (ParseException e) {
-									response.getWriter().write(e.toString());
+									response.getWriter().append(e.toString());
 									return;
 								}
 								pi.setDate(selectedDate);
@@ -114,7 +116,7 @@ public class EstudianteAddPlan extends HttpServlet {
 								try {
 									resourceStudent.save(response.getOutputStream(), saveOptions);
 								} catch (Exception e) {
-									response.getWriter().write(e.toString());
+									response.getWriter().append(e.toString());
 								}
 								
 								return;

@@ -5,7 +5,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
+
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,8 +21,12 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
+import Estudiantes.CourseInscription;
+import Estudiantes.PlanInscription;
 import Estudiantes.Root;
 import Estudiantes.Student;
+import asignaturas.Course;
+import asignaturas.CurricularUnit;
 
 /**
  * Servlet implementation class Estudiante
@@ -59,7 +67,7 @@ public class Estudiante extends HttpServlet {
 		student.setName(name);
 		student.setId(id);
 		studentModel.getStudent().add(student);
-		Resource outputResource = resourceSet.createResource(URI.createURI("EstudianteModel"));
+		Resource outputResource = resourceSet.createResource(URI.createURI("EstudianteModel.xmi"));
 		outputResource.getContents().add(studentModel);
 		Map<String, Object> saveOptions = new HashMap<>();
 		saveOptions.put(XMLResource.OPTION_SCHEMA_LOCATION, true);
@@ -75,5 +83,5 @@ public class Estudiante extends HttpServlet {
 		}
 		
 	}
-
+	
 }
