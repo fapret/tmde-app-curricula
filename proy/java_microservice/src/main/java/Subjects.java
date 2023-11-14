@@ -30,6 +30,41 @@ public class Subjects extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    private String getSubject(asignaturas.Subject g) {
+    	String out = "\"" + g.getId() + "\",";
+    	for(asignaturas.Subject gc : g.getGroupOfSubjects()) {
+    		out += getSubject(gc);
+    	}
+    	return out;
+    }
+    
+    private String getSubject(asignaturas.Subject g, String id) {
+		if(g.getId() == Integer.parseInt(id)) {
+			String responseText = "";
+			responseText = "{ \"Id\": \"" + g.getId() + "\",";
+			responseText += "\"Name\": \"" + g.getName() + "\",";
+			responseText += "\"MinCredits\": " + g.getMinCredits() + ",";
+			responseText += "\"Subjects\": [";
+			boolean f = false;
+			for(asignaturas.Subject cg : g.getGroupOfSubjects()) {
+				responseText += "\"" + cg.getId() + "\",";
+				f = true;
+			}
+			if(f) {
+				responseText = responseText.substring(0, responseText.lastIndexOf(','));
+			}
+			responseText += "]}";
+			return responseText;
+		}
+		for(asignaturas.Subject gc : g.getGroupOfSubjects()) {
+			String out = getSubject(gc, id);
+			if(out != null) {
+				return out;
+			}
+		}
+		return null;
+    }
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -48,10 +83,28 @@ public class Subjects extends HttpServlet {
 						for(asignaturas.Plan p : carrera.getPlan()) {
 							if(p instanceof CreditsPlan) {
 								if(p.getYear() == plan) {
-									//TODO Logica a retornar de subject (buscar subject y imprimirlo)
 									CreditsPlan planCreditos = (CreditsPlan) p;
-									
-									return;
+									if(subject == null || subject.isBlank()) {
+										String out = "[";
+										for (asignaturas.Subject g : planCreditos.getGroupOfSubjects()) {
+											out += getSubject(g);
+										}
+										if(!out.equals("[")) {
+											out = out.substring(0, out.lastIndexOf(','));
+										}
+										out += "]";
+										response.getWriter().append(out);
+										return;
+									} else {
+										for (asignaturas.Subject g : planCreditos.getGroupOfSubjects()) {
+											String out = getSubject(g, subject);
+											if (out != null) {
+												response.getWriter().append(out);
+												return;
+											}
+										}
+										return;
+									}
 								}
 							}
 						}
