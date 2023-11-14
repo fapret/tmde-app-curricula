@@ -127,4 +127,14 @@
     <servlet-name>EstudianteAddPlan</servlet-name>
     <url-pattern>/Estudiante/AddPlan</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EstudianteAddEvaluation</display-name>
+    <servlet-name>EstudianteAddEvaluation</servlet-name>
+    <servlet-class>EstudianteAddEvaluation</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EstudianteAddEvaluation</servlet-name>
+    <url-pattern>/Estudiante/AddEvaluation</url-pattern>
+  </servlet-mapping>
 </web-app>
