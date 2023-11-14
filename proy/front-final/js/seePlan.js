@@ -6,7 +6,7 @@ function consultarPlan() {
 	const allPlansSelect = document.getElementById("planes");
 	const plan = allPlansSelect.value;
 
-	const url = `http://localhost:8080/curricula_microservice/Faculty/Carrera/Plan/ucs?faculty=${faculty}&career=${career}&plan=${plan}`;
+	const url = `http://localhost:8080/curricula_microservice/Faculty/Carrera/Plan/ucs?faculty=${faculty}&career=${career}&plan=${plan}&valid_flag=true`;
     var nodos = [];
     var nodos_0 = [];
     var nodos_process = {};

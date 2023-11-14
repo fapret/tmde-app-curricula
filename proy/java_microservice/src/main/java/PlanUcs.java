@@ -36,6 +36,19 @@ public class PlanUcs extends HttpServlet {
     	
     	return res;
     }
+    
+    private String get_valid_SubjectUCs(asignaturas.Subject g) {
+    	String res = "";
+		for (asignaturas.CurricularUnit cu : g.getSubjectCurricularUnit())
+			if (cu.isValid()) {
+				res += "\""+cu.getId()+"\", ";
+			}
+
+    	for (asignaturas.Subject g2 : g.getGroupOfSubjects())
+    		res += get_valid_SubjectUCs(g2);
+    	
+    	return res;
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -48,6 +61,10 @@ public class PlanUcs extends HttpServlet {
 		String faculty = request.getParameter("faculty");
 		String career = request.getParameter("career");
 		String plan = request.getParameter("plan");
+		boolean valid_flag = false;
+		if (request.getParameter("valid_flag") != null)
+			valid_flag = true;
+		
 		String res = "[";
 		for (Faculty facultad : rootElement.getFaculty()) {
 			if(facultad.getName().equals(faculty)) {
@@ -57,12 +74,23 @@ public class PlanUcs extends HttpServlet {
 							if (String.valueOf(p.getYear()).equals(plan) && p instanceof asignaturas.CreditsPlan) {
 								asignaturas.CreditsPlan pc = (asignaturas.CreditsPlan)(p);
 								for (asignaturas.Subject g : pc.getGroupOfSubjects())
-									res += getSubjectUCs(g);
+									if (valid_flag)
+										res += get_valid_SubjectUCs(g);
+									else
+										res += getSubjectUCs(g);
 							}
 							else {
 								asignaturas.SubjectPlan ps = (asignaturas.SubjectPlan)(p);
-								for (asignaturas.CurricularUnit cu : ps.getCurricularUnit()) {
-									res += "\""+cu.getId()+"\", ";
+								if (valid_flag) {
+									for (asignaturas.CurricularUnit cu : ps.getCurricularUnit()) {
+										if (cu.isValid())
+											res += "\""+cu.getId()+"\", ";
+									}
+								}
+								else {
+									for (asignaturas.CurricularUnit cu : ps.getCurricularUnit()) {
+										res += "\""+cu.getId()+"\", ";
+									}
 								}
 							}
 						}
