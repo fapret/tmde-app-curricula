@@ -387,7 +387,7 @@ paths:
           description: Plan not found
   /Faculty/Carrera/Plan/evaluations:
     post:
-      summary: No se que hace consultar ni porque esta programada como esta, consultar a Santiago Freire, no se usa
+      summary: Obtiene las evaluaciones de un estudiante (sin fecha)
       operationId: evaluations
       parameters:
         - name: faculty
@@ -422,7 +422,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/EvaluationAbstract'
+                  $ref: '#/components/schemas/StudentEvaluation'
         '404':
           description: Plan not found
 components:
@@ -583,10 +583,22 @@ components:
           example: "model.xmi#//@Faculty.0/@FacultyCU.0/@Course.0/@CourseEvaluation.0"
           xml:
             attribute: true
-    EvaluationAbstract:
-      oneOf:
-        - $ref: '#/components/schemas/ExamEvaluation'
-        - $ref: '#/components/schemas/CourseEvaluation'
+    StudentEvaluation:
+      type: object
+      required:
+        - id
+        - type
+        - grade
+      properties:
+        id:
+          type: string
+          example: GAL1
+        type:
+          type: string
+          example: CourseEvaluation
+        grade:
+          type: integer
+          example: 6
     ExamEvaluation:
       $ref: '#/components/schemas/EvaluationFather'
     CourseEvaluation:
