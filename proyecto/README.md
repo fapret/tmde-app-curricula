@@ -8,7 +8,7 @@ Requisitos de ejecución:
 - Librería de Ecore
 - Navegador con soporte de JavaScript
 
-Se debe colocar el modelo de la universidad (model.xmi) en el directorio según corresponda:
+Se debe colocar el modelo de la universidad (model.xmi, ubicado en model/model/model.xmi) en el directorio según corresponda:
 - En Linux: Carpeta home del usuario.
 - En Mac: /Applications/Eclipse/Contents/MacOS (reemplazar /Applications/Eclipse por otro nombre si Eclipse está instalado en otra ruta)
 
