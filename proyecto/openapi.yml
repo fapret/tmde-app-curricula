@@ -28,6 +28,10 @@ paths:
       responses:
         '200':
           description: Successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Estudiante'
   /Faculty:
     get:
       summary: Obtener información de una facultad
@@ -161,10 +165,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/uc'
+                type: array
+                items:
+                  type: string
+                  example: GAL1
         '404':
           description: Plan not found
-
   /Faculty/Carrera/Plan/Subjects:
     get:
       summary: Obtener información de una materia en un plan
@@ -233,18 +239,18 @@ paths:
           schema:
             type: string
       requestBody:
-        description: Modelo .xmi de estudiante (aquí mostrado en JSON)
+        description: Modelo .xmi de estudiante
         content:
-          application/json:
+          application/xml:
             schema:
-              $ref: '#/components/schemas/Estudiante'
+              $ref: '#/components/schemas/RootEstudiante'
       responses:
         '200':
           description: Success
           content:
-            application/json:
+            application/xml:
               schema:
-                type: boolean
+                $ref: '#/components/schemas/RootEstudiante'
         '404':
           description: Plan not found
   /Estudiante/AddEvaluation:
@@ -282,12 +288,6 @@ paths:
           required: true
           schema:
             type: string
-        - name: type
-          in: query
-          description: Tipo de evaluación (false - curso / true - examen)
-          required: true
-          schema:
-            type: boolean
         - name: nota
           in: query
           description: Nota obtenida
@@ -295,21 +295,20 @@ paths:
           schema:
             type: integer
       requestBody:
-        description: Modelo .xmi de estudiante (aquí mostrado en JSON)
+        description: Modelo .xmi de estudiante
         content:
-          application/json:
+          application/xml:
             schema:
-              $ref: '#/components/schemas/Estudiante'
+              $ref: '#/components/schemas/RootEstudiante'
       responses:
         '200':
           description: Success
           content:
-            application/json:
+            application/xml:
               schema:
-                type: boolean
+                $ref: '#/components/schemas/RootEstudiante'
         '404':
           description: Subject not found
-
   /Faculty/ucs/eval:
     post:
       summary: Evalúa los requerimientos de un estudiante en una UC en específico en el modelo
@@ -328,11 +327,11 @@ paths:
           schema:
             type: string
       requestBody:
-        description: Modelo .xmi de estudiante (aquí mostrado en JSON)
+        description: Modelo .xmi de estudiante
         content:
-          application/json:
+          application/xml:
             schema:
-              $ref: '#/components/schemas/Estudiante'
+              $ref: '#/components/schemas/RootEstudiante'
       responses:
         '200':
           description: Success
@@ -340,6 +339,7 @@ paths:
             application/json:
               schema:
                 type: boolean
+                example: true
         '404':
           description: Subject not found
   /Faculty/Carrera/Plan/eval:
@@ -368,9 +368,9 @@ paths:
       requestBody:
         description: Modelo de estudiante
         content:
-          application/json:
+          application/xml:
             schema:
-              $ref: '#/components/schemas/Estudiante'
+              $ref: '#/components/schemas/RootEstudiante'
       responses:
         '200':
           description: Success
@@ -379,14 +379,15 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/uc'
+                  type: string
+                  example: CDIV
         '400':
           description: Malformed request
         '404':
           description: Plan not found
   /Faculty/Carrera/Plan/evaluations:
     post:
-      summary: Agrega una evaluación a un modelo de estudiante
+      summary: No se que hace consultar ni porque esta programada como esta, consultar a Santiago Freire, no se usa
       operationId: evaluations
       parameters:
         - name: faculty
@@ -408,21 +409,22 @@ paths:
           schema:
             type: integer
       requestBody:
-        description: Modelo .xmi de estudiante (aquí mostrado en JSON)
+        description: Modelo .xmi de estudiante
         content:
-          application/json:
+          application/xml:
             schema:
-              $ref: '#/components/schemas/Estudiante'
+              $ref: '#/components/schemas/RootEstudiante'
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                type: boolean
+                type: array
+                items:
+                  $ref: '#/components/schemas/EvaluationAbstract'
         '404':
           description: Plan not found
-
 components:
   schemas:
     uc:
@@ -431,30 +433,22 @@ components:
         - id
       type: object
       properties:
-        name:
+        Name:
           type: string
           example: CALCULO DIV
-        id:
+        Id:
           type: string
           example: 1061
-        cred:
+        Cred:
           type: integer
           example: 13
-        valid:
-          type: boolean
-          example: true
-        materia:
-          type: array
-          items:
-            type: string
-            example: 4083
-        requeriments:
+        Requirement:
             $ref: '#/components/schemas/Requerimiento'
-        courses:
+        Course:
           type: array
           items:
             $ref: '#/components/schemas/Course'
-        examEvaluations:
+        ExamEvaluation:
           type: array
           items:
             $ref: '#/components/schemas/ExamEvaluation'
@@ -476,39 +470,46 @@ components:
         - name
       type: object
       properties:
-        name:
+        Name:
           type: string
           example: Facultad de Ingenieria
-        carreras:
+        Careers:
           type: array
           items:
-            $ref: '#/components/schemas/Carrera'
-        ucs:
+            type: string
+            example: Ing. Computacion
+        FacultyCU:
           type: array
           items:
-            $ref: '#/components/schemas/uc'
+            type: string
+            example: CDIV
     Carrera:
       required:
         - name
       type: object
       properties:
-        name:
+        Name:
           type: string
           example: Ing. En Computacion
-        planes:
+        Plans:
           type: array
           items:
-            $ref: '#/components/schemas/Plan'
+            type: integer
+            example: 1997
     PlanAbstract:
       type: object
       required:
         - year
       properties:
-        year:
+        Year:
           type: integer
           example: 1997
-        valid:
-          type: boolean
+        Career:
+          type: string
+          example: Ing. Computacion
+        Type:
+          type: string
+          example: CreditsPlan
     Plan:
       oneOf:
         - $ref: '#/components/schemas/PlanCreditos'
@@ -518,18 +519,19 @@ components:
         - $ref: '#/components/schemas/PlanAbstract'
         - type: object
           properties:
-            mincredits:
+            MinCredits:
               type: integer
-            materia:
+            Subjects:
               type: array
               items:
-                $ref: '#/components/schemas/materia'
+                type: string
+                example: 4083
     Planucs:
       allOf:
         - $ref: '#/components/schemas/PlanAbstract'
         - type: object
           properties:
-            ucs:
+            "Curricular Units":
               type: array
               items:
                 type: string
@@ -540,21 +542,21 @@ components:
         - id
         - name
       properties:
-        id:
+        Id:
           type: integer
           example: 4083
-        name:
+        Name:
           type: string
           example: MATEMATICA
-        minCredits:
+        MinCredits:
           type: integer
           example: 70
-        ucs:
+        CurricularUnits:
           type: array
           items:
             type: string
             example: 1030
-        materia:
+        Subjects:
           type: array
           items:
             $ref: '#/components/schemas/materia'
@@ -562,10 +564,26 @@ components:
       type: string
     EvaluationFather:
       type: object
+      required:
+        - date
       properties:
         date:
           type: string
+          example: "0001-01-01T00:00:00.000-0300"
     Evaluation:
+      type: object
+      properties:
+        type:
+          type: string
+          example: "asignaturas:CourseEvaluation"
+          xml:
+            attribute: true
+        href:
+          type: string
+          example: "model.xmi#//@Faculty.0/@FacultyCU.0/@Course.0/@CourseEvaluation.0"
+          xml:
+            attribute: true
+    EvaluationAbstract:
       oneOf:
         - $ref: '#/components/schemas/ExamEvaluation'
         - $ref: '#/components/schemas/CourseEvaluation'
@@ -573,16 +591,78 @@ components:
       $ref: '#/components/schemas/EvaluationFather'
     CourseEvaluation:
       $ref: '#/components/schemas/EvaluationFather'
-    Inscription:
+    RootEstudiante:
+      type: object
+      properties:
+        Student:
+          $ref: '#/components/schemas/Estudiante'
+    PlanInscription:
       type: object
       required:
         - date
-        - course
       properties:
+        plan:
+          type: object
+          required:
+            - "type"
+            - href
+          properties:
+            "type":
+              type: string
+              example: "asignaturas:CreditsPlan"
+              xml:
+                attribute: true
+            href:
+              type: string
+              example: "model.xmi#//@Faculty.0/@Careers.0/@plan.0"
+              xml:
+                attribute: true
         date:
           type: string
-        course:
-          $ref: '#/components/schemas/Course'
+          example: "0001-01-01T00:00:00.000-0300"
+          xml:
+            attribute: true
+        PlanCourseInscription:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlanCourseInscription'
+        PlanStudentEvaluation:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlanStudentEvaluation'
+    PlanCourseInscription:
+      type: object
+      required:
+        - date
+      properties:
+        CUCourse:
+          type: object
+          required:
+            - href
+          properties:
+            href:
+              type: string
+              example: "model.xmi#//@Faculty.0/@FacultyCU.0/@Course.0"
+              xml:
+                attribute: true
+        date:
+          type: string
+          example: "0001-01-01T00:00:00.000-0300"
+          xml:
+            attribute: true
+    PlanStudentEvaluation:
+      type: object
+      required:
+        - grade
+        - evaluation
+      properties:
+        grade:
+          type: integer
+          example: 6
+          xml:
+            attribute: true
+        evaluation:
+          $ref: '#/components/schemas/Evaluation'
     Estudiante:
       type: object
       required:
@@ -593,19 +673,14 @@ components:
         id:
           type: string
           example: test
+          xml:
+            attribute: true
         name:
           type: string
           example: fulano
-        plan:
+          xml:
+            attribute: true
+        StudentPlanInscription:
           type: array
           items:
-            type: string
-            example: Ing. en computacion
-        evaluations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Evaluation'
-        inscriptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Inscription'
+            $ref: '#/components/schemas/PlanInscription'
