@@ -693,14 +693,15 @@
   "required" : [ "name" ],
   "type" : "object",
   "properties" : {
-    "name" : {
+    "Name" : {
       "type" : "string",
       "example" : "Ing. En Computacion"
     },
-    "planes" : {
+    "Plans" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/components/schemas/Plan"
+        "type" : "integer",
+        "example" : 1997
       }
     }
   }
@@ -733,39 +734,52 @@
   "properties" : {
     "id" : {
       "type" : "string",
-      "example" : "test"
+      "example" : "test",
+      "xml" : {
+        "attribute" : true
+      }
     },
     "name" : {
       "type" : "string",
-      "example" : "fulano"
-    },
-    "plan" : {
-      "type" : "array",
-      "items" : {
-        "type" : "string",
-        "example" : "Ing. en computacion"
+      "example" : "fulano",
+      "xml" : {
+        "attribute" : true
       }
     },
-    "evaluations" : {
+    "StudentPlanInscription" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/components/schemas/Evaluation"
-      }
-    },
-    "inscriptions" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/components/schemas/Inscription"
+        "$ref" : "#/components/schemas/PlanInscription"
       }
     }
   }
 };
-            defs["Evaluation"] = {};
+            defs["Evaluation"] = {
+  "type" : "object",
+  "properties" : {
+    "type" : {
+      "type" : "string",
+      "example" : "asignaturas:CourseEvaluation",
+      "xml" : {
+        "attribute" : true
+      }
+    },
+    "href" : {
+      "type" : "string",
+      "example" : "model.xmi#//@Faculty.0/@FacultyCU.0/@Course.0/@CourseEvaluation.0",
+      "xml" : {
+        "attribute" : true
+      }
+    }
+  }
+};
             defs["EvaluationFather"] = {
+  "required" : [ "date" ],
   "type" : "object",
   "properties" : {
     "date" : {
-      "type" : "string"
+      "type" : "string",
+      "example" : "0001-01-01T00:00:00.000-0300"
     }
   }
 };
@@ -776,33 +790,23 @@
   "required" : [ "name" ],
   "type" : "object",
   "properties" : {
-    "name" : {
+    "Name" : {
       "type" : "string",
       "example" : "Facultad de Ingenieria"
     },
-    "carreras" : {
+    "Careers" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/components/schemas/Carrera"
+        "type" : "string",
+        "example" : "Ing. Computacion"
       }
     },
-    "ucs" : {
+    "FacultyCU" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/components/schemas/uc"
+        "type" : "string",
+        "example" : "CDIV"
       }
-    }
-  }
-};
-            defs["Inscription"] = {
-  "required" : [ "course", "date" ],
-  "type" : "object",
-  "properties" : {
-    "date" : {
-      "type" : "string"
-    },
-    "course" : {
-      "$ref" : "#/components/schemas/Course"
     }
   }
 };
@@ -810,26 +814,26 @@
   "required" : [ "id", "name" ],
   "type" : "object",
   "properties" : {
-    "id" : {
+    "Id" : {
       "type" : "integer",
       "example" : 4083
     },
-    "name" : {
+    "Name" : {
       "type" : "string",
       "example" : "MATEMATICA"
     },
-    "minCredits" : {
+    "MinCredits" : {
       "type" : "integer",
       "example" : 70
     },
-    "ucs" : {
+    "CurricularUnits" : {
       "type" : "array",
       "items" : {
         "type" : "string",
         "example" : "1030"
       }
     },
-    "materia" : {
+    "Subjects" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/materia"
@@ -842,12 +846,46 @@
   "required" : [ "year" ],
   "type" : "object",
   "properties" : {
-    "year" : {
+    "Year" : {
       "type" : "integer",
       "example" : 1997
     },
-    "valid" : {
-      "type" : "boolean"
+    "Career" : {
+      "type" : "string",
+      "example" : "Ing. Computacion"
+    },
+    "Type" : {
+      "type" : "string",
+      "example" : "CreditsPlan"
+    }
+  }
+};
+            defs["PlanCourseInscription"] = {
+  "required" : [ "date" ],
+  "type" : "object",
+  "properties" : {
+    "CUCourse" : {
+      "$ref" : "#/components/schemas/PlanCourseInscription_CUCourse"
+    },
+    "date" : {
+      "type" : "string",
+      "example" : "0001-01-01T00:00:00.000-0300",
+      "xml" : {
+        "attribute" : true
+      }
+    }
+  }
+};
+            defs["PlanCourseInscription_CUCourse"] = {
+  "required" : [ "href" ],
+  "type" : "object",
+  "properties" : {
+    "href" : {
+      "type" : "string",
+      "example" : "model.xmi#//@Faculty.0/@FacultyCU.0/@Course.0",
+      "xml" : {
+        "attribute" : true
+      }
     }
   }
 };
@@ -857,17 +895,82 @@
   }, {
     "type" : "object",
     "properties" : {
-      "mincredits" : {
+      "MinCredits" : {
         "type" : "integer"
       },
-      "materia" : {
+      "Subjects" : {
         "type" : "array",
         "items" : {
-          "$ref" : "#/components/schemas/materia"
+          "type" : "string",
+          "example" : "4083"
         }
       }
     }
   } ]
+};
+            defs["PlanInscription"] = {
+  "required" : [ "date" ],
+  "type" : "object",
+  "properties" : {
+    "plan" : {
+      "$ref" : "#/components/schemas/PlanInscription_plan"
+    },
+    "date" : {
+      "type" : "string",
+      "example" : "0001-01-01T00:00:00.000-0300",
+      "xml" : {
+        "attribute" : true
+      }
+    },
+    "PlanCourseInscription" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/PlanCourseInscription"
+      }
+    },
+    "PlanStudentEvaluation" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/PlanStudentEvaluation"
+      }
+    }
+  }
+};
+            defs["PlanInscription_plan"] = {
+  "required" : [ "href", "type" ],
+  "type" : "object",
+  "properties" : {
+    "type" : {
+      "type" : "string",
+      "example" : "asignaturas:CreditsPlan",
+      "xml" : {
+        "attribute" : true
+      }
+    },
+    "href" : {
+      "type" : "string",
+      "example" : "model.xmi#//@Faculty.0/@Careers.0/@plan.0",
+      "xml" : {
+        "attribute" : true
+      }
+    }
+  }
+};
+            defs["PlanStudentEvaluation"] = {
+  "required" : [ "evaluation", "grade" ],
+  "type" : "object",
+  "properties" : {
+    "grade" : {
+      "type" : "integer",
+      "example" : 6,
+      "xml" : {
+        "attribute" : true
+      }
+    },
+    "evaluation" : {
+      "$ref" : "#/components/schemas/Evaluation"
+    }
+  }
 };
             defs["Planucs"] = {
   "allOf" : [ {
@@ -875,7 +978,7 @@
   }, {
     "type" : "object",
     "properties" : {
-      "ucs" : {
+      "Curricular Units" : {
         "type" : "array",
         "items" : {
           "type" : "string",
@@ -888,43 +991,58 @@
             defs["Requerimiento"] = {
   "type" : "string"
 };
+            defs["RootEstudiante"] = {
+  "type" : "object",
+  "properties" : {
+    "Student" : {
+      "$ref" : "#/components/schemas/Estudiante"
+    }
+  }
+};
+            defs["StudentEvaluation"] = {
+  "required" : [ "grade", "id", "type" ],
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "type" : "string",
+      "example" : "GAL1"
+    },
+    "type" : {
+      "type" : "string",
+      "example" : "CourseEvaluation"
+    },
+    "grade" : {
+      "type" : "integer",
+      "example" : 6
+    }
+  }
+};
             defs["uc"] = {
   "required" : [ "id", "name" ],
   "type" : "object",
   "properties" : {
-    "name" : {
+    "Name" : {
       "type" : "string",
       "example" : "CALCULO DIV"
     },
-    "id" : {
+    "Id" : {
       "type" : "string",
       "example" : "1061"
     },
-    "cred" : {
+    "Cred" : {
       "type" : "integer",
       "example" : 13
     },
-    "valid" : {
-      "type" : "boolean",
-      "example" : true
-    },
-    "materia" : {
-      "type" : "array",
-      "items" : {
-        "type" : "string",
-        "example" : "4083"
-      }
-    },
-    "requeriments" : {
+    "Requirement" : {
       "$ref" : "#/components/schemas/Requerimiento"
     },
-    "courses" : {
+    "Course" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/Course"
       }
     },
-    "examEvaluations" : {
+    "ExamEvaluation" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/components/schemas/ExamEvaluation"
@@ -998,7 +1116,7 @@
         <div id="header">
           <div id="api-_">
             <h2 id="welcome-to-apidoc">API and SDK Documentation</h2>
-              <div class="app-desc">Version: 1.1.0</div>
+              <div class="app-desc">Version: 1.2.0</div>
             <hr>
             <div>Especificación de la API de Currícula</div>
           </div>
@@ -1039,9 +1157,9 @@
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-addStudentEval-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
--H "Accept: application/json"\
--H "Content-Type: application/json"\
-"http://localhost:8080/curricula_microservice/Estudiante/AddEvaluation?faculty=&career=&plan=&curricularUnit=&evaluation=&type=&nota="</code></pre>
+-H "Accept: application/xml"\
+-H "Content-Type: application/xml"\
+"http://localhost:8080/curricula_microservice/Estudiante/AddEvaluation?faculty=&career=&plan=&curricularUnit=&evaluation=&nota="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-addStudentEval-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -1062,11 +1180,10 @@ public class DefaultApiExample {
         Integer plan = 56; // Integer | Id de plan
         String curricularUnit = curricularUnit_example; // String | Id de UC
         String evaluation = evaluation_example; // String | Id de evaluación
-        Boolean type = true; // Boolean | Tipo de evaluación (false - curso / true - examen)
         Integer nota = 56; // Integer | Nota obtenida
-        Estudiante body = ; // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+        RootEstudiante body = ; // RootEstudiante | Modelo .xmi de estudiante
         try {
-            'Boolean' result = apiInstance.addStudentEval(faculty, career, plan, curricularUnit, evaluation, type, nota, body);
+            RootEstudiante result = apiInstance.addStudentEval(faculty, career, plan, curricularUnit, evaluation, nota, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#addStudentEval");
@@ -1088,11 +1205,10 @@ public class DefaultApiExample {
         Integer plan = 56; // Integer | Id de plan
         String curricularUnit = curricularUnit_example; // String | Id de UC
         String evaluation = evaluation_example; // String | Id de evaluación
-        Boolean type = true; // Boolean | Tipo de evaluación (false - curso / true - examen)
         Integer nota = 56; // Integer | Nota obtenida
-        Estudiante body = ; // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+        RootEstudiante body = ; // RootEstudiante | Modelo .xmi de estudiante
         try {
-            'Boolean' result = apiInstance.addStudentEval(faculty, career, plan, curricularUnit, evaluation, type, nota, body);
+            RootEstudiante result = apiInstance.addStudentEval(faculty, career, plan, curricularUnit, evaluation, nota, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#addStudentEval");
@@ -1111,9 +1227,8 @@ String *career = career_example; // Nombre de carrera
 Integer *plan = 56; // Id de plan
 String *curricularUnit = curricularUnit_example; // Id de UC
 String *evaluation = evaluation_example; // Id de evaluación
-Boolean *type = true; // Tipo de evaluación (false - curso / true - examen)
 Integer *nota = 56; // Nota obtenida
-Estudiante *body = ; // Modelo .xmi de estudiante (aquí mostrado en JSON) (optional)
+RootEstudiante *body = ; // Modelo .xmi de estudiante (optional)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -1123,10 +1238,9 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
     plan:plan
     curricularUnit:curricularUnit
     evaluation:evaluation
-    type:type
     nota:nota
     body:body
-              completionHandler: ^('Boolean' output, NSError* error) {
+              completionHandler: ^(RootEstudiante output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -1146,10 +1260,9 @@ var career = career_example; // {{String}} Nombre de carrera
 var plan = 56; // {{Integer}} Id de plan
 var curricularUnit = curricularUnit_example; // {{String}} Id de UC
 var evaluation = evaluation_example; // {{String}} Id de evaluación
-var type = true; // {{Boolean}} Tipo de evaluación (false - curso / true - examen)
 var nota = 56; // {{Integer}} Nota obtenida
 var opts = { 
-  'body':  // {{Estudiante}} Modelo .xmi de estudiante (aquí mostrado en JSON)
+  'body':  // {{RootEstudiante}} Modelo .xmi de estudiante
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -1158,7 +1271,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.addStudentEval(facultycareerplancurricularUnitevaluationtypenota, opts, callback);
+api.addStudentEval(facultycareerplancurricularUnitevaluationnota, opts, callback);
 </code></pre>
                             </div>
 
@@ -1185,14 +1298,13 @@ namespace Example
             var plan = 56;  // Integer | Id de plan
             var curricularUnit = curricularUnit_example;  // String | Id de UC
             var evaluation = evaluation_example;  // String | Id de evaluación
-            var type = true;  // Boolean | Tipo de evaluación (false - curso / true - examen)
             var nota = 56;  // Integer | Nota obtenida
-            var body = new Estudiante(); // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON) (optional) 
+            var body = new RootEstudiante(); // RootEstudiante | Modelo .xmi de estudiante (optional) 
 
             try
             {
                 // Agrega una evaluación a un modelo de estudiante
-                'Boolean' result = apiInstance.addStudentEval(faculty, career, plan, curricularUnit, evaluation, type, nota, body);
+                RootEstudiante result = apiInstance.addStudentEval(faculty, career, plan, curricularUnit, evaluation, nota, body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1215,12 +1327,11 @@ $career = career_example; // String | Nombre de carrera
 $plan = 56; // Integer | Id de plan
 $curricularUnit = curricularUnit_example; // String | Id de UC
 $evaluation = evaluation_example; // String | Id de evaluación
-$type = true; // Boolean | Tipo de evaluación (false - curso / true - examen)
 $nota = 56; // Integer | Nota obtenida
-$body = ; // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+$body = ; // RootEstudiante | Modelo .xmi de estudiante
 
 try {
-    $result = $api_instance->addStudentEval($faculty, $career, $plan, $curricularUnit, $evaluation, $type, $nota, $body);
+    $result = $api_instance->addStudentEval($faculty, $career, $plan, $curricularUnit, $evaluation, $nota, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->addStudentEval: ', $e->getMessage(), PHP_EOL;
@@ -1239,12 +1350,11 @@ my $career = career_example; # String | Nombre de carrera
 my $plan = 56; # Integer | Id de plan
 my $curricularUnit = curricularUnit_example; # String | Id de UC
 my $evaluation = evaluation_example; # String | Id de evaluación
-my $type = true; # Boolean | Tipo de evaluación (false - curso / true - examen)
 my $nota = 56; # Integer | Nota obtenida
-my $body = WWW::SwaggerClient::Object::Estudiante->new(); # Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+my $body = WWW::SwaggerClient::Object::RootEstudiante->new(); # RootEstudiante | Modelo .xmi de estudiante
 
 eval { 
-    my $result = $api_instance->addStudentEval(faculty => $faculty, career => $career, plan => $plan, curricularUnit => $curricularUnit, evaluation => $evaluation, type => $type, nota => $nota, body => $body);
+    my $result = $api_instance->addStudentEval(faculty => $faculty, career => $career, plan => $plan, curricularUnit => $curricularUnit, evaluation => $evaluation, nota => $nota, body => $body);
     print Dumper($result);
 };
 if ($@) {
@@ -1266,13 +1376,12 @@ career = career_example # String | Nombre de carrera
 plan = 56 # Integer | Id de plan
 curricularUnit = curricularUnit_example # String | Id de UC
 evaluation = evaluation_example # String | Id de evaluación
-type = true # Boolean | Tipo de evaluación (false - curso / true - examen)
 nota = 56 # Integer | Nota obtenida
-body =  # Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON) (optional)
+body =  # RootEstudiante | Modelo .xmi de estudiante (optional)
 
 try: 
     # Agrega una evaluación a un modelo de estudiante
-    api_response = api_instance.add_student_eval(faculty, career, plan, curricularUnit, evaluation, type, nota, body=body)
+    api_response = api_instance.add_student_eval(faculty, career, plan, curricularUnit, evaluation, nota, body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->addStudentEval: %s\n" % e)</code></pre>
@@ -1296,16 +1405,16 @@ except ApiException as e:
                                 <script>
                                 $(document).ready(function() {
                                   var schemaWrapper = {
-  "description" : "Modelo .xmi de estudiante (aquí mostrado en JSON)",
+  "description" : "Modelo .xmi de estudiante",
   "content" : {
-    "application/json" : {
+    "application/xml" : {
       "schema" : {
-        "$ref" : "#/components/schemas/Estudiante"
+        "$ref" : "#/components/schemas/RootEstudiante"
       }
     }
   }
 };
-                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  var schema = schemaWrapper.content["application/xml"].schema;
                                   if (schema.$ref != null) {
                                     schema = defsParser.$refs.get(schema.$ref);
                                   } else {
@@ -1444,28 +1553,6 @@ except ApiException as e:
                                     </div>
                                 </td>
                                 </tr>
-                                <tr><td style="width:150px;">type*</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_addStudentEval_type">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    Boolean
-                                                </span>
-                                
-                                                    <div class="inner description">
-                                                        Tipo de evaluación (false - curso / true - examen)
-                                                    </div>
-                                            </div>
-                                                <div class="inner required">
-                                                    Required
-                                                </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
                                 <tr><td style="width:150px;">nota*</td>
                                 <td>
                                 
@@ -1508,15 +1595,14 @@ except ApiException as e:
                                         var schemaWrapper = {
   "description" : "Success",
   "content" : {
-    "application/json" : {
+    "application/xml" : {
       "schema" : {
-        "type" : "boolean",
-        "x-content-type" : "application/json"
+        "$ref" : "#/components/schemas/RootEstudiante"
       }
     }
   }
 };
-                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        var schema = schemaWrapper.content["application/xml"].schema;
                                         if (schema.$ref != null) {
                                           schema = defsParser.$refs.get(schema.$ref);
                                         } else {
@@ -1584,8 +1670,8 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-addStudentPlan-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
--H "Accept: application/json"\
--H "Content-Type: application/json"\
+-H "Accept: application/xml"\
+-H "Content-Type: application/xml"\
 "http://localhost:8080/curricula_microservice/Estudiante/AddPlan?faculty=&career=&plan=&date="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-addStudentPlan-0-java">
@@ -1606,9 +1692,9 @@ public class DefaultApiExample {
         String career = career_example; // String | Nombre de carrera
         Integer plan = 56; // Integer | Id de plan
         String date = date_example; // String | Fecha de inscripción
-        Estudiante body = ; // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+        RootEstudiante body = ; // RootEstudiante | Modelo .xmi de estudiante
         try {
-            'Boolean' result = apiInstance.addStudentPlan(faculty, career, plan, date, body);
+            RootEstudiante result = apiInstance.addStudentPlan(faculty, career, plan, date, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#addStudentPlan");
@@ -1629,9 +1715,9 @@ public class DefaultApiExample {
         String career = career_example; // String | Nombre de carrera
         Integer plan = 56; // Integer | Id de plan
         String date = date_example; // String | Fecha de inscripción
-        Estudiante body = ; // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+        RootEstudiante body = ; // RootEstudiante | Modelo .xmi de estudiante
         try {
-            'Boolean' result = apiInstance.addStudentPlan(faculty, career, plan, date, body);
+            RootEstudiante result = apiInstance.addStudentPlan(faculty, career, plan, date, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#addStudentPlan");
@@ -1649,7 +1735,7 @@ public class DefaultApiExample {
 String *career = career_example; // Nombre de carrera
 Integer *plan = 56; // Id de plan
 String *date = date_example; // Fecha de inscripción
-Estudiante *body = ; // Modelo .xmi de estudiante (aquí mostrado en JSON) (optional)
+RootEstudiante *body = ; // Modelo .xmi de estudiante (optional)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -1659,7 +1745,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
     plan:plan
     date:date
     body:body
-              completionHandler: ^('Boolean' output, NSError* error) {
+              completionHandler: ^(RootEstudiante output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -1679,7 +1765,7 @@ var career = career_example; // {{String}} Nombre de carrera
 var plan = 56; // {{Integer}} Id de plan
 var date = date_example; // {{String}} Fecha de inscripción
 var opts = { 
-  'body':  // {{Estudiante}} Modelo .xmi de estudiante (aquí mostrado en JSON)
+  'body':  // {{RootEstudiante}} Modelo .xmi de estudiante
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -1714,12 +1800,12 @@ namespace Example
             var career = career_example;  // String | Nombre de carrera
             var plan = 56;  // Integer | Id de plan
             var date = date_example;  // String | Fecha de inscripción
-            var body = new Estudiante(); // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON) (optional) 
+            var body = new RootEstudiante(); // RootEstudiante | Modelo .xmi de estudiante (optional) 
 
             try
             {
                 // Agrega una inscripción a plan a un modelo de estudiante
-                'Boolean' result = apiInstance.addStudentPlan(faculty, career, plan, date, body);
+                RootEstudiante result = apiInstance.addStudentPlan(faculty, career, plan, date, body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1741,7 +1827,7 @@ $faculty = faculty_example; // String | Nombre de facultad
 $career = career_example; // String | Nombre de carrera
 $plan = 56; // Integer | Id de plan
 $date = date_example; // String | Fecha de inscripción
-$body = ; // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+$body = ; // RootEstudiante | Modelo .xmi de estudiante
 
 try {
     $result = $api_instance->addStudentPlan($faculty, $career, $plan, $date, $body);
@@ -1762,7 +1848,7 @@ my $faculty = faculty_example; # String | Nombre de facultad
 my $career = career_example; # String | Nombre de carrera
 my $plan = 56; # Integer | Id de plan
 my $date = date_example; # String | Fecha de inscripción
-my $body = WWW::SwaggerClient::Object::Estudiante->new(); # Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+my $body = WWW::SwaggerClient::Object::RootEstudiante->new(); # RootEstudiante | Modelo .xmi de estudiante
 
 eval { 
     my $result = $api_instance->addStudentPlan(faculty => $faculty, career => $career, plan => $plan, date => $date, body => $body);
@@ -1786,7 +1872,7 @@ faculty = faculty_example # String | Nombre de facultad
 career = career_example # String | Nombre de carrera
 plan = 56 # Integer | Id de plan
 date = date_example # String | Fecha de inscripción
-body =  # Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON) (optional)
+body =  # RootEstudiante | Modelo .xmi de estudiante (optional)
 
 try: 
     # Agrega una inscripción a plan a un modelo de estudiante
@@ -1814,16 +1900,16 @@ except ApiException as e:
                                 <script>
                                 $(document).ready(function() {
                                   var schemaWrapper = {
-  "description" : "Modelo .xmi de estudiante (aquí mostrado en JSON)",
+  "description" : "Modelo .xmi de estudiante",
   "content" : {
-    "application/json" : {
+    "application/xml" : {
       "schema" : {
-        "$ref" : "#/components/schemas/Estudiante"
+        "$ref" : "#/components/schemas/RootEstudiante"
       }
     }
   }
 };
-                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  var schema = schemaWrapper.content["application/xml"].schema;
                                   if (schema.$ref != null) {
                                     schema = defsParser.$refs.get(schema.$ref);
                                   } else {
@@ -1960,15 +2046,14 @@ except ApiException as e:
                                         var schemaWrapper = {
   "description" : "Success",
   "content" : {
-    "application/json" : {
+    "application/xml" : {
       "schema" : {
-        "type" : "boolean",
-        "x-content-type" : "application/json"
+        "$ref" : "#/components/schemas/RootEstudiante"
       }
     }
   }
 };
-                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        var schema = schemaWrapper.content["application/xml"].schema;
                                         if (schema.$ref != null) {
                                           schema = defsParser.$refs.get(schema.$ref);
                                         } else {
@@ -2036,6 +2121,7 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-createStudentModel-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+-H "Accept: application/xml"\
 "http://localhost:8080/curricula_microservice/Estudiante?name=&id="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-createStudentModel-0-java">
@@ -2055,7 +2141,8 @@ public class DefaultApiExample {
         String name = name_example; // String | Nombre de Estudiante
         String id = id_example; // String | ID de Estudiante
         try {
-            apiInstance.createStudentModel(name, id);
+            Estudiante result = apiInstance.createStudentModel(name, id);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#createStudentModel");
             e.printStackTrace();
@@ -2074,7 +2161,8 @@ public class DefaultApiExample {
         String name = name_example; // String | Nombre de Estudiante
         String id = id_example; // String | ID de Estudiante
         try {
-            apiInstance.createStudentModel(name, id);
+            Estudiante result = apiInstance.createStudentModel(name, id);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#createStudentModel");
             e.printStackTrace();
@@ -2095,7 +2183,10 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 // Crear modelo de estudiante
 [apiInstance createStudentModelWith:name
     id:id
-              completionHandler: ^(NSError* error) {
+              completionHandler: ^(Estudiante output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
                             if (error) {
                                 NSLog(@"Error: %@", error);
                             }
@@ -2114,7 +2205,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 api.createStudentModel(name, id, callback);
@@ -2145,7 +2236,8 @@ namespace Example
             try
             {
                 // Crear modelo de estudiante
-                apiInstance.createStudentModel(name, id);
+                Estudiante result = apiInstance.createStudentModel(name, id);
+                Debug.WriteLine(result);
             }
             catch (Exception e)
             {
@@ -2166,7 +2258,8 @@ $name = name_example; // String | Nombre de Estudiante
 $id = id_example; // String | ID de Estudiante
 
 try {
-    $api_instance->createStudentModel($name, $id);
+    $result = $api_instance->createStudentModel($name, $id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->createStudentModel: ', $e->getMessage(), PHP_EOL;
 }
@@ -2183,7 +2276,8 @@ my $name = name_example; # String | Nombre de Estudiante
 my $id = id_example; # String | ID de Estudiante
 
 eval { 
-    $api_instance->createStudentModel(name => $name, id => $id);
+    my $result = $api_instance->createStudentModel(name => $name, id => $id);
+    print Dumper($result);
 };
 if ($@) {
     warn "Exception when calling DefaultApi->createStudentModel: $@\n";
@@ -2204,7 +2298,8 @@ id = id_example # String | ID de Estudiante
 
 try: 
     # Crear modelo de estudiante
-    api_instance.create_student_model(name, id)
+    api_response = api_instance.create_student_model(name, id)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->createStudentModel: %s\n" % e)</code></pre>
                             </div>
@@ -2272,9 +2367,49 @@ except ApiException as e:
                             <h3> Status: 200 - Successful operation </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-createStudentModel-200-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-createStudentModel-200-schema">
+                                  <div id='responses-createStudentModel-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Successful operation",
+  "content" : {
+    "application/xml" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Estudiante"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/xml"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-createStudentModel-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-createStudentModel-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-createStudentModel-200-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -2314,7 +2449,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-Default-eval-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
 -H "Accept: application/json"\
--H "Content-Type: application/json"\
+-H "Content-Type: application/xml"\
 "http://localhost:8080/curricula_microservice/Faculty/ucs/eval?faculty=&curricularUnit="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-eval-0-java">
@@ -2333,7 +2468,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         String faculty = faculty_example; // String | Nombre de facultad
         String curricularUnit = curricularUnit_example; // String | Id de UC
-        Estudiante body = ; // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+        RootEstudiante body = ; // RootEstudiante | Modelo .xmi de estudiante
         try {
             'Boolean' result = apiInstance.eval(faculty, curricularUnit, body);
             System.out.println(result);
@@ -2354,7 +2489,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         String faculty = faculty_example; // String | Nombre de facultad
         String curricularUnit = curricularUnit_example; // String | Id de UC
-        Estudiante body = ; // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+        RootEstudiante body = ; // RootEstudiante | Modelo .xmi de estudiante
         try {
             'Boolean' result = apiInstance.eval(faculty, curricularUnit, body);
             System.out.println(result);
@@ -2372,7 +2507,7 @@ public class DefaultApiExample {
                             <div class="tab-pane" id="examples-Default-eval-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">String *faculty = faculty_example; // Nombre de facultad
 String *curricularUnit = curricularUnit_example; // Id de UC
-Estudiante *body = ; // Modelo .xmi de estudiante (aquí mostrado en JSON) (optional)
+RootEstudiante *body = ; // Modelo .xmi de estudiante (optional)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -2398,7 +2533,7 @@ var api = new CurrculaDocs.DefaultApi()
 var faculty = faculty_example; // {{String}} Nombre de facultad
 var curricularUnit = curricularUnit_example; // {{String}} Id de UC
 var opts = { 
-  'body':  // {{Estudiante}} Modelo .xmi de estudiante (aquí mostrado en JSON)
+  'body':  // {{RootEstudiante}} Modelo .xmi de estudiante
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -2431,7 +2566,7 @@ namespace Example
             var apiInstance = new DefaultApi();
             var faculty = faculty_example;  // String | Nombre de facultad
             var curricularUnit = curricularUnit_example;  // String | Id de UC
-            var body = new Estudiante(); // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON) (optional) 
+            var body = new RootEstudiante(); // RootEstudiante | Modelo .xmi de estudiante (optional) 
 
             try
             {
@@ -2456,7 +2591,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new Swagger\Client\ApiDefaultApi();
 $faculty = faculty_example; // String | Nombre de facultad
 $curricularUnit = curricularUnit_example; // String | Id de UC
-$body = ; // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+$body = ; // RootEstudiante | Modelo .xmi de estudiante
 
 try {
     $result = $api_instance->eval($faculty, $curricularUnit, $body);
@@ -2475,7 +2610,7 @@ use WWW::SwaggerClient::DefaultApi;
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 my $faculty = faculty_example; # String | Nombre de facultad
 my $curricularUnit = curricularUnit_example; # String | Id de UC
-my $body = WWW::SwaggerClient::Object::Estudiante->new(); # Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+my $body = WWW::SwaggerClient::Object::RootEstudiante->new(); # RootEstudiante | Modelo .xmi de estudiante
 
 eval { 
     my $result = $api_instance->eval(faculty => $faculty, curricularUnit => $curricularUnit, body => $body);
@@ -2497,7 +2632,7 @@ from pprint import pprint
 api_instance = swagger_client.DefaultApi()
 faculty = faculty_example # String | Nombre de facultad
 curricularUnit = curricularUnit_example # String | Id de UC
-body =  # Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON) (optional)
+body =  # RootEstudiante | Modelo .xmi de estudiante (optional)
 
 try: 
     # Evalúa los requerimientos de un estudiante en una UC en específico en el modelo
@@ -2525,16 +2660,16 @@ except ApiException as e:
                                 <script>
                                 $(document).ready(function() {
                                   var schemaWrapper = {
-  "description" : "Modelo .xmi de estudiante (aquí mostrado en JSON)",
+  "description" : "Modelo .xmi de estudiante",
   "content" : {
-    "application/json" : {
+    "application/xml" : {
       "schema" : {
-        "$ref" : "#/components/schemas/Estudiante"
+        "$ref" : "#/components/schemas/RootEstudiante"
       }
     }
   }
 };
-                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  var schema = schemaWrapper.content["application/xml"].schema;
                                   if (schema.$ref != null) {
                                     schema = defsParser.$refs.get(schema.$ref);
                                   } else {
@@ -2630,6 +2765,7 @@ except ApiException as e:
     "application/json" : {
       "schema" : {
         "type" : "boolean",
+        "example" : true,
         "x-content-type" : "application/json"
       }
     }
@@ -2704,7 +2840,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-Default-evalPlan-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
 -H "Accept: application/json"\
--H "Content-Type: application/json"\
+-H "Content-Type: application/xml"\
 "http://localhost:8080/curricula_microservice/Faculty/Carrera/Plan/eval?faculty=&career=&plan="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-evalPlan-0-java">
@@ -2724,9 +2860,9 @@ public class DefaultApiExample {
         String faculty = faculty_example; // String | Nombre de facultad
         String career = career_example; // String | Nombre de carrera
         Integer plan = 56; // Integer | Plan
-        Estudiante body = ; // Estudiante | Modelo de estudiante
+        RootEstudiante body = ; // RootEstudiante | Modelo de estudiante
         try {
-            array[uc] result = apiInstance.evalPlan(faculty, career, plan, body);
+            array['String'] result = apiInstance.evalPlan(faculty, career, plan, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#evalPlan");
@@ -2746,9 +2882,9 @@ public class DefaultApiExample {
         String faculty = faculty_example; // String | Nombre de facultad
         String career = career_example; // String | Nombre de carrera
         Integer plan = 56; // Integer | Plan
-        Estudiante body = ; // Estudiante | Modelo de estudiante
+        RootEstudiante body = ; // RootEstudiante | Modelo de estudiante
         try {
-            array[uc] result = apiInstance.evalPlan(faculty, career, plan, body);
+            array['String'] result = apiInstance.evalPlan(faculty, career, plan, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#evalPlan");
@@ -2765,7 +2901,7 @@ public class DefaultApiExample {
                               <pre class="prettyprint"><code class="language-cpp">String *faculty = faculty_example; // Nombre de facultad
 String *career = career_example; // Nombre de carrera
 Integer *plan = 56; // Plan
-Estudiante *body = ; // Modelo de estudiante (optional)
+RootEstudiante *body = ; // Modelo de estudiante (optional)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -2774,7 +2910,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
     career:career
     plan:plan
     body:body
-              completionHandler: ^(array[uc] output, NSError* error) {
+              completionHandler: ^(array['String'] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -2793,7 +2929,7 @@ var faculty = faculty_example; // {{String}} Nombre de facultad
 var career = career_example; // {{String}} Nombre de carrera
 var plan = 56; // {{Integer}} Plan
 var opts = { 
-  'body':  // {{Estudiante}} Modelo de estudiante
+  'body':  // {{RootEstudiante}} Modelo de estudiante
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -2827,12 +2963,12 @@ namespace Example
             var faculty = faculty_example;  // String | Nombre de facultad
             var career = career_example;  // String | Nombre de carrera
             var plan = 56;  // Integer | Plan
-            var body = new Estudiante(); // Estudiante | Modelo de estudiante (optional) 
+            var body = new RootEstudiante(); // RootEstudiante | Modelo de estudiante (optional) 
 
             try
             {
                 // Evalúa qué UCs puede cursar un estudiante
-                array[uc] result = apiInstance.evalPlan(faculty, career, plan, body);
+                array['String'] result = apiInstance.evalPlan(faculty, career, plan, body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2853,7 +2989,7 @@ $api_instance = new Swagger\Client\ApiDefaultApi();
 $faculty = faculty_example; // String | Nombre de facultad
 $career = career_example; // String | Nombre de carrera
 $plan = 56; // Integer | Plan
-$body = ; // Estudiante | Modelo de estudiante
+$body = ; // RootEstudiante | Modelo de estudiante
 
 try {
     $result = $api_instance->evalPlan($faculty, $career, $plan, $body);
@@ -2873,7 +3009,7 @@ my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 my $faculty = faculty_example; # String | Nombre de facultad
 my $career = career_example; # String | Nombre de carrera
 my $plan = 56; # Integer | Plan
-my $body = WWW::SwaggerClient::Object::Estudiante->new(); # Estudiante | Modelo de estudiante
+my $body = WWW::SwaggerClient::Object::RootEstudiante->new(); # RootEstudiante | Modelo de estudiante
 
 eval { 
     my $result = $api_instance->evalPlan(faculty => $faculty, career => $career, plan => $plan, body => $body);
@@ -2896,7 +3032,7 @@ api_instance = swagger_client.DefaultApi()
 faculty = faculty_example # String | Nombre de facultad
 career = career_example # String | Nombre de carrera
 plan = 56 # Integer | Plan
-body =  # Estudiante | Modelo de estudiante (optional)
+body =  # RootEstudiante | Modelo de estudiante (optional)
 
 try: 
     # Evalúa qué UCs puede cursar un estudiante
@@ -2926,14 +3062,14 @@ except ApiException as e:
                                   var schemaWrapper = {
   "description" : "Modelo de estudiante",
   "content" : {
-    "application/json" : {
+    "application/xml" : {
       "schema" : {
-        "$ref" : "#/components/schemas/Estudiante"
+        "$ref" : "#/components/schemas/RootEstudiante"
       }
     }
   }
 };
-                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  var schema = schemaWrapper.content["application/xml"].schema;
                                   if (schema.$ref != null) {
                                     schema = defsParser.$refs.get(schema.$ref);
                                   } else {
@@ -3052,7 +3188,8 @@ except ApiException as e:
       "schema" : {
         "type" : "array",
         "items" : {
-          "$ref" : "#/components/schemas/uc"
+          "type" : "string",
+          "example" : "CDIV"
         },
         "x-content-type" : "application/json"
       }
@@ -3106,7 +3243,7 @@ except ApiException as e:
                       <article id="api-Default-evaluations-0" data-group="User" data-name="evaluations" data-version="0">
                         <div class="pull-left">
                           <h1>evaluations</h1>
-                          <p>Agrega una evaluación a un modelo de estudiante</p>
+                          <p>Obtiene las evaluaciones de un estudiante (sin fecha)</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -3136,7 +3273,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-Default-evaluations-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
 -H "Accept: application/json"\
--H "Content-Type: application/json"\
+-H "Content-Type: application/xml"\
 "http://localhost:8080/curricula_microservice/Faculty/Carrera/Plan/evaluations?faculty=&career=&plan="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-evaluations-0-java">
@@ -3156,9 +3293,9 @@ public class DefaultApiExample {
         String faculty = faculty_example; // String | Nombre de facultad
         String career = career_example; // String | Nombre de carrera
         Integer plan = 56; // Integer | Plan
-        Estudiante body = ; // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+        RootEstudiante body = ; // RootEstudiante | Modelo .xmi de estudiante
         try {
-            'Boolean' result = apiInstance.evaluations(faculty, career, plan, body);
+            array[StudentEvaluation] result = apiInstance.evaluations(faculty, career, plan, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#evaluations");
@@ -3178,9 +3315,9 @@ public class DefaultApiExample {
         String faculty = faculty_example; // String | Nombre de facultad
         String career = career_example; // String | Nombre de carrera
         Integer plan = 56; // Integer | Plan
-        Estudiante body = ; // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+        RootEstudiante body = ; // RootEstudiante | Modelo .xmi de estudiante
         try {
-            'Boolean' result = apiInstance.evaluations(faculty, career, plan, body);
+            array[StudentEvaluation] result = apiInstance.evaluations(faculty, career, plan, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#evaluations");
@@ -3197,16 +3334,16 @@ public class DefaultApiExample {
                               <pre class="prettyprint"><code class="language-cpp">String *faculty = faculty_example; // Nombre de facultad
 String *career = career_example; // Nombre de carrera
 Integer *plan = 56; // Plan
-Estudiante *body = ; // Modelo .xmi de estudiante (aquí mostrado en JSON) (optional)
+RootEstudiante *body = ; // Modelo .xmi de estudiante (optional)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
-// Agrega una evaluación a un modelo de estudiante
+// Obtiene las evaluaciones de un estudiante (sin fecha)
 [apiInstance evaluationsWith:faculty
     career:career
     plan:plan
     body:body
-              completionHandler: ^('Boolean' output, NSError* error) {
+              completionHandler: ^(array[StudentEvaluation] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -3225,7 +3362,7 @@ var faculty = faculty_example; // {{String}} Nombre de facultad
 var career = career_example; // {{String}} Nombre de carrera
 var plan = 56; // {{Integer}} Plan
 var opts = { 
-  'body':  // {{Estudiante}} Modelo .xmi de estudiante (aquí mostrado en JSON)
+  'body':  // {{RootEstudiante}} Modelo .xmi de estudiante
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -3259,12 +3396,12 @@ namespace Example
             var faculty = faculty_example;  // String | Nombre de facultad
             var career = career_example;  // String | Nombre de carrera
             var plan = 56;  // Integer | Plan
-            var body = new Estudiante(); // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON) (optional) 
+            var body = new RootEstudiante(); // RootEstudiante | Modelo .xmi de estudiante (optional) 
 
             try
             {
-                // Agrega una evaluación a un modelo de estudiante
-                'Boolean' result = apiInstance.evaluations(faculty, career, plan, body);
+                // Obtiene las evaluaciones de un estudiante (sin fecha)
+                array[StudentEvaluation] result = apiInstance.evaluations(faculty, career, plan, body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3285,7 +3422,7 @@ $api_instance = new Swagger\Client\ApiDefaultApi();
 $faculty = faculty_example; // String | Nombre de facultad
 $career = career_example; // String | Nombre de carrera
 $plan = 56; // Integer | Plan
-$body = ; // Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+$body = ; // RootEstudiante | Modelo .xmi de estudiante
 
 try {
     $result = $api_instance->evaluations($faculty, $career, $plan, $body);
@@ -3305,7 +3442,7 @@ my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 my $faculty = faculty_example; # String | Nombre de facultad
 my $career = career_example; # String | Nombre de carrera
 my $plan = 56; # Integer | Plan
-my $body = WWW::SwaggerClient::Object::Estudiante->new(); # Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON)
+my $body = WWW::SwaggerClient::Object::RootEstudiante->new(); # RootEstudiante | Modelo .xmi de estudiante
 
 eval { 
     my $result = $api_instance->evaluations(faculty => $faculty, career => $career, plan => $plan, body => $body);
@@ -3328,10 +3465,10 @@ api_instance = swagger_client.DefaultApi()
 faculty = faculty_example # String | Nombre de facultad
 career = career_example # String | Nombre de carrera
 plan = 56 # Integer | Plan
-body =  # Estudiante | Modelo .xmi de estudiante (aquí mostrado en JSON) (optional)
+body =  # RootEstudiante | Modelo .xmi de estudiante (optional)
 
 try: 
-    # Agrega una evaluación a un modelo de estudiante
+    # Obtiene las evaluaciones de un estudiante (sin fecha)
     api_response = api_instance.evaluations(faculty, career, plan, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -3356,16 +3493,16 @@ except ApiException as e:
                                 <script>
                                 $(document).ready(function() {
                                   var schemaWrapper = {
-  "description" : "Modelo .xmi de estudiante (aquí mostrado en JSON)",
+  "description" : "Modelo .xmi de estudiante",
   "content" : {
-    "application/json" : {
+    "application/xml" : {
       "schema" : {
-        "$ref" : "#/components/schemas/Estudiante"
+        "$ref" : "#/components/schemas/RootEstudiante"
       }
     }
   }
 };
-                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  var schema = schemaWrapper.content["application/xml"].schema;
                                   if (schema.$ref != null) {
                                     schema = defsParser.$refs.get(schema.$ref);
                                   } else {
@@ -3482,7 +3619,10 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "type" : "boolean",
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/StudentEvaluation"
+        },
         "x-content-type" : "application/json"
       }
     }
@@ -4979,7 +5119,7 @@ public class DefaultApiExample {
         String career = career_example; // String | Nombre de carrera
         Integer plan = 56; // Integer | Plan
         try {
-            uc result = apiInstance.getUCPlan(faculty, career, plan);
+            array['String'] result = apiInstance.getUCPlan(faculty, career, plan);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getUCPlan");
@@ -5000,7 +5140,7 @@ public class DefaultApiExample {
         String career = career_example; // String | Nombre de carrera
         Integer plan = 56; // Integer | Plan
         try {
-            uc result = apiInstance.getUCPlan(faculty, career, plan);
+            array['String'] result = apiInstance.getUCPlan(faculty, career, plan);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getUCPlan");
@@ -5024,7 +5164,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 [apiInstance getUCPlanWith:faculty
     career:career
     plan:plan
-              completionHandler: ^(uc output, NSError* error) {
+              completionHandler: ^(array['String'] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -5079,7 +5219,7 @@ namespace Example
             try
             {
                 // Obtener información de las UCs de un plan
-                uc result = apiInstance.getUCPlan(faculty, career, plan);
+                array['String'] result = apiInstance.getUCPlan(faculty, career, plan);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -5251,7 +5391,12 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/uc"
+        "type" : "array",
+        "items" : {
+          "type" : "string",
+          "example" : "GAL1"
+        },
+        "x-content-type" : "application/json"
       }
     }
   }
