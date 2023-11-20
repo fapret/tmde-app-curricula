@@ -12,6 +12,8 @@ Correr el proyecto _curricula_microservice_ en Tomcat y acceder al menú princip
 
 Para hacer consultas directas a la API, se accede desde _http://localhost:8080/curricula_microservice_. Para detalles sobre las operaciones disponibles ver la declaración de OpenAPI en el archivo openapi.yml o la documentación en HTML en front/docs.html.
 
+Se debe colocar el modelo de la universidad llamado como model.xmi en el directorio home del usuario.
+
 Para más información sobre el funcionamiento de la aplicación o su enfoque MDE, ver el archivo informe_gr04.pdf.
 
 Proyecto realizado por:
