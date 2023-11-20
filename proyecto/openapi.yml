@@ -1,165 +1,301 @@
 openapi: 3.0.3
 info:
-  title: Curricula docs
+  title: Currícula docs
   description: |-
-    Especificación de la APIs de Curricula
-  termsOfService: http://localhost:8080/terms/
-  contact:
-    email: santiago.nicolas.diaz.conde@fing.edu.uy, santiago.freire@fing.edu.uy
-  version: 1.0.0
+    Especificación de la API de Currícula
+  version: 1.1.0
 servers:
-  - url: http://localhost:8080/api/v1
-    description: Development server
-tags:
-  - name: admin
-    description: Operaciones de admin
+  - url: http://localhost:8080/curricula_microservice
+    description: Server
 paths:
-  /model:
-    put:
-      tags:
-        - admin
-      summary: Cambia el modelo actual
-      operationId: changeModel
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                file:
-                  type: string
-                  format: binary
+  /Estudiante:
+    get:
+      summary: Crear modelo de estudiante
+      operationId: createStudentModel
+      parameters:
+        - name: name
+          in: query
+          description: Nombre de Estudiante
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: query
+          description: ID de Estudiante
+          required: true
+          schema:
+            type: string
       responses:
         '200':
-          description: Succesful operation
-        '400':
-          description: Failed at model reading
-      security:
-        - curricula_auth:
-          - write:model
-  /{facultad}:
+          description: Successful operation
+  /Faculty:
     get:
-      summary: Obten la informacion de una facultad
-      operationId: getFacultad
+      summary: Obtener información de una facultad
+      operationId: getFaculty
       parameters:
-        - name: facultad
-          in: path
+        - name: faculty
+          in: query
           description: Nombre de Facultad
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: Succesful operation
+          description: Successful operation
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Facultad'
         '404':
           description: Facultad not found
-  /{facultad}/ucs/{uc}:
+  /Faculty/ucs:
     get:
-      summary: Obten la informacion de una uc
+      summary: Obtener información de una UC
       operationId: getuc
       parameters:
-        - name: facultad
-          in: path
+        - name: faculty
+          in: query
           description: Nombre de facultad
           required: true
           schema:
             type: string
         - name: uc
-          in: path
-          description: Id de uc
+          in: query
+          description: Id de UC
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: Succesful operation
+          description: Successful operation
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/uc'
         '404':
           description: uc not found
-  /{facultad}/ucs/{uc}/courses/{course}:
+  /Faculty/Carrera:
     get:
-      summary: Obten la informacion de un curso de una uc
-      operationId: getCourse
+      summary: Obtener información de una carrera
+      operationId: getCarrera
       parameters:
-        - name: facultad
-          in: path
+        - name: faculty
+          in: query
           description: Nombre de facultad
           required: true
           schema:
             type: string
-        - name: uc
-          in: path
-          description: Id de uc
-          required: true
-          schema:
-            type: string
-        - name: course
-          in: path
-          description: Edicion del curso
+        - name: career
+          in: query
+          description: Nombre de carrera
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: Succesful operation
+          description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Course'
+                $ref: '#/components/schemas/Carrera'
         '404':
-          description: course not found
-  /{facultad}/ucs/{uc}/examevaluations/:
+          description: Career not found
+  /Faculty/Carrera/Plan:
     get:
-      summary: Obten las evaluaciones de examen de una uc
-      operationId: getucexam
+      summary: Obtener información de un plan
+      operationId: getPlan
       parameters:
-        - name: facultad
-          in: path
+        - name: faculty
+          in: query
           description: Nombre de facultad
           required: true
           schema:
             type: string
-        - name: uc
-          in: path
-          description: Id de uc
+        - name: career
+          in: query
+          description: Nombre de carrera
+          required: true
+          schema:
+            type: string
+        - name: plan
+          in: query
+          description: Plan
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Plan'
+        '404':
+          description: Plan not found
+  /Faculty/Carrera/Plan/ucs:
+    get:
+      summary: Obtener información de las UCs de un plan
+      operationId: getUCPlan
+      parameters:
+        - name: faculty
+          in: query
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: career
+          in: query
+          description: Nombre de carrera
+          required: true
+          schema:
+            type: string
+        - name: plan
+          in: query
+          description: Plan
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/uc'
+        '404':
+          description: Plan not found
+
+  /Faculty/Carrera/Plan/Subjects:
+    get:
+      summary: Obtener información de una materia en un plan
+      operationId: getPlanSubject
+      parameters:
+        - name: faculty
+          in: query
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: career
+          in: query
+          description: Nombre de carrera
+          required: true
+          schema:
+            type: string
+        - name: plan
+          in: query
+          description: Plan
+          required: true
+          schema:
+            type: integer
+        - name: subject
+          in: query
+          description: Nombre de materia
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: Succesful operation
+          description: Successful operation
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ExamEvaluation'
-  /{facultad}/ucs/{uc}/eval:
+                $ref: '#/components/schemas/materia'
+        '404':
+          description: subject not found
+  /Estudiante/AddPlan:
     post:
-      summary: Evalua los requerimientos de un estudiante en una uc en especifico en el modelo
-      operationId: eval
+      summary: Agrega una inscripción a plan a un modelo de estudiante
+      operationId: addStudentPlan
       parameters:
-        - name: facultad
-          in: path
+        - name: faculty
+          in: query
           description: Nombre de facultad
           required: true
           schema:
             type: string
-        - name: uc
-          in: path
-          description: Id de uc
+        - name: career
+          in: query
+          description: Nombre de carrera
+          required: true
+          schema:
+            type: string
+        - name: plan
+          in: query
+          description: Id de plan
+          required: true
+          schema:
+            type: integer
+        - name: date
+          in: query
+          description: Fecha de inscripción
           required: true
           schema:
             type: string
       requestBody:
-        description: Datos del estudiante y id uc
+        description: Modelo .xmi de estudiante (aquí mostrado en JSON)
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Estudiante'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '404':
+          description: Plan not found
+  /Estudiante/AddEvaluation:
+    post:
+      summary: Agrega una evaluación a un modelo de estudiante
+      operationId: addStudentEval
+      parameters:
+        - name: faculty
+          in: query
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: career
+          in: query
+          description: Nombre de carrera
+          required: true
+          schema:
+            type: string
+        - name: plan
+          in: query
+          description: Id de plan
+          required: true
+          schema:
+            type: integer
+        - name: curricularUnit
+          in: query
+          description: Id de UC
+          required: true
+          schema:
+            type: string
+        - name: evaluation
+          in: query
+          description: Id de evaluación
+          required: true
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: Tipo de evaluación (false - curso / true - examen)
+          required: true
+          schema:
+            type: boolean
+        - name: nota
+          in: query
+          description: Nota obtenida
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Modelo .xmi de estudiante (aquí mostrado en JSON)
         content:
           application/json:
             schema:
@@ -173,127 +309,64 @@ paths:
                 type: boolean
         '404':
           description: Subject not found
-  /{facultad}/carreras/{carrera}:
-    get:
-      summary: Obten la informacion de una carrera
-      operationId: getCarrera
-      parameters:
-        - name: facultad
-          in: path
-          description: Nombre de facultad
-          required: true
-          schema:
-            type: string
-        - name: carrera
-          in: path
-          description: Nombre de carrera
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Succesful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Carrera'
-        '404':
-          description: Carrera not found
-  /{facultad}/carreras/{carrera}/{plan}:
-    get:
-      summary: Obten la informacion de un plan
-      operationId: getPlan
-      parameters:
-        - name: facultad
-          in: path
-          description: Nombre de facultad
-          required: true
-          schema:
-            type: string
-        - name: carrera
-          in: path
-          description: Nombre de carrera
-          required: true
-          schema:
-            type: string
-        - name: plan
-          in: path
-          description: Plan
-          required: true
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: Succesful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Plan'
-        '404':
-          description: Plan not found
-  /{facultad}/carreras/{carrera}/{plan}/subjects/{subject}:
-    get:
-      summary: Obten la informacion de una materia en un plan
-      operationId: getPlanSubject
-      parameters:
-        - name: facultad
-          in: path
-          description: Nombre de facultad
-          required: true
-          schema:
-            type: string
-        - name: carrera
-          in: path
-          description: Nombre de carrera
-          required: true
-          schema:
-            type: string
-        - name: plan
-          in: path
-          description: Plan
-          required: true
-          schema:
-            type: integer
-        - name: subject
-          in: path
-          description: Nombre de materia
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Succesful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/materia'
-        '404':
-          description: subject not found
-  /{facultad}/carreras/{carrera}/{plan}/eval:
+
+  /Faculty/ucs/eval:
     post:
-      summary: Evalua que ucs puede cursar un estudiante
+      summary: Evalúa los requerimientos de un estudiante en una UC en específico en el modelo
+      operationId: eval
+      parameters:
+        - name: faculty
+          in: query
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: curricularUnit
+          in: query
+          description: Id de UC
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Modelo .xmi de estudiante (aquí mostrado en JSON)
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Estudiante'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '404':
+          description: Subject not found
+  /Faculty/Carrera/Plan/eval:
+    post:
+      summary: Evalúa qué UCs puede cursar un estudiante
       operationId: evalPlan
       parameters:
-        - name: facultad
-          in: path
+        - name: faculty
+          in: query
           description: Nombre de facultad
           required: true
           schema:
             type: string
-        - name: carrera
-          in: path
+        - name: career
+          in: query
           description: Nombre de carrera
           required: true
           schema:
             type: string
         - name: plan
-          in: path
+          in: query
           description: Plan
           required: true
           schema:
             type: integer
       requestBody:
-        description: Datos del estudiante y id uc
+        description: Modelo de estudiante
         content:
           application/json:
             schema:
@@ -311,6 +384,45 @@ paths:
           description: Malformed request
         '404':
           description: Plan not found
+  /Faculty/Carrera/Plan/evaluations:
+    post:
+      summary: Agrega una evaluación a un modelo de estudiante
+      operationId: evaluations
+      parameters:
+        - name: faculty
+          in: query
+          description: Nombre de facultad
+          required: true
+          schema:
+            type: string
+        - name: career
+          in: query
+          description: Nombre de carrera
+          required: true
+          schema:
+            type: string
+        - name: plan
+          in: query
+          description: Plan
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Modelo .xmi de estudiante (aquí mostrado en JSON)
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Estudiante'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '404':
+          description: Plan not found
+
 components:
   schemas:
     uc:
@@ -497,15 +609,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Inscription'
-  securitySchemes:
-    curricula_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: https://curricula.fapret.com/oauth/authorize
-          scopes:
-            write:model: Cambia el modelo
-    api_key:
-      type: apiKey
-      name: api_key
-      in: header
