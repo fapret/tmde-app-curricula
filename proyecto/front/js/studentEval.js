@@ -5,7 +5,7 @@ function evaluar_uc() {
     const uc_id = allUCSelect.value;
     const model_file = document.getElementById("file").files[0];
 
-    const url = `http://localhost:8080/curricula_microservice/Faculty/ucs/eval`;
+    const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs/eval`;
     var formData = new FormData();
     formData.append('faculty', facultyName);
     formData.append('curricularUnit', uc_id);

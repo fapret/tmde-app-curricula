@@ -6,7 +6,7 @@ function consultarPlan() {
     const career = allCareersSelect.value;
     const plan = allPlansSelect.value;
     
-    const url = `http://localhost:8080/curricula_microservice/Faculty/Carrera/Plan?faculty=${faculty}&career=${career}&plan=${plan}`;
+    const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/Carrera/Plan?faculty=${faculty}&career=${career}&plan=${plan}`;
     fetch(url)
 	.then(response => response.json())
 	.then(data => {

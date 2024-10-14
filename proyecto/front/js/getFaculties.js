@@ -1,7 +1,7 @@
 function consultarFacultad() {
 const allFacultiesSelect = document.getElementById("facultades");
 const facultyName = allFacultiesSelect.value;
-const url = `http://localhost:8080/curricula_microservice/Faculty?faculty=${facultyName}`;
+const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty?faculty=${facultyName}`;
 fetch(url)
 .then(response => response.json())
 .then(data => {

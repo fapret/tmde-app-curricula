@@ -6,7 +6,7 @@ function addToSelect(select, idelement){
 }
 
 function getFaculties(select) {
-  const url = `http://localhost:8080/curricula_microservice/Faculty`;
+  const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty`;
   fetch(url)
   .then(response => response.json())
   .then(data => {
@@ -20,7 +20,7 @@ function getFaculties(select) {
 }
 
 function getUCS(select, faculty){
-	const url = `http://localhost:8080/curricula_microservice/Faculty/ucs?faculty=${faculty}`;
+	const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${faculty}`;
 	fetch(url)
   .then(response => response.json())
   .then(data => {
@@ -34,7 +34,7 @@ function getUCS(select, faculty){
 }
 
 function getCareers(select, faculty){
-  const url = `http://localhost:8080/curricula_microservice/Faculty?faculty=${faculty}`;
+  const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty?faculty=${faculty}`;
   fetch(url)
   .then(response => response.json())
   .then(data => {
@@ -48,7 +48,7 @@ function getCareers(select, faculty){
 }
 
 function getPlans(select, faculty, career){
-  const url = `http://localhost:8080/curricula_microservice/Faculty/Carrera?faculty=${faculty}&career=${career}`;
+  const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/Carrera?faculty=${faculty}&career=${career}`;
   fetch(url)
   .then(response => response.json())
   .then(data => {
@@ -62,7 +62,7 @@ function getPlans(select, faculty, career){
 }
 
 function getPlanUCS(select, faculty, career, plan){
-	const url = `http://localhost:8080/curricula_microservice/Faculty/Carrera/Plan/ucs?faculty=${faculty}&career=${career}&plan=${plan}`;
+	const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/Carrera/Plan/ucs?faculty=${faculty}&career=${career}&plan=${plan}`;
 	fetch(url)
 	.then(response => response.json())
 	.then(data => {
@@ -76,7 +76,7 @@ function getPlanUCS(select, faculty, career, plan){
 }
 
 function getEvaluations(select, typeBoolean, UC, faculty){
-	const url = `http://localhost:8080/curricula_microservice/Faculty/ucs?faculty=${faculty}&curricularUnit=${UC}`;
+	const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${faculty}&curricularUnit=${UC}`;
 	fetch(url)
 	.then(response => response.json())
 	.then(data => {
@@ -99,7 +99,7 @@ function getEvaluations(select, typeBoolean, UC, faculty){
 }
 
 function getMaterias(select, faculty, career, plan){
-	const url = `http://localhost:8080/curricula_microservice/Faculty/Carrera/Plan/Subjects?faculty=${faculty}&career=${career}&plan=${plan}`;
+	const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/Carrera/Plan/Subjects?faculty=${faculty}&career=${career}&plan=${plan}`;
 	fetch(url)
 	.then(response => response.json())
 	.then(data => {
@@ -122,7 +122,7 @@ function findKeyByValue(obj, value) {
 }
 
 async function getMaxRequirementLevel(facultyName, cu_id) {
-  let apiUrl = `http://localhost:8080/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${cu_id}`;
+  let apiUrl = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${cu_id}`;
 
   try {
     const response = await fetch(apiUrl);

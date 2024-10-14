@@ -4,7 +4,7 @@ function crear_estudiante() {
     var ci = document.getElementById("ci").value;
 
     // Construir la URL con los parámetros
-    var url = "http://localhost:8080/curricula_microservice/Estudiante?name=" + encodeURIComponent(nombre) + "&id=" + encodeURIComponent(ci);
+    var url = "https://tmde-api.fapret.com:8443/curricula_microservice/Estudiante?name=" + encodeURIComponent(nombre) + "&id=" + encodeURIComponent(ci);
 
     // Crear un enlace para descargar el archivo
     var a = document.createElement('a');

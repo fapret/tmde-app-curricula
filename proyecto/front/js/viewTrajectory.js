@@ -14,7 +14,7 @@ function mostrar_trayectoria() {
     var nodos_final = [];
     var aristas = [];
 
-    const url = `http://localhost:8080/curricula_microservice/Faculty/Carrera/Plan/eval`;
+    const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/Carrera/Plan/eval`;
     var formData = new FormData();
     formData.append('faculty', facultyName);
     formData.append('career', career);
@@ -39,7 +39,7 @@ function mostrar_trayectoria() {
             }
 
             for (let i = 0; i < materias.length; i++) {
-                let apiUrl = `http://localhost:8080/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=` + materias[i];
+                let apiUrl = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=` + materias[i];
                 fetch(apiUrl)
                     .then(response => {
                         if (!response.ok) {
@@ -116,7 +116,7 @@ function mostrar_trayectoria() {
                         if (i === materias.length-1) {
                             // Realiza la segunda solicitud AJAX con formDataCopy
                             var xhr2 = new XMLHttpRequest();
-                            xhr2.open('POST', 'http://localhost:8080/curricula_microservice/Faculty/Carrera/Plan/evaluations', true);
+                            xhr2.open('POST', 'https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/Carrera/Plan/evaluations', true);
                             xhr2.onload = async function () {
                                 if (xhr2.status >= 200 && xhr2.status < 300) {
                                     // Procesa la respuesta de la segunda solicitud aquí
@@ -223,7 +223,7 @@ function mostrar_trayectoria() {
 }
 
 async function getMaxRequirementLevel(facultyName, cu_id) {
-    let apiUrl = `http://localhost:8080/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${cu_id}`;
+    let apiUrl = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${cu_id}`;
 
     try {
         const response = await fetch(apiUrl);

@@ -25,7 +25,7 @@ const allFacultiesSelect = document.getElementById("facultades");
 const facultyName = allFacultiesSelect.value;
 const allUCSelect = document.getElementById("ucs");
 const uc = allUCSelect.value;
-const url = `http://localhost:8080/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${uc}`;
+const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${uc}`;
 fetch(url)
 .then(response => response.json())
 .then(data => {

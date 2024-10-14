@@ -14,7 +14,7 @@ function agregar_Evaluacion() {
 	const plan = allPlansSelect.value;
 
 
-	const url = `http://localhost:8080/curricula_microservice/Estudiante/AddEvaluation`;
+	const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Estudiante/AddEvaluation`;
     var formData = new FormData();
     formData.append('faculty', facultyName);
     formData.append('curricularunit', ucId);
