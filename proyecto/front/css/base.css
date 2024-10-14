@@ -219,6 +219,7 @@ div{
   box-sizing:border-box;
   padding-top: 4rem;
   transition: width 200ms ease;
+  z-index: 2;
 }
 .left-nav-active{
   width: 20rem;
