@@ -1,3 +1,5 @@
+const fetchCacheUC = new Map();
+
 function addToSelect(select, idelement){
   let option = document.createElement('option');
   option.setAttribute('value', idelement);
@@ -137,16 +139,22 @@ async function processSomeOf(someOfArray, req_values, facultyName) {
 }
 
 async function getMaxRequirementLevel(facultyName, cu_id) {
-  let apiUrl = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${cu_id}`;
-
+  let cacheKey = `${facultyName}-${cu_id}`;
+  let data;
   try {
-    const response = await fetch(apiUrl);
+    if (fetchCacheUC.has(cacheKey)) {
+      data = fetchCacheUC.get(cacheKey);
+    } else {
+      let apiUrl = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${cu_id}`;
+      const response = await fetch(apiUrl);
 
-    if (!response.ok) {
-      throw new Error('No se pudo obtener la respuesta de la API');
+      if (!response.ok) {
+        throw new Error('No se pudo obtener la respuesta de la API');
+      }
+  
+      data = await response.json();
+      fetchCacheUC.set(cacheKey, data);
     }
-
-    const data = await response.json();
 
     if (!data['Requirement'] || data['Requirement'].length === 0)
         return 0;

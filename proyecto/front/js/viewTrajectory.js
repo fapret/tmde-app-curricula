@@ -1,3 +1,5 @@
+const fetchCacheUC = new Map();
+
 function mostrar_trayectoria() {
     const allFacultiesSelect = document.getElementById("facultades");
     const allCareersSelect = document.getElementById("carreras");
@@ -244,37 +246,40 @@ async function processSomeOf(someOfArray, req_values, facultyName) {
   }
 
 async function getMaxRequirementLevel(facultyName, cu_id) {
-    let apiUrl = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${cu_id}`;
-
+    let cacheKey = `${facultyName}-${cu_id}`;
+    let data;
     try {
+      if (fetchCacheUC.has(cacheKey)) {
+        data = fetchCacheUC.get(cacheKey);
+      } else {
+        let apiUrl = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${cu_id}`;
         const response = await fetch(apiUrl);
-
+  
         if (!response.ok) {
-            throw new Error('No se pudo obtener la respuesta de la API');
+          throw new Error('No se pudo obtener la respuesta de la API');
         }
-
-        const data = await response.json();
-
-        if (!data['Requirement'] || data['Requirement'].length === 0)
-            return 0;
-        const req_values = [];
-
-        for (let i = 0; i < data['Requirement'].length; i++) {
-            const subRequirement = data['Requirement'][i];
-
-            if (subRequirement.Exam) {
-                req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Exam));
-            } else if (subRequirement.Coursed) {
-                req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Coursed));
-            }
-            else if (subRequirement.SomeOf) {
-                await processSomeOf(subRequirement.SomeOf, req_values, facultyName);
-            }
+    
+        data = await response.json();
+        fetchCacheUC.set(cacheKey, data);
+      }
+  
+      if (!data['Requirement'] || data['Requirement'].length === 0)
+          return 0;
+      const req_values = [];
+  
+      for (let i = 0; i < data['Requirement'].length; i++) {
+        const subRequirement = data['Requirement'][i];
+        if (subRequirement.Exam) {
+          req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Exam));
+        } else if (subRequirement.Coursed) {
+          req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Coursed));
+        } else if (subRequirement.SomeOf) {
+          await processSomeOf(subRequirement.SomeOf, req_values, facultyName);
         }
-
-        return req_values.length > 0 ? 1 + Math.max(...req_values) : 0;
+      }
+      return req_values.length > 0 ? 1 + Math.max(...req_values) : 0;
     } catch (error) {
-        console.error(error);
-        return 0;
+      console.error(error);
+      return 0;
     }
 }
