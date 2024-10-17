@@ -133,38 +133,33 @@ async function getMaxRequirementLevel(facultyName, cu_id) {
 
     const data = await response.json();
 
-    if (data['Requirement'].length === 0)
-      if (data['Id'] === "P1") // porque P1 se dicta en el segundo semestre
-        return 1;
-      else
+    if (!data['Requirement'] || data['Requirement'].length === 0)
         return 0;
-    else {
-      const req_values = [];
+    const req_values = [];
 
-      for (let i = 0; i < data['Requirement'].length; i++) {
-        const subRequirement = data['Requirement'][i];
+    for (let i = 0; i < data['Requirement'].length; i++) {
+      const subRequirement = data['Requirement'][i];
 
-        if (subRequirement.Exam) {
-          req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Exam));
-        } else if (subRequirement.Coursed) {
-          req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Coursed));
-        }
-        else if (subRequirement.SomeOf) {
-          for (let j = 0; j < subRequirement.SomeOf.length; j++) {
-            if (subRequirement.SomeOf[j].Exam)
-              req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.SomeOf[j].Exam));
-            else if (subRequirement.SomeOf[j].Coursed)
-              req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.SomeOf[j].Coursed));
+      if (subRequirement.Exam) {
+        req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Exam));
+      } else if (subRequirement.Coursed) {
+        req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Coursed));
+      }
+      else if (subRequirement.SomeOf) {
+        for (let j = 0; j < subRequirement.SomeOf.length; j++) {
+          if (subRequirement.SomeOf[j].Exam)
+            req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.SomeOf[j].Exam));
+          else if (subRequirement.SomeOf[j].Coursed)
+            req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.SomeOf[j].Coursed));
 
-          }
         }
       }
-      let base = 1;
-      if (data['Id'] === "P4" || data['Id'] === "LOGICA" || data["Id"] === "METNUM" || data["Id"] === "FBD" || data["Id"] === "PROLOG" || data["Id"] === "PROGFUN" || data["Id"] === "IIO")
-        base = 2;
-
-      return base + Math.max(...req_values);
     }
+    let base = 1;
+    //if (data['Id'] === "P4" || data['Id'] === "LOGICA" || data["Id"] === "METNUM" || data["Id"] === "FBD" || data["Id"] === "PROLOG" || data["Id"] === "PROGFUN" || data["Id"] === "IIO")
+    //base = 2;
+
+    return base + Math.max(...req_values);
   } catch (error) {
     console.error(error);
     return 0;

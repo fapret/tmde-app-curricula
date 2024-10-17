@@ -46,7 +46,7 @@ function consultarPlan() {
                           });
                           nodos_process[materias[i]] = null;
 
-                          if ((data.Requirement).length > 0) {
+                          if (data.Requirement && (data.Requirement).length > 0) {
                             //todo: si es un someof, tengo que ver cuales de las N se cumple, y mostrar solo las aristas de ella. por ejemplo, tprog y sus 2 vias de cursado
                             if (Object.keys(data.Requirement[0])[0] === "SomeOf") {
                               for (let j = 1; j < (data.Requirement[0]['SomeOf']).length; j++) {
