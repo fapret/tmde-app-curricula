@@ -29,6 +29,38 @@ function mostrar_trayectoria() {
 
     };
 
+    function processSomeOfGraph(reqFather, aristas, materias, nodos_0){
+        for (let j = 1; j < reqFather.length; j++) {
+            let a = reqFather[j];
+            let b = Object.keys(a);
+            let req = b[0];
+            if (req === "Coursed") {
+                let source_index = findKeyByValue(nodos_0, a['Coursed']);
+                let dest_index = findKeyByValue(nodos_0, materias);
+                let aaa = {
+                    from: source_index,
+                    to: dest_index,
+                    color: "#0000FF",
+                    arrows: "to",
+                    dashes: true
+                };
+                aristas.push(aaa);
+            } else if (req === "Exam") {
+                let source_index = findKeyByValue(nodos_0, a['Exam']);
+                let dest_index = findKeyByValue(nodos_0, materias);
+                let aaa = {
+                    from: source_index,
+                    to: dest_index,
+                    color: "#0000FF",
+                    arrows: "to"
+                };
+                aristas.push(aaa);
+            } else if (req === "SomeOf") {
+                processSomeOfGraph(a['SomeOf'], aristas, materias, nodos_0);
+            }
+        }
+    }
+
     fetch(url, options)
         .then(response => response.json())
         .then(materias => {
@@ -55,33 +87,7 @@ function mostrar_trayectoria() {
                             //PENDIENTE: si es un someof, tengo que ver cuales de las N se cumple,
                             //y mostrar solo las aristas de ella. por ejemplo, tprog y sus 2 vias de cursado
                             if (Object.keys(data.Requirement[0])[0] === "SomeOf") {
-                                for (let j = 1; j < (data.Requirement[0]['SomeOf']).length; j++) {
-                                    let a = data.Requirement[0]['SomeOf'][j];
-                                    let b = Object.keys(a);
-                                    let req = b[0];
-                                    if (req === "Coursed") {
-                                        let source_index = findKeyByValue(nodos_0, a['Coursed']);
-                                        let dest_index = findKeyByValue(nodos_0, materias[i]);
-                                        let aaa = {
-                                            from: source_index,
-                                            to: dest_index,
-                                            color: "#0000FF",
-                                            arrows: "to",
-                                            dashes: true
-                                        };
-                                        aristas.push(aaa);
-                                    } else if (req === "Exam") {
-                                        let source_index = findKeyByValue(nodos_0, a['Exam']);
-                                        let dest_index = findKeyByValue(nodos_0, materias[i]);
-                                        let aaa = {
-                                            from: source_index,
-                                            to: dest_index,
-                                            color: "#0000FF",
-                                            arrows: "to"
-                                        };
-                                        aristas.push(aaa);
-                                    }
-                                }
+                                processSomeOfGraph(data.Requirement[0]['SomeOf'], aristas, materias[i], nodos_0);
                             }
                             else {
                                 let a = data.Requirement[0];
@@ -222,6 +228,21 @@ function mostrar_trayectoria() {
         })
 }
 
+async function processSomeOf(someOfArray, req_values, facultyName) {
+    for (let j = 0; j < someOfArray.length; j++) {
+      const subReq = someOfArray[j];
+  
+      if (subReq.Exam) {
+        req_values.push(await getMaxRequirementLevel(facultyName, subReq.Exam));
+      } else if (subReq.Coursed) {
+        req_values.push(await getMaxRequirementLevel(facultyName, subReq.Coursed));
+      } else if (subReq.SomeOf) {
+        // Recursive call for nested SomeOf
+        await processSomeOf(subReq.SomeOf, req_values, facultyName);
+      }
+    }
+  }
+
 async function getMaxRequirementLevel(facultyName, cu_id) {
     let apiUrl = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${cu_id}`;
 
@@ -234,38 +255,24 @@ async function getMaxRequirementLevel(facultyName, cu_id) {
 
         const data = await response.json();
 
-        if (data['Requirement'].length === 0)
-            if (data['Id'] === "P1") // porque P1 se dicta en el segundo semestre
-                return 1;
-            else
-                return 0;
-        else {
-            const req_values = [];
+        if (!data['Requirement'] || data['Requirement'].length === 0)
+            return 0;
+        const req_values = [];
 
-            for (let i = 0; i < data['Requirement'].length; i++) {
-                const subRequirement = data['Requirement'][i];
+        for (let i = 0; i < data['Requirement'].length; i++) {
+            const subRequirement = data['Requirement'][i];
 
-                if (subRequirement.Exam) {
-                    req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Exam));
-                } else if (subRequirement.Coursed) {
-                    req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Coursed));
-                }
-                else if (subRequirement.SomeOf) {
-                    for (let j = 0; j < subRequirement.SomeOf.length; j++) {
-                        if (subRequirement.SomeOf[j].Exam)
-                            req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.SomeOf[j].Exam));
-                        else if (subRequirement.SomeOf[j].Coursed)
-                            req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.SomeOf[j].Coursed));
-
-                    }
-                }
+            if (subRequirement.Exam) {
+                req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Exam));
+            } else if (subRequirement.Coursed) {
+                req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Coursed));
             }
-            let base = 1;
-            if (data['Id'] === "P4" || data['Id'] === "LOGICA" || data["Id"] === "METNUM" || data["Id"] === "FBD" || data["Id"] === "PROLOG" || data["Id"] === "PROGFUN" || data["Id"] === "IIO")
-                base = 2;
-
-            return base + Math.max(...req_values);
+            else if (subRequirement.SomeOf) {
+                await processSomeOf(subRequirement.SomeOf, req_values, facultyName);
+            }
         }
+
+        return req_values.length > 0 ? 1 + Math.max(...req_values) : 0;
     } catch (error) {
         console.error(error);
         return 0;

@@ -13,6 +13,38 @@ function consultarPlan() {
     var nodos_final = [];
     var aristas = [];
     
+    function processSomeOfGraph(reqFather, aristas, materias, nodos_0){
+      for (let j = 1; j < (reqFather).length; j++) {
+        let a = reqFather[j];
+        let b = Object.keys(a);
+        let req = b[0];
+        if (req === "Coursed") {
+          let source_index = findKeyByValue(nodos_0, a['Coursed']);
+          let dest_index = findKeyByValue(nodos_0, materias);
+          let aaa = {
+            from: source_index,
+            to: dest_index,
+            color: "#0000FF",
+            arrows: "to",
+            dashes: true
+          };
+          aristas.push(aaa);
+        } else if (req === "Exam") {
+          let source_index = findKeyByValue(nodos_0, a['Exam']);
+          let dest_index = findKeyByValue(nodos_0, materias);
+          let aaa = {
+            from: source_index,
+            to: dest_index,
+            color: "#0000FF",
+            arrows: "to"
+          };
+          aristas.push(aaa);
+        } else if (req === "SomeOf") {
+          processSomeOfGraph(a['SomeOf'], aristas, materias, nodos_0);
+        } 
+      }
+    }
+
     fetch(url)
             .then(response => response.json())
             .then(materias => {
@@ -26,11 +58,12 @@ function consultarPlan() {
               for (let i = 0; i < materias.length; i++) {
                 let apiUrl = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${faculty}&curricularUnit=` + materias[i];
                 fetch(apiUrl)
-                        .then(response => {
+                        .then(async response => {
                           if (!response.ok) {
                             throw new Error('No se pudo obtener la respuesta de la API');
                           }
-                          return response.json(); // Parsear la respuesta JSON
+                          return response.json();
+                          //return await response.json(); // Parsear la respuesta JSON
                         })
                         .then(async data => {
                           const result = await getMaxRequirementLevel(facultyName, materias[i]);
@@ -49,33 +82,7 @@ function consultarPlan() {
                           if (data.Requirement && (data.Requirement).length > 0) {
                             //todo: si es un someof, tengo que ver cuales de las N se cumple, y mostrar solo las aristas de ella. por ejemplo, tprog y sus 2 vias de cursado
                             if (Object.keys(data.Requirement[0])[0] === "SomeOf") {
-                              for (let j = 1; j < (data.Requirement[0]['SomeOf']).length; j++) {
-                                let a = data.Requirement[0]['SomeOf'][j];
-                                let b = Object.keys(a);
-                                let req = b[0];
-                                if (req === "Coursed") {
-                                  let source_index = findKeyByValue(nodos_0, a['Coursed']);
-                                  let dest_index = findKeyByValue(nodos_0, materias[i]);
-                                  let aaa = {
-                                    from: source_index,
-                                    to: dest_index,
-                                    color: "#0000FF",
-                                    arrows: "to",
-                                    dashes: true
-                                  };
-                                  aristas.push(aaa);
-                                } else if (req === "Exam") {
-                                  let source_index = findKeyByValue(nodos_0, a['Exam']);
-                                  let dest_index = findKeyByValue(nodos_0, materias[i]);
-                                  let aaa = {
-                                    from: source_index,
-                                    to: dest_index,
-                                    color: "#0000FF",
-                                    arrows: "to"
-                                  };
-                                  aristas.push(aaa);
-                                }
-                              }
+                              processSomeOfGraph(data.Requirement[0]['SomeOf'], aristas, materias[i], nodos_0);
                             } else {
                               let a = data.Requirement[0];
                               let b = Object.keys(a);

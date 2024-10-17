@@ -121,6 +121,21 @@ function findKeyByValue(obj, value) {
     return null; // Return null if the value is not found
 }
 
+async function processSomeOf(someOfArray, req_values, facultyName) {
+  for (let j = 0; j < someOfArray.length; j++) {
+    const subReq = someOfArray[j];
+
+    if (subReq.Exam) {
+      req_values.push(await getMaxRequirementLevel(facultyName, subReq.Exam));
+    } else if (subReq.Coursed) {
+      req_values.push(await getMaxRequirementLevel(facultyName, subReq.Coursed));
+    } else if (subReq.SomeOf) {
+      // Recursive call for nested SomeOf
+      await processSomeOf(subReq.SomeOf, req_values, facultyName);
+    }
+  }
+}
+
 async function getMaxRequirementLevel(facultyName, cu_id) {
   let apiUrl = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${facultyName}&curricularUnit=${cu_id}`;
 
@@ -139,27 +154,15 @@ async function getMaxRequirementLevel(facultyName, cu_id) {
 
     for (let i = 0; i < data['Requirement'].length; i++) {
       const subRequirement = data['Requirement'][i];
-
       if (subRequirement.Exam) {
         req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Exam));
       } else if (subRequirement.Coursed) {
         req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.Coursed));
-      }
-      else if (subRequirement.SomeOf) {
-        for (let j = 0; j < subRequirement.SomeOf.length; j++) {
-          if (subRequirement.SomeOf[j].Exam)
-            req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.SomeOf[j].Exam));
-          else if (subRequirement.SomeOf[j].Coursed)
-            req_values.push(await getMaxRequirementLevel(facultyName, subRequirement.SomeOf[j].Coursed));
-
-        }
+      } else if (subRequirement.SomeOf) {
+        await processSomeOf(subRequirement.SomeOf, req_values, facultyName);
       }
     }
-    let base = 1;
-    //if (data['Id'] === "P4" || data['Id'] === "LOGICA" || data["Id"] === "METNUM" || data["Id"] === "FBD" || data["Id"] === "PROLOG" || data["Id"] === "PROGFUN" || data["Id"] === "IIO")
-    //base = 2;
-
-    return base + Math.max(...req_values);
+    return req_values.length > 0 ? 1 + Math.max(...req_values) : 0;
   } catch (error) {
     console.error(error);
     return 0;

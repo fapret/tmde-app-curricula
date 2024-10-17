@@ -32,7 +32,7 @@ public class UnidadCurricular extends HttpServlet {
     private String getRequeriment(Requirement requerimiento) {
     	if(requerimiento instanceof NOT) {
     		NOT req = (NOT) requerimiento;
-    		return "{ \"NOT\": \"" + getRequeriment(req.getRequirement()) + "\"}";
+    		return "{ \"NOT\": " + getRequeriment(req.getRequirement()) + "}";
     	}
     	if(requerimiento instanceof Coursed) {
     		Coursed req = (Coursed) requerimiento;
