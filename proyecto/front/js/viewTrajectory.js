@@ -1,5 +1,3 @@
-const fetchCacheUC = new Map();
-
 function mostrar_trayectoria() {
     const allFacultiesSelect = document.getElementById("facultades");
     const allCareersSelect = document.getElementById("carreras");
