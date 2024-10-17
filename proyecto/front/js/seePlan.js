@@ -132,7 +132,7 @@ function consultarPlan() {
                               hierarchical: {
                                 direction: directionInput,
                                 sortMethod: 'directed',
-                                nodeSpacing: 200, //separacion horizontal
+                                nodeSpacing: 400, //separacion horizontal
                                 levelSeparation: 150, // separacion vertical
                               },
                             },
