@@ -19,7 +19,7 @@ function mostrar_trayectoria() {
     formData.append('faculty', facultyName);
     formData.append('career', career);
     formData.append('plan', plan);
-    formData.append('file', model_file);
+    formData.append('file', model_file, 'student.xmi');
     formData.append('valid_flag', 'true');
 
     // Configurar las opciones de la solicitud

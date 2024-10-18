@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:asignaturas="asignaturasURI"
     xsi:schemaLocation="asignaturasURI asignaturas.ecore">
-  <Faculty Name="FING">
+  <Faculty Name="FING-Facultad_de_Ingenieria">
     <Careers
         Name="INGENIERIA EN COMPUTACION">
       <plan
@@ -130,7 +130,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="GAL1P"
@@ -264,6 +269,14 @@
           </Requirement>
         </Requirement>
       </Requirement>
+      <Course
+          Year="2024"
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="M09"
@@ -406,6 +419,14 @@
               CurricularUnit="MI2"/>
         </Requirement>
       </Requirement>
+      <Course
+          Year="2024"
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1020"
@@ -478,6 +499,14 @@
               CurricularUnit="CAL12"/>
         </Requirement>
       </Requirement>
+      <Course
+          Year="2024"
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1022"
@@ -574,6 +603,14 @@
               CurricularUnit="GAL1P"/>
         </Requirement>
       </Requirement>
+      <Course
+          Year="2024"
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1071"
@@ -642,6 +679,14 @@
               CurricularUnit="GAL1P"/>
         </Requirement>
       </Requirement>
+      <Course
+          Year="2024"
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1058"
@@ -719,6 +764,14 @@
               CurricularUnit="1023"/>
         </Requirement>
       </Requirement>
+      <Course
+          Year="2024"
+          Edition="1">
+        <CourseEvaluation
+            date="2024-07-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-07-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1013"
@@ -785,6 +838,14 @@
           </Requirement>
         </Requirement>
       </Requirement>
+      <Course
+          Year="2024"
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1026"
@@ -884,6 +945,14 @@
               CurricularUnit="1023"/>
         </Requirement>
       </Requirement>
+      <Course
+          Year="2024"
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1064"
@@ -1009,6 +1078,14 @@
               CurricularUnit="GAL1P"/>
         </Requirement>
       </Requirement>
+      <Course
+          Year="2024"
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1075"
@@ -1292,6 +1369,14 @@
               CurricularUnit="CP17"/>
         </Requirement>
       </Requirement>
+      <Course
+          Year="2024"
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1171"
@@ -1376,6 +1461,14 @@
               CurricularUnit="MAT33"/>
         </Requirement>
       </Requirement>
+      <Course
+          Year="2024"
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1153"
@@ -1481,6 +1574,14 @@
               CurricularUnit="MAT33"/>
         </Requirement>
       </Requirement>
+      <Course
+          Year="2024"
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1173"
@@ -1567,7 +1668,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="SRN17"
@@ -1611,7 +1717,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1322T"
@@ -1715,7 +1826,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1353"
@@ -1784,7 +1900,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1337"
@@ -1890,7 +2011,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="1"/>
+          Edition="1">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1332"
@@ -2025,7 +2151,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1323"
@@ -2120,7 +2251,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1324"
@@ -2220,6 +2356,14 @@
               CurricularUnit="1321"/>
         </Requirement>
       </Requirement>
+      <Course
+          Year="2024"
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1342"
@@ -2377,7 +2521,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="1"/>
+          Edition="1">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="CP365"
@@ -2523,7 +2672,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1443"
@@ -2659,7 +2813,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1424"
@@ -2799,7 +2958,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="1"/>
+          Edition="1">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="CP364"
@@ -2971,7 +3135,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1442"
@@ -3141,7 +3310,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="1"/>
+          Edition="1">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="CP372"
@@ -3213,7 +3387,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1535"
@@ -3294,7 +3473,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="5853"
@@ -3427,7 +3611,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1952"
@@ -3485,7 +3674,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="5842"
@@ -3618,7 +3812,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="5831"
@@ -3689,7 +3888,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1867"
@@ -3844,7 +4048,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1942"
@@ -3901,7 +4110,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1936"
@@ -3932,7 +4146,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1919"
@@ -4045,7 +4264,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1054"
@@ -4237,7 +4461,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1079"
@@ -4321,7 +4550,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1637"
@@ -4363,7 +4597,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1636"
@@ -4545,7 +4784,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="1"/>
+          Edition="1">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1629"
@@ -4603,7 +4847,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1626"
@@ -4670,7 +4919,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="IO20"
@@ -4736,7 +4990,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="D84"
@@ -4847,7 +5106,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="1"/>
+          Edition="1">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1736"
@@ -5014,7 +5278,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1774"
@@ -5117,7 +5386,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="5705"
@@ -5187,7 +5461,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1925"
@@ -5326,7 +5605,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1944"
@@ -5354,6 +5638,13 @@
             cred="140"
             CreditsPlan="//@Faculty.0/@Careers.0/@plan.0"/>
       </Requirement>
+      <Course
+          Year="2024">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1510"
@@ -5416,6 +5707,13 @@
             xsi:type="asignaturas:Coursed"
             CurricularUnit="1944"/>
       </Requirement>
+      <Course
+          Year="2024">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="GA10"
@@ -5551,6 +5849,13 @@
               CurricularUnit="CP20"/>
         </Requirement>
       </Requirement>
+      <Course
+          Year="2024">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="1221"
@@ -5577,7 +5882,12 @@
       </Requirement>
       <Course
           Year="2024"
-          Edition="2"/>
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+      <ExamEvaluation
+          date="2024-12-31T00:00:00.000-0300"/>
     </FacultyCU>
     <FacultyCU
         Id="CP18"
@@ -5757,27 +6067,27 @@
         Name="MOP30 - CREDITOS ASIGNADOS POR REVALIDA"
         Cred="30"/>
   </Faculty>
-  <Faculty Name="FMED - Facultad de Medicina"/>
-  <Faculty Name="ODON - Facultad de Odontologia"/>
-  <Faculty Name="PSICO - Facultad de Psicologia"/>
-  <Faculty Name="FENF - Facultad de Enfermeria"/>
-  <Faculty Name="EGRADU - Escuela de graduados de medicina"/>
-  <Faculty Name="ENUT - Escuela de Nutricion"/>
-  <Faculty Name="ISEF - Instituto superior de educacion fisica"/>
-  <Faculty Name="CENURLN - Centro Universitario Regional - Litoral Norte"/>
-  <Faculty Name="CUR - Centro regional noreste - Rivera"/>
-  <Faculty Name="CUT - Centro universitario regional noreste - Tacuarembo"/>
-  <Faculty Name="CURE - Centro universitario regional este"/>
-  <Faculty Name="CUCEL - Centro universitario regional noreste"/>
-  <Faculty Name="FCEA - Facultad de ciencias economicas"/>
-  <Faculty Name="FDER - Facultad de derecho"/>
-  <Faculty Name="FHUM - Facultad de humanidades"/>
-  <Faculty Name="FCS - Facultad de ciencias sociales"/>
-  <Faculty Name="FIC - Facultad de informacion y comunicacion"/>
-  <Faculty Name="FARTES - Facultad de artes"/>
-  <Faculty Name="FAGRO - Facultad de agronomia"/>
-  <Faculty Name="FADU - Facultad de arquitectura, diseño y urbanismo"/>
-  <Faculty Name="FQ - Facultad de Quimica"/>
-  <Faculty Name="FVET - Facultad de veterinaria"/>
-  <Faculty Name="FCIEN - Facultad de ciencias"/>
+  <Faculty Name="FMED-Facultad_de_Medicina"/>
+  <Faculty Name="ODON-Facultad_de_Odontologia"/>
+  <Faculty Name="PSICO-Facultad_de_Psicologia"/>
+  <Faculty Name="FENF-Facultad_de_Enfermeria"/>
+  <Faculty Name="EGRADU-Escuela_de_graduados_de_medicina"/>
+  <Faculty Name="ENUT-Escuela_de_Nutricion"/>
+  <Faculty Name="ISEF-Instituto_superior_de_educacion_fisica"/>
+  <Faculty Name="CENURLN-Centro_Universitario_Regional_-_Litoral_Norte"/>
+  <Faculty Name="CUR-Centro_regional_noreste-Rivera"/>
+  <Faculty Name="CUT-Centro_universitario_regional_noreste-Tacuarembo"/>
+  <Faculty Name="CURE-Centro_universitario_regional_este"/>
+  <Faculty Name="CUCEL-Centro_universitario_regional_noreste"/>
+  <Faculty Name="FCEA-Facultad_de_ciencias_economicas"/>
+  <Faculty Name="FDER-Facultad_de_derecho"/>
+  <Faculty Name="FHUM-Facultad_de_humanidades"/>
+  <Faculty Name="FCS-Facultad_de_ciencias_sociales"/>
+  <Faculty Name="FIC-Facultad_de_informacion_y_comunicacion"/>
+  <Faculty Name="FARTES-Facultad_de_artes"/>
+  <Faculty Name="FAGRO-Facultad_de_agronomia"/>
+  <Faculty Name="FADU-Facultad_de_arquitectura_diseño_y_urbanismo"/>
+  <Faculty Name="FQ-Facultad_de_Quimica"/>
+  <Faculty Name="FVET-Facultad_de_veterinaria"/>
+  <Faculty Name="FCIEN-Facultad_de_ciencias"/>
 </asignaturas:Root>
