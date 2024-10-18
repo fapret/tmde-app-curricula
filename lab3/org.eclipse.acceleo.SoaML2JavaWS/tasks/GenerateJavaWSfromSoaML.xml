@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="GenerateJavaWSfromSoaML" name="org.eclipse.acceleo.SoaML2JavaWS">
-    <property name="ECLIPSE_HOME" value="../../../../../eclipse/java-2023-06/eclipse"/>
+    <property name="ECLIPSE_HOME" value="../../../../../eclipse/jee-2024-09/eclipse"/>
     <property name="ECLIPSE_WORKSPACE" value="../../../../../eclipse-workspace"/>
 
     <!-- The classpath with only the dependencies used by the project -->

@@ -99,6 +99,11 @@ public class EvalPlan extends HttpServlet {
     					if(c.getCourse().getCurricularunit().getId().equals(req.getCurricularUnit().getId())) {
     						return true;
     					}
+    				} else if (eval.getEvaluation() instanceof ExamEvaluation && eval.getGrade() >= 3) {
+    					ExamEvaluation c = (ExamEvaluation) eval.getEvaluation();
+    					if(c.getCurricularunit().getId().equals(req.getCurricularUnit().getId())) {
+    						return true;
+    					}
     				}
     			}
     		}
