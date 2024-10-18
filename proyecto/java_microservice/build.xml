@@ -5,6 +5,7 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="curricula_microservice">
     <property environment="env"/>
+    <property name="proyecto.location" value="../"/>
     <property name="ECLIPSE_HOME" value="../../../../eclipse/jee-2024-09/eclipse/"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="17"/>
@@ -14,6 +15,7 @@
         <pathelement location="src/main/webapp/WEB-INF/lib/org.eclipse.emf.ecore.change_2.15.0.v20230211-1150.jar"/>
         <pathelement location="src/main/webapp/WEB-INF/lib/org.eclipse.emf.ecore.xmi_2.18.0.v20230211-1150.jar"/>
         <pathelement location="src/main/webapp/WEB-INF/lib/org.eclipse.emf.ecore_2.34.0.v20230406-1203.jar"/>
+        <pathelement location="src/main/webapp/WEB-INF/lib/servlet-api.jar"/>
     </path>
     <path id="EAR Libraries.libraryclasspath"/>
     <path id="curricula_microservice.classpath">
@@ -24,7 +26,7 @@
         <pathelement location="src/main/webapp/WEB-INF/lib/org.eclipse.emf.ecore_2.34.0.v20230406-1203.jar"/>
         <pathelement location="src/main/webapp/WEB-INF/lib/org.eclipse.emf.ecore.change_2.15.0.v20230211-1150.jar"/>
         <pathelement location="src/main/webapp/WEB-INF/lib/org.eclipse.emf.ecore.xmi_2.18.0.v20230211-1150.jar"/>
-        <pathelement location="../../../../apache-tomcat-11.0.0-M22/lib/servlet-api.jar"/>
+        <pathelement location="${proyecto.location}/java_microservice/src/main/webapp/WEB-INF/lib/servlet-api.jar"/>
     </path>
     <target name="init">
         <mkdir dir="build/classes"/>
