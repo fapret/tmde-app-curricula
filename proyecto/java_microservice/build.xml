@@ -64,4 +64,13 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
+    <target name="build-war" depends="build-project">
+    <war destfile="dist/curricula_microservice.war" webxml="src/main/webapp/WEB-INF/web.xml">
+        <fileset dir="src/main/webapp">
+            <exclude name="WEB-INF/web.xml"/>
+        </fileset>
+        <lib dir="src/main/webapp/WEB-INF/lib"/>
+        <classes dir="build/classes"/>
+    </war>
+    </target>
 </project>
