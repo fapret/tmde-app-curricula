@@ -137,4 +137,14 @@
     <servlet-name>EstudianteAddEvaluation</servlet-name>
     <url-pattern>/Estudiante/AddEvaluation</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetStudentsLog</display-name>
+    <servlet-name>GetStudentsLog</servlet-name>
+    <servlet-class>GetStudentsLog</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetStudentsLog</servlet-name>
+    <url-pattern>/GetStudentsLog</url-pattern>
+  </servlet-mapping>
 </web-app>
