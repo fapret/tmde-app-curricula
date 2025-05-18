@@ -123,7 +123,7 @@ public class EstudianteAddEvaluation extends HttpServlet {
 		}
 		
 		Student estudiante = null;
-		if(ID.isBlank()) {
+		if(ID == null || ID.isBlank()) {
 			estudiante = rootStudent.getStudent().get(0);
 		} else {
 			for(Student studentSearch : rootStudent.getStudent()) {

@@ -100,7 +100,7 @@ public class Evaluations extends HttpServlet {
 		//de un estudiante, devuelve las evaluaciones que tiene aprobadas, distinguiendo si es CourseEvaluation o ExamEvaluation y su nota
 		
 		Student estudiante = null;
-		if(ID.isBlank()) {
+		if(ID == null || ID.isBlank()) {
 			estudiante = rootStudent.getStudent().get(0);
 		} else {
 			for(Student studentSearch : rootStudent.getStudent()) {
