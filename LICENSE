@@ -635,6 +635,7 @@ the "copyright" line and a pointer to where the full notice is found.
     see what curricular units they can register to, and track how thier career was
     or will be.
     Copyright (C) 2023  Santiago Nicolás Díaz Conde, Santiago Freire López
+    Copyright (C) 2025  Santiago Nicolás Díaz Conde
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -649,12 +650,14 @@ the "copyright" line and a pointer to where the full notice is found.
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+	  Santiago Nicolás Díaz Conde Email: sndc.33@gmail.com and contact@fapret.com
+
 Also add information on how to contact you by electronic and paper mail.
 
   If the program does terminal interaction, make it output a short
 notice like this when it starts in an interactive mode:
 
-    tmde-app-curricula  Copyright (C) 2023  Santiago Nicolás Díaz Conde, Santiago Freire López
+    tmde-app-curricula  Copyright (C) 2023  Santiago Nicolás Díaz Conde, Santiago Freire López - Copyright (C) 2025  Santiago Nicolás Díaz Conde
     This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
     This is free software, and you are welcome to redistribute it
     under certain conditions; type `show c' for details.

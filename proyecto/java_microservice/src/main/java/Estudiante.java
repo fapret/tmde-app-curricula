@@ -17,6 +17,8 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+	Santiago Nicolás Díaz Conde Email: sndc.33@gmail.com and contact@fapret.com
 */
 
 import jakarta.servlet.ServletException;
