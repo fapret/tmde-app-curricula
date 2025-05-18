@@ -13,7 +13,17 @@
 
 <div class="nav">
   <div class="start" id="start">
-    <a class="start" href="/"<p>Currícula App</p></a>
+    <div class="left-nav-div" id="btnleftnav">
+      <a class="left-nav-a" href="#">
+        <button class="levtnav-button">
+          <img class="" src="./images/menu-svgrepo-com.svg">
+          </img>
+        </button>
+      </a>
+    </div>
+    <a class="start" href="/">
+      <p>Currícula App</p>
+    </a>
   </div>
   <div class="center" id="center">
   </div>
@@ -24,14 +34,7 @@
 <div class="main" id="main">
   <div class="left-nav" id="leftnav">
 
-    <div class="left-nav-div" id="btnleftnav">
-      <a class="left-nav-a" href="#">
-        <button class="levtnav-button">
-          <img class="" src="./images/menu-svgrepo-com.svg">
-          </img>
-        </button>
-      </a>
-    </div>
+
 
     <div class="left-nav-cat">
       <p> ESTUDIANTE </p>
@@ -43,7 +46,7 @@
           <img class="" src="./images/upload-svgrepo-com.svg">
           </img>
         </button>
-        <p>Crear Modelo</p>
+        <p>Crear/Expandir Modelo</p>
       </a>
     </div>
 
@@ -84,6 +87,16 @@
           </img>
         </button>
         <p>Ver Currícula</p>
+      </a>
+    </div>
+
+    <div class="left-nav-div">
+      <a class="left-nav-a" href="./obtener-log.html">
+        <button id="button" class="levtnav-button">
+          <img class="" src="./images/csv-file-icon.svg">
+          </img>
+        </button>
+        <p>Obtener log estudiantes</p>
       </a>
     </div>
 
@@ -142,6 +155,11 @@
     </div>
 
     <div class="left-nav-cat">
+      <p> MINERIA DE PROCESOS</p>
+    </div>
+
+
+    <div class="left-nav-cat">
       <p> API </p>
     </div>
     <div class="left-nav-div">
@@ -150,11 +168,23 @@
           <img class="" src="./images/documents-svgrepo-com.svg">
           </img>
         </button>
-        <p>Ver Documentación</p>
+        <p>Ver Documentación (EM)</p>
+      </a>
+    </div>
+    <div class="left-nav-div">
+      <a class="left-nav-a" href="./docs2.html">
+        <button id="button" class="levtnav-button">
+          <img class="" src="./images/documents-svgrepo-com.svg">
+          </img>
+        </button>
+        <p>Ver Documentación (PM)</p>
       </a>
     </div>
 
-    <p style="text-align: center; margin-top: auto; margin-bottom: 0;min-width: 20rem;">Copyright 2023 Santiago Nicolas Diaz Conde - Santiago Freire López</p>
+
+    <p style="text-align: center; margin-top: auto; margin-bottom: 0;min-width: 20rem;">
+      Copyright 2023 Santiago Nicolas Diaz Conde - Santiago Freire López <br> Copyright 2025 Santiago Nicolas Diaz Conde
+    </p>
   </div>
   <div class="loadingcontent" id="loadingcontent">
     <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
@@ -179,21 +209,27 @@
 
       <!-- AGREGAR ACA CONTENIDO-->
       <div class="centeredDiv">
+      	<label>Modelo Base (Opcional):</label>
+      	<input id="file" name="file" type="file" accept=".xmi"/>
+      </div>
+      <div class="centeredDiv">
       	<label>Nombre:</label>
-      	<input type="text" id="name" name="name"/>
+      	<input type="text" id="name" name="name" required/>
       </div>
       <div class="centeredDiv">
       	<label>CI:</label>
-      	<input type="text" id="ci" name="ci" minlength="1" maxlength="8" size="8"/>
+      	<input type="text" id="ci" name="ci" minlength="1" maxlength="8" size="8" required/>
       </div>
       <div class="buttons-div">
         <button type="button" id="markEstudiante" onclick="crear_estudiante()">
-          Crear Modelo Estudiante
+          Descargar Modelo Estudiante
         </button>
       </div>
       
-      <!--
       <hr class="solidDivider">
+      <div class="consulta" id="resultado" style="font-family: 'Roboto', sans-serif;">
+      </div>
+      <!--
       
       <div class="centeredDiv">
       	<label>Modelo:</label>

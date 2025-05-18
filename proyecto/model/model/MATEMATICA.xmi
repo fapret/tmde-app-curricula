@@ -1,0 +1,416 @@
+<FacultyCU
+        Id="MA18"
+        Name="MA18 - CREDITOS ASIGNADOS POR REVALIDAS"
+        Cred="18"/>
+    <FacultyCU
+        Id="1899"
+        Name="1899 - TEMAS AVANZADOS EN CODIGOS PARA CORRECCION DE ERRORES"
+        Cred="7"/>
+    <FacultyCU
+        Id="GAL1P"
+        Name="GAL1P - GEOMETRIA Y ALGEBRA LINEAL 1 INTERACTIVA"
+        Cred="9"/>
+    <FacultyCU
+        Id="SRN45"
+        Name="SRN45 - MATEMATICA INICIAL-OPTATIVA"
+        Cred="4"/>
+    <FacultyCU
+        Id="CIM22"
+        Name="CIM22 - TOPOLOGIA"
+        Cred="12"/>
+    <FacultyCU
+        Id="SRN14"
+        Name="SRN14 - MATEMATICA DISCRETA I"
+        Cred="10"/>
+    <FacultyCU
+        Id="CIM11"
+        Name="CIM11 - MATEMATICA DISCRETA 2- CIM-CIOCT"
+        Cred="10"/>
+    <FacultyCU
+        Id="CH201"
+        Name="CH201 - PROBABILIDAD Y ESTADISTICA"
+        Cred="10"/>
+    <FacultyCU
+        Id="CIM24"
+        Name="CIM24 - ECUACIONES DIFERENCIALES"
+        Cred="10"/>
+    <FacultyCU
+        Id="CIM10"
+        Name="CIM10 - CALCULO VECTORIAL"
+        Cred="12"/>
+    <FacultyCU
+        Id="SRN09"
+        Name="SRN09 - CALCULO II"
+        Cred="16"/>
+    <FacultyCU
+        Id="SRN02"
+        Name="SRN02 - CALCULO I"
+        Cred="16"/>
+    <FacultyCU
+        Id="SRN10"
+        Name="SRN10 - ALGEBRA LINEAL II"
+        Cred="12"/>
+    <FacultyCU
+        Id="SRN03"
+        Name="SRN03 - ALGEBRA LINEAL I"
+        Cred="12"/>
+    <FacultyCU
+        Id="1886"
+        Name="1886 - TOPOLOGIA Y ANALISIS REAL"
+        Cred="10"/>
+    <FacultyCU
+        Id="1066"
+        Name="1066 - FUNCIONES DE VARIABLE COMPLEJA"
+        Cred="5"/>
+    <FacultyCU
+        Id="1025T"
+        Name="1025T - CREDITOS NO ACUM PROBABILIDAD Y ESTADISTICA"
+        Cred="8"/>
+    <FacultyCU
+        Id="D87"
+        Name="D87 - TEORIA DE JUEGOS"
+        Cred="6"/>
+    <FacultyCU
+        Id="MI2"
+        Name="MI2 - MATEMATICA INICIAL"
+        Cred="4"/>
+    <FacultyCU
+        Id="M09"
+        Name="M09 - CREDITOS ASIGNADOS POR REVALIDA"
+        Cred="9"/>
+    <FacultyCU
+        Id="M5"
+        Name="M5 - CREDITOS ASIGNADOS POR REVALIDA"
+        Cred="5"/>
+    <FacultyCU
+        Id="GP5"
+        Name="GP5 - ESTADISTICA ESPACIAL"
+        Cred="5"/>
+    <FacultyCU
+        Id="MA015"
+        Name="MA015 - CREDITOS ASIGNADOS POR REVALIDA"
+        Cred="15"/>
+    <FacultyCU
+        Id="MA48"
+        Name="MA48 - CREDITOS ASIGNADOS POR REVALIDA"
+        Cred="48"/>
+    <FacultyCU
+        Id="MA11"
+        Name="MA11 - CREDITOS ASIGNADOS POR REVALIDA"
+        Cred="11"/>
+    <FacultyCU
+        Id="MA020"
+        Name="MA020 - CREDITOS ASIGNADOS POR REVALIDA"
+        Cred="20"/>
+    <FacultyCU
+        Id="CAL12"
+        Name="CAL12 - CREDITOS ASIGNADOS POR REVALIDA"
+        Cred="12"/>
+    <FacultyCU
+        Id="2415"
+        Name="2415 - CODIGOS PARA CORRECCION DE ERRORES"
+        Cred="8"/>
+    <FacultyCU
+        Id="CAL10"
+        Name="CAL10 - CREDITOS ASIGNADOS POR REVALIDA"
+        Cred="10"/>
+    <FacultyCU
+        Id="CP7"
+        Name="CP7 - ANALISIS COMPLEJO"
+        Cred="10"/>
+    <FacultyCU
+        Id="CP1"
+        Name="CP1 - ANALISIS MATEMATICO I"
+        Cred="33"/>
+    <FacultyCU
+        Id="CP22"
+        Name="CP22 - ANALISIS MATEMATICO I (P. 74)"
+        Cred="33"/>
+    <FacultyCU
+        Id="CP44"
+        Name="CP44 - ANALISIS MATEMATICO I (1ER.SEM.)"
+        Cred="17"/>
+    <FacultyCU
+        Id="CP45"
+        Name="CP45 - ANALISIS MATEMATICO (2DO.SEM.)"
+        Cred="16"/>
+    <FacultyCU
+        Id="CP6"
+        Name="CP6 - ANALISIS MATEMATICO II"
+        Cred="33"/>
+    <FacultyCU
+        Id="CP25"
+        Name="CP25 - ANALISIS MATEMATICO II (P. 74)"
+        Cred="33"/>
+    <FacultyCU
+        Id="CP48"
+        Name="CP48 - ANALISIS MATEMATICO II (1ER.SEM.)"
+        Cred="16"/>
+    <FacultyCU
+        Id="CP49"
+        Name="CP49 - ANALISIS MATEMATICO II (2DO.SEM.)"
+        Cred="17"/>
+    <FacultyCU
+        Id="1061"
+        Name="1061 - CALCULO DIF. E INTEGRAL EN UNA VARIABLE"
+        Cred="13"/>
+    <FacultyCU
+        Id="1020"
+        Name="1020 - CALCULO 1"
+        Cred="16"/>
+    <FacultyCU
+        Id="1070"
+        Name="1070 - CALCULO 1"
+        Cred="16"/>
+    <FacultyCU
+        Id="1052"
+        Name="1052 - CALCULO 1 (ANUAL)"
+        Cred="16"/>
+    <FacultyCU
+        Id="1062"
+        Name="1062 - CALCULO DIF. E INTEGRAL EN VARIAS VARIABLES"
+        Cred="13"/>
+    <FacultyCU
+        Id="1022"
+        Name="1022 - CALCULO 2"
+        Cred="16"/>
+    <FacultyCU
+        Id="1072"
+        Name="1072 - CALCULO 2"
+        Cred="16"/>
+    <FacultyCU
+        Id="1063"
+        Name="1063 - CALCULO VECTORIAL"
+        Cred="10"/>
+    <FacultyCU
+        Id="1024"
+        Name="1024 - CALCULO 3"
+        Cred="10"/>
+    <FacultyCU
+        Id="1076"
+        Name="1076 - CALCULO 3"
+        Cred="10"/>
+    <FacultyCU
+        Id="1021"
+        Name="1021 - ALGEBRA LINEAL"
+        Cred="18"/>
+    <FacultyCU
+        Id="CP2"
+        Name="CP2 - GEOMETRIA Y ALGEBRA LINEAL"
+        Cred="24"/>
+    <FacultyCU
+        Id="CP23"
+        Name="CP23 - GEOMETRIA Y ALGEBRA LINEAL (P. 74)"
+        Cred="24"/>
+    <FacultyCU
+        Id="CP46"
+        Name="CP46"
+        Cred="12"/>
+    <FacultyCU
+        Id="CP47"
+        Name="CP47"
+        Cred="12"/>
+    <FacultyCU
+        Id="1030"
+        Name="1030 - GEOMETRIA Y ALGEBRA LINEAL 1"
+        Cred="9"/>
+    <FacultyCU
+        Id="1071"
+        Name="1071 - GEOMETRIA Y ALGEBRA LINEAL 1"
+        Cred="9"/>
+    <FacultyCU
+        Id="1053"
+        Name="1053 - GEOMETRIA Y ALGEBRA LINEAL 1 (ANUAL)"
+        Cred="9"/>
+    <FacultyCU
+        Id="1031"
+        Name="1031 - GEOMETRIA Y ALGEBRA LINEAL 2"
+        Cred="9"/>
+    <FacultyCU
+        Id="1058"
+        Name="1058 - GEOMETRIA Y ALGEBRA LINEAL 2"
+        Cred="9"/>
+    <FacultyCU
+        Id="1012"
+        Name="1012 - COMBINATORIA ANALITICA"
+        Cred="8"/>
+    <FacultyCU
+        Id="1065"
+        Name="1065 - TEORIA DE COD. ALGEB. PARA CORR. DE ERRRES"
+        Cred="7"/>
+    <FacultyCU
+        Id="1059"
+        Name="1059 - CRIPTOGRAFIA: APECTOS TEOR. Y PRACTICOS"
+        Cred="12"/>
+    <FacultyCU
+        Id="1049"
+        Name="1049 - INFERENCIA II (ESTADISTICA BAYESIANA)"
+        Cred="10"/>
+    <FacultyCU
+        Id="1450"
+        Name="1450 - INT. A LA TEORIA DE LA INFORMACION"
+        Cred="8"/>
+    <FacultyCU
+        Id="C461"
+        Name="C461"
+        Cred="10"/>
+    <FacultyCU
+        Id="CP4"
+        Name="CP4 - LOGICA"
+        Cred="10"/>
+    <FacultyCU
+        Id="1027"
+        Name="1027 - LOGICA"
+        Cred="12"/>
+    <FacultyCU
+        Id="1013"
+        Name="1013"
+        Cred="12"/>
+    <FacultyCU
+        Id="1010"
+        Name="1010"
+        Cred="12"/>
+    <FacultyCU
+        Id="1023"
+        Name="1023 - MATEMATICA DISCRETA 1"
+        Cred="9"/>
+    <FacultyCU
+        Id="1026"
+        Name="1026 - MATEMATICA DISCRETA 2"
+        Cred="9"/>
+    <FacultyCU
+        Id="1064"
+        Name="1064 - INT. A LAS ECUACIONES DIFERENCIALES"
+        Cred="10"/>
+    <FacultyCU
+        Id="1028"
+        Name="1028 - ECUACIONES DIFERENCIALES"
+        Cred="12"/>
+    <FacultyCU
+        Id="1074"
+        Name="1074"
+        Cred="12"/>
+    <FacultyCU
+        Id="1025"
+        Name="1025 - PROBABILIDAD Y ESTADISTICA"
+        Cred="10"/>
+    <FacultyCU
+        Id="1075"
+        Name="1075 - PROBABILIDAD Y ESTADISTICA"
+        Cred="10"/>
+    <FacultyCU
+        Id="1043"
+        Name="1043"
+        Cred="15"/>
+    <FacultyCU
+        Id="1042"
+        Name="1042"
+        Cred="7"/>
+    <FacultyCU
+        Id="1046"
+        Name="1046 - TEORIA DE CODIGOS"
+        Cred="12"/>
+    <FacultyCU
+        Id="1011"
+        Name="1011"
+        Cred="6"/>
+    <FacultyCU
+        Id="1037"
+        Name="1037"
+        Cred="7"/>
+    <FacultyCU
+        Id="1034"
+        Name="1034"
+        Cred="9"/>
+    <FacultyCU
+        Id="1233"
+        Name="1233"
+        Cred="4"/>
+    <FacultyCU
+        Id="GAL7"
+        Name="GAL7"
+        Cred="7"/>
+    <FacultyCU
+        Id="MAT10"
+        Name="MAT10"
+        Cred="10"/>
+    <FacultyCU
+        Id="MAT33"
+        Name="MAT33"
+        Cred="33"/>
+    <FacultyCU
+        Id="MAT6"
+        Name="MAT6"
+        Cred="6"/>
+    <FacultyCU
+        Id="MAT8"
+        Name="MAT8"
+        Cred="8"/>
+    <FacultyCU
+        Id="MA10"
+        Name="MA10"
+        Cred="10"/>
+    <FacultyCU
+        Id="MA15"
+        Name="MA15"
+        Cred="15"/>
+    <FacultyCU
+        Id="MA16"
+        Name="MA16"
+        Cred="16"/>
+    <FacultyCU
+        Id="MA20"
+        Name="MA20"
+        Cred="20"/>
+    <FacultyCU
+        Id="MA24"
+        Name="MA24"
+        Cred="24"/>
+    <FacultyCU
+        Id="MA25"
+        Name="MA25"
+        Cred="25"/>
+    <FacultyCU
+        Id="MA29"
+        Name="MA29"
+        Cred="29"/>
+    <FacultyCU
+        Id="MA3"
+        Name="MA3"
+        Cred="3"/>
+    <FacultyCU
+        Id="MA5"
+        Name="MA5"
+        Cred="5"/>
+    <FacultyCU
+        Id="MA9"
+        Name="MA9"
+        Cred="9"/>
+    <FacultyCU
+        Id="MC13"
+        Name="MC13"
+        Cred="13"/>
+    <FacultyCU
+        Id="MC3"
+        Name="MC3"
+        Cred="12"/>
+    <FacultyCU
+        Id="MEC"
+        Name="MEC"
+        Cred="9"/>
+    <FacultyCU
+        Id="M1"
+        Name="M1"
+        Cred="1"/>
+    <FacultyCU
+        Id="M12"
+        Name="M12"
+        Cred="12"/>
+    <FacultyCU
+        Id="M24"
+        Name="M24"
+        Cred="24"/>
+    <FacultyCU
+        Id="M9"
+        Name="M9"
+        Cred="9"/>

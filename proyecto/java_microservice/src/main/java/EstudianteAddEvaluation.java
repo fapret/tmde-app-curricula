@@ -1,4 +1,23 @@
+/*
+    tmde-app-curricula is a software that helps students build their curricula and
+    see what curricular units they can register to, and track how their career was
+    or will be.
+    Copyright (C) 2023  Santiago Nicolás Díaz Conde, Santiago Freire López
+	Copyright (C) 2025  Santiago Nicolás Díaz Conde
 
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -72,6 +91,7 @@ public class EstudianteAddEvaluation extends HttpServlet {
 		String career = request.getParameter("career");
 		boolean type = Boolean.parseBoolean(request.getParameter("type"));
 		int nota = Integer.parseInt(request.getParameter("nota"));
+		String ID = request.getParameter("ID");
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.US);
 		dateFormat.setTimeZone(TimeZone.getTimeZone("America/Montevideo"));
@@ -79,7 +99,7 @@ public class EstudianteAddEvaluation extends HttpServlet {
 		try {
 		    selectedDate = dateFormat.parse(evaluation);
 		} catch (ParseException e) {
-		    response.getWriter().append(e.toString());
+		    response.getWriter().write(e.toString());
 		    return;
 		}		
 		
@@ -96,10 +116,25 @@ public class EstudianteAddEvaluation extends HttpServlet {
 			
 			rootStudent = (Estudiantes.Root) resourceStudent.getContents().get(0);
 		} catch (IOException e) {
-			response.getWriter().append(e.toString());
+			response.getWriter().write(e.toString());
 			return;
 		}
-		Student estudiante = rootStudent.getStudent().get(0);
+		
+		Student estudiante = null;
+		if(ID.isBlank()) {
+			estudiante = rootStudent.getStudent().get(0);
+		} else {
+			for(Student studentSearch : rootStudent.getStudent()) {
+				if(studentSearch.getId().equals(ID)) {
+					estudiante = studentSearch;
+					break;
+				}
+			}
+		}
+		if(estudiante == null) {
+			response.getWriter().write("Error: Estudiante no encontrado.");
+			return;
+		}
 		
 		boolean found = false;
 		outer: for(PlanInscription planInsc : estudiante.getStudentPlanInscription()) {

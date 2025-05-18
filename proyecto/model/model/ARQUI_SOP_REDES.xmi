@@ -1,0 +1,268 @@
+	<FacultyCU
+	    Id="1466"
+	    Name="ARQUITECTURA DE COMPUTADORAS"
+	    Cred="10"/>
+	<FacultyCU
+	    Id="1898"
+	    Name="PROGRAMACION MASIVAMENTE PARALELA EN PROCESADORES GRAFICOS (GPUS)"
+	    Cred="10"/>
+	<FacultyCU
+	    Id="1891"
+	    Name="TALLER DE SEGURIDAD INFORMATICA"
+	    Cred="10"/>
+	<FacultyCU
+	    Id="1888"
+	    Name="TALLER DE INICIACION A LOS SISTEMAS CIBER-FISICOS"
+	    Cred="4"/>
+	<FacultyCU
+	    Id="1556"
+	    Name="SISTEMAS EMBEBIDOS PARA TIEMPO REAL"
+	    Cred="10"/>
+	<FacultyCU
+	    Id="1536"
+	    Name="SISTEMAS EMBEBIDOS PARA TIEMPO REAL"
+	    Cred="8"/>
+	<FacultyCU
+	    Id="1952"
+	    Name="TALLER DE SISTEMAS CIBER-FISICOS"
+	    Cred="6"/>
+	<FacultyCU
+	    Id="GP6"
+	    Name="PLAN.DE SIST.COMP.CLUSTER, GRID Y CLOUD"
+	    Cred="8"/>
+	<FacultyCU
+	    Id="1546"
+	    Name="TALLER DE RADIO DEFINIDA POR SOFTWARE"
+	    Cred="8"/>
+	<FacultyCU
+	    Id="1545"
+	    Name="CRIPTOGRAFIA"
+	    Cred="10"/>
+	<FacultyCU
+	    Id="AR20"
+	    Name="CREDITOS ASIGNADOS POR REVALIDA"
+	    Cred="20"/>
+	<FacultyCU
+	    Id="1454"
+	    Name="ASPECTOS BASICOS DE REDES DE COMPUT"
+	    Cred="12"/>
+	<FacultyCU
+	    Id="AR12"
+	    Name="CREDITOS ASIGNADOS POR REVALIDA"
+	    Cred="12"/>
+	<FacultyCU
+	    Id="AR015"
+	    Name="CREDITOS ASIGNADOS POR REVALIDA"
+	    Cred="15"/>
+	<FacultyCU
+	    Id="AR6"
+	    Name="CREDITOS ASIGNADOS POR REVALIDA"
+	    Cred="6"/>
+	<FacultyCU
+	    Id="1453"
+	    Name="COMPL.ARQUITECTURA DE COMPUTADORAS"
+	    Cred="5"/>
+	<FacultyCU
+	    Id="1440"
+	    Name="ANALISIS Y DISEÑO DE ALGORIT.DISTRIB.EN REDES"
+	    Cred="8"/>
+	<FacultyCU
+	    Id="1443"
+	    Name="ARQUITECTURA DE COMPUTADORAS"
+	    Cred="12"/>
+	<FacultyCU
+	    Id="1424"
+	    Name="ARQUITECTURA DE COMPUTADORES 1"
+	    Cred="10"/>
+	<FacultyCU
+	    Id="1425"
+	    Name="ARQUITECTURA DE COMPUTADORES 2"
+	    Cred="10"/>
+	<FacultyCU
+	    Id="CP28"
+	    Name="ARQUITECTURA DE SISTEMAS"
+	    Cred="15"/>
+	<FacultyCU
+	    Id="CP383"
+	    Name="ARQUITECTURA DE SISTEMAS (P. 74)"
+	    Cred="14"/>
+	<FacultyCU
+	    Id="1444"
+	    Name="ASPECTOS AVANZ. DE ARQ.DE COMPUTADORAS"
+	    Cred="8"/>
+	<FacultyCU
+	    Id="1448"
+	    Name="ASPECTOS AVANZ. DE REDES DE COMPUTADORAS"
+	    Cred="8"/>
+	<FacultyCU
+	    Id="5813"
+	    Name="CODIFICACION DE FUENTES SIN PERDIDA"
+	    Cred="0"/>
+	<FacultyCU
+	    Id="1447"
+	    Name="COMPUT.DE PR.GRAL.EN UNID.DE PROC.GRAF."
+	    Cred="7"/>
+	<FacultyCU
+	    Id="1427"
+	    Name="COMPUTACION CUANTICA"
+	    Cred="10"/>
+	<FacultyCU
+	    Id="1415"
+	    Name="COMPUTACION DE ALTA PERFORMANCE"
+	    Cred="5"/>
+	<FacultyCU
+	    Id="1430"
+	    Name="COMPUTACION DE ALTA PERFORMANCE"
+	    Cred="7"/>
+	<FacultyCU
+	    Id="1434"
+	    Name="COMPUTACION DE ALTA PERFORMANCE"
+	    Cred="10"/>
+	<FacultyCU
+	    Id="CP364"
+	    Name="COMUNICACION DE DATOS"
+	    Cred="15"/>
+	<FacultyCU
+	    Id="1441"
+	    Name="CURVAS ELIPTICAS EN CRIPTOGRAFIA"
+	    Cred="3"/>
+	<FacultyCU
+	    Id="CP51"
+	    Name="DISEÑO LOGICO"
+	    Cred="23"/>
+	<FacultyCU
+	    Id="1512C"
+	    Name="DISEÑO LOGICO"
+	    Cred="12"/>
+	<FacultyCU
+	    Id="1429"
+	    Name="DISEÑO TOPOLOGICO DE REDES"
+	    Cred="5"/>
+	<FacultyCU
+	    Id="1412"
+	    Name="ESTUDIO COMPLEMENTARIO EN SIST. OPERAT."
+	    Cred="3"/>
+	<FacultyCU
+	    Id="1436"
+	    Name="FUND.PARA LA INVEST.EN REDES DE COMPUTAD"
+	    Cred="8"/>
+	<FacultyCU
+	    Id="5915"
+	    Name="FUNDAMENTOS DE SEGURIDAD INFORMATICA"
+	    Cred="10"/>
+	<FacultyCU
+	    Id="5916"
+	    Name="FUNDAMENTOS DE SEGURIDAD INFORMATICA"
+	    Cred="12"/>
+	<FacultyCU
+	    Id="1403"
+	    Name="INT. A LA ARQUITECTURA DE COMPUTADORES"
+	    Cred="15"/>
+	<FacultyCU
+	    Id="1416"
+	    Name="INT. A LA CRIPTOGRAFIA"
+	    Cred="12"/>
+	<FacultyCU
+	    Id="1431"
+	    Name="INT. A LA TEORIA DE LA INFORMACION"
+	    Cred="6"/>
+	<FacultyCU
+	    Id="1432"
+	    Name="INT. A LA TEORIA DE LA INFORMACION"
+	    Cred="8"/>
+	<FacultyCU
+	    Id="1433"
+	    Name="INT. A LAS REDES DE COMPUTADORAS"
+	    Cred="15"/>
+	<FacultyCU
+	    Id="1406"
+	    Name="INT. A LAS REDES DE COMPUTADORES"
+	    Cred="15"/>
+	<FacultyCU
+	    Id="1513C"
+	    Name="INT. A LOS MICROPROCESADORES"
+	    Cred="11"/>
+	<FacultyCU
+	    Id="1446"
+	    Name="REDES DE COMPUTADORAS"
+	    Cred="12"/>
+	<FacultyCU
+	    Id="1442"
+	    Name="ROBOTICA EMBEBIDA"
+	    Cred="10"/>
+	<FacultyCU
+	    Id="1414"
+	    Name="SISTEMAS DISTRIBUIDOS"
+	    Cred="15"/>
+	<FacultyCU
+	    Id="CP31"
+	    Name="SISTEMAS OPERATIVOS"
+	    Cred="12"/>
+	<FacultyCU
+	    Id="1511"
+	    Name="SISTEMAS OPERATIVOS"
+	    Cred="12"/>
+	<FacultyCU
+	    Id="1518"
+	    Name="SISTEMAS OPERATIVOS"
+	    Cred="15"/>
+	<FacultyCU
+	    Id="1532"
+	    Name="SISTEMAS OPERATIVOS"
+	    Cred="15"/>
+	<FacultyCU
+	    Id="1537"
+	    Name="SISTEMAS OPERATIVOS"
+	    Cred="12"/>
+	<FacultyCU
+	    Id="CP372"
+	    Name="SISTEMAS OPERATIVOS (P. 74)"
+	    Cred="15"/>
+	<FacultyCU
+	    Id="1445"
+	    Name="TALLER DE ARQUITECTURA DE COMPUTADORAS"
+	    Cred="3"/>
+	<FacultyCU
+	    Id="1439"
+	    Name="TALLER DE CRIPTOGRAFIA MODERNA"
+	    Cred="8"/>
+	<FacultyCU
+	    Id="1428"
+	    Name="TALLER DE FIRMWARE"
+	    Cred="10"/>
+	<FacultyCU
+	    Id="1449"
+	    Name="TALLER DE GPGPU"
+	    Cred="7"/>
+	<FacultyCU
+	    Id="1437"
+	    Name="TALLER DE SEGURIDAD INFORMATICA"
+	    Cred="7"/>
+	<FacultyCU
+	    Id="1535"
+	    Name="TALLER DE SISTEMAS OPERATIVOS"
+	    Cred="8"/>
+	<FacultyCU
+	    Id="1542"
+	    Name="TALLER DE SISTEMAS OPERATIVOS"
+	    Cred="10"/>
+	<FacultyCU
+	    Id="1426"
+	    Name="TRAF.RESTRIC.T. REAL REDES BEST EFFORT"
+	    Cred="6"/>
+	<FacultyCU
+	    Id="AA9"
+	    Name="CREDITOS ASIGNADOS POR REVALIDA"
+	    Cred="9"/>
+	<FacultyCU
+	    Id="AR15"
+	    Name="CREDITOS ASIGNADOS POR REVALIDA"
+	    Cred="15"/>
+	<FacultyCU
+	    Id="AR30"
+	    Name="CREDITOS ASIGNADOS POR REVALIDA"
+	    Cred="30"/>
+	<FacultyCU
+	    Id="AR8"
+	    Name="CREDITOS ASIGNADOS POR REVALIDA"
+	    Cred="8"/>

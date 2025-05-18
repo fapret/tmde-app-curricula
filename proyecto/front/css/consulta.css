@@ -33,7 +33,7 @@ select {
   cursor: pointer;
 }
 .buttons-div button:hover{
-  background-color: #216683;
+  background-color: #2f88ad;
 }
 .buttons-div button:disabled{
 	background-color: #606466;

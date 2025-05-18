@@ -125,6 +125,10 @@ div{
   display: flex;
   align-items:center;
 }
+.nav img{
+  height: 100%;
+  width: 100%;
+}
 .nav-buttons{
   display: flex;
 }
@@ -208,7 +212,7 @@ div{
   /* width: 3.5rem; 20rem; */
   width: 3.5rem;
   height: 100%;
-  background-color: #216683;
+  background-color: #2f88ad;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -217,7 +221,7 @@ div{
   overflow-x: hidden;
   overflow-y: auto;
   box-sizing:border-box;
-  padding-top: 4rem;
+  padding-top: 3rem;
   transition: width 200ms ease;
   z-index: 2;
 }
@@ -258,6 +262,10 @@ div{
 }
 .left-nav-div:hover{
   background-color: #1dbbff;
+}
+.nav .left-nav-div:hover{
+  background-color: #cacaca;
+  border-radius: 8px;
 }
 .left-nav-a{
   cursor: pointer;

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<asignaturas:Root
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:asignaturas="asignaturasURI"
+    xsi:schemaLocation="asignaturasURI asignaturas.ecore">
+  <Faculty Name="FING - Facultad de Ingenieria">
+    <Careers
+        Name="INGENIERIA EN COMPUTACION">
+      <plan
+          xsi:type="asignaturas:CreditsPlan"
+          Year="1997"
+          Valid="true"
+          MinCredits="450">
+        <GroupOfSubjects
+            Id="2436"
+            Name="MATERIAS BASICAS"
+            MinCredits="80">
+          <GroupOfSubjects
+              Id="4083"
+              Name="MATEMATICA"
+              MinCredits="70"
+              SubjectCurricularUnit="MA18 1899 GAL1P SRN45 CIM22 SRN14 CIM11 CH201 CIM24 CIM10 SRN09 SRN02 SRN10 SRN03 1886 1066 1025T D87 MI2 M09 M5 GP5 MA015 MA48 MA11 MA020 CAL12 2415 CAL10 CP7 CP1 CP22 CP44 CP45 CP6 CP25 CP48 CP49 1061 1020 1070 1052 1062 1022 1072 1063 1024 1076 1021 CP2 CP23 CP46 CP47 1030 1071 1053 1031 1058 1012 1065 1059 1049 1450 C461 CP4 1027 1013 1010 1023 1026 1064 1028 1074 1025 1075 1043 1042 1046 1011 1037 1034 1233 GAL7 MAT10 MAT33 MAT6 MAT8 MA10 MA15 MA16 MA20 MA24 MA25 MA29 MA3 MA5 MA9 MC13 MC3 MEC M1 M12 M24 M9"/>
+          <GroupOfSubjects
+              Id="4442"
+              Name="CIENCIAS EXPERIMENTALES"
+              MinCredits="10"
+              SubjectCurricularUnit="FIS40 FIS14 FIS8 FI10 FA4 SRN50 SRN26 SRN11 REF05 REF06 REF04 MHC16 MHC24 MHC20 M000 M001 203EU CE5 CE10 CE12 CEX28 CE11 CE2 FA8 CP26 CP40 CP3 CP17 CP8 CP41 CP42 CP43 CP217 FL1 FL2 FL8 FG FG2 FF10 F2 F66 1120 1170 1121 1172 1151 1171 1152 1153 1173 1131 1077"/>
+        </GroupOfSubjects>
+        <GroupOfSubjects
+            Id="3215"
+            Name="BASICO-TEC, TECNICAS E INTEG."
+            MinCredits="220">
+          <GroupOfSubjects
+              Id="4580"
+              Name="PROGRAMACION"
+              MinCredits="60"
+              SubjectCurricularUnit="1374 1373 1322T 1354 1353 1355 1358 1334 1343 1351 1352 1349 1337 1347 1345 1331 1315 1316 1332 1328 1333 1329 1338 1330 1341 1348 1350 1340 1320 1322 1372 1321 1323 1324 1342 1314 1304 1336 1325 1335 1346 1339 SRN17 1145 PR4 PR10 PR3 PR6 PR7 PR8 PA7 CP380 CP52 CP36 CP32 CP384 CP9 CP37 CP15 CP38 CP29 CP374 CP5 CP10 CP30 CP382 CP33 CP365 CP52"/>
+          <GroupOfSubjects
+              Id="4428"
+              Name="ARQUIT, S.OP Y REDES DE COMP."
+              MinCredits="30"/>
+          <GroupOfSubjects
+              Id="4882"
+              Name="INT. ARTIFICIAL Y ROBOTICA"/>
+          <GroupOfSubjects
+              Id="4647"
+              Name="B.DATOS Y SIST. DE INFORMACION"
+              MinCredits="10"/>
+          <GroupOfSubjects
+              Id="5020"
+              Name="CALCULO NUMERICO Y SIMBOLICO"
+              MinCredits="8"/>
+          <GroupOfSubjects
+              Id="4815"
+              Name="INVESTIGACION OPERATIVA"
+              MinCredits="10"/>
+          <GroupOfSubjects
+              Id="5082"
+              Name="INGENIERIA DE SOFTWARE"
+              MinCredits="10"/>
+          <GroupOfSubjects
+              Id="4756"
+              Name="A. INTEG, TALLERES, PARANT, Y PROY"
+              MinCredits="45"/>
+          <GroupOfSubjects
+              Id="4066"
+              Name="GESTION EN ORGANIZACIONES"
+              MinCredits="10"/>
+        </GroupOfSubjects>
+        <GroupOfSubjects
+            Id="3233"
+            Name="MATERIAS COMPLEMENTARIAS"
+            MinCredits="10">
+          <GroupOfSubjects
+              Id="5265"
+              Name="CIENCIAS HUMANAS Y SOCIALES"
+              MinCredits="10"/>
+        </GroupOfSubjects>
+        <GroupOfSubjects
+            Id="3582"
+            Name="MATERIAS OPCIONALES"/>
+      </plan>
+    </Careers>
+    <xmi:import href="MATEMATICA.xmi"/>
+    <xmi:import href="EXPERIMENTALES.xmi"/>
+    <xmi:import href="PROGRAMACION.xmi"/>
+    <xmi:import href="ARQUI_SOP_REDES.xmi"/>
+  </Faculty>
+  <Faculty Name="FMED - Facultad de Medicina"/>
+  <Faculty Name="ODON - Facultad de Odontologia"/>
+  <Faculty Name="PSICO - Facultad de Psicologia"/>
+  <Faculty Name="FENF - Facultad de Enfermeria"/>
+  <Faculty Name="EGRADU - Escuela de graduados de medicina"/>
+  <Faculty Name="ENUT - Escuela de Nutricion"/>
+  <Faculty Name="ISEF - Instituto superior de educacion fisica"/>
+  <Faculty Name="CENURLN - Centro Universitario Regional - Litoral Norte"/>
+  <Faculty Name="CUR - Centro regional noreste - Rivera"/>
+  <Faculty Name="CUT - Centro universitario regional noreste - Tacuarembo"/>
+  <Faculty Name="CURE - Centro universitario regional este"/>
+  <Faculty Name="CUCEL - Centro universitario regional noreste"/>
+  <Faculty Name="FCEA - Facultad de ciencias economicas"/>
+  <Faculty Name="FDER - Facultad de derecho"/>
+  <Faculty Name="FHUM - Facultad de humanidades"/>
+  <Faculty Name="FCS - Facultad de ciencias sociales"/>
+  <Faculty Name="FIC - Facultad de informacion y comunicacion"/>
+  <Faculty Name="FARTES - Facultad de artes"/>
+  <Faculty Name="FAGRO - Facultad de agronomia"/>
+  <Faculty Name="FADU - Facultad de arquitectura, diseño y urbanismo"/>
+  <Faculty Name="FQ - Facultad de Quimica"/>
+  <Faculty Name="FVET - Facultad de veterinaria"/>
+  <Faculty Name="FCIEN - Facultad de ciencias"/>
+</asignaturas:Root>
