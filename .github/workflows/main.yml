@@ -29,7 +29,7 @@ jobs:
       run: ant -f proyecto/java_microservice/build.xml build-project
       
     - name: Upload Build Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: compiled-classes
         path: proyecto/java_microservice/build
@@ -52,7 +52,7 @@ jobs:
       run: sudo apt-get install -y ant
 
     - name: Download Compiled Classes
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: compiled-classes
         path: proyecto/java_microservice/build
@@ -61,7 +61,7 @@ jobs:
       run: ant -f proyecto/java_microservice/build.xml build-war
 
     - name: Upload WAR Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: curricula_microservice.war
         path: proyecto/java_microservice/dist/curricula_microservice.war
