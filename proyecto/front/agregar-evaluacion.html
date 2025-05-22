@@ -10,6 +10,10 @@
   <script type="text/javascript" src="js/selectLib.js"></script>
   <script type="text/javascript" src="js/addEvaluation.js"></script>
   <title>TMDE Project</title>
+
+  <!-- Test -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+   <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 </head>
 <body>
 
@@ -249,6 +253,12 @@
           Seleccionar Unidad Curricular
         </button>
       </div>
+      <script>
+        const element = document.getElementById('ucs');
+        const choices = new Choices(element, {
+          searchEnabled: true
+        });
+      </script>
       
       <label>Evaluacion:</label>
       <select name="evaluations" id="evaluations" size="10"></select>
