@@ -28,6 +28,13 @@ function addToSelect(select, idelement){
   select.appendChild(option);
 }
 
+function addToSelectWithIdName(select, idelement){
+  let option = document.createElement('option');
+  option.setAttribute('value', idelement.id);
+  option.appendChild(document.createTextNode(idelement.name));
+  select.appendChild(option);
+}
+
 function getFaculties(select) {
   const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty`;
   fetch(url)
@@ -85,12 +92,12 @@ function getPlans(select, faculty, career){
 }
 
 function getPlanUCS(select, faculty, career, plan){
-	const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/Carrera/Plan/ucs?faculty=${faculty}&career=${career}&plan=${plan}`;
+	const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/Carrera/Plan/ucs?faculty=${faculty}&career=${career}&plan=${plan}&withName=True`;
 	fetch(url)
 	.then(response => response.json())
 	.then(data => {
 		for (var i = 0; i < data.length; i++){
-			addToSelect(select, data[i]);
+			addToSelectWithIdName(select, data[i]);
 		}
 	})
 	.catch(error => {

@@ -45,27 +45,33 @@ public class PlanUcs extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
-    private String getSubjectUCs(asignaturas.Subject g) {
+    
+    private String getSubjectUCs(asignaturas.Subject g, Boolean withName) {
     	String res = "";
 		for (asignaturas.CurricularUnit cu : g.getSubjectCurricularUnit())
-			res += "\""+cu.getId()+"\", ";
+			if (withName)
+				res += "{\"id\":\""+cu.getId()+"\", \"name\":\"" + cu.getName() + "\"},";
+			else
+				res += "\""+cu.getId()+"\", ";
 
     	for (asignaturas.Subject g2 : g.getGroupOfSubjects())
-    		res += getSubjectUCs(g2);
+    		res += getSubjectUCs(g2, withName);
     	
     	return res;
     }
     
-    private String get_valid_SubjectUCs(asignaturas.Subject g) {
+    private String get_valid_SubjectUCs(asignaturas.Subject g, Boolean withName) {
     	String res = "";
 		for (asignaturas.CurricularUnit cu : g.getSubjectCurricularUnit())
 			if (cu.isValid()) {
-				res += "\""+cu.getId()+"\", ";
+				if (withName)
+					res += "{\"id\":\""+cu.getId()+"\", \"name\":\"" + cu.getName() + "\"},";
+				else
+					res += "\""+cu.getId()+"\", ";
 			}
 
     	for (asignaturas.Subject g2 : g.getGroupOfSubjects())
-    		res += get_valid_SubjectUCs(g2);
+    		res += get_valid_SubjectUCs(g2, withName);
     	
     	return res;
     }
@@ -81,6 +87,7 @@ public class PlanUcs extends HttpServlet {
 		String faculty = request.getParameter("faculty");
 		String career = request.getParameter("career");
 		String plan = request.getParameter("plan");
+		Boolean withName = Boolean.parseBoolean(request.getParameter("withName"));
 		boolean valid_flag = false;
 		if (request.getParameter("valid_flag") != null)
 			valid_flag = true;
@@ -95,21 +102,27 @@ public class PlanUcs extends HttpServlet {
 								asignaturas.CreditsPlan pc = (asignaturas.CreditsPlan)(p);
 								for (asignaturas.Subject g : pc.getGroupOfSubjects())
 									if (valid_flag)
-										res += get_valid_SubjectUCs(g);
+										res += get_valid_SubjectUCs(g, withName);
 									else
-										res += getSubjectUCs(g);
+										res += getSubjectUCs(g, withName);
 							}
 							else {
 								asignaturas.SubjectPlan ps = (asignaturas.SubjectPlan)(p);
 								if (valid_flag) {
 									for (asignaturas.CurricularUnit cu : ps.getCurricularUnit()) {
 										if (cu.isValid())
-											res += "\""+cu.getId()+"\", ";
+											if (withName)
+												res += "{\"id\":\""+cu.getId()+"\", \"name\":\"" + cu.getName() + "\"},";
+											else
+												res += "\""+cu.getId()+"\", ";
 									}
 								}
 								else {
 									for (asignaturas.CurricularUnit cu : ps.getCurricularUnit()) {
-										res += "\""+cu.getId()+"\", ";
+										if (withName)
+											res += "{\"id\":\""+cu.getId()+"\", \"name\":\"" + cu.getName() + "\"},";
+										else
+											res += "\""+cu.getId()+"\", ";
 									}
 								}
 							}
