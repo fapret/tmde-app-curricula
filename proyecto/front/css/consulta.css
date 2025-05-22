@@ -17,6 +17,8 @@ select {
 }
 .choices{
 	width: 80%;
+	display: flex;
+	margin: auto;
 }
 .buttons-div{
   padding-top: 1rem;
