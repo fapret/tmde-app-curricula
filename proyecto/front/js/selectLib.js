@@ -99,6 +99,13 @@ function getPlanUCS(select, faculty, career, plan){
 		for (var i = 0; i < data.length; i++){
 			addToSelectWithIdName(select, data[i]);
 		}
+    /*
+    Test
+    */
+    const element = document.getElementById('ucs');
+    const choices = new Choices(element, {
+        searchEnabled: true
+    });
 	})
 	.catch(error => {
       console.error("Error al consultar la API:", error);

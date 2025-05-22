@@ -69,14 +69,6 @@ selectPlanBtn.addEventListener("click", () => {
     selectUCBtn.disabled = false;
     selectEvaluationBtn.disabled = true;
     type.disabled = false;
-    
-    /*
-    Test
-    */
-    const element = document.getElementById('ucs');
-    const choices = new Choices(element, {
-        searchEnabled: true
-    });
 });
 selectUCBtn.addEventListener("click", () => {
     allEvaluationSelect.innerHTML ="";
