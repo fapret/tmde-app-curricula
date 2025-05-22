@@ -15,6 +15,9 @@ select {
   margin-top: 1rem;
   width: 80%;
 }
+.choices{
+	width: 80%;
+}
 .buttons-div{
   padding-top: 1rem;
   justify-content: center;
