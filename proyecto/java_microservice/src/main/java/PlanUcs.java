@@ -52,7 +52,7 @@ public class PlanUcs extends HttpServlet {
 			if (withName)
 				res += "{\"id\":\""+cu.getId()+"\", \"name\":\"" + cu.getName() + "\"},";
 			else
-				res += "\""+cu.getId()+"\", ";
+				res += "\""+cu.getId()+"\",";
 
     	for (asignaturas.Subject g2 : g.getGroupOfSubjects())
     		res += getSubjectUCs(g2, withName);
@@ -67,7 +67,7 @@ public class PlanUcs extends HttpServlet {
 				if (withName)
 					res += "{\"id\":\""+cu.getId()+"\", \"name\":\"" + cu.getName() + "\"},";
 				else
-					res += "\""+cu.getId()+"\", ";
+					res += "\""+cu.getId()+"\",";
 			}
 
     	for (asignaturas.Subject g2 : g.getGroupOfSubjects())
@@ -114,7 +114,7 @@ public class PlanUcs extends HttpServlet {
 											if (withName)
 												res += "{\"id\":\""+cu.getId()+"\", \"name\":\"" + cu.getName() + "\"},";
 											else
-												res += "\""+cu.getId()+"\", ";
+												res += "\""+cu.getId()+"\",";
 									}
 								}
 								else {
@@ -122,7 +122,7 @@ public class PlanUcs extends HttpServlet {
 										if (withName)
 											res += "{\"id\":\""+cu.getId()+"\", \"name\":\"" + cu.getName() + "\"},";
 										else
-											res += "\""+cu.getId()+"\", ";
+											res += "\""+cu.getId()+"\",";
 									}
 								}
 							}
@@ -133,7 +133,7 @@ public class PlanUcs extends HttpServlet {
 		}
 		
 		//le saco el último ", "
-		res = res.substring(0, res.length()-2);
+		res = res.substring(0, res.length()-1);
 		response.getWriter().append(res+"]");
 					
 	}
