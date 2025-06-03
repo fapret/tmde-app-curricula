@@ -118,15 +118,21 @@ function getEvaluations(select, typeBoolean, UC, faculty){
 	fetch(url)
 	.then(response => response.json())
 	.then(data => {
-		if(typeBoolean){
+		if(typeBoolean == 1){
 			var evaluations = data.ExamEvaluation;
 			for (var i = 0; i < evaluations.length; i++){
 				addToSelect(select, evaluations[i]);
 			}
-		} else {
+		} else if (typeBoolean == 0) {
 			for (var i = 0; i < data.Course.length; i++){
 				for(var j = 0; j < data.Course[i].CourseEvaluation.length; j++){
 					addToSelect(select, data.Course[i].CourseEvaluation[j]);
+				}
+			}
+		} else if (typeBoolean == 3) {
+			for (var i = 0; i < data.Course.length; i++){
+				for(var j = 0; j < data.Course[i].PartialEvaluation.length; j++){
+					addToSelect(select, data.Course[i].PartialEvaluation[j]);
 				}
 			}
 		}

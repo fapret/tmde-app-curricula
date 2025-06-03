@@ -40,7 +40,7 @@ function agregar_Evaluacion() {
     var formData = new FormData();
     formData.append('faculty', facultyName);
     formData.append('curricularunit', ucId);
-    formData.append('type', type);
+    formData.append('type', type ? 1 : 0);
     formData.append('file', model_file);
     formData.append('evaluation', evaluation);
     formData.append('nota', nota);

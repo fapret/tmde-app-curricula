@@ -84,7 +84,7 @@ public class EstudianteAddPlan extends HttpServlet {
 		String career = request.getParameter("career");
 		String plan = request.getParameter("plan");
 		String date = request.getParameter("date");
-		String ID = request.getParameter("ID");
+		String ID = request.getParameter("id");
 		//System.out.print(faculty);
 		Estudiantes.Root rootStudent;
 		Part filePart;

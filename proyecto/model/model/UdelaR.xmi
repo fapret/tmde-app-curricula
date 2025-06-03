@@ -5032,7 +5032,32 @@
     <FacultyCU
         Id="1770"
         Name="1770 - TALLER DE ING.DIRIGIDA POR MODELOS"
-        Cred="8"/>
+        Cred="8"
+        Valid="true">
+      <Requirement
+          xsi:type="asignaturas:SomeOf"
+          N="1">
+        <Requirement
+            xsi:type="asignaturas:Coursed"
+            CurricularUnit="1327"/>
+        <Requirement
+            xsi:type="asignaturas:SomeOf"
+            N="2">
+          <Requirement
+              xsi:type="asignaturas:Coursed"
+              CurricularUnit="CP30"/>
+          <Requirement
+              xsi:type="asignaturas:Coursed"
+              CurricularUnit="CP71"/>
+        </Requirement>
+      </Requirement>
+      <Course
+          Year="2023"
+          Edition="2">
+        <CourseEvaluation
+            date="2023-12-31T00:00:00.000-0300"/>
+      </Course>
+    </FacultyCU>
     <FacultyCU
         Id="1732"
         Name="1732 - ARQUITECTURA DE SOFTWARE"
@@ -5168,7 +5193,25 @@
     <FacultyCU
         Id="1876"
         Name="1876 - TALLER DE MINERIA DE PROCESOS DE NEGOCIO (TPM)"
-        Cred="8"/>
+        Cred="8"
+        Valid="true">
+      <Requirement
+          xsi:type="asignaturas:SomeOf"
+          N="2">
+        <Requirement
+            xsi:type="asignaturas:Coursed"
+            CurricularUnit="1911"/>
+        <Requirement
+            xsi:type="asignaturas:Coursed"
+            CurricularUnit="1327"/>
+      </Requirement>
+      <Course
+          Year="2025"
+          Edition="1">
+        <CourseEvaluation
+            date="2025-07-01T00:00:00.000-0300"/>
+      </Course>
+    </FacultyCU>
     <FacultyCU
         Id="A42"
         Name="A42 - DISEÑO ORGANIZACIONAL"
@@ -6005,7 +6048,14 @@
         Id="2040"
         Name="2040 - INICIACION A LA PROD. AUDIOVIS. Y MULTIMEDIA"
         Cred="6"
-        Valid="true"/>
+        Valid="true">
+      <Course
+          Year="2024"
+          Edition="2">
+        <CourseEvaluation
+            date="2024-12-31T00:00:00.000-0300"/>
+      </Course>
+    </FacultyCU>
     <FacultyCU
         Id="1438"
         Name="1438 - APLICACIONES DE TEORIA DE LA INFORMACION AL PROC. DE IMAG."

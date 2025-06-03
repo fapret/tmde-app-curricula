@@ -80,6 +80,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Course/Edition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Course/CourseEvaluation"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Course/curricularunit"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//Course/partialevaluation"/>
     </genClasses>
     <genClasses ecoreClass="asignaturas.ecore#//Evaluation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute asignaturas.ecore#//Evaluation/date"/>
@@ -90,6 +91,9 @@
     <genClasses ecoreClass="asignaturas.ecore#//EvaluacionExamen"/>
     <genClasses ecoreClass="asignaturas.ecore#//CourseEvaluation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//CourseEvaluation/course"/>
+    </genClasses>
+    <genClasses ecoreClass="asignaturas.ecore#//PartialEvaluation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference asignaturas.ecore#//PartialEvaluation/course"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Estudiantes" ecorePackage="estudiante.ecore#/">

@@ -98,6 +98,8 @@
         eType="#//CourseEvaluation" containment="true" eOpposite="#//CourseEvaluation/course"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="curricularunit" lowerBound="1"
         eType="#//CurricularUnit" eOpposite="#//CurricularUnit/Course"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="partialevaluation" upperBound="-1"
+        eType="#//PartialEvaluation" containment="true" eOpposite="#//PartialEvaluation/course"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Evaluation" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
@@ -110,5 +112,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="CourseEvaluation" eSuperTypes="#//Evaluation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="course" lowerBound="1"
         eType="#//Course" eOpposite="#//Course/CourseEvaluation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PartialEvaluation" eSuperTypes="#//Evaluation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="course" lowerBound="1"
+        eType="#//Course" eOpposite="#//Course/partialevaluation"/>
   </eClassifiers>
 </ecore:EPackage>

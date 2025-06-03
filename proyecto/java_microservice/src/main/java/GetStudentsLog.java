@@ -139,6 +139,14 @@ public class GetStudentsLog extends HttpServlet {
 						//Append to file each evaluation
 						csvBuilder.append(String.format("%s,%s,%s,%s,%d,%s,%d,%d,%d\n",
 							    ID, Activity, TimeStamp, Career, Plan, CurricularUnit, CourseEdition, CourseYear, Grade));
+					} else if (eval instanceof PartialEvaluation) {
+						Activity += "Partial";
+						PartialEvaluation partialCourse = (PartialEvaluation) eval;
+						String CurricularUnit = partialCourse.getCourse().getCurricularunit().getId();
+						int CourseEdition = partialCourse.getCourse().getEdition();
+						int CourseYear = partialCourse.getCourse().getYear();
+						csvBuilder.append(String.format("%s,%s,%s,%s,%d,%s,%d,%d,%d\n",
+							    ID, Activity, TimeStamp, Career, Plan, CurricularUnit, CourseEdition, CourseYear, Grade));
 					}
 				}
 			}

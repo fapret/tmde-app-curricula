@@ -56,6 +56,7 @@ import asignaturas.CourseEvaluation;
 import asignaturas.CurricularUnit;
 import asignaturas.ExamEvaluation;
 import asignaturas.Faculty;
+import asignaturas.PartialEvaluation;
 
 /**
  * Servlet implementation class EstudianteAddEvaluation
@@ -91,7 +92,7 @@ public class EstudianteAddEvaluation extends HttpServlet {
 		String evaluation = request.getParameter("evaluation");
 		int plan = Integer.parseInt(request.getParameter("plan"));
 		String career = request.getParameter("career");
-		boolean type = Boolean.parseBoolean(request.getParameter("type"));
+		int type = Integer.parseInt(request.getParameter("type"));
 		int nota = Integer.parseInt(request.getParameter("nota"));
 		String ID = request.getParameter("ID");
 		
@@ -141,15 +142,22 @@ public class EstudianteAddEvaluation extends HttpServlet {
 		boolean found = false;
 		outer: for(PlanInscription planInsc : estudiante.getStudentPlanInscription()) {
 			for(StudentEvaluation eval : planInsc.getPlanStudentEvaluation()) {
-				if(type && eval.getEvaluation() instanceof ExamEvaluation) {
+				if(type == 1 && eval.getEvaluation() instanceof ExamEvaluation) {
 					ExamEvaluation v = (ExamEvaluation) eval.getEvaluation();
 					if(v.getCurricularunit().getId().equals(unidadcurricular) && v.getDate().equals(selectedDate)) {
 						eval.setGrade(nota);
 						found = true;
 						break outer;
 					}
-				} else if(!type && eval.getEvaluation() instanceof CourseEvaluation) {
+				} else if(type == 0 && eval.getEvaluation() instanceof CourseEvaluation) {
 					CourseEvaluation v = (CourseEvaluation) eval.getEvaluation();
+					if(v.getCourse().getCurricularunit().equals(unidadcurricular) && v.getDate().equals(selectedDate)) {
+						eval.setGrade(nota);
+						found = true;
+						break outer;
+					}
+				} else if (type == 3 && eval.getEvaluation() instanceof PartialEvaluation) {
+					PartialEvaluation v = (PartialEvaluation) eval.getEvaluation();
 					if(v.getCourse().getCurricularunit().equals(unidadcurricular) && v.getDate().equals(selectedDate)) {
 						eval.setGrade(nota);
 						found = true;
@@ -164,7 +172,7 @@ public class EstudianteAddEvaluation extends HttpServlet {
 				if(facultad.getName().equals(faculty)) {
 					for(CurricularUnit cu : facultad.getFacultyCU()) {
 						if(cu.getId().equals(unidadcurricular)) {
-							if(type) {
+							if(type == 1) {
 								for(ExamEvaluation EE : cu.getExamEvaluation()) {
 									if(EE.getDate().equals(selectedDate)) {
 										StudentEvaluation SE = Estudiantes.EstudiantesFactory.eINSTANCE.createStudentEvaluation();
@@ -178,12 +186,28 @@ public class EstudianteAddEvaluation extends HttpServlet {
 										}
 									}
 								}
-							} else {
+							} else if (type == 0){
 								for(Course C : cu.getCourse()) {
 									for(CourseEvaluation CE : C.getCourseEvaluation()) {
 										if(CE.getDate().equals(selectedDate)) {
 											StudentEvaluation SE = Estudiantes.EstudiantesFactory.eINSTANCE.createStudentEvaluation();
 											SE.setEvaluation(CE);
+											SE.setGrade(nota);
+											for(PlanInscription pi : estudiante.getStudentPlanInscription()) {
+												if(pi.getPlan().getYear() == plan && pi.getPlan().getCareer_parent().getName().equals(career)) {
+													pi.getPlanStudentEvaluation().add(SE);
+													break outer;
+												}
+											}
+										}
+									}
+								}
+							} else if (type == 3) {
+								for(Course C : cu.getCourse()) {
+									for (PartialEvaluation PE : C.getPartialevaluation()) {
+										if(PE.getDate().equals(selectedDate)) {
+											StudentEvaluation SE = Estudiantes.EstudiantesFactory.eINSTANCE.createStudentEvaluation();
+											SE.setEvaluation(PE);
 											SE.setGrade(nota);
 											for(PlanInscription pi : estudiante.getStudentPlanInscription()) {
 												if(pi.getPlan().getYear() == plan && pi.getPlan().getCareer_parent().getName().equals(career)) {

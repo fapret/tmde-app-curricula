@@ -143,6 +143,15 @@ public class UnidadCurricular extends HttpServlet {
 							if(auxBool2) {
 								responseText = responseText.substring(0, responseText.lastIndexOf(','));
 							}
+							responseText += "], \"PartialEvaluation\": [";
+							auxBool2 = false;
+							for(PartialEvaluation ce : curso.getPartialevaluation()) {
+								responseText += "\"" + ce.getDate().toString() + "\",";
+								auxBool2 = true;
+							}
+							if(auxBool2) {
+								responseText = responseText.substring(0, responseText.lastIndexOf(','));
+							}
 							responseText += "]},";
 						}
 						if(auxBool) {

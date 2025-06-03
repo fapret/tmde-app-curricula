@@ -72,7 +72,7 @@ selectPlanBtn.addEventListener("click", () => {
 });
 selectUCBtn.addEventListener("click", () => {
     allEvaluationSelect.innerHTML ="";
-    getEvaluations(allEvaluationSelect, type.checked, allUCSSelect.value, allFacultiesSelect.value);
+    getEvaluations(allEvaluationSelect, type.checked ? 1 : 0, allUCSSelect.value, allFacultiesSelect.value);
     selectEvaluationBtn.disabled = false;
     type.disabled = true;
 });
