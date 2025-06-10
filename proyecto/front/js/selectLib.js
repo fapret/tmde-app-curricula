@@ -142,6 +142,21 @@ function getEvaluations(select, typeBoolean, UC, faculty){
   	});
 }
 
+function getCourses(select, UC, faculty){
+  const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${faculty}&curricularUnit=${UC}`;
+  fetch(url)
+	.then(response => response.json())
+	.then(data => {
+		var courses = data.Course;
+		for (var i = 0; i < courses.length; i++){
+			addToSelect(select, courses[i].Year + "-" + courses[i].Edition);
+		}
+	})
+	.catch(error => {
+      console.error("Error al consultar la API:", error);
+  	});
+}
+
 function getMaterias(select, faculty, career, plan){
 	const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/Carrera/Plan/Subjects?faculty=${faculty}&career=${career}&plan=${plan}`;
 	fetch(url)

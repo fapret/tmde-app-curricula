@@ -129,6 +129,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>EstudianteAddCourse</display-name>
+    <servlet-name>EstudianteAddCourse</servlet-name>
+    <servlet-class>EstudianteAddCourse</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EstudianteAddCourse</servlet-name>
+    <url-pattern>/Estudiante/AddCourse</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>EstudianteAddEvaluation</display-name>
     <servlet-name>EstudianteAddEvaluation</servlet-name>
     <servlet-class>EstudianteAddEvaluation</servlet-class>

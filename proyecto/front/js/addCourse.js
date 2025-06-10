@@ -2,7 +2,6 @@
     tmde-app-curricula is a software that helps students build their curricula and
     see what curricular units they can register to, and track how their career was
     or will be.
-    Copyright (C) 2023  Santiago Nicolás Díaz Conde, Santiago Freire López
 	Copyright (C) 2025  Santiago Nicolás Díaz Conde
 
     This program is free software: you can redistribute it and/or modify
@@ -20,32 +19,30 @@
 
 	Santiago Nicolás Díaz Conde Email: sndc.33@gmail.com and contact@fapret.com
 */
-function agregar_Evaluacion() {
-	const allFacultiesSelect = document.getElementById("facultades");
-	const allUCSSelect = document.getElementById("ucs");
-	const allEvaluationSelect = document.getElementById("evaluations");
-	const allCareersSelect = document.getElementById("carreras");
-	const allPlansSelect = document.getElementById("planes");
-	const facultyName = allFacultiesSelect.value;
-	const ucId = allUCSSelect.value;
-	const type = document.getElementById("evaluacion").value;
-	const evaluation = allEvaluationSelect.value;
-	const nota = document.getElementById("nota").value;
-	const model_file = document.getElementById("file").files[0];
-	const career = allCareersSelect.value;
-	const plan = allPlansSelect.value;
+function agregar_Curso() {
+    const allFacultiesSelect = document.getElementById("facultades");
+    const allCareersSelect = document.getElementById("carreras");
+    const allPlansSelect = document.getElementById("planes");
+    const allUCSSelect = document.getElementById("ucs");
+    const allCourseSSelect = document.getElementById("courses");
 
+    const faculty = allFacultiesSelect.value;
+    const career = allCareersSelect.value;
+    const plan = allPlansSelect.value;
+    const uc = allUCSSelect.value;
+    const course = allCourseSSelect.value;
+    const date = document.getElementById("date").value;
+    const model_file = document.getElementById("file").files[0];
 
-	const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Estudiante/AddEvaluation`;
+    const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Estudiante/AddCourse`;
     var formData = new FormData();
-    formData.append('faculty', facultyName);
-    formData.append('curricularunit', ucId);
-    formData.append('type', type);
-    formData.append('file', model_file);
-    formData.append('evaluation', evaluation);
-    formData.append('nota', nota);
+    formData.append('faculty', faculty);
     formData.append('career', career);
     formData.append('plan', plan);
+    formData.append('date', date);
+    formData.append('curricularunit', uc);
+    formData.append('course', course);
+    formData.append('file', model_file);
 
     // Configurar las opciones de la solicitud
     var options = {
@@ -55,12 +52,16 @@ function agregar_Evaluacion() {
     };
 
     fetch(url, options)
-    .then(response => response.text())
-            .then(data => {
+        .then(response => response.text())
+        .then(data => {
             const resultadoDiv = document.getElementById("resultado");
             resultadoDiv.style.display = "block";
+            if (data == "El estudiante ya esta inscripto en el curso") {
+                resultadoDiv.innerHTML = "El estudiante ya esta inscripto en el curso.";
+                return;
+            }
 
-            resultadoDiv.innerHTML = "Evaluacion agregada exitosamente, si ya poseia dicha evaluacion, nota actualizada exitosamente.";
+            resultadoDiv.innerHTML = "Inscripto exitosamente.";
 
             var blob = new Blob([data], { type: 'text/plain' });
 
