@@ -47,6 +47,10 @@ function agregar_Evaluacion() {
     formData.append('career', career);
     formData.append('plan', plan);
 
+    if(document.getElementById("ci").value != undefined){
+        formData.append('id', document.getElementById("ci").value);
+    }
+
     // Configurar las opciones de la solicitud
     var options = {
         method: 'POST',

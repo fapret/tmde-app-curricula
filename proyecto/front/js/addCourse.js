@@ -44,6 +44,10 @@ function agregar_Curso() {
     formData.append('course', course);
     formData.append('file', model_file);
 
+    if(document.getElementById("ci").value != undefined){
+        formData.append('id', document.getElementById("ci").value);
+    }
+
     // Configurar las opciones de la solicitud
     var options = {
         method: 'POST',

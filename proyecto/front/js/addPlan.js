@@ -39,6 +39,10 @@ function inscribir_plan() {
     formData.append('date', date);
     formData.append('file', model_file);
 
+    if(document.getElementById("ci").value != undefined){
+        formData.append('id', document.getElementById("ci").value);
+    }
+
     // Configurar las opciones de la solicitud
     var options = {
         method: 'POST',
