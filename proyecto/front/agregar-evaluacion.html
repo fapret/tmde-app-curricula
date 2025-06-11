@@ -9,7 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
   <script type="text/javascript" src="js/selectLib.js"></script>
   <script type="text/javascript" src="js/addEvaluation.js"></script>
+  <script src="lang/lang.js" defer></script>
   <title>TMDE Project</title>
+  <link rel="preload" href="/font/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>    <link rel="preload" href="/font/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/font/remixicon.css"></noscript></noscript>
 
   <!-- Test -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
@@ -34,6 +38,12 @@
   <div class="center" id="center">
   </div>
   <div class="end" id="end">
+    <div class="lang-switcher">
+      <select id="languageSelector">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+    </div>
   </div>
 </div>
 
@@ -43,7 +53,7 @@
 
 
     <div class="left-nav-cat">
-      <p> ESTUDIANTE </p>
+      <p data-lang="student"> ESTUDIANTE </p>
     </div>
 
     <div class="left-nav-div">
@@ -52,7 +62,7 @@
           <img class="" src="./images/upload-svgrepo-com.svg">
           </img>
         </button>
-        <p>Crear/Expandir Modelo</p>
+        <p data-lang="createModel">Crear/Expandir Modelo</p>
       </a>
     </div>
 
@@ -62,7 +72,7 @@
           <img class="" src="./images/registration-svgrepo-com.svg">
           </img>
         </button>
-        <p>Agregar Inscripción a plan</p>
+        <p data-lang="addPlan">Agregar Inscripción a plan</p>
       </a>
     </div>
 
@@ -72,7 +82,7 @@
           <img class="" src="./images/education-book-add-svgrepo-com.svg">
           </img>
         </button>
-        <p>Agregar Inscripción a curso</p>
+        <p data-lang="addCourse">Agregar Inscripción a curso</p>
       </a>
     </div>
 
@@ -82,7 +92,7 @@
           <img class="" src="./images/exam-svgrepo-com.svg">
           </img>
         </button>
-        <p>Agregar Evaluación</p>
+        <p data-lang="addEvaluation">Agregar Evaluación</p>
       </a>
     </div>
 
@@ -92,7 +102,7 @@
           <img class="" src="./images/student-svgrepo-com.svg">
           </img>
         </button>
-        <p>Evaluar Unidad Curricular</p>
+        <p data-lang="evalUC">Evaluar Unidad Curricular</p>
       </a>
     </div>
 
@@ -102,7 +112,7 @@
           <img class="" src="./images/graduation-cap-svgrepo-com.svg">
           </img>
         </button>
-        <p>Ver Currícula</p>
+        <p data-lang="viewCurriculum">Ver Currícula</p>
       </a>
     </div>
 
@@ -112,12 +122,12 @@
           <img class="" src="./images/csv-file-icon.svg">
           </img>
         </button>
-        <p>Obtener Log de Estudiantes</p>
+        <p data-lang="getLog">Obtener Log de Estudiantes</p>
       </a>
     </div>
 
     <div class="left-nav-cat">
-      <p> MODELO </p>
+      <p data-lang="model"> MODELO </p>
     </div>
 
     <div class="left-nav-div">
@@ -126,7 +136,7 @@
           <img class="" src="./images/university-svgrepo-com.svg">
           </img>
         </button>
-        <p>Consultar Facultad</p>
+        <p data-lang="consultFaculty">Consultar Facultad</p>
       </a>
     </div>
 
@@ -136,7 +146,7 @@
           <img class="" src="./images/plan-svgrepo-com.svg">
           </img>
         </button>
-        <p>Consultar Plan</p>
+        <p data-lang="consultPlan">Consultar Plan</p>
       </a>
     </div>
 
@@ -146,7 +156,7 @@
           <img class="" src="./images/library-svgrepo-com.svg">
           </img>
         </button>
-        <p>Consultar Materia</p>
+        <p data-lang="consultSubject">Consultar Materia</p>
       </a>
     </div>
 
@@ -156,7 +166,7 @@
           <img class="" src="./images/books-svgrepo-com.svg">
           </img>
         </button>
-        <p>Consultar Unidad Curricular</p>
+        <p data-lang="consultUC">Consultar Unidad Curricular</p>
       </a>
     </div>
 
@@ -166,12 +176,12 @@
           <img class="" src="./images/path-svgrepo-com.svg">
           </img>
         </button>
-        <p>Ver Currícula de Plan</p>
+        <p data-lang="viewPlanCurriculum">Ver Currícula de Plan</p>
       </a>
     </div>
 
     <div class="left-nav-cat">
-      <p> MINERIA DE PROCESOS</p>
+      <p data-lang="processMining"> MINERIA DE PROCESOS</p>
     </div>
 
     <div class="left-nav-div">
@@ -180,7 +190,7 @@
           <img class="" src="./images/compass-3-fill.svg">
           </img>
         </button>
-        <p>Descubrir procesos (DFG)</p>
+        <p data-lang="discoverDFG">Descubrir procesos (DFG)</p>
       </a>
     </div>
 
@@ -190,7 +200,7 @@
           <img class="" src="./images/temp-hot-line.svg">
           </img>
         </button>
-        <p>Descubrir procesos (Freq DFG)</p>
+        <p data-lang="discoverFreqDFG">Descubrir procesos (Freq DFG)</p>
       </a>
     </div>
 
@@ -200,7 +210,7 @@
           <img class="" src="./images/mind-map.svg">
           </img>
         </button>
-        <p>Descubrir procesos (Net DFG)</p>
+        <p data-lang="discoverNetDFG">Descubrir procesos (Net DFG)</p>
       </a>
     </div>
 
@@ -213,7 +223,7 @@
           <img class="" src="./images/documents-svgrepo-com.svg">
           </img>
         </button>
-        <p>Ver Documentación (EM)</p>
+        <p data-lang="viewDocsEM">Ver Documentación (EM)</p>
       </a>
     </div>
     <div class="left-nav-div">
@@ -222,7 +232,7 @@
           <img class="" src="./images/documents-svgrepo-com.svg">
           </img>
         </button>
-        <p>Ver Documentación (PM)</p>
+        <p data-lang="viewDocsPM">Ver Documentación (PM)</p>
       </a>
     </div>
 
@@ -254,56 +264,56 @@
 
       <!-- AGREGAR ACA CONTENIDO-->
       <br>
-      <label>Modelo de Estudiantes:</label>
+      <label data-lang="studentModel">Modelo de Estudiantes:</label>
       <input id="file" name="file" type="file" accept=".xmi" required/>
       <br><br>
-      <label>Cedula (Opcional):</label>
+      <label data-lang="ci">Cedula (Opcional):</label>
       <input type="text" id="ci" name="ci"/>
       <br><br>
-      <label>Facultad:</label>
+      <label data-lang="faculty">Facultad:</label>
       <select name="facultades" id="facultades" size="10"></select>
       <div class="buttons-div">
-        <button type="button" id="markFaculty">
+        <button type="button" id="markFaculty" data-lang="selectFaculty">
           Seleccionar Facultad
         </button>
       </div>
       
-      <label>Carrera:</label>
+      <label data-lang="career">Carrera:</label>
       <select name="carreras" id="carreras" size="10"></select>
       <div class="buttons-div">
-        <button type="button" id="markCarrera" disabled>
+        <button type="button" id="markCarrera" disabled data-lang="selectCareer">
           Seleccionar Carrera
         </button>
       </div>
       
-      <label>Plan:</label>
+      <label data-lang="plan">Plan:</label>
       <select name="planes" id="planes" size="5"></select>
       <div class="buttons-div">
-        <button type="button" id="markPlan" disabled>
+        <button type="button" id="markPlan" disabled data-lang="selectPlan">
           Seleccionar Plan
         </button>
       </div>
       
-      <label>Unidad Curricular:</label>
+      <label data-lang="uc">Unidad Curricular:</label>
       <select name="ucs" id="ucs" size="10"></select>
-      <label>Tipo evaluación:</label>
+      <label data-lang="evalType">Tipo evaluación:</label>
       <select name="evaluacion" id="evaluacion" style="min-height: 1rem;">
-        <option value="0">Curso</option>
-        <option value="1">Examen</option>
-        <option value="2">Parcial</option>
+        <option value="0" data-lang="courseOpt">Curso</option>
+        <option value="1" data-lang="examOpt">Examen</option>
+        <option value="2" data-lang="partialOpt">Parcial</option>
       </select>
       <div class="buttons-div">
-        <button type="button" id="markUC">
+        <button type="button" id="markUC" data-lang="selectUC">
           Seleccionar Unidad Curricular
         </button>
       </div>
       
-      <label>Evaluacion:</label>
+      <label data-lang="eval">Evaluacion:</label>
       <select name="evaluations" id="evaluations" size="10"></select>
       <label>Nota:</label>
       <input type="number" id="nota" name="nota" min="0" max="12" required>
       <div class="buttons-div">
-        <button type="button" id="markEvaluation">
+        <button type="button" id="markEvaluation" data-lang="addEval">
           Agregar Evaluacion
         </button>
       </div>

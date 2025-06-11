@@ -325,3 +325,14 @@ div{
   }
 }
 /* FIN ICONO DE CARGA CC0 */
+
+/* LANG SWITCHER */
+.lang-switcher {
+  margin-right: 1rem;
+}
+
+.lang-switcher select {
+  padding: 4px;
+  font-size: 1rem;
+  border-radius: 4px;
+}
