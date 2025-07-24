@@ -20,33 +20,28 @@
 	Santiago Nicolás Díaz Conde Email: sndc.33@gmail.com and contact@fapret.com
 */
 const allFacultiesSelect = document.getElementById("facultades");
+const allUCSelect = document.getElementById("ucs");
+const allDiscoveriesSelect = document.getElementById("discoveries");
 const selectFacultyBtn = document.getElementById("markFaculty");
-const allCareersSelect = document.getElementById("carreras");
-const selectCareerBtn = document.getElementById("markCarrera");
-const allPlansSelect = document.getElementById("planes");
-const selectPlanBtn = document.getElementById("markPlan");
-
-selectCareerBtn.disabled = true;
-selectPlanBtn.disabled = true;
+const selectUCBtn = document.getElementById("markUC");
+const selectBtn = document.getElementById("seeStatistics");
+selectUCBtn.disabled = true;
+selectBtn.disabled = true;
+google.charts.load('current',{packages:['corechart']});
+const graphList = document.getElementById("graphList");
+const result = document.getElementById("resultado");
 
 getFaculties(allFacultiesSelect);
+getDiscoveries(allDiscoveriesSelect);
 selectFacultyBtn.addEventListener("click", () => {
-    allCareersSelect.innerHTML ="";
-    allPlansSelect.innerHTML ="";
-    getCareers(allCareersSelect, allFacultiesSelect.value);
-    selectCareerBtn.disabled = false;
-    selectPlanBtn.disabled = true;
-
+    getUCS(allUCSelect, allFacultiesSelect.value);
+    selectUCBtn.disabled = false;
 });
-selectCareerBtn.addEventListener("click", () => {
-    allPlansSelect.innerHTML ="";
-    getPlans(allPlansSelect, allFacultiesSelect.value, allCareersSelect.value);
-    selectPlanBtn.disabled = false;
+selectUCBtn.addEventListener("click", () => {
+    selectBtn.disabled = false;
 });
-selectPlanBtn.addEventListener("click", () => {
-    document.getElementById("resultado").style.display = "flex";
-    document.getElementById("resultado").scrollIntoView({behavior: "smooth"});
-    const loader = document.getElementById("loadingcontent");
-    loader.style.display = "flex";
-    mostrar_trayectoria();
+selectBtn.addEventListener("click", () => {
+    graphList.style.display = "flex";
+    result.style.display = "block";
+    displayUCStats();
 });

@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" href="./css/consulta.css">
-  <link rel="stylesheet" href="./css/graph.css">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script type="text/javascript" src="js/selectLib.js"></script>
-  <script type="text/javascript" src="js/seePlan.js"></script>
+  <script type="text/javascript" src="js/getUCStats.js"></script>
   <script src="lang/lang.js" defer></script>
+  <!-- Charts -->
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+
   <title>TMDE Project</title>
   <link rel="preload" href="/font/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>    <link rel="preload" href="/font/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -47,8 +48,6 @@
 
 <div class="main" id="main">
   <div class="left-nav" id="leftnav">
-
-
 
     <div class="left-nav-cat">
       <p data-lang="student"> ESTUDIANTE </p>
@@ -238,31 +237,31 @@
     <p style="text-align: center; margin-top: auto; margin-bottom: 0;min-width: 20rem;">
       Copyright 2023 Santiago Nicolas Diaz Conde - Santiago Freire López <br> Copyright 2025 Santiago Nicolas Diaz Conde
     </p>
-  </div>
-  <div class="loadingcontent" id="loadingcontent">
-    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-  </div>
-  <div class="loadingcontent" id="dialog">
-    <div class="dialog">
-      <p>Dialog</p>
-      <div>
-        Contenido a preguntar
-      </div>
-      <div>
-        <button id="dialogbtnyes" class="dialog-button-recommended">
-          Aceptar
-        </button>
-        <button id="dialogbtnno" class="dialog-button-default">
-          Cancelar
-        </button>
+    </div>
+    <div class="loadingcontent" id="loadingcontent">
+      <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>
+    <div class="loadingcontent" id="dialog">
+      <div class="dialog">
+        <p>Dialog</p>
+        <div>
+          Contenido a preguntar
+        </div>
+        <div>
+          <button id="dialogbtnyes" class="dialog-button-recommended">
+            Aceptar
+          </button>
+          <button id="dialogbtnno" class="dialog-button-default">
+            Cancelar
+          </button>
+        </div>
       </div>
     </div>
-  </div>
     <div class="content">
 
       <!-- AGREGAR ACA CONTENIDO-->
-      <br>
-      <label data-lang="faculty">Facultad:</label>
+	    <br>
+	    <label data-lang="faculty">Facultad:</label>
       <select name="facultades" id="facultades" size="10"></select>
       <div class="buttons-div">
         <button type="button" id="markFaculty" data-lang="selectFaculty">
@@ -270,28 +269,50 @@
         </button>
       </div>
       
-      <label data-lang="career">Carrera:</label>
-      <select name="carreras" id="carreras" size="10"></select>
+      <label data-lang="uc">Unidad Curricular:</label>
+      <select name="ucs" id="ucs" size="10"></select>
       <div class="buttons-div">
-        <button type="button" id="markCarrera" disabled data-lang="selectCareer">
-          Seleccionar Carrera
+        <button type="button" id="markUC" disabled data-lang="selectUC">
+          Seleccionar Unidad Curricular
         </button>
       </div>
-      
-      <label data-lang="plan">Plan:</label>
-      <select name="planes" id="planes" size="5"></select>
+
+      <label data-lang="discover-uuid">UUID de Descubrimiento:</label>
+      <select name="discoveries" id="discoveries" size="10"></select>
       <div class="buttons-div">
-        <button type="button" id="markPlan" disabled data-lang="selectPlan">
-          Seleccionar Plan
+        <button type="button" id="seeStatistics" disabled data-lang="selectDiscover">
+          Ver Estadisticas
         </button>
       </div>
-      
+
       <div class="consulta" id="resultado">
+      </div>
+      <div class="graphList" id="graphList">
+        <div class="graph" id="graph0">
+        </div>
+        <div class="graph" id="graph1">
+        </div>
+        <div class="graph" id="graph2">
+        </div>
+        <div class="graph" id="graph3">
+        </div>
+        <div class="graph" id="graph4">
+        </div>
+        <div class="graph" id="graph5">
+        </div>
+        <div class="graph" id="graph6">
+        </div>
+        <div class="graph" id="graph7">
+        </div>
+        <div class="graph" id="graph8">
+        </div>
+        <div class="graph" id="graph9">
+        </div>
       </div>
 
     </div>
   </div>
 
+  <script src="./js/getUCStatsExec.js"></script>
   <script src="./js/leftnav.js"></script>
-  <script src="./js/seePlanExec.js"></script>
 </body>

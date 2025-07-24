@@ -47,6 +47,8 @@
 }
 .content label{
 	margin-left: 10%;
+	font-family: 'Teko', sans-serif;
+	font-size: 1.5rem;
 }
 .centeredDiv{
 	display: flex;
@@ -110,4 +112,31 @@ input:checked + .switchslider::before{
 	-webkit-transform: translateX(1rem);
 	-ms-transform: translateX(1rem);
 	transform: translateX(1rem);
+}
+
+.graphList{
+	display: none;
+	width: 100%;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.graph{
+	display: block;
+	background-color: #E9F1F7;
+	border: 1px solid #216683;
+	margin: 1rem;
+	border-radius: 25px;
+	padding: 1rem;
+	width: 40vw;
+	height: 40vw;
+}
+.info-label {
+	font-weight: bold;
+	color: #154c79;
+	margin-left: 1rem !important;
+}
+.info-value {
+	font-weight: bold;
+	color: #333;
+	margin-left: 1rem !important;
 }

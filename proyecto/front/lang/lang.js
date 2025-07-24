@@ -38,9 +38,9 @@ const translations = {
     consultSubject: "Consultar Materia",
     consultUC: "Consultar Unidad Curricular",
     viewPlanCurriculum: "Ver Currícula de Plan",
-    discoverDFG: "Descubrir procesos (DFG)",
-    discoverFreqDFG: "Descubrir procesos (Freq DFG)",
-    discoverNetDFG: "Descubrir procesos (Net DFG)",
+    discover: "Descubrir",
+    UCStats: "Estadisticas de UC",
+    viewGraph: "Ver Diagramas",
     viewDocsEM: "Ver Documentación (EM)",
     viewDocsPM: "Ver Documentación (PM)",
     processMining: "MINERIA DE PROCESOS",
@@ -71,7 +71,13 @@ const translations = {
     downloadStudent: "Descargar Modelo Estudiante",
     evalPrev: "Evaluar previas",
     selectSubject: "Consultar Materia",
-    seeCurricula: "Ver currícula"
+    seeCurricula: "Ver currícula",
+    studentLog: "Log de estudiantes:",
+    studentsCoursedUC: "Estudiantes cursaron la Unidad Curricular",
+    discoverUUID: "UUID de Descubrimiento:",
+    studentsDidExam: "Estudiantes dieron un examen",
+    studentsExonerated: "Estudiantes exoneraron",
+    studentsHaveCourse: "Estudiantes aprobaron el curso o exoneraron"
   },
   en: {
     welcome: "Welcome to Curricula App!",
@@ -88,9 +94,9 @@ const translations = {
     consultSubject: "Consult Subject",
     consultUC: "Consult Course Unit",
     viewPlanCurriculum: "View Plan Curriculum",
-    discoverDFG: "Discover Processes (DFG)",
-    discoverFreqDFG: "Discover Processes (Freq DFG)",
-    discoverNetDFG: "Discover Processes (Net DFG)",
+    discover: "Discover",
+    UCStats: "Statistics of Curricular Unit",
+    viewGraph: "See Diagrams",
     viewDocsEM: "View Documentation (EM)",
     viewDocsPM: "View Documentation (PM)",
     processMining: "PROCESS MINING",
@@ -121,6 +127,12 @@ const translations = {
     downloadStudent: "Download Student Model",
     evalPrev: "Evaluate previatures",
     selectSubject: "Select Subject",
-    seeCurricula: "See Curriculum"
+    seeCurricula: "See Curriculum",
+    studentLog: "Students Log:",
+    studentsCoursedUC: "Student coursed the Curricular Unit",
+    discoverUUID: "Discover UUID:",
+    studentsDidExam: "Students made an exam",
+    studentsExonerated: "Students exonerated the Curricular Unit",
+    studentsHaveCourse: "Students have the course approved or exonerated"
   }
 };

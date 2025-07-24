@@ -69,3 +69,8 @@ lab3/org.eclipse.acceleo.SoaML2JavaWS/bin/modelo/Vendedor/Recibirorden.class
 lab3/org.eclipse.acceleo.SoaML2JavaWS/bin/modelo/Entidaddecredito/Recibirordendepago.class
 lab3/org.eclipse.acceleo.SoaML2JavaWS/bin/modelo/Comprador/Recibirfactura.class
 *.class
+proyecto/PM_microservice/imports
+proyecto/PM_microservice/bpmn
+proyecto/PM_microservice/dfg
+proyecto/PM_microservice/pnml
+proyecto/PM_microservice/ptml

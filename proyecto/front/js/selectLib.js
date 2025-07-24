@@ -171,6 +171,20 @@ function getMaterias(select, faculty, career, plan){
   	});
 }
 
+function getDiscoveries(select){
+  const url = `http://127.0.0.1:9004/`;
+  fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    for(var i = 0; i < data.length; i++){
+      addToSelect(select, data[i]);
+    }
+  })
+  .catch(error => {
+    console.error("Error al consultar la API:", error);
+  });
+}
+
 function findKeyByValue(obj, value) {
     for (let key in obj) {
       if (obj[key]['materia_id'] === value) {

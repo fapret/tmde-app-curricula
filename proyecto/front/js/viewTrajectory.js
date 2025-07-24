@@ -234,7 +234,8 @@ function mostrar_trayectoria() {
                                         physics: false,
                                     };
                                     var network = new vis.Network(container, data2, options);
-
+                                    let loader = document.getElementById("loadingcontent");
+                                    loader.style.display = "none";
                                 } else {
                                     console.error('Error en la segunda solicitud: ' + xhr2.response);
                                 }
