@@ -232,7 +232,7 @@ public class EvalPlan extends HttpServlet {
 		String faculty = request.getParameter("faculty");
 		String career = request.getParameter("career");
 		String plan = request.getParameter("plan");
-		String ID = request.getParameter("ID");
+		String ID = request.getParameter("id");
 		boolean valid_flag = false;
 		if (request.getParameter("valid_flag") != null)
 			valid_flag = true;

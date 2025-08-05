@@ -79,7 +79,7 @@ public class Evaluations extends HttpServlet {
 		String faculty = request.getParameter("faculty");
 		String career = request.getParameter("career");
 		String plan = request.getParameter("plan");
-		String ID = request.getParameter("ID");
+		String ID = request.getParameter("id");
 		Estudiantes.Root rootStudent;
 		Part filePart;
 		InputStream inputStream;

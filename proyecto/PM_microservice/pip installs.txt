@@ -1,0 +1,3 @@
+pip install pm4py
+pip install flask
+pip install flask_cors

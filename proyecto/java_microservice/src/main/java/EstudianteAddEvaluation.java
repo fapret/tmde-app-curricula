@@ -94,7 +94,7 @@ public class EstudianteAddEvaluation extends HttpServlet {
 		String career = request.getParameter("career");
 		int type = Integer.parseInt(request.getParameter("type"));
 		int nota = Integer.parseInt(request.getParameter("nota"));
-		String ID = request.getParameter("ID");
+		String ID = request.getParameter("id");
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.US);
 		dateFormat.setTimeZone(TimeZone.getTimeZone("America/Montevideo"));

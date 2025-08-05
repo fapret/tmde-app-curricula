@@ -205,7 +205,7 @@ public class EvalUC extends HttpServlet {
 		
 		String faculty = request.getParameter("faculty");
 		String curricularUnit = request.getParameter("curricularUnit");
-		String ID = request.getParameter("ID");
+		String ID = request.getParameter("id");
 		Estudiantes.Root rootStudent;
 		Part filePart;
 		InputStream inputStream;
