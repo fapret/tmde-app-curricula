@@ -77,7 +77,14 @@ const translations = {
     discoverUUID: "UUID de Descubrimiento:",
     studentsDidExam: "Estudiantes dieron un examen",
     studentsExonerated: "Estudiantes exoneraron",
-    studentsHaveCourse: "Estudiantes aprobaron el curso o exoneraron"
+    studentsHaveCourse: "Estudiantes aprobaron el curso o exoneraron",
+    seeStatistics: "Ver Estadisticas",
+    seeDiagrams: "Ver Diagramas",
+    seeDiagramDFG: "Ver Diagrama (DFG)",
+    seeDiagramBPMN: "Ver Diagrama (BPMN)",
+    seeDiagramPNA: "Ver Diagrama (PETRINET ALPHA MINER)",
+    seeDiagramPNH: "Ver Diagrama (PETRINET HEURISTICS MINER)",
+    seeDiagramPT: "Ver Diagrama (PROCESS TREE)"
   },
   en: {
     welcome: "Welcome to Curricula App!",
@@ -133,6 +140,13 @@ const translations = {
     discoverUUID: "Discover UUID:",
     studentsDidExam: "Students made an exam",
     studentsExonerated: "Students exonerated the Curricular Unit",
-    studentsHaveCourse: "Students have the course approved or exonerated"
+    studentsHaveCourse: "Students have the course approved or exonerated",
+    seeStatistics: "See Statistics",
+    seeDiagrams: "See Diagrams",
+    seeDiagramDFG: "See Diagram (DFG)",
+    seeDiagramBPMN: "See Diagram (BPMN)",
+    seeDiagramPNA: "See Diagram (PETRINET ALPHA MINER)",
+    seeDiagramPNH: "See Diagram (PETRINET HEURISTICS MINER)",
+    seeDiagramPT: "See Diagram (PROCESS TREE)"
   }
 };

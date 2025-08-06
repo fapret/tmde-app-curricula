@@ -1,3 +1,6 @@
+.hidden{
+	display: none !important;
+}
 .consulta{
   background-color: #E9F1F7;
   border: 1px solid #216683;
@@ -6,6 +9,10 @@
   border-radius: 25px;
   padding: 1rem;
   display: none;
+}
+.diagram{
+	overflow: hidden;
+	height: 80vh;
 }
 .content select {
   min-height: 10rem;
@@ -25,6 +32,10 @@
   justify-content: center;
   display: flex;
   align-items: center;
+}
+.buttons-div2{
+	flex-direction: column;
+	gap: 10px;
 }
 .buttons-div input{
 	margin: 1rem;

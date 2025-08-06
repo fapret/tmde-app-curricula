@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
   <script type="text/javascript" src="js/selectLib.js"></script>
-  <script type="text/javascript" src="js/getFaculties.js"></script>
+  <script type="text/javascript" src="js/seeDiagrams.js"></script>
   <script src="lang/lang.js" defer></script>
   <title>TMDE Project</title>
   <link rel="preload" href="/font/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -45,8 +45,6 @@
 
 <div class="main" id="main">
   <div class="left-nav" id="leftnav">
-
-
 
     <div class="left-nav-cat">
       <p data-lang="student"> ESTUDIANTE </p>
@@ -236,44 +234,63 @@
     <p style="text-align: center; margin-top: auto; margin-bottom: 0;min-width: 20rem;">
       Copyright 2023 Santiago Nicolas Diaz Conde - Santiago Freire López <br> Copyright 2025 Santiago Nicolas Diaz Conde
     </p>
-  </div>
-  <div class="loadingcontent" id="loadingcontent">
-    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-  </div>
-  <div class="loadingcontent" id="dialog">
-    <div class="dialog">
-      <p>Dialog</p>
-      <div>
-        Contenido a preguntar
-      </div>
-      <div>
-        <button id="dialogbtnyes" class="dialog-button-recommended">
-          Aceptar
-        </button>
-        <button id="dialogbtnno" class="dialog-button-default">
-          Cancelar
-        </button>
+    </div>
+    <div class="loadingcontent" id="loadingcontent">
+      <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>
+    <div class="loadingcontent" id="dialog">
+      <div class="dialog">
+        <p>Dialog</p>
+        <div>
+          Contenido a preguntar
+        </div>
+        <div>
+          <button id="dialogbtnyes" class="dialog-button-recommended">
+            Aceptar
+          </button>
+          <button id="dialogbtnno" class="dialog-button-default">
+            Cancelar
+          </button>
+        </div>
       </div>
     </div>
-  </div>
     <div class="content">
 
       <!-- AGREGAR ACA CONTENIDO-->
-	  <br>
-	  <label data-lang="faculty">Facultad:</label>
-      <select name="facultades" id="facultades" size="10"></select>
-      <div class="buttons-div">
-        <button type="button" id="markFaculty" data-lang="selectFaculty">
-          Seleccionar Facultad
+      <br>
+      <label data-lang="discoverUUID">UUID de Descubrimiento:</label>
+      <select name="discoveries" id="discoveries" size="10"></select>
+      <div class="buttons-div buttons-div2">
+        <button type="button" id="seeDiagramDFG" data-lang="seeDiagramDFG">
+          Ver Diagrama (DFG)
+        </button>
+        <button type="button" id="seeDiagramBPMN" data-lang="seeDiagramBPMN">
+          Ver Diagrama (BPMN)
+        </button>
+        <button type="button" id="seeDiagramPNA" data-lang="seeDiagramPNA">
+          Ver Diagrama (PETRINET ALPHA MINER)
+        </button>
+        <button type="button" id="seeDiagramPNH" data-lang="seeDiagramPNH">
+          Ver Diagrama (PETRINET HEURISTICS MINER)
+        </button>
+        <button type="button" id="seeDiagramPT" data-lang="seeDiagramPT">
+          Ver Diagrama (PROCESS TREE)
         </button>
       </div>
 
-      <div class="consulta" id="resultado">
+        <div class="controls buttons-div hidden" id="diagramsButtons">
+          <button data-lang="zoomIN" id="zoomIN">➕ Zoom In</button>
+          <button data-lang="zoomOUT" id="zoomOUT">➖ Zoom Out</button>
+          <button data-lang="ResetBtn" id="ResetBtn">🔄 Reset</button>
+        </div>
+
+      <div class="consulta diagram" id="resultado">
+        <img class="hidden" id="diagram" alt="Diagram">
       </div>
 
     </div>
   </div>
 
-  <script src="./js/getFacultiesExec.js"></script>
   <script src="./js/leftnav.js"></script>
+  <script src="./js/seeDiagramsExec.js"></script>
 </body>

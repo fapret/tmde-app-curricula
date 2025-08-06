@@ -14,7 +14,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Create required folders if doesnt exists
-for folder in ['./imports', './dfg', './bpmn', './pnml', './ptml']:
+for folder in ['./imports', './imports2', './dfg', './bpmn', './pnml', './ptml']:
     os.makedirs(folder, exist_ok=True)
     
 @app.route('/', methods=['POST'])
@@ -38,6 +38,21 @@ def discover():
         event_log = pm4py.format_dataframe(event_log, case_id="ID", activity_key="Activity", timestamp_key="Timestamp", timest_format='%a %b %d %H:%M:%S %Z %Y')
         
         pm4py.write_xes(event_log, './imports/' + file_uuid + '.xes') #save Dataframe as xes
+        
+        # Update the activity name by combining it with the Curricular Unit
+        event_log['Activity'] = event_log.apply(
+            lambda row: f"{row['Activity']} - {row['Curricular Unit']}"
+            if row['Activity'] in ['Evaluation - Exam', 'Evaluation - Course'] else row['Activity'],
+            axis=1
+        )
+        
+        event_log['concept:name'] = event_log.apply(
+            lambda row: f"{row['concept:name']} - {row['Curricular Unit']}"
+            if row['concept:name'] in ['Evaluation - Exam', 'Evaluation - Course'] else row['concept:name'],
+            axis=1
+        )
+        
+        pm4py.write_xes(event_log, './imports2/' + file_uuid + '.xes') #save Dataframe as xes
         
         # --- DFG ---
         dfg, dfg_start_activities, dfg_end_activities = pm4py.discover_dfg(event_log)

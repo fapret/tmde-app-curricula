@@ -25,7 +25,7 @@ def viewer(view, caseid):
                     return send_file(filepath, mimetype='image/png')
                 
                 dfg, dfg_start_activities, dfg_end_activities = pm4py.read_dfg('./dfg/' + caseid + '.dfg')
-                pm4py.save_vis_dfg(dfg, dfg_start_activities, dfg_end_activities, filepath)
+                pm4py.save_vis_dfg(dfg, dfg_start_activities, dfg_end_activities, filepath, 'white', 9223372036854775807, 'TB')
                 return send_file(filepath, mimetype='image/png')
                 
             case 'bpmn':
@@ -34,7 +34,7 @@ def viewer(view, caseid):
                     return send_file(filepath, mimetype='image/png')
                 
                 bpmn_graph = pm4py.read_bpmn('./bpmn/' + caseid + '.bpmn')
-                pm4py.save_vis_bpmn(bpmn_graph, filepath)
+                pm4py.save_vis_bpmn(bpmn_graph, filepath, 'white', 'TB')
                 return send_file(filepath, mimetype='image/png')
             
             case 'pnml_alpha':
@@ -42,7 +42,7 @@ def viewer(view, caseid):
                 if os.path.exists(filepath):
                     return send_file(filepath, mimetype='image/png')
                 net, im, fm = pm4py.read_pnml('./pnml/' + caseid + '_alpha.pnml')
-                pm4py.save_vis_petri_net(net, im, fm, filepath)
+                pm4py.save_vis_petri_net(net, im, fm, filepath, rankdir='TB')
                 return send_file(filepath, mimetype='image/png')
                 
             case 'pnml_heuristics':
@@ -50,7 +50,7 @@ def viewer(view, caseid):
                 if os.path.exists(filepath):
                     return send_file(filepath, mimetype='image/png')
                 net, im, fm = pm4py.read_pnml('./pnml/' + caseid + '_heuristics.pnml')
-                pm4py.save_vis_petri_net(net, im, fm, filepath)
+                pm4py.save_vis_petri_net(net, im, fm, filepath, rankdir='TB')
                 return send_file(filepath, mimetype='image/png')
                 
             case 'ptml':

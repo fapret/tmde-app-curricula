@@ -2,7 +2,7 @@
     tmde-app-curricula is a software that helps students build their curricula and
     see what curricular units they can register to, and track how their career was
     or will be.
-    Copyright (C) 2023  Santiago Nicolás Díaz Conde, Santiago Freire López
+    Copyright (C) 2025  Santiago Nicolás Díaz Conde
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
