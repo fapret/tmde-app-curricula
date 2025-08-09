@@ -42,13 +42,13 @@ def discover():
         # Update the activity name by combining it with the Curricular Unit
         event_log['Activity'] = event_log.apply(
             lambda row: f"{row['Activity']} - {row['Curricular Unit']}"
-            if row['Activity'] in ['Evaluation - Exam', 'Evaluation - Course'] else row['Activity'],
+            if row['Activity'] in ['Evaluation - Exam', 'Evaluation - Course', 'Inscription to Course'] else row['Activity'],
             axis=1
         )
         
         event_log['concept:name'] = event_log.apply(
             lambda row: f"{row['concept:name']} - {row['Curricular Unit']}"
-            if row['concept:name'] in ['Evaluation - Exam', 'Evaluation - Course'] else row['concept:name'],
+            if row['concept:name'] in ['Evaluation - Exam', 'Evaluation - Course', 'Inscription to Course'] else row['concept:name'],
             axis=1
         )
         

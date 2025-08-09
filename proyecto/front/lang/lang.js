@@ -84,7 +84,10 @@ const translations = {
     seeDiagramBPMN: "Ver Diagrama (BPMN)",
     seeDiagramPNA: "Ver Diagrama (PETRINET ALPHA MINER)",
     seeDiagramPNH: "Ver Diagrama (PETRINET HEURISTICS MINER)",
-    seeDiagramPT: "Ver Diagrama (PROCESS TREE)"
+    seeDiagramPT: "Ver Diagrama (PROCESS TREE)",
+    zoomIN: "➕ Agrandar",
+    zoomOUT: "➖ Achicar",
+    ResetBtn: "🔄 Resetear"
   },
   en: {
     welcome: "Welcome to Curricula App!",
@@ -147,6 +150,9 @@ const translations = {
     seeDiagramBPMN: "See Diagram (BPMN)",
     seeDiagramPNA: "See Diagram (PETRINET ALPHA MINER)",
     seeDiagramPNH: "See Diagram (PETRINET HEURISTICS MINER)",
-    seeDiagramPT: "See Diagram (PROCESS TREE)"
+    seeDiagramPT: "See Diagram (PROCESS TREE)",
+    zoomIN: "➕ Zoom In",
+    zoomOUT: "➖ Zoom Out",
+    ResetBtn: "🔄 Reset"
   }
 };

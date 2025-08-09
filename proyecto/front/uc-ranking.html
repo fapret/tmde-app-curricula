@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/base.css">
-  <link rel="stylesheet" href="./css/consulta.css">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
   <script src="lang/lang.js" defer></script>
@@ -12,7 +11,6 @@
   <link rel="preload" href="/font/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>    <link rel="preload" href="/font/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="/font/remixicon.css"></noscript></noscript>
-  <script type="text/javascript" src="js/getStudentsLog.js"></script>
 </head>
 <body>
 
@@ -44,8 +42,6 @@
 
 <div class="main" id="main">
   <div class="left-nav" id="leftnav">
-
-
 
     <div class="left-nav-cat">
       <p data-lang="student"> ESTUDIANTE </p>
@@ -232,7 +228,7 @@
     </div>-->
 
 
-      <p style="text-align: center; margin-top: auto; margin-bottom: 0;min-width: 20rem;">
+    <p style="text-align: center; margin-top: auto; margin-bottom: 0;min-width: 20rem;">
       Copyright 2023 Santiago Nicolas Diaz Conde - Santiago Freire López <br> Copyright 2025 Santiago Nicolas Diaz Conde
     </p>
     </div>
@@ -257,22 +253,10 @@
     </div>
     <div class="content">
 
-        <br>
-        <label data-lang="studentModel">Modelo de Estudiantes:</label>
-        <input id="file" name="file" type="file" accept=".xmi" required/>
-
-        <div class="buttons-div">
-            <button type="button" id="getLog" data-lang="getLog">
-              Obtener Log
-            </button>
-        </div>
-
-        <div class="consulta" id="resultado" style="font-family: 'Roboto', sans-serif;">
-        </div>
+      <!-- AGREGAR ACA CONTENIDO-->
 
     </div>
   </div>
 
   <script src="./js/leftnav.js"></script>
-  <script src="./js/getStudentsLogExec.js"></script>
 </body>
