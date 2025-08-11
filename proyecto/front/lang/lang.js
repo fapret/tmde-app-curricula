@@ -90,7 +90,8 @@ const translations = {
     ResetBtn: "🔄 Resetear",
     addDegree: "Agregar Titulo",
     obtainedDate: "Fecha de obtención:",
-    inscriptionDate: "Fecha de inscripción:"
+    inscriptionDate: "Fecha de inscripción:",
+    deviationTable: "Tabla de desviación"
   },
   en: {
     welcome: "Welcome to Curricula App!",
@@ -159,6 +160,7 @@ const translations = {
     ResetBtn: "🔄 Reset",
     addDegree: "Add Degree",
     obtainedDate: "Obtained Date",
-    inscriptionDate: "Date of Inscription:"
+    inscriptionDate: "Date of Inscription:",
+    deviationTable: "Deviation Table"
   }
 };

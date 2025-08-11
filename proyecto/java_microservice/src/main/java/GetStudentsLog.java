@@ -91,7 +91,7 @@ public class GetStudentsLog extends HttpServlet {
 		
 		//Append header of CSV (ID, Activity, Timestamp, Career, Plan, Curricular Unit, Course Edition, Course Year, Grade)
 		StringBuilder csvBuilder = new StringBuilder();
-		csvBuilder.append("ID,Activity,Timestamp,Career,Plan,Curricular Unit,Course Edition,Course Year,Grade\n");
+		csvBuilder.append("ID,Activity,Timestamp,Career,Plan,Curricular Unit,Course Edition,Course Year,Grade,Credits\n");
 		
 		//Itero por cada estudiante
 		for (Student estudiante : rootStudent.getStudent()) {
@@ -102,13 +102,13 @@ public class GetStudentsLog extends HttpServlet {
 				int Plan = inscripcionPlan.getPlan().getYear();
 				String Activity = "Inscription to Plan";
 				//Append to file each inscription
-				csvBuilder.append(String.format("%s,%s,%s,%s,%d,,,,\n",
+				csvBuilder.append(String.format("%s,%s,%s,%s,%d,,,,,\n",
 					    ID, Activity, TimeStamp, Career, Plan));
 				
 				if(inscripcionPlan.getDegree() != null) {
 					TimeStamp = inscripcionPlan.getDegree().getDate();
 					Activity = "Degree obtained";
-					csvBuilder.append(String.format("%s,%s,%s,%s,%d,,,,\n",
+					csvBuilder.append(String.format("%s,%s,%s,%s,%d,,,,,\n",
 						    ID, Activity, TimeStamp, Career, Plan));
 				}
 				
@@ -119,12 +119,13 @@ public class GetStudentsLog extends HttpServlet {
 					int CourseYear = inscripcionCurso.getCUCourse().getYear();
 					String CurricularUnit = inscripcionCurso.getCUCourse().getCurricularunit().getId();
 					//Append to file each inscription
-					csvBuilder.append(String.format("%s,%s,%s,%s,%d,%s,%d,%d,\n",
+					csvBuilder.append(String.format("%s,%s,%s,%s,%d,%s,%d,%d,,\n",
 						    ID, Activity, TimeStamp, Career, Plan, CurricularUnit, CourseEdition, CourseYear));
 				}
 				
 				for(StudentEvaluation evaluacion : inscripcionPlan.getPlanStudentEvaluation()) {
 					int Grade = evaluacion.getGrade();
+					int Credits = 0;
 					Activity = "Evaluation - ";
 					Evaluation eval = evaluacion.getEvaluation();
 					TimeStamp = eval.getDate();
@@ -133,9 +134,10 @@ public class GetStudentsLog extends HttpServlet {
 						Activity += "Exam";
 						ExamEvaluation evalExam = (ExamEvaluation) eval;
 						String CurricularUnit = evalExam.getCurricularunit().getId();
-						//Append to file each evaluation
-						csvBuilder.append(String.format("%s,%s,%s,%s,%d,%s,,,%d\n",
-							    ID, Activity, TimeStamp, Career, Plan, CurricularUnit, Grade));
+						if(evaluacion.getGrade() >= 3)
+							Credits = evalExam.getCurricularunit().getCred();
+						csvBuilder.append(String.format("%s,%s,%s,%s,%d,%s,,,,%d,%d\n",
+							    ID, Activity, TimeStamp, Career, Plan, CurricularUnit, Grade, Credits));
 						
 					} else if (eval instanceof CourseEvaluation) {
 						Activity += "Course";
@@ -143,16 +145,17 @@ public class GetStudentsLog extends HttpServlet {
 						String CurricularUnit = evalCourse.getCourse().getCurricularunit().getId();
 						int CourseEdition = evalCourse.getCourse().getEdition();
 						int CourseYear = evalCourse.getCourse().getYear();
-						//Append to file each evaluation
-						csvBuilder.append(String.format("%s,%s,%s,%s,%d,%s,%d,%d,%d\n",
-							    ID, Activity, TimeStamp, Career, Plan, CurricularUnit, CourseEdition, CourseYear, Grade));
+						if(evaluacion.getGrade() >= 6)
+							Credits = evalCourse.getCourse().getCurricularunit().getCred();
+						csvBuilder.append(String.format("%s,%s,%s,%s,%d,%s,%d,%d,%d,%d\n",
+							    ID, Activity, TimeStamp, Career, Plan, CurricularUnit, CourseEdition, CourseYear, Grade, Credits));
 					} else if (eval instanceof PartialEvaluation) {
 						Activity += "Partial";
 						PartialEvaluation partialCourse = (PartialEvaluation) eval;
 						String CurricularUnit = partialCourse.getCourse().getCurricularunit().getId();
 						int CourseEdition = partialCourse.getCourse().getEdition();
 						int CourseYear = partialCourse.getCourse().getYear();
-						csvBuilder.append(String.format("%s,%s,%s,%s,%d,%s,%d,%d,%d\n",
+						csvBuilder.append(String.format("%s,%s,%s,%s,%d,%s,%d,%d,%d,\n",
 							    ID, Activity, TimeStamp, Career, Plan, CurricularUnit, CourseEdition, CourseYear, Grade));
 					}
 				}

@@ -4,8 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/consulta.css">
+  <link rel="stylesheet" href="./css/table.css">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="js/selectLib.js"></script>
+  <script type="text/javascript" src="js/compareTimes.js"></script>
   <script src="lang/lang.js" defer></script>
   <title>TMDE Project</title>
   <link rel="preload" href="/font/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -215,6 +219,16 @@
       </a>
     </div>
 
+    <div class="left-nav-div">
+      <a class="left-nav-a" href="./deviation-analysis.html">
+        <button id="button" class="levtnav-button">
+          <img class="" src="./images/arrow-separate-svgrepo-com.svg">
+          </img>
+        </button>
+        <p data-lang="deviationTable">Ver Tabla de desviacion</p>
+      </a>
+    </div>
+
     <div class="left-nav-cat">
       <p> API </p>
     </div>
@@ -264,9 +278,30 @@
     <div class="content">
 
       <!-- AGREGAR ACA CONTENIDO-->
+      <br>
+      <label data-lang="discoverUUID">UUID de Descubrimiento A:</label>
+      <select name="discoveries" id="discoveriesA" size="10"></select>
+      <label data-lang="discoverUUID">UUID de Descubrimiento B:</label>
+      <select name="discoveries" id="discoveriesB" size="10"></select>
+
+      <div class="buttons-div">
+        <button type="button" id="compareDiscoveries" data-lang="compareDiscoveries">
+          Comparar
+        </button>
+      </div>
+
+      <div class="consulta" id="resultado">
+        <table id="resultTable">
+          <thead>
+            <tr id="tableHeader"></tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
 
     </div>
   </div>
 
   <script src="./js/leftnav.js"></script>
+  <script src="./js/compareTimesExec.js"></script>
 </body>

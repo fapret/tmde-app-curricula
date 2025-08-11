@@ -31,7 +31,8 @@ def discover():
             "Curricular Unit": str,
             "Course Edition": 'Int64',  # Use 'Int64' (capital I) for nullable integers
             "Course Year": 'Int64',
-            "Grade": 'Int64'
+            "Grade": 'Int64',
+            "Credits": 'Int64',
         }
         
         event_log = pd.read_csv(file, sep=',', dtype=dtype_spec)        
