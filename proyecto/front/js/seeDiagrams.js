@@ -41,6 +41,9 @@ function seeDiagram(mode) {
         case 5:
             modestr = 'ptml';
             break;
+        case 6:
+            modestr = "perf_dfg";
+            break;
         default:
             return;
     }

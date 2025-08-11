@@ -31,6 +31,20 @@ def viewer(view, caseid):
                 dfg, dfg_start_activities, dfg_end_activities = pm4py.read_dfg('./dfg/' + caseid + '.dfg')
                 pm4py.save_vis_dfg(dfg, dfg_start_activities, dfg_end_activities, filepath, 'white', 9223372036854775807, 'TB')
                 return send_file(filepath, mimetype='image/png')
+            
+            case 'perf_dfg':
+                filepath = './dfg/png/' + caseid + '_performance.png'
+                if os.path.exists(filepath):
+                    return send_file(filepath, mimetype='image/png')
+                
+                filepathLog = './imports/' + caseid + '.xes'
+                if os.path.exists(filepathLog):
+                    event_log = pm4py.read_xes(filepathLog)
+                    event_log = pm4py.format_dataframe(event_log, case_id="ID", activity_key="Activity", timestamp_key="Timestamp", timest_format='%a %b %d %H:%M:%S %Z %Y')
+                    event_log = pm4py.convert_to_event_log(event_log)
+                    dfg, dfg_start_activities, dfg_end_activities = pm4py.discover_performance_dfg(event_log);
+                    pm4py.save_vis_performance_dfg(dfg, dfg_start_activities, dfg_end_activities, filepath, rankdir='TB')
+                    return send_file(filepath, mimetype='image/png')
                 
             case 'bpmn':
                 filepath = './bpmn/png/' + caseid + '.png'

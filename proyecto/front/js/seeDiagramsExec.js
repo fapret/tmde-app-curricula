@@ -23,6 +23,7 @@ const allDiscoveriesSelect = document.getElementById("discoveries");
 const result = document.getElementById("resultado");
 
 const seeDiagramDFG = document.getElementById("seeDiagramDFG");
+const seeDiagramPerf = document.getElementById("seePerformanceDiagramDFG");
 const seeDiagramBPMN = document.getElementById("seeDiagramBPMN");
 const seeDiagramPNA = document.getElementById("seeDiagramPNA");
 const seeDiagramPNH = document.getElementById("seeDiagramPNH");
@@ -36,6 +37,10 @@ getDiscoveries(allDiscoveriesSelect);
 seeDiagramDFG.addEventListener("click", () => {
     result.style.display = "block";
     seeDiagram(1);
+});
+seeDiagramPerf.addEventListener("click", () => {
+    result.style.display = "block";
+    seeDiagram(6);
 });
 seeDiagramBPMN.addEventListener("click", () => {
     result.style.display = "block";

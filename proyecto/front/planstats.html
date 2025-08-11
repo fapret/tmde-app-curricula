@@ -4,12 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/base.css">
-  <link rel="stylesheet" href="./css/consulta.css">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
   <script type="text/javascript" src="js/selectLib.js"></script>
-  <script type="text/javascript" src="js/seeDiagrams.js"></script>
+  <script type="text/javascript" src="js/getPlanStats.js"></script>
   <script src="lang/lang.js" defer></script>
+  <!-- Charts -->
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+
   <title>TMDE Project</title>
   <link rel="preload" href="/font/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>    <link rel="preload" href="/font/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -274,46 +276,13 @@
         </div>
       </div>
     </div>
-    <div class="content">
+    <div class="content" style="text-align: center; font-family: 'Roboto', sans-serif;">
 
       <!-- AGREGAR ACA CONTENIDO-->
-      <br>
-      <label data-lang="discoverUUID">UUID de Descubrimiento:</label>
-      <select name="discoveries" id="discoveries" size="10"></select>
-      <div class="buttons-div buttons-div2">
-        <button type="button" id="seeDiagramDFG" data-lang="seeDiagramDFG">
-          Ver Diagrama (DFG)
-        </button>
-        <button type="button" id="seePerformanceDiagramDFG" data-lang="seePerformanceDiagramDFG">
-          Ver Diagrama de Performance (DFG)
-        </button>
-        <button type="button" id="seeDiagramBPMN" data-lang="seeDiagramBPMN">
-          Ver Diagrama (BPMN)
-        </button>
-        <button type="button" id="seeDiagramPNA" data-lang="seeDiagramPNA">
-          Ver Diagrama (PETRINET ALPHA MINER)
-        </button>
-        <button type="button" id="seeDiagramPNH" data-lang="seeDiagramPNH">
-          Ver Diagrama (PETRINET HEURISTICS MINER)
-        </button>
-        <button type="button" id="seeDiagramPT" data-lang="seeDiagramPT">
-          Ver Diagrama (PROCESS TREE)
-        </button>
-      </div>
-
-        <div class="controls buttons-div hidden" id="diagramsButtons">
-          <button data-lang="zoomIN" id="zoomIN">➕ Zoom In</button>
-          <button data-lang="zoomOUT" id="zoomOUT">➖ Zoom Out</button>
-          <button data-lang="ResetBtn" id="ResetBtn">🔄 Reset</button>
-        </div>
-
-      <div class="consulta diagram" id="resultado">
-        <img class="hidden" id="diagram" alt="Diagram">
-      </div>
 
     </div>
   </div>
 
+  <script src="./js/getPlanStatsExec.js"></script>
   <script src="./js/leftnav.js"></script>
-  <script src="./js/seeDiagramsExec.js"></script>
 </body>
