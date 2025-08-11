@@ -54,7 +54,7 @@ public class EstudiantesAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -65,33 +65,42 @@ public class EstudiantesAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EstudiantesSwitch<Adapter> modelSwitch =
-		new EstudiantesSwitch<Adapter>() {
-			@Override
-			public Adapter caseRoot(Root object) {
-				return createRootAdapter();
-			}
-			@Override
-			public Adapter caseStudent(Student object) {
-				return createStudentAdapter();
-			}
-			@Override
-			public Adapter caseCourseInscription(CourseInscription object) {
-				return createCourseInscriptionAdapter();
-			}
-			@Override
-			public Adapter caseStudentEvaluation(StudentEvaluation object) {
-				return createStudentEvaluationAdapter();
-			}
-			@Override
-			public Adapter casePlanInscription(PlanInscription object) {
-				return createPlanInscriptionAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+	protected EstudiantesSwitch<Adapter> modelSwitch = new EstudiantesSwitch<Adapter>() {
+		@Override
+		public Adapter caseRoot(Root object) {
+			return createRootAdapter();
+		}
+
+		@Override
+		public Adapter caseStudent(Student object) {
+			return createStudentAdapter();
+		}
+
+		@Override
+		public Adapter caseCourseInscription(CourseInscription object) {
+			return createCourseInscriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseStudentEvaluation(StudentEvaluation object) {
+			return createStudentEvaluationAdapter();
+		}
+
+		@Override
+		public Adapter casePlanInscription(PlanInscription object) {
+			return createPlanInscriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseDegree(Degree object) {
+			return createDegreeAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -103,9 +112,8 @@ public class EstudiantesAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
-
 
 	/**
 	 * Creates a new adapter for an object of class '{@link Estudiantes.Root <em>Root</em>}'.
@@ -174,6 +182,20 @@ public class EstudiantesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPlanInscriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link Estudiantes.Degree <em>Degree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see Estudiantes.Degree
+	 * @generated
+	 */
+	public Adapter createDegreeAdapter() {
 		return null;
 	}
 

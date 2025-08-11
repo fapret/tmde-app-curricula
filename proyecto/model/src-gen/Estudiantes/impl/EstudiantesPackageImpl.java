@@ -3,6 +3,7 @@
 package Estudiantes.impl;
 
 import Estudiantes.CourseInscription;
+import Estudiantes.Degree;
 import Estudiantes.EstudiantesFactory;
 import Estudiantes.EstudiantesPackage;
 import Estudiantes.PlanInscription;
@@ -62,6 +63,13 @@ public class EstudiantesPackageImpl extends EPackageImpl implements EstudiantesP
 	 * @generated
 	 */
 	private EClass planInscriptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass degreeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -293,6 +301,33 @@ public class EstudiantesPackageImpl extends EPackageImpl implements EstudiantesP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPlanInscription_Degree() {
+		return (EReference) planInscriptionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDegree() {
+		return degreeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDegree_Date() {
+		return (EAttribute) degreeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EstudiantesFactory getEstudiantesFactory() {
 		return (EstudiantesFactory) getEFactoryInstance();
 	}
@@ -338,6 +373,10 @@ public class EstudiantesPackageImpl extends EPackageImpl implements EstudiantesP
 		createEReference(planInscriptionEClass, PLAN_INSCRIPTION__PLAN);
 		createEReference(planInscriptionEClass, PLAN_INSCRIPTION__PLAN_COURSE_INSCRIPTION);
 		createEReference(planInscriptionEClass, PLAN_INSCRIPTION__PLAN_STUDENT_EVALUATION);
+		createEReference(planInscriptionEClass, PLAN_INSCRIPTION__DEGREE);
+
+		degreeEClass = createEClass(DEGREE);
+		createEAttribute(degreeEClass, DEGREE__DATE);
 	}
 
 	/**
@@ -420,6 +459,13 @@ public class EstudiantesPackageImpl extends EPackageImpl implements EstudiantesP
 		initEReference(getPlanInscription_PlanStudentEvaluation(), this.getStudentEvaluation(), null,
 				"PlanStudentEvaluation", null, 0, -1, PlanInscription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlanInscription_Degree(), this.getDegree(), null, "degree", null, 0, 1, PlanInscription.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(degreeEClass, Degree.class, "Degree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDegree_Date(), ecorePackage.getEDate(), "date", null, 1, 1, Degree.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

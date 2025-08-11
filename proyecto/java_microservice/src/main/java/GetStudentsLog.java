@@ -105,6 +105,13 @@ public class GetStudentsLog extends HttpServlet {
 				csvBuilder.append(String.format("%s,%s,%s,%s,%d,,,,\n",
 					    ID, Activity, TimeStamp, Career, Plan));
 				
+				if(inscripcionPlan.getDegree() != null) {
+					TimeStamp = inscripcionPlan.getDegree().getDate();
+					Activity = "Degree obtained";
+					csvBuilder.append(String.format("%s,%s,%s,%s,%d,,,,\n",
+						    ID, Activity, TimeStamp, Career, Plan));
+				}
+				
 				for(CourseInscription inscripcionCurso : inscripcionPlan.getPlanCourseInscription()) {
 					TimeStamp = inscripcionCurso.getDate();
 					Activity = "Inscription to Course";

@@ -29,5 +29,10 @@
         upperBound="-1" eType="#//CourseInscription" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PlanStudentEvaluation"
         upperBound="-1" eType="#//StudentEvaluation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="degree" eType="#//Degree"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Degree">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
 </ecore:EPackage>

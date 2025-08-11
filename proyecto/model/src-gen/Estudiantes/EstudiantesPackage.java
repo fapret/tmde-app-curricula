@@ -287,13 +287,22 @@ public interface EstudiantesPackage extends EPackage {
 	int PLAN_INSCRIPTION__PLAN_STUDENT_EVALUATION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Degree</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAN_INSCRIPTION__DEGREE = 4;
+
+	/**
 	 * The number of structural features of the '<em>Plan Inscription</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLAN_INSCRIPTION_FEATURE_COUNT = 4;
+	int PLAN_INSCRIPTION_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Plan Inscription</em>' class.
@@ -303,6 +312,43 @@ public interface EstudiantesPackage extends EPackage {
 	 * @ordered
 	 */
 	int PLAN_INSCRIPTION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link Estudiantes.impl.DegreeImpl <em>Degree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Estudiantes.impl.DegreeImpl
+	 * @see Estudiantes.impl.EstudiantesPackageImpl#getDegree()
+	 * @generated
+	 */
+	int DEGREE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEGREE__DATE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Degree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEGREE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Degree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEGREE_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link Estudiantes.Root <em>Root</em>}'.
@@ -487,6 +533,38 @@ public interface EstudiantesPackage extends EPackage {
 	EReference getPlanInscription_PlanStudentEvaluation();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link Estudiantes.PlanInscription#getDegree <em>Degree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Degree</em>'.
+	 * @see Estudiantes.PlanInscription#getDegree()
+	 * @see #getPlanInscription()
+	 * @generated
+	 */
+	EReference getPlanInscription_Degree();
+
+	/**
+	 * Returns the meta object for class '{@link Estudiantes.Degree <em>Degree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Degree</em>'.
+	 * @see Estudiantes.Degree
+	 * @generated
+	 */
+	EClass getDegree();
+
+	/**
+	 * Returns the meta object for the attribute '{@link Estudiantes.Degree#getDate <em>Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Date</em>'.
+	 * @see Estudiantes.Degree#getDate()
+	 * @see #getDegree()
+	 * @generated
+	 */
+	EAttribute getDegree_Date();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -654,6 +732,32 @@ public interface EstudiantesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PLAN_INSCRIPTION__PLAN_STUDENT_EVALUATION = eINSTANCE.getPlanInscription_PlanStudentEvaluation();
+
+		/**
+		 * The meta object literal for the '<em><b>Degree</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLAN_INSCRIPTION__DEGREE = eINSTANCE.getPlanInscription_Degree();
+
+		/**
+		 * The meta object literal for the '{@link Estudiantes.impl.DegreeImpl <em>Degree</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see Estudiantes.impl.DegreeImpl
+		 * @see Estudiantes.impl.EstudiantesPackageImpl#getDegree()
+		 * @generated
+		 */
+		EClass DEGREE = eINSTANCE.getDegree();
+
+		/**
+		 * The meta object literal for the '<em><b>Date</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEGREE__DATE = eINSTANCE.getDegree_Date();
 
 	}
 

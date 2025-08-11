@@ -8,8 +8,12 @@ import os
 import uuid
 import pandas as pd
 from flask import Flask, request, jsonify, send_file
+from flask_cors import CORS
+
+import traceback #for debugging
 
 app = Flask(__name__)
+CORS(app) #Without cors it gets blocked
 
 # Create required folders if doesnt exists
 for folder in ['./imports', './dfg/png', './bpmn/png', './pnml/png', './ptml/png']:

@@ -2,9 +2,8 @@
  */
 package Estudiantes.provider;
 
-import Estudiantes.EstudiantesFactory;
+import Estudiantes.Degree;
 import Estudiantes.EstudiantesPackage;
-import Estudiantes.PlanInscription;
 
 import asignaturas.provider.AsignaturasEditPlugin;
 
@@ -16,8 +15,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -31,12 +28,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link Estudiantes.PlanInscription} object.
+ * This is the item provider adapter for a {@link Estudiantes.Degree} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PlanInscriptionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class DegreeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -44,7 +41,7 @@ public class PlanInscriptionItemProvider extends ItemProviderAdapter implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PlanInscriptionItemProvider(AdapterFactory adapterFactory) {
+	public DegreeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,7 +57,6 @@ public class PlanInscriptionItemProvider extends ItemProviderAdapter implements 
 			super.getPropertyDescriptors(object);
 
 			addDatePropertyDescriptor(object);
-			addPlanPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,69 +70,21 @@ public class PlanInscriptionItemProvider extends ItemProviderAdapter implements 
 	protected void addDatePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_PlanInscription_date_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_PlanInscription_date_feature",
-								"_UI_PlanInscription_type"),
-						EstudiantesPackage.Literals.PLAN_INSCRIPTION__DATE, true, false, false,
+						getResourceLocator(), getString("_UI_Degree_date_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Degree_date_feature", "_UI_Degree_type"),
+						EstudiantesPackage.Literals.DEGREE__DATE, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Plan feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPlanPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_PlanInscription_Plan_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_PlanInscription_Plan_feature",
-								"_UI_PlanInscription_type"),
-						EstudiantesPackage.Literals.PLAN_INSCRIPTION__PLAN, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(EstudiantesPackage.Literals.PLAN_INSCRIPTION__PLAN_COURSE_INSCRIPTION);
-			childrenFeatures.add(EstudiantesPackage.Literals.PLAN_INSCRIPTION__PLAN_STUDENT_EVALUATION);
-			childrenFeatures.add(EstudiantesPackage.Literals.PLAN_INSCRIPTION__DEGREE);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns PlanInscription.gif.
+	 * This returns Degree.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PlanInscription"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Degree"));
 	}
 
 	/**
@@ -157,10 +105,10 @@ public class PlanInscriptionItemProvider extends ItemProviderAdapter implements 
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((PlanInscription) object).getDate();
+		Date labelValue = ((Degree) object).getDate();
 		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ? getString("_UI_PlanInscription_type")
-				: getString("_UI_PlanInscription_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_Degree_type")
+				: getString("_UI_Degree_type") + " " + label;
 	}
 
 	/**
@@ -174,14 +122,9 @@ public class PlanInscriptionItemProvider extends ItemProviderAdapter implements 
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(PlanInscription.class)) {
-		case EstudiantesPackage.PLAN_INSCRIPTION__DATE:
+		switch (notification.getFeatureID(Degree.class)) {
+		case EstudiantesPackage.DEGREE__DATE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		case EstudiantesPackage.PLAN_INSCRIPTION__PLAN_COURSE_INSCRIPTION:
-		case EstudiantesPackage.PLAN_INSCRIPTION__PLAN_STUDENT_EVALUATION:
-		case EstudiantesPackage.PLAN_INSCRIPTION__DEGREE:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -197,17 +140,6 @@ public class PlanInscriptionItemProvider extends ItemProviderAdapter implements 
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors
-				.add(createChildParameter(EstudiantesPackage.Literals.PLAN_INSCRIPTION__PLAN_COURSE_INSCRIPTION,
-						EstudiantesFactory.eINSTANCE.createCourseInscription()));
-
-		newChildDescriptors
-				.add(createChildParameter(EstudiantesPackage.Literals.PLAN_INSCRIPTION__PLAN_STUDENT_EVALUATION,
-						EstudiantesFactory.eINSTANCE.createStudentEvaluation()));
-
-		newChildDescriptors.add(createChildParameter(EstudiantesPackage.Literals.PLAN_INSCRIPTION__DEGREE,
-				EstudiantesFactory.eINSTANCE.createDegree()));
 	}
 
 	/**

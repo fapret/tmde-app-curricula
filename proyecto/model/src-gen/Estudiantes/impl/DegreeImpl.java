@@ -2,46 +2,32 @@
  */
 package Estudiantes.impl;
 
-import Estudiantes.CourseInscription;
+import Estudiantes.Degree;
 import Estudiantes.EstudiantesPackage;
-
-import asignaturas.Course;
 
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Course Inscription</b></em>'.
+ * An implementation of the model object '<em><b>Degree</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link Estudiantes.impl.CourseInscriptionImpl#getCUCourse <em>CU Course</em>}</li>
- *   <li>{@link Estudiantes.impl.CourseInscriptionImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link Estudiantes.impl.DegreeImpl#getDate <em>Date</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CourseInscriptionImpl extends MinimalEObjectImpl.Container implements CourseInscription {
-	/**
-	 * The cached value of the '{@link #getCUCourse() <em>CU Course</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCUCourse()
-	 * @generated
-	 * @ordered
-	 */
-	protected Course cuCourse;
-
+public class DegreeImpl extends MinimalEObjectImpl.Container implements Degree {
 	/**
 	 * The default value of the '{@link #getDate() <em>Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -67,7 +53,7 @@ public class CourseInscriptionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CourseInscriptionImpl() {
+	protected DegreeImpl() {
 		super();
 	}
 
@@ -78,47 +64,7 @@ public class CourseInscriptionImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EstudiantesPackage.Literals.COURSE_INSCRIPTION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Course getCUCourse() {
-		if (cuCourse != null && cuCourse.eIsProxy()) {
-			InternalEObject oldCUCourse = (InternalEObject) cuCourse;
-			cuCourse = (Course) eResolveProxy(oldCUCourse);
-			if (cuCourse != oldCUCourse) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							EstudiantesPackage.COURSE_INSCRIPTION__CU_COURSE, oldCUCourse, cuCourse));
-			}
-		}
-		return cuCourse;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Course basicGetCUCourse() {
-		return cuCourse;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCUCourse(Course newCUCourse) {
-		Course oldCUCourse = cuCourse;
-		cuCourse = newCUCourse;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EstudiantesPackage.COURSE_INSCRIPTION__CU_COURSE,
-					oldCUCourse, cuCourse));
+		return EstudiantesPackage.Literals.DEGREE;
 	}
 
 	/**
@@ -139,8 +85,7 @@ public class CourseInscriptionImpl extends MinimalEObjectImpl.Container implemen
 		Date oldDate = date;
 		date = newDate;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EstudiantesPackage.COURSE_INSCRIPTION__DATE, oldDate,
-					date));
+			eNotify(new ENotificationImpl(this, Notification.SET, EstudiantesPackage.DEGREE__DATE, oldDate, date));
 	}
 
 	/**
@@ -151,11 +96,7 @@ public class CourseInscriptionImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EstudiantesPackage.COURSE_INSCRIPTION__CU_COURSE:
-			if (resolve)
-				return getCUCourse();
-			return basicGetCUCourse();
-		case EstudiantesPackage.COURSE_INSCRIPTION__DATE:
+		case EstudiantesPackage.DEGREE__DATE:
 			return getDate();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -169,10 +110,7 @@ public class CourseInscriptionImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EstudiantesPackage.COURSE_INSCRIPTION__CU_COURSE:
-			setCUCourse((Course) newValue);
-			return;
-		case EstudiantesPackage.COURSE_INSCRIPTION__DATE:
+		case EstudiantesPackage.DEGREE__DATE:
 			setDate((Date) newValue);
 			return;
 		}
@@ -187,10 +125,7 @@ public class CourseInscriptionImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EstudiantesPackage.COURSE_INSCRIPTION__CU_COURSE:
-			setCUCourse((Course) null);
-			return;
-		case EstudiantesPackage.COURSE_INSCRIPTION__DATE:
+		case EstudiantesPackage.DEGREE__DATE:
 			setDate(DATE_EDEFAULT);
 			return;
 		}
@@ -205,9 +140,7 @@ public class CourseInscriptionImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EstudiantesPackage.COURSE_INSCRIPTION__CU_COURSE:
-			return cuCourse != null;
-		case EstudiantesPackage.COURSE_INSCRIPTION__DATE:
+		case EstudiantesPackage.DEGREE__DATE:
 			return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals(date);
 		}
 		return super.eIsSet(featureID);
@@ -230,4 +163,4 @@ public class CourseInscriptionImpl extends MinimalEObjectImpl.Container implemen
 		return result.toString();
 	}
 
-} //CourseInscriptionImpl
+} //DegreeImpl

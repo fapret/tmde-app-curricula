@@ -87,7 +87,10 @@ const translations = {
     seeDiagramPT: "Ver Diagrama (PROCESS TREE)",
     zoomIN: "➕ Agrandar",
     zoomOUT: "➖ Achicar",
-    ResetBtn: "🔄 Resetear"
+    ResetBtn: "🔄 Resetear",
+    addDegree: "Agregar Titulo",
+    obtainedDate: "Fecha de obtención:",
+    inscriptionDate: "Fecha de inscripción:"
   },
   en: {
     welcome: "Welcome to Curricula App!",
@@ -153,6 +156,9 @@ const translations = {
     seeDiagramPT: "See Diagram (PROCESS TREE)",
     zoomIN: "➕ Zoom In",
     zoomOUT: "➖ Zoom Out",
-    ResetBtn: "🔄 Reset"
+    ResetBtn: "🔄 Reset",
+    addDegree: "Add Degree",
+    obtainedDate: "Obtained Date",
+    inscriptionDate: "Date of Inscription:"
   }
 };

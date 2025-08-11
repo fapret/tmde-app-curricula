@@ -66,37 +66,50 @@ public class EstudiantesSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case EstudiantesPackage.ROOT: {
-				Root root = (Root)theEObject;
-				T result = caseRoot(root);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EstudiantesPackage.STUDENT: {
-				Student student = (Student)theEObject;
-				T result = caseStudent(student);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EstudiantesPackage.COURSE_INSCRIPTION: {
-				CourseInscription courseInscription = (CourseInscription)theEObject;
-				T result = caseCourseInscription(courseInscription);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EstudiantesPackage.STUDENT_EVALUATION: {
-				StudentEvaluation studentEvaluation = (StudentEvaluation)theEObject;
-				T result = caseStudentEvaluation(studentEvaluation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EstudiantesPackage.PLAN_INSCRIPTION: {
-				PlanInscription planInscription = (PlanInscription)theEObject;
-				T result = casePlanInscription(planInscription);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
+		case EstudiantesPackage.ROOT: {
+			Root root = (Root) theEObject;
+			T result = caseRoot(root);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case EstudiantesPackage.STUDENT: {
+			Student student = (Student) theEObject;
+			T result = caseStudent(student);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case EstudiantesPackage.COURSE_INSCRIPTION: {
+			CourseInscription courseInscription = (CourseInscription) theEObject;
+			T result = caseCourseInscription(courseInscription);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case EstudiantesPackage.STUDENT_EVALUATION: {
+			StudentEvaluation studentEvaluation = (StudentEvaluation) theEObject;
+			T result = caseStudentEvaluation(studentEvaluation);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case EstudiantesPackage.PLAN_INSCRIPTION: {
+			PlanInscription planInscription = (PlanInscription) theEObject;
+			T result = casePlanInscription(planInscription);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case EstudiantesPackage.DEGREE: {
+			Degree degree = (Degree) theEObject;
+			T result = caseDegree(degree);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
 		}
 	}
 
@@ -172,6 +185,21 @@ public class EstudiantesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePlanInscription(PlanInscription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Degree</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Degree</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDegree(Degree object) {
 		return null;
 	}
 

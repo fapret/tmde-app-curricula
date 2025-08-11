@@ -67,6 +67,15 @@ public interface EstudiantesFactory extends EFactory {
 	PlanInscription createPlanInscription();
 
 	/**
+	 * Returns a new object of class '<em>Degree</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Degree</em>'.
+	 * @generated
+	 */
+	Degree createDegree();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

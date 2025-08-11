@@ -187,6 +187,29 @@ public class EstudiantesItemProviderAdapterFactory extends EstudiantesAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link Estudiantes.Degree} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DegreeItemProvider degreeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link Estudiantes.Degree}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDegreeAdapter() {
+		if (degreeItemProvider == null) {
+			degreeItemProvider = new DegreeItemProvider(this);
+		}
+
+		return degreeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

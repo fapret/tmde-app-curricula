@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link Estudiantes.PlanInscription#getPlan <em>Plan</em>}</li>
  *   <li>{@link Estudiantes.PlanInscription#getPlanCourseInscription <em>Plan Course Inscription</em>}</li>
  *   <li>{@link Estudiantes.PlanInscription#getPlanStudentEvaluation <em>Plan Student Evaluation</em>}</li>
+ *   <li>{@link Estudiantes.PlanInscription#getDegree <em>Degree</em>}</li>
  * </ul>
  *
  * @see Estudiantes.EstudiantesPackage#getPlanInscription()
@@ -97,5 +98,27 @@ public interface PlanInscription extends EObject {
 	 * @generated
 	 */
 	EList<StudentEvaluation> getPlanStudentEvaluation();
+
+	/**
+	 * Returns the value of the '<em><b>Degree</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Degree</em>' containment reference.
+	 * @see #setDegree(Degree)
+	 * @see Estudiantes.EstudiantesPackage#getPlanInscription_Degree()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Degree getDegree();
+
+	/**
+	 * Sets the value of the '{@link Estudiantes.PlanInscription#getDegree <em>Degree</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Degree</em>' containment reference.
+	 * @see #getDegree()
+	 * @generated
+	 */
+	void setDegree(Degree value);
 
 } // PlanInscription

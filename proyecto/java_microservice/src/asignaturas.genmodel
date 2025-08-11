@@ -118,6 +118,10 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference estudiante.ecore#//PlanInscription/Plan"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference estudiante.ecore#//PlanInscription/PlanCourseInscription"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference estudiante.ecore#//PlanInscription/PlanStudentEvaluation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference estudiante.ecore#//PlanInscription/degree"/>
+    </genClasses>
+    <genClasses ecoreClass="estudiante.ecore#//Degree">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute estudiante.ecore#//Degree/date"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

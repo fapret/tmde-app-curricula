@@ -66,6 +66,8 @@ public class EstudiantesFactoryImpl extends EFactoryImpl implements EstudiantesF
 			return createStudentEvaluation();
 		case EstudiantesPackage.PLAN_INSCRIPTION:
 			return createPlanInscription();
+		case EstudiantesPackage.DEGREE:
+			return createDegree();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -119,6 +121,16 @@ public class EstudiantesFactoryImpl extends EFactoryImpl implements EstudiantesF
 	public PlanInscription createPlanInscription() {
 		PlanInscriptionImpl planInscription = new PlanInscriptionImpl();
 		return planInscription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Degree createDegree() {
+		DegreeImpl degree = new DegreeImpl();
+		return degree;
 	}
 
 	/**

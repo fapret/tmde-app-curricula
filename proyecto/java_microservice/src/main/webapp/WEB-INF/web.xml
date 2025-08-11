@@ -157,4 +157,14 @@
     <servlet-name>GetStudentsLog</servlet-name>
     <url-pattern>/GetStudentsLog</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<description></description>
+  	<display-name>EstudianteAddDegree</display-name>
+  	<servlet-name>EstudianteAddDegree</servlet-name>
+  	<servlet-class>EstudianteAddDegree</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>EstudianteAddDegree</servlet-name>
+  	<url-pattern>/EstudianteAddDegree</url-pattern>
+  </servlet-mapping>
 </web-app>

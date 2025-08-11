@@ -3,6 +3,7 @@
 package Estudiantes.impl;
 
 import Estudiantes.CourseInscription;
+import Estudiantes.Degree;
 import Estudiantes.EstudiantesPackage;
 import Estudiantes.PlanInscription;
 import Estudiantes.StudentEvaluation;
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link Estudiantes.impl.PlanInscriptionImpl#getPlan <em>Plan</em>}</li>
  *   <li>{@link Estudiantes.impl.PlanInscriptionImpl#getPlanCourseInscription <em>Plan Course Inscription</em>}</li>
  *   <li>{@link Estudiantes.impl.PlanInscriptionImpl#getPlanStudentEvaluation <em>Plan Student Evaluation</em>}</li>
+ *   <li>{@link Estudiantes.impl.PlanInscriptionImpl#getDegree <em>Degree</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,6 +94,16 @@ public class PlanInscriptionImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected EList<StudentEvaluation> planStudentEvaluation;
+
+	/**
+	 * The cached value of the '{@link #getDegree() <em>Degree</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDegree()
+	 * @generated
+	 * @ordered
+	 */
+	protected Degree degree;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -205,6 +217,56 @@ public class PlanInscriptionImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Degree getDegree() {
+		return degree;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDegree(Degree newDegree, NotificationChain msgs) {
+		Degree oldDegree = degree;
+		degree = newDegree;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					EstudiantesPackage.PLAN_INSCRIPTION__DEGREE, oldDegree, newDegree);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDegree(Degree newDegree) {
+		if (newDegree != degree) {
+			NotificationChain msgs = null;
+			if (degree != null)
+				msgs = ((InternalEObject) degree).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - EstudiantesPackage.PLAN_INSCRIPTION__DEGREE, null, msgs);
+			if (newDegree != null)
+				msgs = ((InternalEObject) newDegree).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - EstudiantesPackage.PLAN_INSCRIPTION__DEGREE, null, msgs);
+			msgs = basicSetDegree(newDegree, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EstudiantesPackage.PLAN_INSCRIPTION__DEGREE,
+					newDegree, newDegree));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -212,6 +274,8 @@ public class PlanInscriptionImpl extends MinimalEObjectImpl.Container implements
 			return ((InternalEList<?>) getPlanCourseInscription()).basicRemove(otherEnd, msgs);
 		case EstudiantesPackage.PLAN_INSCRIPTION__PLAN_STUDENT_EVALUATION:
 			return ((InternalEList<?>) getPlanStudentEvaluation()).basicRemove(otherEnd, msgs);
+		case EstudiantesPackage.PLAN_INSCRIPTION__DEGREE:
+			return basicSetDegree(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -234,6 +298,8 @@ public class PlanInscriptionImpl extends MinimalEObjectImpl.Container implements
 			return getPlanCourseInscription();
 		case EstudiantesPackage.PLAN_INSCRIPTION__PLAN_STUDENT_EVALUATION:
 			return getPlanStudentEvaluation();
+		case EstudiantesPackage.PLAN_INSCRIPTION__DEGREE:
+			return getDegree();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -261,6 +327,9 @@ public class PlanInscriptionImpl extends MinimalEObjectImpl.Container implements
 			getPlanStudentEvaluation().clear();
 			getPlanStudentEvaluation().addAll((Collection<? extends StudentEvaluation>) newValue);
 			return;
+		case EstudiantesPackage.PLAN_INSCRIPTION__DEGREE:
+			setDegree((Degree) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -285,6 +354,9 @@ public class PlanInscriptionImpl extends MinimalEObjectImpl.Container implements
 		case EstudiantesPackage.PLAN_INSCRIPTION__PLAN_STUDENT_EVALUATION:
 			getPlanStudentEvaluation().clear();
 			return;
+		case EstudiantesPackage.PLAN_INSCRIPTION__DEGREE:
+			setDegree((Degree) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -305,6 +377,8 @@ public class PlanInscriptionImpl extends MinimalEObjectImpl.Container implements
 			return planCourseInscription != null && !planCourseInscription.isEmpty();
 		case EstudiantesPackage.PLAN_INSCRIPTION__PLAN_STUDENT_EVALUATION:
 			return planStudentEvaluation != null && !planStudentEvaluation.isEmpty();
+		case EstudiantesPackage.PLAN_INSCRIPTION__DEGREE:
+			return degree != null;
 		}
 		return super.eIsSet(featureID);
 	}
