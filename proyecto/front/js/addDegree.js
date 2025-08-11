@@ -30,7 +30,7 @@ function agregar_titulo() {
     const date = document.getElementById("date").value;
     const model_file = document.getElementById("file").files[0];
 
-    const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Estudiante/AddDegree`;
+    const url = `https://tmde-api.fapret.com:8443/curricula_microservice/EstudianteAddDegree`;
     var formData = new FormData();
     formData.append('faculty', faculty);
     formData.append('career', career);
