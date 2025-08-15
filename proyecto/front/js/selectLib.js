@@ -50,13 +50,21 @@ function getFaculties(select) {
 }
 
 function getUCS(select, faculty){
-	const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${faculty}`;
+	const url = `https://tmde-api.fapret.com:8443/curricula_microservice/Faculty/ucs?faculty=${faculty}&withName=True`;
 	fetch(url)
   .then(response => response.json())
   .then(data => {
-	for (var i = 0; i < data.length; i++){
-		addToSelect(select, data[i]);
-	}
+		for (var i = 0; i < data.length; i++){
+			addToSelectWithIdName(select, data[i]);
+		}
+
+    /*
+    Test
+    */
+    const element = document.getElementById('ucs');
+    const choices = new Choices(element, {
+        searchEnabled: true
+    });
   })
   .catch(error => {
       console.error("Error al consultar la API:", error);

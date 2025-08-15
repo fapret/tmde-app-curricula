@@ -20,6 +20,8 @@
 	Santiago Nicolás Díaz Conde Email: sndc.33@gmail.com and contact@fapret.com
 */
 function displayUCStats(){
+    const loader = document.getElementById("loadingcontent");
+    loader.style.display = "flex";
     const allUCSelect = document.getElementById("ucs");
     const uc = allUCSelect.value;
     const allDiscoveriesSelect = document.getElementById("discoveries");
@@ -28,6 +30,7 @@ function displayUCStats(){
     fetch(url)
     .then(response => response.json())
     .then(data => {
+        loader.style.display = "none";
         const resultadoDiv = document.getElementById("resultado");
         resultadoDiv.innerHTML = `
             <label class="info-label" data-lang="discoverUUID">UUID de Descubrimiento:</label>

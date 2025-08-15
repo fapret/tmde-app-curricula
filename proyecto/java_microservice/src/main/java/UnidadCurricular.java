@@ -95,6 +95,7 @@ public class UnidadCurricular extends HttpServlet {
 		Root rootElement = model.getRootElement();
 		String faculty = request.getParameter("faculty");
 		String curricularUnit = request.getParameter("curricularUnit");
+		Boolean withName = Boolean.parseBoolean(request.getParameter("withName"));
 		String responseText = "";
 		
 		if(curricularUnit == null || curricularUnit.isBlank()) {
@@ -103,7 +104,10 @@ public class UnidadCurricular extends HttpServlet {
 					response.getWriter().append("[");
 					Boolean auxBool = false;
 					for(CurricularUnit cu : facultad.getFacultyCU()) {
-						responseText += "\"" + cu.getId() + "\", ";
+						if (withName)
+							responseText += "{\"id\":\""+cu.getId()+"\", \"name\":\"" + cu.getName() + "\"},";
+						else
+							responseText += "\""+cu.getId()+"\",";
 						auxBool = true;
 					}
 					if(auxBool) {

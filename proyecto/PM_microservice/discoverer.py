@@ -59,9 +59,9 @@ def discover():
         dfg, dfg_start_activities, dfg_end_activities = pm4py.discover_dfg(event_log)
         pm4py.write_dfg(dfg, dfg_start_activities, dfg_end_activities, './dfg/' + file_uuid + '.dfg')
         
-        # --- BPMN --- for some reason it doesnt works
-        bpmn_graph = pm4py.discover_bpmn_inductive(event_log)
-        pm4py.write_bpmn(bpmn_graph, './bpmn/' + file_uuid + '.bpmn', auto_layout=False)
+        # --- BPMN --- Takes too much time
+        #bpmn_graph = pm4py.discover_bpmn_inductive(event_log)
+        #pm4py.write_bpmn(bpmn_graph, './bpmn/' + file_uuid + '.bpmn', auto_layout=False)
         
         # --- PNML ---
         net, im, fm = pm4py.discover_petri_net_alpha(event_log)
@@ -69,9 +69,9 @@ def discover():
         pm4py.write_pnml(net, im, fm, './pnml/' + file_uuid + '_alpha.pnml')
         pm4py.write_pnml(net2, im2, fm2, './pnml/' + file_uuid + '_heuristics.pnml')
         
-        # --- PTML ---
-        process_tree = pm4py.discover_process_tree_inductive(event_log)
-        pm4py.write_ptml(process_tree, './ptml/' + file_uuid + '.ptml', auto_layout=True)
+        # --- PTML --- Takes too much time
+        #process_tree = pm4py.discover_process_tree_inductive(event_log)
+        #pm4py.write_ptml(process_tree, './ptml/' + file_uuid + '.ptml', auto_layout=True)
         
         return jsonify({
             'uuid': file_uuid,

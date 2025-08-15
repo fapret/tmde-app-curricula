@@ -83,7 +83,8 @@ def viewer(view, caseid):
                 return "Unknown view"
     
     except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        tb = traceback.format_exc()
+        return jsonify({'error': str(e), 'trace': tb}), 500
     
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=9001)

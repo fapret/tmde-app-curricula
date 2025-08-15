@@ -51,4 +51,6 @@ function seeDiagram(mode) {
     img.src = url;
     img.classList.remove('hidden');
     diagramsButtons.classList.remove('hidden');
+    let loader = document.getElementById("loadingcontent");
+    loader.style.display = "none";
 }

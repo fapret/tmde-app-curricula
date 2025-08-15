@@ -1,0 +1,1 @@
+Here are python scripts made to test things, that are not part of the application

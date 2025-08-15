@@ -220,7 +220,7 @@
       </a>
     </div>
 
-    <div class="left-nav-div">
+    <!--<div class="left-nav-div">
       <a class="left-nav-a" href="./deviation-analysis.html">
         <button id="button" class="levtnav-button">
           <img class="" src="./images/arrow-separate-svgrepo-com.svg">
@@ -228,7 +228,7 @@
         </button>
         <p data-lang="deviationTable">Ver Tabla de desviacion</p>
       </a>
-    </div>
+    </div>-->
 
     <div class="left-nav-cat">
       <p> API </p>
@@ -279,6 +279,45 @@
     <div class="content" style="text-align: center; font-family: 'Roboto', sans-serif;">
 
       <!-- AGREGAR ACA CONTENIDO-->
+      <br>
+	    <label data-lang="faculty">Facultad:</label>
+      <select name="facultades" id="facultades" size="10"></select>
+      <div class="buttons-div">
+        <button type="button" id="markFaculty" data-lang="selectFaculty">
+          Seleccionar Facultad
+        </button>
+      </div>
+
+      <label data-lang="career">Carrera:</label>
+      <select name="carreras" id="carreras" size="10"></select>
+      <div class="buttons-div">
+        <button type="button" id="markCarrera" disabled data-lang="selectCareer">
+          Seleccionar Carrera
+        </button>
+      </div>
+
+      <label data-lang="plan">Plan:</label>
+      <select name="planes" id="planes" size="5"></select>
+      <div class="buttons-div">
+        <button type="button" id="markPlan" disabled data-lang="addPlan">
+          Seleccionar Plan
+        </button>
+      </div>
+
+      <label data-lang="discoverUUID">UUID de Descubrimiento:</label>
+      <select name="discoveries" id="discoveries" size="10"></select>
+      <div class="buttons-div">
+        <button type="button" id="seeStatistics" disabled data-lang="seeStatistics">
+          Ver Estadisticas
+        </button>
+      </div>
+
+      <div class="consulta" id="resultado">
+      </div>
+      <div class="graphList" id="graphList">
+        <div class="graph" id="graph0">
+        </div>
+      </div>
 
     </div>
   </div>
