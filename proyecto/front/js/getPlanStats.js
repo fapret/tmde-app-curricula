@@ -31,7 +31,7 @@ function displayPlanStats(){
     .then(response => response.json())
     .then(data => {
         const resultadoDiv = document.getElementById("resultado");
-                resultadoDiv.innerHTML = `
+        resultadoDiv.innerHTML = `
             <label class="info-label" data-lang="discoverUUID">UUID de Descubrimiento:</label>
             <label class="info-value">${data.uuid}</label>
             <br>
@@ -46,5 +46,48 @@ function displayPlanStats(){
             <label class="info-label" data-lang="studentsInscriptions">Estudiantes se inscribieron al plan</label>
             
         `;
+        const graph0 = document.getElementById("graph0");
+
+        const bins = {};
+        for (let i = 0; i <= 500; i += 25) {
+            let label;
+            if (i === 500) {
+                label = "500+";
+            } else {
+                label = `${i}-${i + 24}`;
+            }
+            bins[label] = 0;
+        }
+
+        for (const [creditsStr, count] of Object.entries(data.studentsCreditsDistribution)) {
+            const credits = parseInt(creditsStr, 10);
+            if (credits >= 500) {
+                bins["500+"] += count;
+            } else {
+                const binStart = Math.floor(credits / 25) * 25;
+                const label = `${binStart}-${binStart + 24}`;
+                bins[label] += count;
+            }
+        }
+
+        const distributionArray = [['Credits Interval', 'Students']];
+        for (const [label, count] of Object.entries(bins)) {
+            distributionArray.push([label, count]);
+        }
+
+        const data0 = google.visualization.arrayToDataTable(distributionArray);
+        const graph0options = {
+            title: 'Credits Distribution',
+            hAxis: {title: 'Credits'},
+            vAxis: {title: 'Amount of students'},
+            legend: 'none'
+        };
+        const chart0 = new google.visualization.AreaChart(graph0);
+        chart0.draw(data0, graph0options);
+    })
+    .catch(error => {
+        console.error("Error al consultar la API:", error);
+        const resultadoDiv = document.getElementById("resultado");
+        resultadoDiv.innerHTML = "Error al consultar la API: "+error;
     });
 }

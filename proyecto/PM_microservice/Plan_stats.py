@@ -7,6 +7,7 @@ import pm4py
 import os
 import uuid
 import pandas as pd
+import json
 from flask import Flask, request, jsonify, send_file
 from collections import Counter, defaultdict
 from flask_cors import CORS
@@ -16,11 +17,21 @@ import traceback #for debugging
 app = Flask(__name__)
 CORS(app) #Without cors it gets blocked
 
+# Create required folders if doesnt exists
+for folder in ['./stats']:
+    os.makedirs(folder, exist_ok=True)
+
 @app.route('/<caseid>/<career>/<plan>', methods=['GET'])
 def stats(caseid, career, plan):
     try:
         filepath = './imports/' + caseid + '.xes'
         if os.path.exists(filepath):
+            filepath2 = './stats/' + caseid + '_plan.json'
+            if os.path.exists(filepath2):
+                with open(filepath2, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    return jsonify(data)
+                
             event_log = pm4py.read_xes(filepath)
             event_log = pm4py.format_dataframe(event_log, case_id="ID", activity_key="Activity", timestamp_key="Timestamp", timest_format='%a %b %d %H:%M:%S %Z %Y')
             event_log = pm4py.convert_to_event_log(event_log)
@@ -73,7 +84,7 @@ def stats(caseid, career, plan):
             if degreeObtainedCounter > 0:
                 degreeMeanTime = degreeMeanTime / degreeObtainedCounter    
                 
-            return jsonify({
+            result = {
                 'examCounter': examCounter,
                 'courseCounter': courseCounter,
                 'degreeObtainedCounter': degreeObtainedCounter,
@@ -83,7 +94,12 @@ def stats(caseid, career, plan):
                 'uuid': caseid,
                 'career': career,
                 'plan': plan
-            })
+            }
+            
+            with open(filepath2, "w", encoding="utf-8") as f:
+                json.dump(result, f, indent=4, ensure_ascii=False)
+        
+            return jsonify(result)
             
         else:
             return "Unknown case id"

@@ -6,6 +6,10 @@ const selectFacultyBtn = document.getElementById("markFaculty");
 const selectCareerBtn = document.getElementById("markCarrera");
 const selectBtn = document.getElementById("seeStatistics");
 
+google.charts.load('current',{packages:['corechart']});
+const graphList = document.getElementById("graphList");
+const result = document.getElementById("resultado");
+
 selectBtn.disabled = true;
 selectCareerBtn.disabled = true;
 
