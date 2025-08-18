@@ -136,7 +136,7 @@ public class GetStudentsLog extends HttpServlet {
 						String CurricularUnit = evalExam.getCurricularunit().getId();
 						if(evaluacion.getGrade() >= 3)
 							Credits = evalExam.getCurricularunit().getCred();
-						csvBuilder.append(String.format("%s,%s,%s,%s,%d,%s,,,,%d,%d\n",
+						csvBuilder.append(String.format("%s,%s,%s,%s,%d,%s,,,%d,%d\n",
 							    ID, Activity, TimeStamp, Career, Plan, CurricularUnit, Grade, Credits));
 						
 					} else if (eval instanceof CourseEvaluation) {
