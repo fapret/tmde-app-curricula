@@ -14,11 +14,12 @@ app = Flask(__name__)
 CORS(app)
 
 # Create required folders if doesnt exists
-for folder in ['./imports', './imports2', './dfg', './bpmn', './pnml', './ptml']:
+for folder in ['./imports', './imports2', './reference', './dfg', './bpmn', './pnml', './ptml']:
     os.makedirs(folder, exist_ok=True)
     
 @app.route('/', methods=['POST'])
-def discover():
+@app.route('/<mode>', methods=['POST'])
+def discover(mode):
     if 'file' not in request.files:
         return jsonify({'error': 'No file'}), 400
     
@@ -53,25 +54,30 @@ def discover():
             axis=1
         )
         
-        pm4py.write_xes(event_log, './imports2/' + file_uuid + '.xes') #save Dataframe as xes
-        
+        if mode == 1:
+            pm4py.write_xes(event_log, f'./reference/{file_uuid}.xes')
+        else:
+            pm4py.write_xes(event_log, f'./imports2/{file_uuid}.xes')
+
         # --- DFG ---
         dfg, dfg_start_activities, dfg_end_activities = pm4py.discover_dfg(event_log)
         pm4py.write_dfg(dfg, dfg_start_activities, dfg_end_activities, './dfg/' + file_uuid + '.dfg')
         
-        # --- BPMN --- Takes too much time
-        #bpmn_graph = pm4py.discover_bpmn_inductive(event_log)
-        #pm4py.write_bpmn(bpmn_graph, './bpmn/' + file_uuid + '.bpmn', auto_layout=False)
-        
         # --- PNML ---
         net, im, fm = pm4py.discover_petri_net_alpha(event_log)
-        net2, im2, fm2 = pm4py.discover_petri_net_heuristics(event_log)
         pm4py.write_pnml(net, im, fm, './pnml/' + file_uuid + '_alpha.pnml')
+        net2, im2, fm2 = pm4py.discover_petri_net_heuristics(event_log)
         pm4py.write_pnml(net2, im2, fm2, './pnml/' + file_uuid + '_heuristics.pnml')
+        net3, im3, fm3 = pm4py.discover_petri_net_inductive(event_log) #takes longer, goes last
+        pm4py.write_pnml(net3, im3, fm3, './pnml/' + file_uuid + '_inductive.pnml')
         
-        # --- PTML --- Takes too much time
-        #process_tree = pm4py.discover_process_tree_inductive(event_log)
-        #pm4py.write_ptml(process_tree, './ptml/' + file_uuid + '.ptml', auto_layout=True)
+        # --- BPMN --- uses pnml inductive discovery
+        bpmn_graph = pm4py.convert_to_bpmn(net3, im3, fm3)
+        pm4py.write_bpmn(bpmn_graph, './bpmn/' + file_uuid + '.bpmn', auto_layout=False)
+        
+        # --- PTML --- uses pnml inductive discovery
+        process_tree = pm4py.convert_to_process_tree(net3, im3, fm3)
+        pm4py.write_ptml(process_tree, './ptml/' + file_uuid + '.ptml', auto_layout=True)
         
         return jsonify({
             'uuid': file_uuid,

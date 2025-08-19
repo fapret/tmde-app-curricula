@@ -85,11 +85,11 @@ def stats(caseid, career, plan):
                 degreeMeanTime = degreeMeanTime / degreeObtainedCounter    
                 
             result = {
-                'examCounter': examCounter,
-                'courseCounter': courseCounter,
+                'examCounter': examCounter, #Amount of exams made by each students metric
+                'courseCounter': courseCounter, #Amount of courses made by each students metric
                 'degreeObtainedCounter': degreeObtainedCounter,
                 'inscriptionsCounter': inscriptionsCounter,
-                'studentsCreditsDistribution': studentsCreditsDistribution,
+                'studentsCreditsDistribution': studentsCreditsDistribution, #Student Credits Distribution
                 'degreeMeanTime': degreeMeanTime,
                 'uuid': caseid,
                 'career': career,

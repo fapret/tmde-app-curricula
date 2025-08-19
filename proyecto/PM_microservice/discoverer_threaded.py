@@ -1,5 +1,5 @@
 '''
-Created on 10 jun. 2025
+Created on 10 aug. 2025
 
 @author: Santiago Nicolas Diaz Conde
 '''
@@ -17,11 +17,11 @@ app = Flask(__name__)
 CORS(app)
 
 # Create required folders if they don't exist
-for folder in ['./imports', './imports2', './dfg', './bpmn', './pnml', './ptml']:
+for folder in ['./imports', './imports2', './reference', './dfg', './bpmn', './pnml', './ptml']:
     os.makedirs(folder, exist_ok=True)
 
 
-def run_discovery(file_path, file_uuid):
+def run_discovery(file_path, file_uuid, mode):
     try:
         dtype_spec = {
             "Curricular Unit": str,
@@ -62,8 +62,11 @@ def run_discovery(file_path, file_uuid):
         )
 
         # Save updated XES
-        pm4py.write_xes(event_log, f'./imports2/{file_uuid}.xes')
-
+        if mode == 1:
+            pm4py.write_xes(event_log, f'./reference/{file_uuid}.xes')
+        else:
+            pm4py.write_xes(event_log, f'./imports2/{file_uuid}.xes')
+            
         # --- DFG ---
         dfg, dfg_start_activities, dfg_end_activities = pm4py.discover_dfg(event_log)
         pm4py.write_dfg(dfg, dfg_start_activities, dfg_end_activities, f'./dfg/{file_uuid}.dfg')
@@ -73,31 +76,43 @@ def run_discovery(file_path, file_uuid):
         
         print(f"[{file_uuid}] Discovery DFG completed successfully.")
 
-        # --- BPMN --- Removed, takes too much time
-        #bpmn_graph = pm4py.discover_bpmn_inductive(event_log)
-        #pm4py.write_bpmn(bpmn_graph, f'./bpmn/{file_uuid}.bpmn', auto_layout=False)
-        
-        #print(f"[{file_uuid}] Discovery BPMN completed successfully.")
-
         # --- PNML ---
         net, im, fm = pm4py.discover_petri_net_alpha(event_log)
         pm4py.write_pnml(net, im, fm, f'./pnml/{file_uuid}_alpha.pnml')
         del net
         del im
         del fm
+        print(f"[{file_uuid}] Discovery PNML with Alpha completed successfully.")
         net2, im2, fm2 = pm4py.discover_petri_net_heuristics(event_log)
         pm4py.write_pnml(net2, im2, fm2, f'./pnml/{file_uuid}_heuristics.pnml')
         del net2
         del im2
         del fm2
+        print(f"[{file_uuid}] Discovery PNML with Heuristics completed successfully.")
+        net3, im3, fm3 = pm4py.discover_petri_net_inductive(event_log) #takes longer, goes last
+        pm4py.write_pnml(net3, im3, fm3, './pnml/' + file_uuid + '_inductive.pnml')
+        print(f"[{file_uuid}] Discovery PNML with Inductive completed successfully.")
         
         print(f"[{file_uuid}] Discovery PNML completed successfully.")
+        
+        # --- BPMN --- Removed, takes too much time
+        bpmn_graph = pm4py.convert_to_bpmn(net3, im3, fm3)
+        pm4py.write_bpmn(bpmn_graph, f'./bpmn/{file_uuid}.bpmn', auto_layout=False)
+        del bpmn_graph
+        
+        print(f"[{file_uuid}] Discovery BPMN completed successfully.")
+        
 
         # --- PTML --- Removed, takes too much time
-        #process_tree = pm4py.discover_process_tree_inductive(event_log)
-        #pm4py.write_ptml(process_tree, f'./ptml/{file_uuid}.ptml', auto_layout=True)
+        process_tree = pm4py.convert_to_process_tree(net3, im3, fm3)
+        pm4py.write_ptml(process_tree, f'./ptml/{file_uuid}.ptml', auto_layout=True)
+        del process_tree
         
-        #print(f"[{file_uuid}] Discovery PTML completed successfully.")
+        print(f"[{file_uuid}] Discovery PTML completed successfully.")
+        
+        del net3
+        del im3
+        del fm3
 
         print(f"[{file_uuid}] Discovery completed successfully.")
 
@@ -105,9 +120,9 @@ def run_discovery(file_path, file_uuid):
         print(f"[{file_uuid}] ERROR during discovery: {e}")
         traceback.print_exc()
 
-
 @app.route('/', methods=['POST'])
-def discover():
+@app.route('/<mode>', methods=['POST'])
+def discover(mode):
     if 'file' not in request.files:
         return jsonify({'error': 'No file'}), 400
 
@@ -120,7 +135,7 @@ def discover():
         file.save(file_path)
 
         # Start discovery in background thread
-        thread = threading.Thread(target=run_discovery, args=(file_path, file_uuid))
+        thread = threading.Thread(target=run_discovery, args=(file_path, file_uuid, mode))
         thread.start()
 
         # Respond immediately with job ID

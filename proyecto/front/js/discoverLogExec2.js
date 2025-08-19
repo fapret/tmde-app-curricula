@@ -19,32 +19,8 @@
 
 	Santiago Nicolás Díaz Conde Email: sndc.33@gmail.com and contact@fapret.com
 */
-function discover_log(mode = 0) {
-    const model_file = document.getElementById("file").files[0];
-    const loader = document.getElementById("loadingcontent");
-    loader.style.display = "flex";
+const discoverLogBtn = document.getElementById("discoverLog");
 
-    var url = `http://127.0.0.1:9000/${mode}`;
-    var formData = new FormData();
-    formData.append('file', model_file);
-
-    // Configurar las opciones de la solicitud
-    var options = {
-        method: 'POST',
-        body: formData
-
-    };
-
-    fetch(url, options)
-        .then(response => response.json())
-        .then(data => {
-            loader.style.display = "none";
-            alert("Descubierto con id: " + data.uuid);
-        })
-        .catch(error => {
-            console.error("Error al consultar la API:", error);
-            const resultadoDiv = document.getElementById("resultado");
-            resultadoDiv.style.display = "block";
-            resultadoDiv.innerHTML = "Error al consultar la API: "+error;
-        });
-}
+discoverLogBtn.addEventListener("click", (event) => {
+    discover_log(1);
+});

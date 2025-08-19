@@ -1,5 +1,5 @@
 '''
-Created on 10 jul. 2025
+Created on 10 aug. 2025
 
 @author: Santiago Nicolas Diaz Conde
 '''
@@ -22,7 +22,7 @@ for folder in ['./imports', './dfg/png', './bpmn/png', './pnml/png', './ptml/png
     
 render_status = {}
 
-def run_viewer(view, caseid):
+def run_viewer(view, caseid, mode):
     try:
         render_status[(view, caseid)] = "rendering"
         match view:
@@ -36,7 +36,10 @@ def run_viewer(view, caseid):
             case 'perf_dfg':
                 filepath = './dfg/png/' + caseid + '_performance.png'
                 
-                filepathLog = './imports/' + caseid + '.xes'
+                if mode == 1:
+                    filepathLog = './reference/' + caseid + '.xes'
+                else:
+                    filepathLog = './imports2/' + caseid + '.xes'
                 if os.path.exists(filepathLog):
                     event_log = pm4py.read_xes(filepathLog)
                     event_log = pm4py.format_dataframe(event_log, case_id="ID", activity_key="Activity", timestamp_key="Timestamp", timest_format='%a %b %d %H:%M:%S %Z %Y')
@@ -66,6 +69,13 @@ def run_viewer(view, caseid):
                 pm4py.save_vis_petri_net(net, im, fm, filepath, rankdir='TB', engine="neato")
                 #return send_file(filepath, mimetype='image/png')
                 
+            case 'pnml_inductive':
+                filepath = './pnml/png/' + caseid + '_inductive.png'
+
+                net, im, fm = pm4py.read_pnml('./pnml/' + caseid + '_inductive.pnml')
+                pm4py.save_vis_petri_net(net, im, fm, filepath, rankdir='TB', engine="neato")
+                #return send_file(filepath, mimetype='image/png')   
+                
             case 'ptml':
                 filepath = './ptml/png/' + caseid + '.png'
                 process_tree = pm4py.read_ptml('./ptml/' + caseid + '.ptml')
@@ -81,8 +91,9 @@ def run_viewer(view, caseid):
         tb = traceback.format_exc()
         return jsonify({'error': str(e), 'trace': tb}), 500
     
+@app.route('/<view>/<caseid>/<mode>', methods=['GET'])
 @app.route('/<view>/<caseid>', methods=['GET'])
-def viewer(view, caseid):
+def viewer(view, caseid, mode):
     try:
         # If rendering is ongoing, report status
         if render_status.get((view, caseid)) == "rendering":
@@ -113,6 +124,11 @@ def viewer(view, caseid):
                 if os.path.exists(filepath):
                     return send_file(filepath, mimetype='image/png')
                 
+            case 'pnml_inductive':
+                filepath = './pnml/png/' + caseid + '_inductive.png'
+                if os.path.exists(filepath):
+                    return send_file(filepath, mimetype='image/png')
+                
             case 'ptml':
                 filepath = './ptml/png/' + caseid + '.png'
                 if os.path.exists(filepath):
@@ -121,7 +137,7 @@ def viewer(view, caseid):
             case _:
                 return "Unknown view"
             
-        thread = threading.Thread(target=run_viewer, args=(view, caseid))
+        thread = threading.Thread(target=run_viewer, args=(view, caseid, mode))
         thread.start()
         return jsonify({'status': 'rendering started'}), 200
                     
