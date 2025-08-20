@@ -44,6 +44,9 @@ function seeDiagram(mode) {
         case 6:
             modestr = "perf_dfg";
             break;
+        case 7:
+            modestr = "pnml_inductive";
+            break;
         default:
             return;
     }

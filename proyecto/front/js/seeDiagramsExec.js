@@ -28,6 +28,7 @@ const seeDiagramBPMN = document.getElementById("seeDiagramBPMN");
 const seeDiagramPNA = document.getElementById("seeDiagramPNA");
 const seeDiagramPNH = document.getElementById("seeDiagramPNH");
 const seeDiagramPTML = document.getElementById("seeDiagramPT");
+const seeDiagramPNI = document.getElementById("seeDiagramPNI");
 
 const zoomIN = document.getElementById("zoomIN");
 const zoomOUT = document.getElementById("zoomOUT");
@@ -63,6 +64,12 @@ seeDiagramPNH.addEventListener("click", () => {
     const loader = document.getElementById("loadingcontent");
     loader.style.display = "flex";
     seeDiagram(4);
+});
+seeDiagramPNI.addEventListener("click", () => {
+    result.style.display = "block";
+    const loader = document.getElementById("loadingcontent");
+    loader.style.display = "flex";
+    seeDiagram(7);
 });
 seeDiagramPTML.addEventListener("click", () => {
     result.style.display = "block";

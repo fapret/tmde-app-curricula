@@ -31,8 +31,6 @@ def TBR(mode, reference, caseid):
         if not os.path.exists(elfilepath):
             return "Unknown discovery id"
         
-        os.makedirs('./conformance/' + reference + '/alignements', exist_ok=True)
-        
         filepath = './conformance/' + reference + '/' + caseid + '_' + mode + '.json'
         
         if os.path.exists(filepath):
@@ -47,11 +45,7 @@ def TBR(mode, reference, caseid):
         
         conformance_fitness = pm4py.fitness_token_based_replay(event_log, net, im, fm)
         
-        conformance_precision = pm4py.precision_token_based_replay(event_log, net, im, fm)
-        
-        conformance_alignment = pm4py.conformance.conformance_diagnostics_alignments(event_log, net, im, fm)
-        pm4py.save_vis_alignments(event_log, conformance_alignment, './conformance/' + reference + '/alignements/' + caseid + '_' + mode + '.svg')
-        
+        conformance_precision = pm4py.precision_token_based_replay(event_log, net, im, fm)        
 
         result = {
             "token_based_replay": conformance_diagnostics,

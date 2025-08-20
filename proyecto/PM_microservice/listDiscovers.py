@@ -13,12 +13,13 @@ CORS(app) #Without cors it gets blocked
 @app.route('/', methods=['GET'])
 @app.route('/<mode>', methods=['GET'])
 def list_files(mode=0):
-    if mode == 0:
-        folder_path = './imports' #all
     if mode == 1:
         folder_path = './reference' #reference only
-    if mode == 2:
-        folder_path = './imports2' #logs only
+    else:
+        if mode == 2:
+            folder_path = './imports2' #logs only
+        else:
+            folder_path = './imports' #all
     try:
         files = os.listdir(folder_path)
         # Remove extensions from filenames
