@@ -19,6 +19,19 @@ CORS(app)
 # Create required folders if doesnt exists
 for folder in ['./conformance']:
     os.makedirs(folder, exist_ok=True)
+    
+def serialize(obj):
+    if isinstance(obj, (str, int, float, bool)) or obj is None:
+        return obj
+    if isinstance(obj, dict):
+        # Convert keys to str
+        return {str(k): serialize(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple, set)):
+        return [serialize(v) for v in obj]
+    # Handle pm4py objects (like Place, Transition)
+    if hasattr(obj, "name"):
+        return obj.name
+    return str(obj)
 
 @app.route('/<mode>/<reference>/<caseid>', methods=['GET'])
 def TBR(mode, reference, caseid):
@@ -53,8 +66,10 @@ def TBR(mode, reference, caseid):
             "precision": conformance_precision
         }
         
+        clean_result = serialize(result)
+        
         with open(filepath, "w", encoding="utf-8") as f:
-            json.dump(result, f, indent=4, ensure_ascii=False)
+            json.dump(clean_result, f, indent=4, ensure_ascii=False)
         
         return jsonify(result)
     

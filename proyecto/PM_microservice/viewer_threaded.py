@@ -36,7 +36,7 @@ def run_viewer(view, caseid, mode):
             case 'perf_dfg':
                 filepath = './dfg/png/' + caseid + '_performance.png'
                 
-                if mode == 1:
+                if mode == "1":
                     filepathLog = './reference/' + caseid + '.xes'
                 else:
                     filepathLog = './imports2/' + caseid + '.xes'
@@ -93,7 +93,7 @@ def run_viewer(view, caseid, mode):
     
 @app.route('/<view>/<caseid>/<mode>', methods=['GET'])
 @app.route('/<view>/<caseid>', methods=['GET'])
-def viewer(view, caseid, mode):
+def viewer(view, caseid, mode=0):
     try:
         # If rendering is ongoing, report status
         if render_status.get((view, caseid)) == "rendering":

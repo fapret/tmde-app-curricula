@@ -12,11 +12,11 @@ CORS(app) #Without cors it gets blocked
 
 @app.route('/', methods=['GET'])
 @app.route('/<mode>', methods=['GET'])
-def list_files(mode=0):
-    if mode == 1:
+def list_files(mode):
+    if mode == "1":
         folder_path = './reference' #reference only
     else:
-        if mode == 2:
+        if mode == "2":
             folder_path = './imports2' #logs only
         else:
             folder_path = './imports' #all

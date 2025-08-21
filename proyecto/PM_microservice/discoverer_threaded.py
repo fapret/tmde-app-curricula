@@ -62,7 +62,7 @@ def run_discovery(file_path, file_uuid, mode):
         )
 
         # Save updated XES
-        if mode == 1:
+        if mode == "1":
             pm4py.write_xes(event_log, f'./reference/{file_uuid}.xes')
         else:
             pm4py.write_xes(event_log, f'./imports2/{file_uuid}.xes')

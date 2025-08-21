@@ -63,7 +63,7 @@ def TBR(mode, reference, caseid):
             return "Unknown discovery id"
         
         if os.path.exists(imagepath):
-                    return send_file(imagepath, mimetype='image/svg')
+                    return send_file(imagepath, mimetype='image/svg+xml')
         
         thread = threading.Thread(target=run_viewer, args=(mode, reference, caseid))
         thread.start()

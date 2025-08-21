@@ -179,8 +179,8 @@ function getMaterias(select, faculty, career, plan){
   	});
 }
 
-function getDiscoveries(select){
-  const url = `http://127.0.0.1:9004/`;
+function getDiscoveries(select, mode = 0){
+  const url = `http://127.0.0.1:9004/${mode}`;
   fetch(url)
   .then(response => response.json())
   .then(data => {
