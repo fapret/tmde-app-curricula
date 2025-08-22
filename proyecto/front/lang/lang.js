@@ -110,7 +110,7 @@ const translations = {
     consultFaculty: "Consult Faculty",
     consultPlan: "Consult Plan",
     consultSubject: "Consult Subject",
-    consultUC: "Consult Course Unit",
+    consultUC: "Consult Curricular Unit",
     viewPlanCurriculum: "View Plan Curriculum",
     discover: "Discover Log",
     discoverReference: "Discover Reference Model",

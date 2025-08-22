@@ -37,19 +37,19 @@ seeDiagramPNA.addEventListener("click", () => {
     result.style.display = "block";
     const loader = document.getElementById("loadingcontent");
     loader.style.display = "flex";
-    seeDiagram("alpha");
+    seeDiagram(3);
 });
 seeDiagramPNH.addEventListener("click", () => {
     result.style.display = "block";
     const loader = document.getElementById("loadingcontent");
     loader.style.display = "flex";
-    seeDiagram("heuristics");
+    seeDiagram(4);
 });
 seeDiagramPNI.addEventListener("click", () => {
     result.style.display = "block";
     const loader = document.getElementById("loadingcontent");
     loader.style.display = "flex";
-    seeDiagram("inductive");
+    seeDiagram(7);
 });
 
 
