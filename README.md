@@ -2,7 +2,7 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/fapret/tmde-app-curricula/blob/main/README.md)
 [![es](https://img.shields.io/badge/lang-es-orange.svg)](https://github.com/fapret/tmde-app-curricula/blob/main/README.es.md)
 # About the Project
-The **Tmde app curricula** project originated from the Model-Driven Engineering Workshop course, developed using tools like Eclipse, Java, and Ecore. The project was initially created by [@fapret](https://github.com/fapret) and [@sfreirelp](https://github.com/sfreirelp), and is licensed under the GPL-3.0 license for public use.
+The **Trajecta** project originated from the Model-Driven Engineering Workshop course, developed using tools like Eclipse, Java, and Ecore. The project was initially created by [@fapret](https://github.com/fapret) and [@sfreirelp](https://github.com/sfreirelp), and is licensed under the GPL-3.0 license for public use.
 
 The goal of the project is to create an application utilizing Model-Based Systems Engineering (MBSE) to assist students throughout their academic journey, especially by helping them understand which courses they can take, thus providing better guidance and offering a retrospective view of their academic career.
 
