@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const translations = {
   es: {
-    welcome: "¡Bienvenido a Currícula App!",
+    welcome: "¡Bienvenido a Trajecta!",
     selectOption: "Seleccione una opción del menú de la izquierda para comenzar.",
     createModel: "Crear/Expandir Modelo",
     addPlan: "Agregar Inscripción a plan",
@@ -99,7 +99,7 @@ const translations = {
     referenceLog: "Log de Referencia:"
   },
   en: {
-    welcome: "Welcome to Curricula App!",
+    welcome: "Welcome to Trajecta!",
     selectOption: "Select an option from the left menu to get started.",
     createModel: "Create/Expand Model",
     addPlan: "Add Enrollment to Plan",
@@ -179,6 +179,7 @@ const translations = {
     viewReferenceGraph: "See Reference Diagrams",
     seePerformanceDiagramDFG: "See Performance Diagram",
     viewPerformanceGraph: "See Log Performance",
-    viewRefPerformanceGraph: "See Reference Performance"
+    viewRefPerformanceGraph: "See Reference Performance",
+    logUUID: "Log UUID:"
   }
 };
