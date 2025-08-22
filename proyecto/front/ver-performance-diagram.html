@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" href="./css/consulta.css">
-  <link rel="stylesheet" href="./css/table.css">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
   <script type="text/javascript" src="js/selectLib.js"></script>
-  <script type="text/javascript" src="js/compareTimes.js"></script>
+  <script type="text/javascript" src="js/seeDiagrams.js"></script>
   <script src="lang/lang.js" defer></script>
   <title>TMDE Project</title>
   <link rel="preload" href="/font/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -369,29 +368,27 @@
 
       <!-- AGREGAR ACA CONTENIDO-->
       <br>
-      <label data-lang="discoverUUID">UUID de Descubrimiento A:</label>
-      <select name="discoveries" id="discoveriesA" size="10"></select>
-      <label data-lang="discoverUUID">UUID de Descubrimiento B:</label>
-      <select name="discoveries" id="discoveriesB" size="10"></select>
-
-      <div class="buttons-div">
-        <button type="button" id="compareDiscoveries" data-lang="compareDiscoveries">
-          Comparar
+      <label data-lang="discoverUUID">UUID de Descubrimiento:</label>
+      <select name="discoveries" id="discoveries" size="10"></select>
+      <div class="buttons-div buttons-div2">
+        <button type="button" id="seePerformanceDiagramDFG" data-lang="seePerformanceDiagramDFG">
+          Ver Diagrama de Performance (DFG)
         </button>
       </div>
 
-      <div class="consulta" id="resultado">
-        <table id="resultTable">
-          <thead>
-            <tr id="tableHeader"></tr>
-          </thead>
-          <tbody id="tableBody"></tbody>
-        </table>
+        <div class="controls buttons-div hidden" id="diagramsButtons">
+          <button data-lang="zoomIN" id="zoomIN">➕ Zoom In</button>
+          <button data-lang="zoomOUT" id="zoomOUT">➖ Zoom Out</button>
+          <button data-lang="ResetBtn" id="ResetBtn">🔄 Reset</button>
+        </div>
+
+      <div class="consulta diagram" id="resultado">
+        <img class="hidden" id="diagram" alt="Diagram">
       </div>
 
     </div>
   </div>
 
   <script src="./js/leftnav.js"></script>
-  <script src="./js/compareTimesExec.js"></script>
+  <script src="./js/seePerfDiagramExec.js"></script>
 </body>

@@ -53,6 +53,9 @@ function displayUCStats(){
             <label class="info-label" data-lang="studentsHaveCourse">Estudiantes tienen el curso o exoneraron</label>
         `;
 
+        const savedLang = localStorage.getItem("lang") || "es";
+        translatePage(savedLang);
+
         //Enrollments Graph
         const graph0 = document.getElementById("graph0");
         const enrollmentsArray = [['Course', 'Enrollments']];

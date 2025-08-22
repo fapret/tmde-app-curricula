@@ -22,60 +22,18 @@
 const allDiscoveriesSelect = document.getElementById("discoveries");
 const result = document.getElementById("resultado");
 
-const seeDiagramDFG = document.getElementById("seeDiagramDFG");
 const seeDiagramPerf = document.getElementById("seePerformanceDiagramDFG");
-const seeDiagramBPMN = document.getElementById("seeDiagramBPMN");
-const seeDiagramPNA = document.getElementById("seeDiagramPNA");
-const seeDiagramPNH = document.getElementById("seeDiagramPNH");
-const seeDiagramPTML = document.getElementById("seeDiagramPT");
-const seeDiagramPNI = document.getElementById("seeDiagramPNI");
 
 const zoomIN = document.getElementById("zoomIN");
 const zoomOUT = document.getElementById("zoomOUT");
 const ResetBtn = document.getElementById("ResetBtn");
 
 getDiscoveries(allDiscoveriesSelect, 2);
-seeDiagramDFG.addEventListener("click", () => {
-    result.style.display = "block";
-    const loader = document.getElementById("loadingcontent");
-    loader.style.display = "flex";
-    seeDiagram(1);
-});
 seeDiagramPerf.addEventListener("click", () => {
     result.style.display = "block";
     const loader = document.getElementById("loadingcontent");
     loader.style.display = "flex";
-    seeDiagram(6);
-});
-seeDiagramBPMN.addEventListener("click", () => {
-    result.style.display = "block";
-    const loader = document.getElementById("loadingcontent");
-    loader.style.display = "flex";
-    seeDiagram(2);
-});
-seeDiagramPNA.addEventListener("click", () => {
-    result.style.display = "block";
-    const loader = document.getElementById("loadingcontent");
-    loader.style.display = "flex";
-    seeDiagram(3);
-});
-seeDiagramPNH.addEventListener("click", () => {
-    result.style.display = "block";
-    const loader = document.getElementById("loadingcontent");
-    loader.style.display = "flex";
-    seeDiagram(4);
-});
-seeDiagramPNI.addEventListener("click", () => {
-    result.style.display = "block";
-    const loader = document.getElementById("loadingcontent");
-    loader.style.display = "flex";
-    seeDiagram(7);
-});
-seeDiagramPTML.addEventListener("click", () => {
-    result.style.display = "block";
-    const loader = document.getElementById("loadingcontent");
-    loader.style.display = "flex";
-    seeDiagram(5);
+    seeDiagram(6, 2);
 });
 /////////////////////////////
 const img = document.getElementById('diagram');

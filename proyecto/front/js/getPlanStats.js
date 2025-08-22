@@ -46,6 +46,10 @@ function displayPlanStats(){
             <label class="info-label" data-lang="studentsInscriptions">Estudiantes se inscribieron al plan</label>
             
         `;
+
+        const savedLang = localStorage.getItem("lang") || "es";
+        translatePage(savedLang);
+
         const graph0 = document.getElementById("graph0");
 
         const bins = {};

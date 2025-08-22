@@ -34,7 +34,7 @@ const zoomIN = document.getElementById("zoomIN");
 const zoomOUT = document.getElementById("zoomOUT");
 const ResetBtn = document.getElementById("ResetBtn");
 
-getDiscoveries(allDiscoveriesSelect, 2);
+getDiscoveries(allDiscoveriesSelect, 1);
 seeDiagramDFG.addEventListener("click", () => {
     result.style.display = "block";
     const loader = document.getElementById("loadingcontent");

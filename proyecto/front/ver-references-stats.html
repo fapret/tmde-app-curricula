@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" href="./css/consulta.css">
-  <link rel="stylesheet" href="./css/table.css">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
   <script type="text/javascript" src="js/selectLib.js"></script>
-  <script type="text/javascript" src="js/compareTimes.js"></script>
+  <script type="text/javascript" src="js/seeDiscoverStats.js"></script>
   <script src="lang/lang.js" defer></script>
   <title>TMDE Project</title>
   <link rel="preload" href="/font/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -369,29 +368,21 @@
 
       <!-- AGREGAR ACA CONTENIDO-->
       <br>
-      <label data-lang="discoverUUID">UUID de Descubrimiento A:</label>
-      <select name="discoveries" id="discoveriesA" size="10"></select>
-      <label data-lang="discoverUUID">UUID de Descubrimiento B:</label>
-      <select name="discoveries" id="discoveriesB" size="10"></select>
+      <label data-lang="discoverUUID">UUID de Log:</label>
+      <select name="discoveries" id="discoveries" size="10"></select>
 
-      <div class="buttons-div">
-        <button type="button" id="compareDiscoveries" data-lang="compareDiscoveries">
-          Comparar
+    <div class="buttons-div buttons-div2">
+        <button type="button" id="seeDiscoverStats" data-lang="seeStatistics">
+          Ver Estadisticas
         </button>
       </div>
 
       <div class="consulta" id="resultado">
-        <table id="resultTable">
-          <thead>
-            <tr id="tableHeader"></tr>
-          </thead>
-          <tbody id="tableBody"></tbody>
-        </table>
       </div>
 
     </div>
   </div>
 
   <script src="./js/leftnav.js"></script>
-  <script src="./js/compareTimesExec.js"></script>
+  <script src="./js/seeReferenceStatsExec.js"></script>
 </body>
